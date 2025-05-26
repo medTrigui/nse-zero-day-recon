@@ -1,0 +1,299 @@
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>CrushFTP Slideshow</title>
+		<link rel="stylesheet" href="/WebInterface/jQuery/css/slideshow/style.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.css" />
+		<link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/crushFtp.framework.css" />
+		<link rel="stylesheet" type="text/css" href="/WebInterface/custom.css" />
+
+	    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+    	<script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    	<script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+    	<script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+	    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/js/jQueryRotate.2.2.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.galleriffic.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.opacityrollover.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/mimeTypes.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/h5utils.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.blockUI.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.idle-timer.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.media.js"></script>
+		<script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/WIInitVars.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/WICustomizations.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/WICommonMethods.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jqueryFileTree.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/slideshow.crushFTP.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.contextmenu.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.cluetip.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.xml2json.js"></script>
+	    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.meio.mask.min.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.cssRule.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.colorbox.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.doubleTap.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/mimeTypes.js"></script>
+		<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.metadata.v2.js"></script>
+		<script type="text/javascript" src = "/WebInterface/jQuery/js/date.format.js"></script>
+		<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+		<script type="text/javascript" src = "/WebInterface/Resources/js/browserSelector.js"></script>
+	    <script type="text/javascript" src="/WebInterface/custom.js"></script>
+
+		<!-- DND Stuff -->
+		<link rel="stylesheet" href="/WebInterface/Resources/DND/css/jquery.fileupload-ui.css" />
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/tmpl.min.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/load-image.min.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/jquery.iframe-transport.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/jquery.fileupload-ip.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/jquery.fileupload-ui.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/jquery.fileupload-CrushFTP-ui.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/crushftp.DNDUpload.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/DND/js/crushftp.DNDWebInterface.js"></script>
+		<script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+
+		<!-- video JS Files  -->
+	    <link href="/WebInterface/Resources/js/video-js/video-js.css" rel="stylesheet">
+	    <script src="/WebInterface/Resources/js/video-js/video.js"></script>
+	    <script>
+	      videojs.options.flash.swf = "/WebInterface/Resources/js/video-js/video-js.swf"
+	    </script>
+		<!-- Audio JS Files  -->
+	    <script src="/WebInterface/Resources/js/audio-js/audio.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript" charset="utf-8">
+	    $(function(){
+	      AudioJS.setup();
+	    });
+	    </script>
+	    <link rel="stylesheet" href="/WebInterface/Resources/js/audio-js/audio-js.css" type="text/css" media="all" title="Audio JS" charset="utf-8">
+	    <link rel="stylesheet" href="/WebInterface/Resources/js/audio-js/skins/vim.css" type="text/css" media="all" title="Audio JS" charset="utf-8">
+
+		<script type="text/javascript">
+			window.forSlideshow = true;
+		</script>
+		<script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+
+		<script type="text/javascript">
+			document.write('<style>.noscript { display: none; }</style>');
+			jQuery(document).ready(function(){
+				initSlideShowEvents();
+			});
+		</script>
+	</head>
+	<body id="slideshowPage">
+	    <div id="javaAppletDiv" style="height:80px;width:99%;left:-5000px;z-index:1001;">
+	    </div>
+		<div id="javaAppletDivU">
+		</div>
+		<div id="mainContent"></div>
+		<div class="clear dropzone ui-widget-content ui-corner-all" id="dropItemsPanel">
+			<h1>Drop files here to upload</h1>
+		</div>
+		<div id="fileQueueInfo" class="ui-widget-content ui-corner-all">
+			<!-- The file upload form used as target for the file upload widget -->
+			<form id="fileupload" name="META_uploadForm" action="/WebInterface/function/" method="POST" enctype="multipart/form-data">
+	            <div id="globalProgressBar" class="uploadProgressInfoMain ui-widget-content ui-corner-all" style="display:none;">
+	                <div>
+	                    <span class="progressBarText"></span>
+	                    <div class="progressbarMain"></div>
+	                </div>
+	                <div>
+	                    <span class="uploadProgressBarMainButtons">
+	                        <a href="#" class="skip globalProgressbarSkipLabelByClass">Skip</a>
+	                        <a href="#" class="pause globalProgressbarPauseLabelByClass">Pause</a>
+	                        <a href="#" class="stop globalProgressbarStopLabelByClass">Stop</a>
+	                    </span>
+	                    <span class="progressInfoText">
+	                        <span class="uploadInfo"></span>
+	                    </span>
+	                </div>
+	                <span class="status"></status>
+	            </div>
+	            <div id="fileUploadBarHolder">
+	                <div id="fileUploadBar" class="row fileupload-buttonbar">
+	                    <a id="viewFileQueue" class="viewFileQueueLink open uploadBarShowHideFilesSetTitleClass" title="Show/Hide selected files" href="#"></a>
+	                    <a id="browseTypeSelector" title="Switch to Advanced Upload" href="#" class="uploadWindowUploadTypeSwitchSetTitleClass browseTypeselectionLink normal vtip dynTitle"></a>
+	                    <span class="ui-button ui-button-custom" id="browseFileButtonPanel" style="margin-top:-2px;">
+	                        <a id="browseFileButton" class="browseFileLabelByClass" href="javascript:void(0);">Add files...</a>
+	                        <input type="file" name="file_1_SINGLE_FILE_POST" multiple />
+	                    </span>
+	                    <span id="AdvancedBrowseResumeOption" style="display:inline-block;margin-top:5px;">
+	                        <input id="resumeUpload_AppletConfig" type="checkbox" />
+	                        <label for="resumeUpload_AppletConfig" class="advancedUploadResumeLabelByClass" style="display:inline-table;">Resume</label>
+	                    </span>
+	                    <span style="clear:both;"></span>
+	                </div>
+	            </div>
+	            <span style="clear:both;display:block;height:1px;"></span>
+				<div id="fileRepo">
+					<div class="fileListHeader ui-widget-header ui-corner-all">
+						<span class="fileRepoHeader" id="filesToUploadQueueWindowHeader">Files to upload</span>
+						<span style="position:absolute;cursor:pointer;right:12px;top:14px;" class="ui-icon ui-icon-closethick" id="toggleFileList"></span>
+					</div>
+	                <div class="fileListPanelInfoText ui-corner-all">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="text-align:left;">
+									<a href="#" class="btn upload start startUploading uploadWindowStartUploadingByClass">Start Uploading</a>
+									<a href="#" class="btn clearCompleted cancelUploading uploadWindowCancelUploadingByClass" style="float:none;">Cancel Uploading</a>
+									<a href="#" class="btn clearCompleted cancelUploading uploadedAll uploadWindowClearUploadedByClass" style="float:none;">Clear Uploaded</a>
+									<a href="#" id="overwriteAllLinkBtn" class="btn overwriteLink uploadWindowOverwriteAllByClass" style="float:none;display:none;">Overwrite all</a>
+									<a href="#" id="remvoeErrorAllLinkBtn" class="btn clearCompleted uploadWindowRemoveAllWithErrorsByClass" style="float:none;display:none;">Remove all with errors</a>
+								</td>
+								<td style="text-align:right;">
+									<span class="stats">
+										<label class="uploadWindowSummaryFilesByClass">Files:</label><span class="totalFiles"></span>
+										<label class="uploadWindowSummarySizeByClass">, Upload size:</label><span class="totalSize"></span>
+									</span>
+								</td>
+							</tr>
+						</table>
+	                    <span class="clear"></span>
+	                </div>
+					<ul class="files ui-widget-content dropzone ui-corner-all"></ul>
+				</div>
+			</form>
+		</div>
+	    <span style="clear:both;display:block;height:1px;"></span>
+	    <div id="uploadInfoForm" title="Upload Details">
+	        <form method="post" target="dummyIframe" action="/WebInterface/function/?command=discard">
+	            <div class="formContent">
+	            </div>
+	        </form>
+	    </div>
+		<div id="SSPage">
+			<div id="filesContainer" style="display:none;">
+			</div>
+			<div id="pageLoadIndicator" class="loader"></div>
+			<div id="container">
+				<div class="content">
+					<div class="slideshow-container">
+						<div id="loading" class="loader"></div>
+						<div id="slideshow" class="slideshow"></div>
+						<div id="controls" class="controls"></div>
+						<div id="slider-container">
+							<div id="slider" style="width: 200px;"></div>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+					<div id="caption" class="caption-container">
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+				<div id="itemControls">
+					<span class="refreshButtonSS">Refresh</span>
+					<span class="fullscreenButton">Fullscreen</span>
+					<span class="downloadButton">Download</span>
+					<span class="uploadButton">Upload</span>
+					<span class="deleteButton">Delete</span>
+					<span class="rotateClockwise">Rotate Clockwise</span>
+					<span class="rotateCounterClockwise">Rotate Counter-Clockwise</span>
+				</div>
+				<div style="clear: both;"></div>
+				<div class="photo-index"></div>
+				<div style="clear: both;"></div>
+				<div class="navigation-container">
+					<div id="thumbs" class="navigation">
+						<a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
+						<ul class="thumbs noscript">
+						</ul>
+						<a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<!-- End Gallery Html Containers -->
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		<!-- The template to display files available for upload -->
+		<script id="template-upload" type="text/x-jquery-tmpl">
+			{% for (var i=0, file; file=o.files[i]; i++) { %}
+				<li size="{%=file.size%}" class="ui-widget-content template-upload fade {% if (file.error) { %} hasError ui-state-highlight {% }  %} {% if (file.fromApplet) { %} appletItem {% }  %}{% if (file.isDropped) { %} isDroppedItem {% }  %}" path="{%=escape(file._path)%}" fileName="{%=escape(file.name)%}" fullPath="{%=file.FullPath%}" privs="{%=escape(file.privs)%}">
+					<div class="previewIconUpload block"><span class="fade"></span></div>
+	                {% if (file.isGroup) { %}
+	                    <span title="Items in this group" class="groupCount">{%=unescape(file.totalCount)%}</span>
+	                    <div class="name block wrap">{%=unescape(file._path)%} : {%=file.name%}</div>
+	                {% } else { %}
+					    <div class="name block wrap">{%=locale.fileupload.uploadTo%}{%=unescape(file._path)%}{% if (file.altName) { %}{%=file.altName%}{% } else { %}{%=file.name%}{% } %}</div>
+	                {% } %}
+					<input id="uploadPath{%=i%}" type="hidden" name="uploadPath" value="{%=file._path%}" />
+					<input id="theName{%=i%}" type="hidden" name="the_action" value="STOR" />
+	                <input id="theFileAltName{%=i%}" type="hidden" name="alt_name" value="{%=file.altName%}" />
+					<div class="size block">{%=$.CrushFTP.formatBytes(file.size)%}</div>
+					<!--div class="cancel block" style="display:none;">
+						<a href="javascript:void(0);" class="clearCompleted cancel" style="float:none;">{%=locale.fileupload.cancel%}</a>
+					</div-->
+	                <div class="cancelUpload block" style="float:right;margin-top: 17px;">
+	                    <a href="javascript:void(0);" class="clearCompleted cancelUpload" style="float:none;">{%=locale.fileupload.cancel%}</a>
+	                </div>
+	                <div class="pausePnl block" style="display:none;float:right;margin-top: 17px;">
+	                    <a href="javascript:void();" class="pause pauseUpload">{%=locale.fileupload.pause%}</a>
+	                </div>
+					{% if (!file.error) { %}
+						<div class="start block" style="display:none;">
+							<a href="javascript:void(0);" class="upload start">{%=locale.fileupload.start%}</a>
+						</div>
+	                    <div class="startUpload block {%=file.warning%} {%=file.alert%}" style="float:right;margin-top: 17px;">
+	                        <a href="javascript:void(0);" class="upload startUpload">{%=locale.fileupload.start%}</a>
+	                    </div>
+					{% } else { %}
+						{% if (locale.fileupload.errors[file.error]=="true") { %}
+							<div class="start block" style="display:none;">
+								<a href="javascript:void(0);" class="upload start">{%=locale.fileupload.reupload%}</a>
+							</div>
+	                        <div class="startUpload block" style="float:right;">
+	                            <a href="javascript:void(0);" class="upload startUpload">{%=locale.fileupload.reupload%}</a>
+	                        </div>
+						{% } else { %}
+							<div class="noCount" style="display:none;"></div>
+						{% } %}
+					{% } %}
+					{% if (file.error) { %}
+						<span class="error {%=file.error%}">{%=locale.fileupload.errorLabel%}
+							{%=locale.fileupload.errors[file.error] || file.error%}
+						</span>
+						{% } else { %}
+	                    <div class="formEdit block" style="float:right;margin-top: 17px;display:none;"><a href="javascript:void(0);" class="editForm">{%=locale.fileupload.details%}</a></div>
+	                    <span class='uploadedMark' title='uploaded' style="margin-top: 17px;"></span>
+					{% }  %}
+					<div class="clear"></div>
+	                <div class="progressInfo" style="display:none;">
+	                    <div class="progressbar"></div>
+	                </div>
+				</li>
+			{% } %}
+		</script>
+		<!-- The template to display files available for download -->
+		<script id="template-download" type="text/x-tmpl">
+			{% for (var i=0, file; file=o.files[i]; i++) { %}
+				<li size="{%=file.size%}" class="ui-widget-content template-download fade {% if (file.error) { %} ui-state-error ui-state-error-text {% }  %}" fullPath="{%=file.FullPath%}">
+					<div class="preview"><label class="noPreviewNote ui-state-disabled">No<br>Preview</label><span class="fade"></span></div>
+					<div class="name">{%=file.name%}</div>
+					<div class="path">Upload to : {%=file._path%}</div>
+					<div class="size">Size : {%=o.formatFileSize(file.size)%}</div>
+					{% if (file.error) { %}
+						<span class="error">Error :
+							{%=locale.fileupload.errors[file.error] || file.error%}
+						</span>
+					{% }  %}
+					<div class="delete" style="float:right;margin-top:17px;">
+						<a href="javascript:void(0);" class="clearCompleted" style="float:none;">{%=locale.fileupload.cancel%}</a>
+					</div>
+					<div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
+					{% if (!o.options.autoUpload) { %}
+						<div class="start" style="float:right;margin-top:17px;">
+							<a href="javascript:void(0);" class="upload start">{%=locale.fileupload.reupload%}</a>
+						</div>
+					{% } %}
+					<div class="clear"></div>
+				</li>
+			{% } %}
+		</script>
+		<iframe id="dummyIframe" name="dummyIframe" src="javascript:false;" style="display:none;"></iframe>
+		</div>
+		<div id="footerss">  <span class="poweredby" id="PoweredByText">Powered by <a target="_blank" href="http://www.crushftp.com/">
+                    CrushFTP</a> </span> <span class="copyright" id="CopyrightText">&copy; 2025 <a target="_blank" href="http://www.CrushFTP.com/">
+                        CrushFTP</a> </span></div>
+	</body>
+</html>

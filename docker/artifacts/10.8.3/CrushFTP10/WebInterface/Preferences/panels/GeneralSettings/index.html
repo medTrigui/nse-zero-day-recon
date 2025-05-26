@@ -1,0 +1,417 @@
+<style type="text/css">
+	.time-list {
+width: 60px;
+display: inline;
+padding-right: 15px;
+border: 1px solid #CCCCCC;
+padding-top: 3px;
+padding-bottom: 3px;
+padding-left: 4px;
+background-color: white;
+margin-right: 2px;
+border-radius: 4px;
+white-space: nowrap;
+}
+.time-list-remove-icon {
+display: inline-block !important;
+position: relative;
+margin-left: -20px;
+top: -6px;
+margin-right: 4px;
+}
+.removefromtimelist {
+margin-top: 8px;
+}
+.removefromUploadtimelist {
+margin-top: 8px;
+}
+</style>
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+	<input type="text" name="email" value="" style="display: none" />
+	<input type="text" name="email" value=""/>
+	<input type="text" name="not-an-email" value="" style="display: none" />
+	<input type="password" name="password" value="" style="display: none" />
+	<input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlGeneralSettings">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td>
+				<div class="ui-priority-primary GeneralSettings headerText">
+					General Settings
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="GeneralSettings" class="customForm">
+					<p>
+						<label for="max_users" class="GeneralSettings lblMaxGlobalServerConnectionsText">Max Global Server Connections:</label>
+						<input type="text" id="max_users" name="max_users" />
+					</p>
+					<p style="display: none;">
+						<label for="max_server_download_speed" class="GeneralSettings lblMaxServerOutgoingSpeedText">Max Server Outgoing Speed:</label>
+						<input type="text" id="max_server_download_speed" name="max_server_download_speed" />
+						<label class="GeneralSettings lblSpeedText">K/sec</label>
+						<span style="margin:20px;"></span>
+						<label for="max_server_upload_speed" class="GeneralSettings lblMaxServerIncomingSpeedText">Incoming:</label>
+						<input type="text" id="max_server_upload_speed" name="max_server_upload_speed" />
+						<label class="GeneralSettings lblSpeedText">K/sec</label>
+					</p>
+
+					<div style="padding-bottom: 0px !important;">
+						<fieldset class="nobg">
+							<legend>Max Server Outgoing Speed:</legend>
+							<!-- <input style="display:none;" type="text" id="downloadTimeSpeed" _id="downloadTimeSpeed"> -->
+							<input type="text" placeholder="Time" name="max_server_time" id="max_server_time" style="width:60px;" class="excludeXML ignoreBind">
+							<input type="text" placeholder="Speed" id="max_server_download_speed_input" class="excludeXML ignoreBind" name="max_server_download_speed_input" style="width:60px;" value="0" /> <label class="GeneralSettings lblSpeedText" maxlength=""> K/sec</label>
+							<a id="addinTimeList" href="#" class="button">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+								Add
+							</a>
+							<span style="margin:20px;"></span>
+							<div class="time-list-fieldset" style="display:block;position:relative;margin-top: 0px;margin-bottom: 21px;max-height: 115px;overflow-x: auto;height: auto;min-height: 35px;">
+								<div style="margin-top: 20px;">Add time based speed above.</div>
+							</div>
+						</fieldset>
+					</div>
+					<div>
+						<fieldset class="nobg" style="margin:10px 0px;">
+							<legend>Max Server Incoming Speed:</legend>
+							<!-- <input style="display:none;" type="text" class="bigInputBox" id="uploadTimeSpeed" _id="downloadTimeSpeed"> -->
+							<input type="text" placeholder="Time" name="max_server_upload_time" id="max_server_upload_time" style="width:60px;" class="excludeXML ignoreBind">
+							<input type="text" placeholder="Speed" id="max_server_upload_speed_input" name="max_server_upload_speed_input" style="width:60px;" class="excludeXML ignoreBind" value="0" />
+							<label class="GeneralSettings lblSpeedText"> K/sec</label>
+							<a id="addinUploadTimeList" href="#" class="button">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+								Add
+							</a>
+							<div class="time-list-fieldset-upload" style="display:block;position:relative;margin-top: 0px;margin-bottom: 21px;max-height: 115px;overflow-x: auto;height: auto;min-height: 35px;">
+								<div style="margin-top: 20px;">Add time based speed above.</div>
+							</div>
+						</fieldset>
+					</div>
+					<p>
+						<label for="bandwidth_immune_ips" class="GeneralSettings lblIPPatternsImmuneToSpeedText">IP Patterns Immune To Speed:</label>
+						<input type="text" id="bandwidth_immune_ips" name="bandwidth_immune_ips" style="width:400px;" />
+					</p>
+					<p class="crush7Feature">
+						<label for="command_flush_interval">Command Flush Interval:</label>
+						<input type="text" id="command_flush_interval" name="command_flush_interval" class="smallInputBox" />
+						<span class="spacer"></span>
+						<span class="spacer"></span>
+						<input type="checkbox" id="force_ipv4" name="force_ipv4" />
+						<label for="force_ipv4">Force IPV4?</label>
+					</p>
+					<p>
+						<label for="ftp_welcome_message" class="GeneralSettings lblFTPWelcomeMessageText">FTP Welcome Message:</label>
+						<textarea class="formTextarea nobg" id="ftp_welcome_message" name="ftp_welcome_message"></textarea>
+					</p>
+					<p>
+						<input type="checkbox" id="recycle" name="recycle" />
+						<label for="recycle" class="GeneralSettings lblMoveDeletedFilesToTempFolderText">Move 'deleted' files/folders to temp folder. (Trash/Recycle bin)</label>
+					</p>
+					<div class="subPanel ui-widget-content leftborder nobg">
+						<div class="ui-state-error ui-corner-all warning" id="trashPathBlankError" style="padding:3px;display:inline-block;margin:0px 3px;width:280px;">
+							<span style="float: left; margin-right: 0.3em;margin-top:0px" class="ui-icon ui-icon-info"></span>
+							<span>
+								Please provide path to move deleted items to
+							</span>
+						</div>
+						<p>
+							<label for="recycle_path">Path to use as Trash/Recycle bin:</label>
+							<input type="text" id="recycle_path" name="recycle_path" style="width:400px;" />
+							<a href="#" class="button serverFilePickButton" rel="recycle_path" style="top:4px;">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+								<span class="GeneralSettings btnBrowseText">Browse
+								</span>
+							</a>
+						</p>
+					</div>
+					<fieldset class="ui-widget-content nobg">
+						<legend class="GeneralSettings lblReportSettingText">
+							Reports / Statistics  Settings
+						</legend>
+						<!-- <p>
+							<label for="stats_min" class="GeneralSettings lblSaveStatisticsToDiskIntervalText">Save statistics to disk interval in minutes:</label>
+							<input type="text" id="stats_min" name="stats_min" />
+						</p> -->
+						<p>
+							<label for="stats_session_days" class="GeneralSettings lblTrackDaysWorthSessionHistoryText">Track how many days worth session history:</label>
+							<input type="text" id="stats_session_days" name="stats_session_days" />
+						</p>
+						<p>
+							<label for="stats_transfer_days" class="GeneralSettings lblTrackDaysWorthTransferHistoryText">Track how many days worth transfer history:</label>
+							<input type="text" id="stats_transfer_days" name="stats_transfer_days" />
+						</p>
+					</fieldset>
+					<fieldset class="ui-widget-content nobg customForm noBtnTop" style="margin-top:10px;">
+						<legend>
+							SMTP Settings
+						</legend>
+						<!-- <p>
+							<input type="checkbox" id="smtp_xoauth2" name="smtp_xoauth2" />
+							<label for="smtp_xouauth2" class="GeneralSettings lblCheckBoxXOAUTH2">SMTP OAuth 2 authentication</label>
+						</p>
+						<p hidden class="oauth_settings">
+							<label for="smtp_client_id" class="GeneralSettings lblSMTPServerClientId">OAuth Client Id:</label>
+							<input type="text" style="width:200px;" id="smtp_client_id" name="smtp_client_id" autocomplete="off" />
+							<span style="margin:10px;"></span>
+							<label for="smtp_client_secret" class="GeneralSettings lblSMTPServerClientId">OAuth Client Secret:</label>
+							<input type="password" style="width:200px;" class="encryptPass" id="smtp_client_secret" name="smtp_client_secret" autocomplete="off" />
+							<br>
+							<br></br>
+							<label for="smtp_client_scope" class="GeneralSettings lblSMTPServerClientId">OAuth Scope:</label>
+							<input type="text" style="width:200px;" id="smtp_client_scope" name="smtp_client_scope" autocomplete="off" />
+							<span style="margin:10px;"></span>
+							<label for="smtp_client_action" class="GeneralSettings lblSMTPServerClientId">OAuth Action:</label>
+							<input type="text" style="width:200px;" id="smtp_client_action" name="smtp_client_action" autocomplete="off" />
+							</br>
+							<br>
+							<label for="smtp_client_params" class="GeneralSettings lblSMTPServerClientId">OAuth URL params:</label>
+							<input type="text" style="width:640px;" id="smtp_client_params" name="smtp_client_params" autocomplete="off" />
+							</br>
+							<br>
+							<label for="smtp_client_url" class="GeneralSettings lblSMTPServerClientId">OAuth Client URL:</label>
+							<input type="text" style="width:650px;" id="smtp_client_url" name="smtp_client_url" autocomplete="off" />
+							</br>
+							<br>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<a href="javascript:void(0);" id="getOAuthToken" class="button"><span style='display: inline-block; margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-key'></span><span class=" GeneralSettings">Get mail oauth token</span></a>
+							</br>
+						</p> -->
+						<p>
+							<label for="smtp_server" class="GeneralSettings lblSMTPServerUsedForEmailingText">SMTP Server Used for Emailing:</label>
+							<input type="text" style="width:400px;" id="smtp_server" name="smtp_server" />
+							<label for="">
+								<em>(eg. smtp.gmail.com:587)</em>
+							</label>
+						</p>
+						<p>
+							<label for="smtp_user" class="GeneralSettings lblSMTPServerUsernameText">SMTP Server Username:</label>
+							<input type="text" id="smtp_user" name="smtp_user" autocomplete="off" />
+							<span style="margin:10px;"></span>
+							<input type="checkbox" id="smtp_ssl" name="smtp_ssl" />
+							<label for="smtp_ssl" class="GeneralSettings lblCheckBoxSSLOrTLSText">SSL/TLS</label>
+							<span style="margin:10px;"></span>
+							<input type="checkbox" id="smtp_html" name="smtp_html" />
+							<label for="smtp_html" class="GeneralSettings lblCheckBoxHTMLText">HTML</label>
+							<a href="javascript:void(0);" id="getRefreshToken" class="button googleSMTPOptions"><span style='display: inline-block; margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-key'></span><span class=" GeneralSettings">Get GMail oauth token</span></a>
+							<span class="ui-state-highlight ui-corner-all googleSMTPOptions" style="padding:3px;display:inline-block;margin:0px 3px;width:auto;position: relative;top: -4px;">
+								<span style="float: left; margin-right: 0.3em;margin-top: 0px;" class="ui-icon ui-icon-info"></span>
+								<span>
+									<a target="_blank" href="https://www.crushftp.com/crush9wiki/Wiki.jsp?page=SMTP%20Google%20Mail%20Integration">Learn more:SMTP Google Mail Integration</a>
+								</span>
+							</span>
+							<a href="javascript:void(0);" id="getMSRefreshToken" class="button microsoftSMTPOptions"><span style='display: inline-block; margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-key'></span><span class=" GeneralSettings">Get Refresh Token</span></a>
+							<span class="ui-state-highlight ui-corner-all microsoftSMTPOptions" style="padding:3px;display:inline-block;margin:0px 3px;width:auto;position: relative;top: -4px;">
+								<span style="float: left; margin-right: 0.3em;margin-top:0px" class="ui-icon ui-icon-info"></span>
+								<span>
+									<a target="_blank" href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=OneDriveSetup">Learn more: OneDrive/Sharepoint Setup</a>
+								</span>
+							</span>
+						</p>
+						<p>
+							<label for="smtp_pass" class="GeneralSettings lblSMTPServerPasswordText">SMTP Server Password:</label>
+							<input type="password" class="encryptPass" id="smtp_pass" name="smtp_pass" autocomplete="off" />
+							<span style="margin:10px;"></span>
+							<a href="javascript:void(0);" id="testSMTPSettings" class="button"><span style='display: inline-block; margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-mail-closed'></span><span class=" GeneralSettings btnTestSMTPSettingsText">Test SMTP Settings</span></a>
+						</p>
+						<p>
+							<label for="smtp_from" class="GeneralSettings lblSMTPServerFromEmaiText">From email address:</label>
+							<input type="text" id="smtp_from" name="smtp_from"  style="width:400px;" />
+						</p>
+						<p class="crush7Feature">
+							<input type="checkbox" id="smtp_report_html" name="smtp_report_html" />
+							<label for="smtp_report_html">HTML SMTP Report?</label>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<input type="checkbox" id="smtp_subject_utf8" name="smtp_subject_utf8" />
+							<label for="smtp_subject_utf8">UTF8 SMTP Subject?</label>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<label for="smtp_helo_ip">SMTP Helo IP:</label>
+							<input type="text" id="smtp_helo_ip" name="smtp_helo_ip" class="bigInputBox" />
+						</p>
+					</fieldset>
+					<fieldset class="ui-widget-content nobg customForm noBtnTop" style="margin-top:10px;">
+						<legend>
+							OTP Settings
+						</legend>
+						<div class="ui-state-highlight ui-corner-all nobg" style="display:inline-block;padding:10px;">
+							<h2 style="margin:5px 0px 10px 0px;">This is an Enterprise License feature</h2>
+							To use this feature, an Enterprise license is required. To get more information on features and pricing, see the following links:<br><br> <a href="http://crushftp.com/pricing.html#enterprise" tabIndex="-1" target="_blank">Plans &amp; Pricing</a> | <a href="https://www.crushftp.com/crush9wiki/Wiki.jsp?page=Enterprise%20License%20Enhancements" tabIndex="-1" target="_blank">Enterprise License Enhancements</a>
+						</div>
+						<p>
+							<input type="checkbox" id="twofactor_secret_auto_otp_enable" name="twofactor_secret_auto_otp_enable" />
+							<label for="twofactor_secret_auto_otp_enable" class="GeneralSettings">Google Authenticator Auto Enable</label>
+						</p>
+						<p>
+							<label for="otp_url" class="GeneralSettings">URL:</label>
+							<input type="text" style="width:600px;" id="otp_url" name="otp_url" />
+						</p>
+						<p>
+							<input type="checkbox" id="otp_validated_logins" name="otp_validated_logins" />
+							<label for="otp_validated_logins" class="GeneralSettings">Validated Logins?</label>
+						</p>
+						<p>
+							<label for="otp_username" class="GeneralSettings">Username:</label>
+							<input type="text" id="otp_username" name="otp_username" autocomplete="off" />
+							<span style="margin:10px;"></span>
+							<label for="otp_password" class="GeneralSettings">Password:</label>
+							<input type="password" id="otp_password" name="otp_password" autocomplete="off" />
+						</p>
+						<p>
+							<label for="otp_extra1" class="GeneralSettings">Extra Parameter 1:</label>
+							<input type="text" id="otp_extra1" name="otp_extra1" autocomplete="off" />
+							<span style="margin:10px;"></span>
+							<label for="otp_extra2" class="GeneralSettings">Extra Parameter 2:</label>
+							<input type="text" id="otp_extra2" name="otp_extra2" autocomplete="off" />
+						</p>
+						<p>
+							<label for="otp_from" class="GeneralSettings">From:</label>
+							<input type="text" id="otp_from" name="otp_from" autocomplete="off" />
+						</p>
+						<p>
+							<label for="otp_url_verb" class="GeneralSettings">Method to Call API:</label>
+							<input type="text" id="otp_url_verb" name="otp_url_verb" autocomplete="off" />
+							<label for="otp_url_verb" class="GeneralSettings">(POST/GET)</label>
+						</p>
+						<p>
+							<label for="otp_post" class="GeneralSettings">API Post:</label>
+							<input type="text" style="width:600px;" id="otp_post" name="otp_post" autocomplete="off" />
+						</p>
+						<p>
+							<label for="otp_token_timeout" class="GeneralSettings">Token times out in</label>
+							<input type="text" class="smallInputBox" id="otp_token_timeout" name="otp_token_timeout" autocomplete="off" />
+							<label for="otp_token_timeout" class="GeneralSettings"> seconds</label>
+						</p>
+						<p>
+							<a href="javascript:void(0);" id="testOTPSettings" class="button"><span style='display: inline-block; margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-mail-closed'></span><span class="GeneralSettings btnTestOTPSettingsText">Test OTP Settings</span></a>
+						</p>
+					</fieldset>
+					<fieldset class="ui-widget-content nobg crush7Feature" style="margin-top:10px;">
+						<legend>
+							Events Settings
+						</legend>
+						<p>
+							<input type="checkbox" id="event_batching" name="event_batching" />
+							<label for="event_batching">Batch Events?</label>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<input type="checkbox" id="event_empty_files" name="event_empty_files" />
+							<label for="event_empty_files">Event Empty Files?</label>
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+							<label for="event_thread_timeout">Event Thread Timeout:</label>
+							<input type="text" id="event_thread_timeout" name="event_thread_timeout" class="smallInputBox" />
+							<span class="spacer"></span>
+							<span class="spacer"></span>
+				            <input
+				              type="checkbox"
+				              id="reverse_events"
+				              name="reverse_events"
+				            />
+				            <label for="reverse_events" class="Misc">
+				              User Manager Reverse Event Notifications</label
+				            >
+				            <span
+				              class="ui-state-highlight ui-corner-all"
+				              style="
+				                padding: 3px;
+				                display: inline-block;
+				                margin: 0px 3px;
+				                width: auto;
+				                position: relative;
+				                top: -4px;
+				              "
+				            >
+				              <span
+				                style="float: left; margin-right: 0.3em;margin-top:0px"
+				                class="ui-icon ui-icon-info"
+				              ></span>
+				              <span>
+				                <a target="_blank" href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=ReverseEvents"
+				                  >Learn more</a
+				                >
+				              </span>
+				            </span>
+						</p>
+					</fieldset>
+					<fieldset class="ui-widget-content nobg crush7Feature" style="margin-top:10px;position: relative;">
+						<legend>
+							Password Reset
+						</legend>
+						<div style="margin-top:15px;">
+							<label for="password_reset_subject">Subject:</label>
+							<input type="text" id="password_reset_subject" name="password_reset_subject"  style="width:400px;" />
+						</div>
+						<div style="margin-top:15px;">
+							<label for="password_reset_message">Message:</label>
+							<div style="background-color: white;width:600px;padding:0px 6px 3px 6px;position: relative;" class="ui-corner-all noForm">
+								<br>
+                                <span style="position: absolute;right:10px;top:3px;">
+                                    <input type="checkbox" id="htmlswitch" class=" htmlswitch ignoreBind excludeXML">
+                                    <label for="htmlswitch" style="top:-2px">HTML</label>
+                                </span>
+								<br>
+								<textarea class="htmlarea formTextareaComment" id="password_reset_message" name="password_reset_message" style="width:600px;height:200px;"></textarea>
+							</div>
+						</div>
+						<div style="margin-top:15px;">
+							<label for="password_reset_message_browser">Message to show on browser:</label>
+							<div id="password_reset_message_browserMsg" class="ui-state-error ui-corner-all warning" style="padding:3px;display:block;margin:5px 3px;display:none;width:330px;">
+								<span style="float: left; margin-right: 0.3em;margin-top:0px" class="ui-icon ui-icon-info"></span>
+								<span class="msgText">
+									This is not a HTML response, it expects just plain text.
+								</span>
+							</div>
+							<div style="background-color: white;width:600px;padding:0px 6px 3px 6px;" class="ui-corner-all noForm">
+								<br>
+								<textarea class="formTextareaComment" id="password_reset_message_browser" name="password_reset_message_browser" style="width:600px;height:200px;"></textarea>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset class="ui-widget-content nobg crush7Feature" style="margin-top:10px;position: relative;">
+						<legend>
+							 Password Reminder Email (If they click the 'I forgot my password, email it to me'. link)
+						</legend>
+						<div style="margin-top:15px;">
+	                        <label for="emailReminderSubjectText" class="WebInterface lblOptionsPasswordReminderMailSubjectLabelText">Subject:</label>
+	                    </div>
+	                    <div style="margin-top:15px;">
+	                        <input style="width:450px;" type="text" id="emailReminderSubjectText" name="emailReminderSubjectText" />
+	                    </div>
+	                    <div style="margin-top:15px;">
+	                        <label for="emailReminderBodyText" class="WebInterface lblOptionsPasswordReminderMailBodyLabelText">Body:</label>
+	                    </div>
+	                    <div style="margin-top:15px;">
+	                        <textarea class="formTextareaComment" id="emailReminderBodyText" name="emailReminderBodyText" style="max-width: 800px;"></textarea>
+	                    </div>
+					</fieldset>
+				</div>
+				<p class="buttonBar right">
+					<a href="javascript:void(0);" class="button">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+						<span class="submitActionRestore GeneralSettings btnResetText">Reset To Default</span>
+					</a>
+					<a href="javascript:void(0);" class="button" id="cancel">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+						<span class="submitActionCancel GeneralSettings btnCancelText">Cancel</span>
+					</a>
+					<a href="javascript:void(0);" class="button" id="saveContent">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+						<span class="submitActionOk GeneralSettings btnOKText">Save</span>
+					</a>
+				</p>
+			</td>
+		</tr>
+	</table>
+</div>

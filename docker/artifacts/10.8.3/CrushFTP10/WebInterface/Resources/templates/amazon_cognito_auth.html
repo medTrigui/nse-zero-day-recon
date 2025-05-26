@@ -1,0 +1,40 @@
+<script>
+    function signInAmazonCognito() {
+        var clientID = window.AmazonCognitoClientID;
+        var domainPrefix = window.AmazonCognitoDomainPrefix;
+        var redirectURL = window.location.href.split("#")[0].split("?")[0];
+
+        const url = `https://${domainPrefix}.amazoncognito.com/login?client_id=${clientID}&scope=openid&response_type=code&redirect_uri=${encodeURIComponent(redirectURL)}`;
+        window.location = url;
+        return false;
+    }
+    function removeQS() {
+        var scrollV, scrollH, loc = window.location;
+        if ("pushState" in history)
+            history.pushState("", document.title, loc.pathname);
+        else {
+            // Prevent scrolling by storing the page's current scroll offset
+            scrollV = document.body.scrollTop;
+            scrollH = document.body.scrollLeft;
+            // Restore the scroll offset, should be flicker free
+            document.body.scrollTop = scrollV;
+            document.body.scrollLeft = scrollH;
+        }
+    }
+    var code = getQuerystring("code");
+    if(code){
+        removeQS();
+        var redirectURL = window.location.href.split("#")[0].split("?")[0];
+        $("#username").val("crush_oauth2_cognito");
+        $("#password").val(code + "~" + encodeURIComponent(redirectURL));
+        $("#loginForm").submit();
+        setTimeout(function(){
+            $("#password").val("");
+            $("#username").val("");
+        }, 100);
+    }
+</script>
+<button class="bsk-btn bsk-btn-default" id="SignInAmazonCognito" onclick="return signInAmazonCognito();">
+  <img border="0" alt="Login with Amazon" src="/WebInterface/Resources/images/amazon.png" class="x-icon"  />
+  Login with Amazon
+</button>

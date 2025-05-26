@@ -1,0 +1,125 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginAutoUnzip">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div id="pluginSection" class="customForm">
+				<p>
+					<input type="checkbox" name="enabled" id="enabled" />
+					<label for="enabled" class="ui-priority-primary AutoUnzip lblEnabledText">Enabled</label>
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" name="debug" id="debug" />
+					<label for="debug" class="ui-priority-primary AutoUnzip lblDebugText">Debug</label>
+					<span style="float:right;" class="nonEmbed"><span class="AutoUnzip lblVersionText">Version:</span><span class="liveData" id="version"></span></span>
+				</p>
+				<div class="tabs nobg">
+					<ul>
+						<li><a href="#Setup" class="AutoUnzip lblSetupTabText">Setup</a></li>
+						<li><a href="#PathHelp" class="AutoUnzip lblHelpTabText">Help</a></li>
+					</ul>
+					<div class="pluginDetails" id="Setup">
+						<p>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td colspan="2">
+										<p>
+											<label for="usernames" class="AutoUnzip lblUsernamesToMonitorText">Usernames to monitor:</label>
+											<input type="text" id="usernames" name="usernames" class="ignoreBind AutoUnzip lblUsernameInstructionText" style="width:450px;" />
+											<span class="AutoUnzip lblUsernameInstructionText">
+											(Separate multiple usernames with a comma)
+											</span>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<span class="AutoUnzip lblListOfFPTPathNoteText">
+										List of FTP paths to watch and unzip uploads. (Example:'/uploads/')</span>
+									</td>
+								</tr>
+								<tr>
+									<td width="70%" class="ui-widget-content rightborder nobg">
+										<div style="margin:0px 10px;">
+											<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="height:200px;">
+												<ol class="nobg selectable single sideScroll" id="pathList" name="pathList">
+												</ol>
+											</div>
+										</div>
+									</td>
+									<td width="30%">
+										<div  style="margin:0px 10px;">
+											<p>
+												<a href="#" class="button" id="addNewPath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus' ></span>
+												<span class="AutoUnzip btnAddPathText">
+												Add Path</span></a>
+											</p>
+											<p>
+												<a href="#" class="button" id="editPath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+												<span class="AutoUnzip btnEditPathText">
+												Edit Selected
+												</span></a>
+											</p>
+											<p>
+												<a href="#" class="button"  id="removePath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+												<span class="AutoUnzip btnRemovePathText">
+												Remove Selected
+												</span></a>
+											</p>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</p>
+						<p>
+							<input type="radio" id="internal_unzip" name="unzip_type" class="ignoreBind" />
+							<label for="internal_zip" class="AutoUnzip lblInternalUnzippingText">Internal Unzipping</label>
+						</p>
+						<p class="subPanel ui-widget-content leftborder nobg">
+							<input type="checkbox" id="unzip_in_folder" name="unzip_in_folder" class="ignoreBind" />
+							<label for="unzip_in_folder" class="AutoUnzip lblUnzipToOwnFolderText">Unzip into its own folder.</label>
+						</p>
+						<p>
+							<input type="radio" id="external_unzip" name="unzip_type" class="ignoreBind" />
+							<label for="external_zip" class="AutoUnzip lblExternalUnzipText">External 'unzip' Unzipping</label>
+						</p>
+						<p>
+							<input type="checkbox" id="delete_zip" name="delete_zip" class="ignoreBind" />
+							<label for="delete_zip" class="AutoUnzip lblDeleteOriginalText">Delete original .zip</label>
+						</p>
+					</div>
+					<div id="PathHelp">
+						<p class="AutoUnzip pnlHelpText">
+							<strong>AutoUnzip Help</strong>
+							<br />
+							<br />
+							This plugin allows you to have uploaded .zip files be automatically expanded. This way if users are using the auto zip feature of the CrushUpIoader, you won't first need to unzip each file when its uplaoded before you can use it. It is transparent to the end user.
+							<br />
+							<br />
+							Their are two different modes that can be used for the unzipping. You can either do
+							the internal unzip method which will unzip the files with CrushFTP, or if you are on OS X or a Unix/Linux variant, it will use the built in command line 'unzip' to expand the .zip files instead.
+							<br />
+							<br />
+							Questions? Email us: support@crushftp.com
+							<br />
+							-Ben Spink
+						</p>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>

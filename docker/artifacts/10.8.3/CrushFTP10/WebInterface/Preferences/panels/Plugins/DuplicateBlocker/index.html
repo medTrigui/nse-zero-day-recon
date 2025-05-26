@@ -1,0 +1,117 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginDuplicateBlocker">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div id="pluginSection" class="customForm">
+				<p>
+					<input type="checkbox" name="enabled" id="enabled" />
+					<label for="enabled" class="ui-priority-primary DuplicateBlocker lblEnabledText">Enabled</label>
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" name="debug" id="debug" />
+					<label for="debug" class="ui-priority-primary DuplicateBlocker lblDebugText">Debug</label>
+					<span style="float:right;" class="nonEmbed"><span class="DuplicateBlocker lblVersionText">Version:</span><span class="liveData" id="version"></span></span>
+				</p>
+				<div class="tabs nobg">
+					<ul>
+						<li><a href="#Setup" class="DuplicateBlocker lblSetupTabText">Setup</a></li>
+						<li><a href="#Help" class="DuplicateBlocker lblHelpTabText">Help</a></li>
+					</ul>
+					<div class="pluginDetails customForm" id="Setup">
+						<p>
+							<label for="usernames" class="DuplicateBlocker lblUsernamesToMonitorText">Usernames to monitor:</label>
+							<input type="text" id="usernames" name="usernames" class="bigInputBox"  />
+							<span  class="DuplicateBlocker lblUsernameInstructionText">
+							(Separate multiple usernames with a comma)
+							</span>
+						</p>
+						<p>
+							<span class="DuplicateBlocker lblListOfFTPPathsToWatchText">
+							List of FTP paths to watch and deny duplicate uploads. (Example:'/uploads/')
+							</span>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td style="width:65%;">
+										<div class="MediumListBox ui-corner-all ui-widget-content nobg sideScroll">
+											<ol class="nobg selectable multiple sideScroll ui-selectable" id="dir_list" name="dir_list">
+											</ol>
+										</div>
+									</td>
+									<td style="padding-left:10px;">
+										<p>
+											<a href="#" class="button" id="addPath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+												<span class="addText DuplicateBlocker btnAddText">Add</span>
+											</a>
+										</p>
+										<p>
+											<a href="#" class="button" id="editPath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+												<span class="editText DuplicateBlocker btnEditText">Edit</span>
+											</a>
+										</p>
+										<p>
+											<a href="#" class="button" id="removePath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+												<span class="removeText DuplicateBlocker btnRemoveText">Remove</span>
+											</a>
+										</p>
+									</td>
+								</tr>
+							</table>
+						</p>
+						<div id="trackedItems" style="display:none;">
+							<span class="DuplicateBlocker lblListOfTrackedUploadsText">
+							List of tracked uploads from above directory selection:
+							</span>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td style="width:40%;">
+										<div class="MediumListBox ui-corner-all ui-widget-content nobg sideScroll">
+											<ol class="nobg selectable multiple sideScroll ui-selectable" id="tracked_path" name="tracked_path">
+											</ol>
+										</div>
+									</td>
+									<td style="padding-left:10px;">
+										<p>
+											<a href="#" class="button" id="removeTracked">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+												<span class="removeFolderButtonText DuplicateBlocker btnRemoveText">Remove</span>
+											</a>
+										</p>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="pluginDetails DuplicateBlocker pnlHelpText" id="Help">
+						<strong>DuplicateBlocker Help</strong>
+						<br />
+						<br />
+						This plugin allows you to block uploads with the same name from being uploaded to a directory. It will prevent the replacement of a file in the directory, as well as any file that has been previously uploaded to the directory with ths same name. For example, a file named backup_01012007.zip would only be allowed to be uploaded once. Even if the file was later moved, the file would still be blocked from being uploaded if it has the same name.
+						<br />
+						<br />
+						To use, enter a list of usernames this plugin will monitor. Then add FTP paths to the list of monitored directories. An FTP path is the path that the user sees from their
+						FTP client, not the real physical path on your HD. All uploads inside of that location will be monitored and blocked when appropriate. You can view the list of currently tracked filenames in the plugin as well. It will initially be empty until some uploads have been done.
+						<br />
+						<br />
+						Questions? Email us: support@crushftp.com
+						<br />
+						--Ben Spink
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>

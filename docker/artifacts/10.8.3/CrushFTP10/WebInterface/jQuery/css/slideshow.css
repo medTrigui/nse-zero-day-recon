@@ -1,0 +1,390 @@
+div.slideshow
+{
+	margin: 0px;
+	border: 0px none;
+	padding: 0px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 600px;
+	background: #252525;
+}
+
+div.slideshow .left  
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width:350px !important;
+}
+
+div.slideshow .center 
+{
+	margin: 0px auto;
+}
+
+div.slideshow .right 
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+div.slideshow div.thumb
+{
+	postion: relative;
+	float: left;
+}
+
+div.slideshow div.thumb div.image-container
+{
+	padding: 3px;
+	display: inline-block;
+}
+
+div.slideshow div.thumb div.current
+{
+	padding: 1px !important;
+	border: 2px solid !important;
+}
+
+div.slideshow div.thumb img.image
+{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+div.slideshow div.image-container
+{
+	position: relative;
+	background: transparent;	
+}
+
+/*div.slideshow div.image-container div.shadow-righttop
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 10px;
+	height: 12px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/img_shadow_rt.png);
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+
+div.slideshow div.image-container div.shadow-right
+{
+	position: absolute;
+	top: 12px;
+	right: 0px;
+	width: 10px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/img_shadow_r.png);
+	background-position: top left;
+	background-repeat: repeat-y;
+}
+
+div.slideshow div.image-container div.shadow-bottomleft
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 12px;
+	height: 13px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/img_shadow_bl.png);
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+
+div.slideshow div.image-container div.shadow-bottom
+{
+	position: absolute;
+	bottom: 0px;
+	left: 12px;
+	height: 13px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/img_shadow_b.png);
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+
+div.slideshow div.image-container div.shadow-bottomright
+{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 10px;
+	height: 13px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/img_shadow_br.png);
+	background-position: top left;
+	background-repeat: no-repeat;
+}*/
+
+div.slideshow div.image-container div.shadow-righttop,
+div.slideshow div.image-container div.shadow-right,
+div.slideshow div.image-container div.shadow-bottomleft,
+div.slideshow div.image-container div.shadow-bottom,
+div.slideshow div.image-container div.shadow-bottomright
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+}
+
+/*div.slideshow div.stage
+{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/stage_shadow.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}*/
+
+div.slideshow div.stage
+{
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+div.slideshow div.stage-hidden
+{
+	display: none;
+}
+
+div.slideshow div.canvas
+{
+	margin: 20px;
+	overflow: hidden;
+	margin:5px;
+	padding:5px;
+}
+
+div.slideshow div.fileName
+{
+	color:white;
+	font-size:16px;
+	margin:5px;
+	text-align:center;
+}
+
+div.slideshow div#stage-list div.files
+{
+	position: relative;
+	height: 180px;	
+	/*margin:5px;
+	padding:5px;*/
+}
+
+div.slideshow div#stage-list div.thumb
+{
+	margin: 10px;
+	width: 160px;
+}
+
+div.slideshow div#stage-column div.files
+{
+	position: relative;
+	width: 320px;
+	float: right;
+}
+
+div.slideshow div#stage-column div.thumb
+{
+	margin: 3px;
+	width: 120px;
+}
+
+div.slideshow div#stage-slideshow div.toolbar-container
+{
+	position: relative;
+	height: 80px;
+}
+
+div.slideshow div#stage-slideshow div.file-slider-container
+{
+	position: relative;
+	width: 300px;
+	height: 20px;
+}
+
+div.slideshow div#stage-slideshow div.file-slider
+{
+	position: absolute;
+	top: 5px;
+	width: 290px;
+	height: 5px;
+}
+
+div.slideshow div#stage-slideshow div.toolbar
+{
+	position: relative;
+	width: 300px;
+	height: 40px;
+	padding: 0px 4px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/slideshow_toolbar_background.png);
+	background-repeat: no-repeat;
+}
+
+div.slideshow div#stage-slideshow div.toolbar-item
+{
+	width: 36px;
+	height: 36px;
+	padding: 2px 1px;
+	display: inline-block;
+}
+
+div.slideshow div#stage-slideshow span.toolbar-item
+{
+	width: 36px;
+	height: 36px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+div.slideshow div#stage-slideshow div.toolbar-timer-container
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 170px;
+	height: 40px;
+}
+
+div.slideshow div#stage-slideshow p.toolbar-timer-interval
+{
+	position: absolute;
+	top: -9px;
+	left: 24px;
+	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	color: #252525
+}
+
+div.slideshow div#stage-slideshow div.toolbar-timer
+{
+	position: absolute;
+	top: 22px;
+	width: 150px;
+	height: 5px;
+}
+
+div.slideshow div#stage-slideshow #previous-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/previous.png);
+}
+
+div.slideshow div#stage-slideshow #play-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/play.png);
+}
+
+div.slideshow div#stage-slideshow #pause-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/pause.png);
+}
+
+div.slideshow div#stage-slideshow #next-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/next.png);
+}
+
+div.slideshow div.menu
+{
+	position: relative;
+	height: 60px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/menu.png);
+	background-repeat: repeat-x;
+}
+
+div.slideshow div.menu-container 
+{
+	padding: 10px 0px 9px 0px;
+	width: 200px;
+	height: 41px;
+}
+
+div.slideshow div.menu-item
+{
+	width: 60px;
+	height: 41px;
+	display: inline-block;
+}
+
+div.slideshow span.menu-item
+{
+	width: 60px;
+	height: 41px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+div.slideshow #list-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/list.png);
+}
+
+div.slideshow #column-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/column.png);
+}
+
+div.slideshow #slideshow-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/slideshow.png);
+}
+
+div.slideshow #download-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/download.png);
+}
+
+div.slideshow #upload-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/upload.png);
+}
+
+div.slideshow #delete-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/delete.png);
+}
+
+div.slideshow #refresh-button
+{
+	background-image: url(/WebInterface/jQuery/images/slideshow/refresh.png);
+}
+
+div.slideshow #fullscreen-button
+{
+	position: absolute;
+	right: 10px;
+	background-image: url(/WebInterface/jQuery/images/slideshow/fullscreen.png);
+}
+
+.slideshow-dialog
+{
+	padding: 0 !important;
+	border: 1px solid #888888 !important;
+	margin: 0 !important;
+	background: #252525 !important;
+	overflow: hidden !important;
+}
+
+.slideshow-dialog .ui-dialog-content
+{
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+
+body.slideshow-fullscreen
+{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}

@@ -1,0 +1,633 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlLogging">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Logging headerText"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="tabs nobg">
+                    <ul>
+                        <li><a href="#LogingSettings" class="Logging lblSettingsTabText">Settings</a>
+                        </li>
+                        <li><a href="#LogingLogFileOptions" class="Logging lblLogFileOptionsTabText">Log File Options</a>
+                        </li>
+                    </ul>
+                    <div id="LogingSettings" class="customForm">
+                        <p>
+                            <input type="checkbox" id="write_to_log" name="write_to_log" />
+                            <label for="write_to_log" class="Logging lblLogToDiskText">Enable Logging</label>
+                            <span class="crush7Feature">
+                                <span class="spacer"></span>
+                                <input id="log_transfer_speeds" name="log_transfer_speeds" type="checkbox" />
+                                <label for="log_transfer_speeds">Log Transfer Speeds?</label>
+
+                                <span class="spacer"></span>
+
+                                <input id="write_session_logs" name="write_session_logs" type="checkbox" />
+                                <label for="write_session_logs">Keep separate session logs.</label>
+
+                                <span class="spacer"></span>
+
+                                <input id="dmz_log_in_internal_server" name="dmz_log_in_internal_server" type="checkbox" />
+                                <label for="dmz_log_in_internal_server">Send DMZ log messages to Internal server too.</label>
+
+                                <span class="spacer"></span>
+
+                                <input id="debug_socks_log" name="debug_socks_log" type="checkbox" />
+                                <label for="debug_socks_log">Debug Socket Logging.</label>
+                            </span>
+                        </p>
+                        <p>
+                            <label class="Logging lblLogDebugLevelText" for="log_debug_level">Log Debug Level:</label>
+                            <input id="log_debug_level" name="log_debug_level" class="smallInputBox" type="text" />
+                            <span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;width:350px;position:relative;top:-6px;">
+                                <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                <span class="Logging lblDebugLevelNoteText">
+                                    Level 1:Revealing informational errors, Level 2:Verbose
+                                </span>
+                            </span>
+                        </p>
+                        <p class="crush7Feature">
+                            <label for="log_roll_time">Log Roll Time:</label>
+                            <input id="log_roll_time" name="log_roll_time" class="inputBox smallInputBox" type="text" />
+
+                            <span class="spacer"></span>
+
+                            <label for="log_roll_rename_hours">Log Roll Rename Hours:</label>
+                            <input id="log_roll_rename_hours" name="log_roll_rename_hours" class="inputBox smallInputBox" type="text" />
+
+                            <span class="spacer"></span>
+
+                            <label for="log_roll_date_format">Log Roll Date Format:</label>
+                            <input id="log_roll_date_format" name="log_roll_date_format" style="width:180px;" type="text" />
+                        </p>
+                        <p>
+                            <label class="Logging" for="recent_user_log_days" style="display:inline-block;text-align:right;">Number of days to keep recent session logs:</label>
+                            <input id="recent_user_log_days" name="recent_user_log_days" class="inputBox smallInputBox" type="text" />
+                        </p>
+                        <p>
+                            <label><strong>Days to hold:</strong></label>
+                            <span class="spacer"></span>
+                            <label class="Logging" for="recent_job_log_days" style="display:inline-block;text-align:right;">Recent Job logs:</label>
+                            <input id="recent_job_log_days" name="recent_job_log_days" class="inputBox smallInputBox" type="text" />
+                            <span class="spacer"></span>
+                            <label class="Logging" for="recent_job_days" style="display:inline-block;text-align:right;">Recent Job History:</label>
+                            <input id="recent_job_days" name="recent_job_days" class="inputBox smallInputBox" type="text" />
+                            <span class="spacer"></span>
+                            <label class="Logging" for="recent_temp_job_log_days" style="display:inline-block;text-align:right;">Temporary Job Logs:</label>
+                            <input id="recent_temp_job_log_days" name="recent_temp_job_log_days" class="inputBox smallInputBox" type="text" />
+                            <span class="spacer"></span>
+                            <label class="Logging" for="recent_temp_job_days" style="display:inline-block;text-align:right;">Temporary Job History:</label>
+                            <input id="recent_temp_job_days" name="recent_temp_job_days" class="inputBox smallInputBox" type="text" />
+                        </p>
+                        <p class="diskOption">
+                            <input type="checkbox" id="roll_log" name="roll_log" />
+                            <label for="roll_log" class="Logging lblEnableLogRollingText">Enable Log Rolling</label>
+                        </p>
+                        <div class="subPanel ui-widget-content leftborder nobg diskOption">
+                            <p>
+                                <input type="checkbox" id="roll_daily_logs" name="roll_daily_logs" />
+                                <label for="roll_daily_logs" class="Logging lblEnableDailyLogRollingText">Enable Daily Log Rolling</label>
+                            </p>
+                            <p id="sizeBeforeRolling">
+                                <span title="Size in MB" class="vtip">
+                                    <label class="Logging lblMaxSizeBeforeRollingText" for="roll_log_size">Max size before rolling:</label>
+                                    <input id="roll_log_size" name="roll_log_size" class="smallInputBox" type="text" />
+                                </span>
+                            </p>
+                            <p>
+                                <label class="Logging lblKeepHowManyFilesText" for="roll_log_count">Keep how many files:</label>
+                                <input id="roll_log_count" name="roll_log_count" class="smallInputBox" type="text" />
+                            </p>
+                        </div>
+                        <!-- <p class="diskOption">
+                            <label class="Logging lblUserInfoLogBufferText" for="user_log_buffer">User Window Log Buffer:</label>
+                            <input id="user_log_buffer" name="user_log_buffer" type="text" />
+                            <label class="Logging lblLinesText">lines</label>
+                        </p> -->
+                        <p class="diskOption">
+                            <label class="Logging lblUserLogFileLocationText" for="log_location">Log File Location and Name:</label>
+                        </p>
+                        <p class="diskOption subPanel">
+                            <input id="log_location" name="log_location" type="text" style="width:500px; float: left" />
+                            <a href="#" class="button serverFilePickButton" PickType="any" rel="log_location" style="float: left; margin-left: 15px">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                Browse
+                            </a>
+                            <div style="clear: both"></div>
+                        </p>
+                        <p class="diskOption">
+                            <label class="Logging lblUserSessionLogFileLocationText" for="user_log_location">User session log location:</label>
+                        </p>
+                        <p class="diskOption subPanel">
+                            <input id="user_log_location" name="user_log_location" type="text" style="width:500px; float: left" />
+                            <a href="#" class="button serverFilePickButton" PickType="dir" rel="user_log_location" style="float: left; margin-left: 15px">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                Browse
+                            </a>
+                            <div style="clear: both"></div>
+                        </p>
+                        <p class="diskOption">
+                            <label class="Logging" for="job_log_name">Job logs file name:</label>
+                            <input id="job_log_name" name="job_log_name" type="text" style="width:433px;" />
+                            <div style="clear: both"></div>
+                        </p>
+                        <p>
+                            <label class="Logging lblLogMatchingPatternText" for="filter_log_text">Filter log messages matching these pattern:</label>
+                        </p>
+                        <p>
+                            <input id="filter_log_text" name="filter_log_text" type="text" style="width:500px;" />
+                        </p>
+                        <p>
+                            <label for="write_to_log" class="Logging lblLogProviderText">Secondary Logging Provider:</label>
+                            <input type="text" style="display:none;" id="logging_provider" name="logging_provider" />
+                            <select id="logging_provider_select" name="logging_provider_select" class="excludeXML ignoreBind">
+                                <option value=""></option>
+                                <!--option value="crushftp.handlers.log.LoggingProviderDisk">Log to Disk</option-->
+                                <option value="crushftp.handlers.log.LoggingProviderSQL">Log to DB</option>
+                                <option value="crushftp.handlers.log.LoggingProviderSyslog">SysLog</option>
+								<option value="crushftp.handlers.log.LoggingProviderSystemOut">System.out (console)</option>
+                            </select>
+                        </p>
+                        <!--p class="diskOption">
+						<input type="checkbox" id="extended_logging" name="extended_logging" />
+						<label for="extended_logging" class="Logging lblUseExtendedLoggingText">Use extended logging (Syslog, DB, Mail, etc.)</label>
+					</p>
+					<p class="diskOption">	<span class="spacer"></span>&nbsp;
+						<label class="Logging lblUseConfigurationFileText">Use configuration file from "conf/logging.xml"</label>
+					</p-->
+
+                        <p class="sysLogOption">
+                            <label class="Logging" for="syslog_protocol" style="width:60px;display:inline-block;text-align:right;">Protocol:</label>
+                            <select id="syslog_protocol" name="syslog_protocol">
+                                <option value="UDP" selected>UDP</option>
+                                <option value="TCP">TCP</option>
+                            </select>
+                        </p>
+                        <p class="sysLogOption">
+                            <label class="Logging" for="syslog_host" style="width:60px;display:inline-block;text-align:right;">Host:</label>
+                            <input id="syslog_host" name="syslog_host" class="bigInputBox" type="text" />
+                        </p>
+                        <p class="sysLogOption">
+                            <label class="Logging" for="syslog_port" style="width:60px;display:inline-block;text-align:right;">Port:</label>
+                            <input id="syslog_port" name="syslog_port" class="smallInputBox" type="text" />
+                        </p>
+                        <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll dbOption">
+                            <ol class="nobg selectable multiple sideScroll ui-selectable" id="logDBItems" name="logDBItems">
+                            </ol>
+                        </div>
+                        <p id="formDetailsPanel" class="dbOption">
+                            <a href="#" id="browsePopupBtn" class="button serverFilePickButton" rel="txtDBAction" style="display:none;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                <span class="UserConfig btnBrowseText">Browse
+                                </span>
+                            </a>
+                            <textarea id="txtDBAction" name="txtDBAction" style="width:100%;" class="formTextareaComment nobg excludeXML ignoreBind"></textarea>
+                            <input type="password" id="logging_db_pass" name="logging_db_pass" class="encryptPass bigInputBox ui-helper-hidden" />
+                        </p>
+                        <br>
+                        <p class="buttonBar left dbOption buttonBarNoBottom">
+                            <a href="#" class="button" id="testDB">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh'></span>
+                                <span class="UserConfig btnTestDBText">Test DB</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div id="LogingLogFileOptions" class="customForm">
+                        <p>
+                            <input type="text" id="quickFilter" class="bigInputBox ignoreChange" placeholder="Quick Filter">
+                        </p>
+                        <table width="600px" cellpadding="0" cellspacing="0" border="0" style="float:left;margin-bottom:15px;">
+                            <tr>
+                                <td style="width:200px;">
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="error" name="error" />
+                                        <label for="error" class="Logging lblErrorAndExceptionsText">Errors and Exceptions</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="stop" name="stop" />
+                                        <label for="stop" class="Logging lblServerStoppedText">Server Stopped</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="kick" name="kick" />
+                                        <label for="kick" class="Logging lblUserKickedText">User Kicked</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="accept" name="accept" />
+                                        <label for="accept" class="Logging lblUserConnectedText">User Connected</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="post" name="post" />
+                                        <label for="post" class="Logging lblHTTPPostText">HTTP POST</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="delete" name="delete" />
+                                        <label for="delete" class="Logging lblHTTPDeleteText">HTTP DELETE</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="move" name="move" />
+                                        <label for="move" class="Logging lblHTTPMoveText">HTTP MOVE</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="help" name="help" />
+                                        <label for="help" class="Logging lblHelpCommandText">Help Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="rnto" name="rnto" />
+                                        <label for="rnto" class="Logging lblRNTOCommandText">RNTO Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="rmd" name="rmd" />
+                                        <label for="rmd" class="Logging lblRMDCommandText">RMD Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="retr" name="retr" />
+                                        <label for="retr" class="Logging lblRETRCommandText">RETR Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="pasv" name="pasv" />
+                                        <label for="pasv" class="Logging lblPASVCommandText">PASV Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="eprt" name="eprt" />
+                                        <label for="eprt" class="Logging lblEPRTCommandText">EPRT Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="prot" name="prot" />
+                                        <label for="prot" class="Logging lblPROTCommandText">PROT Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="size" name="size" />
+                                        <label for="size" class="Logging lblSIZECommandText">SIZE Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="rest" name="rest" />
+                                        <label for="rest" class="Logging lblRESTCommandText">REST Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="stor" name="stor" />
+                                        <label for="stor" class="Logging lblSTORCommandText">STOR Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="list" name="list" />
+                                        <label for="list" class="Logging lblLISTCommandText">LIST Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="webinterface" name="webinterface" />
+                                        <label for="webinterface" class="Logging lblWebInterfaceCommandText">WebInterface Commands</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="mlsd" name="mlsd" />
+                                        <label for="mlsd" class="Logging">MLSD</label>
+                                    </p>
+                                </td>
+                                <td style="width:200px;">
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="denial" name="denial" />
+                                        <label for="denial" class="Logging lblDeniedConnectionsText">Denied Connections</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="run_server" name="run_server" />
+                                        <label for="run_server" class="Logging lblCrushFTPStartedText">CrushFTP Started</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="ban" name="ban" />
+                                        <label for="ban" class="Logging lblUserBannedText">User Banned</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="disconnect" name="disconnect" />
+                                        <label for="disconnect" class="Logging lblUserDisconnectedText">User Disconnected</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="propfind" name="propfind" />
+                                        <label for="propfind" class="Logging lblHTTPPropfindText">HTTP PROPFIND</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="mkcol" name="mkcol" />
+                                        <label for="mkcol" class="Logging lblHTTPMkColText">HTTP MKCOL</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="pause_resume" name="pause_resume" />
+                                        <label for="pause_resume" class="Logging lblUserPauseResumeText">User Pause / Resume</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="user" name="user" />
+                                        <label for="user" class="Logging lblUSERCommandText">USER Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="pwd" name="pwd" />
+                                        <label for="pwd" class="Logging lblPWDCommandText">PWD Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="macb" name="macb" />
+                                        <label for="macb" class="Logging lblMACBCommandText">MACB Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="nlst" name="nlst" />
+                                        <label for="nlst" class="Logging lblNLSTCommandText">NLST Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="port" name="port" />
+                                        <label for="port" class="Logging lblPORTCommandText">PORT Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="auth" name="auth" />
+                                        <label for="auth" class="Logging lblAUTHCommandText">AUTH Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="syst" name="syst" />
+                                        <label for="syst" class="Logging lblSYSTCommandText">SYST Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="mdtm" name="mdtm" />
+                                        <label for="mdtm" class="Logging lblMDTMCommandText">MDTM Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="dele" name="dele" />
+                                        <label for="dele" class="Logging lblDELECommandText">DELE Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="appe" name="appe" />
+                                        <label for="appe" class="Logging lblAPPECommandText">APPE Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="dir_list" name="dir_list" />
+                                        <label for="dir_list" class="Logging lblDirectoryListingsText">Directory Listings</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="site" name="site" />
+                                        <label for="site" class="Logging lblSITECommandText">SITE Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="mlst" name="mlst" />
+                                        <label for="mlst" class="Logging">MLST</label>
+                                    </p>
+                                </td>
+                                <td style="width:200px;">
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="start" name="start" />
+                                        <label for="start" class="Logging lblServerStartedText">Server Started</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="quit_server" name="quit_server" />
+                                        <label for="quit_server" class="Logging lblCrushFTPQuitText">CrushFTP Quit</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="date_time" name="date_time" />
+                                        <label for="date_time" class="Logging lblDateTimeText">Date / Time</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="get" name="get" />
+                                        <label for="get" class="Logging lblHTTPGetText">HTTP GET</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="lock" name="lock" />
+                                        <label for="lock" class="Logging lblHTTPLockText">HTTP LOCK</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="put" name="put" />
+                                        <label for="put" class="Logging lblHTTPPutText">HTTP PUT</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="stat" name="stat" />
+                                        <label for="stat" class="Logging lblSTATCommandText">STAT Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="rnfr" name="rnfr" />
+                                        <label for="rnfr" class="Logging lblRNFRCommandText">RNFR Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="cwd" name="cwd" />
+                                        <label for="cwd" class="Logging lblCWDCommandText">CWD Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="abor" name="abor" />
+                                        <label for="abor" class="Logging lblABORCommandText">ABOR Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="cdup" name="cdup" />
+                                        <label for="cdup" class="Logging lblCDUPCommandText">CDUP Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="epsv" name="epsv" />
+                                        <label for="epsv" class="Logging lblEPSVCommandText">EPSV Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="pbsz" name="pbsz" />
+                                        <label for="pbsz" class="Logging lblPBSZCommandText">PBSZ Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="noop" name="noop" />
+                                        <label for="noop" class="Logging lblNOOPCommandText">NOOP Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="type" name="type" />
+                                        <label for="type" class="Logging lblTYPECommandText">TYPE Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="mkd" name="mkd" />
+                                        <label for="mkd" class="Logging lblMKDCommandText">MKD Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="stou" name="stou" />
+                                        <label for="stou" class="Logging lblSTOUCommandText">STOU Command</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="proxy" name="proxy" />
+                                        <label for="proxy" class="Logging lblProxyDataText">Proxy Data</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" class="ignoreBind" id="quit" name="quit" />
+                                        <label for="quit" class="Logging lblQUITCommandText">QUIT Command</label>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <fieldset class="nobg" style="float:left;width:600px;">
+                            <legend>Advanced</legend>
+                            <table width="600px" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="width:200px;">
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="alert" name="alert" />
+                                            <label for="alert" class="Logging lblAlertText">ALERT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="access" name="access" />
+                                            <label for="access" class="Logging lblAccessText">Access</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="as2_server" name="as2_server" />
+                                            <label for="as2_server" class="Logging lblAS2_SERVERText">AS2_SERVER</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="azure_client" name="azure_client" />
+                                            <label for="azure_client" class="Logging lblAZURE_CLIENTText">AZURE_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="login" name="login" />
+                                            <label for="login" class="Logging">AUTH/LOGIN</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="dav_server" name="dav_server" />
+                                            <label for="dav_server" class="Logging">DAV_SERVER</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="dmz" name="dmz" />
+                                            <label for="dmz" class="Logging">DMZ</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="download" name="download" />
+                                            <label for="download" class="Logging">DOWNLOAD</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="event" name="event" />
+                                            <label for="event" class="Logging">EVENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="file_client" name="file_client" />
+                                            <label for="file_client" class="Logging">FILE_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="ftp_client" name="ftp_client" />
+                                            <label for="ftp_client" class="Logging">FTP_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="ftp_server" name="ftp_server" />
+                                            <label for="ftp_server" class="Logging">FTP_SERVER</label>
+                                        </p>
+                                    </td>
+                                    <td style="width:200px;">
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="general" name="general" />
+                                            <label for="general">GENERAL</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="http_client" name="http_client" />
+                                            <label for="http_client">HTTP_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="http_server" name="http_server" />
+                                            <label for="http_server">HTTP_SERVER</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="job_scheduler" name="job_scheduler" />
+                                            <label for="plugin">JOB_SCHEDULER</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="plugin" name="plugin" />
+                                            <label for="plugin">PLUGIN</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="preview" name="preview" />
+                                            <label for="preview">PREVIEW</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="quota" name="quota" />
+                                            <label for="quota">QUOTA</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="report" name="report" />
+                                            <label for="report">REPORT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="s3_client" name="s3_client" />
+                                            <label for="s3_client">S3_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="search" name="search" />
+                                            <label for="search">SEARCH</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="server_beat" name="server_beat" />
+                                            <label for="server_beat">SERVER_BEAT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="replication" name="replication" />
+                                            <label for="replication">REPLICATION</label>
+                                        </p>
+                                    </td>
+                                    <td style="width:200px;">
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="smtp" name="smtp" />
+                                            <label for="smtp">SMTP</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="ssh_client" name="ssh_client" />
+                                            <label for="ssh_client">SSH_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="ssh_server" name="ssh_server" />
+                                            <label for="ssh_server">SSH_SERVER</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="smb_client" name="smb_client" />
+                                            <label for="smb_client">SMB_CLIENT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="statistics" name="statistics" />
+                                            <label for="statistics">STAT</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="sync" name="sync" />
+                                            <label for="sync">SYNC</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="tunnel" name="tunnel" />
+                                            <label for="tunnel">TUNNEL</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="update" name="update" />
+                                            <label for="update">UPDATE</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="upload" name="upload" />
+                                            <label for="upload">UPLOAD</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="user_obj" name="user_obj" />
+                                            <label for="user_obj">USER_OBJ</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="vfs" name="vfs" />
+                                            <label for="vfs">VFS</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" class="ignoreBind" id="socks_proxy" name="socks_proxy" />
+                                            <label for="socks_proxy" class="Logging">SOCKS_PROXY</label>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <p class="buttonBar right">
+                    <a href="javascript:void(0);" class="button">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+                        <span class="submitActionRestore Logging btnResetText">Reset To Default</span>
+                    </a>
+                    <a href="javascript:void(0);" class="button" id="cancel">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel'></span>
+                        <span class="submitActionCancel Logging btnCancelText">Cancel</span>
+                    </a>
+                    <a href="javascript:void(0);" class="button" id="saveContent">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk'></span>
+                        <span class="submitActionOk Logging btnOKText">Save</span>
+                    </a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>

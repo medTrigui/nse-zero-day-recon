@@ -1,0 +1,447 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlPlugins">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr class="nonEmbed">
+		<td>
+			<div class="ui-priority-primary Plugins headerText">
+				Plugins
+			</div>
+			<hr class="bottomborder ui-widget ui-widget-content" />
+		</td>
+	</tr>
+	<tr id="mostVisitedPluginsPanel" style="display:none;">
+		<td colspan="2" style="display:none;">
+			<div class="bottomborder ui-widget ui-widget-content ui-state-default nobg" style="padding-bottom:3px;">
+				<span class="ui-priority-primary" style="float:left;margin:8px 15px 8px 5px;">Most visited: </span>
+				<ul class="mostVisitedLinks">
+				</ul>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="Plugins" class="customForm">
+				<p id="clonningButtons">
+					<span class="nonEmbed buttonsPanel">
+						<select class="ignoreChange" id="pluginsList" name="pluginsList">
+						</select>
+					</span>
+					<span style="float:right;" class="buttonsPanel">
+						<span href="javascript:void(0);" class="button buttonAddClone">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus' ></span>
+							<span class="Plugins btnAddText">Add</span>
+						</span>
+						<span href="javascript:void(0);" class="button buttonRemoveClone">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+							<span class="Plugins btnRemoveText">Remove</span>
+						</span>
+					</span>
+				</p>
+				<p id="pluginContainer" class="clear">
+				</p>
+			</div>
+			<p class="buttonBar right buttonsPanel">
+				<a href="javascript:void(0);" class="button">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+					<span class="submitActionRestore Plugins btnResetText">Reset To Default</span>
+				</a>
+				<a href="javascript:void(0);" class="button" id="cancel">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+					<span class="submitActionCancel Plugins btnCancelText">Cancel</span>
+				</a>
+				<a href="javascript:void(0);" class="button" id="saveContent">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+					<span class="submitActionOk Plugins btnOKText">Save</span>
+				</a>
+			</p>
+		</td>
+	</tr>
+	</table>
+	<ul id="subConfigContext" class="contextMenu" style="display:none;">
+		<li class="moveRight">
+			<a href="#moveRight">Move Right</a>
+		</li>
+		<li class="moveLeft">
+			<a href="#moveLeft">Move Left</a>
+		</li>
+		<li class="rename">
+			<a href="#rename">Rename</a>
+		</li>
+	</ul>
+	<div id="fieldAdvancedDialog" class="customForm" title="Advanced settings" style="display:none;">
+        <div class="tabs nobg" id="advancedSettingsTabs">
+            <ul>
+                <li><a href="#itemProperty_Encryption">Encryption</a>
+                </li>
+                <li><a href="#itemProperty_Sync">Sync</a>
+                </li>
+            </ul>
+            <div id="itemProperty_Encryption" class="customForm sideScroll" style="height:420px;">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <fieldset class="encryption noForm nobg notInheritable">
+                                <legend class="ui-priority-primary">Upload</legend>
+                                <table width="100%">
+                                    <tr>
+                                        <td style="width: 190px;" class="right">
+                                        </td>
+                                        <td>
+                                            <input _name="pgpDecryptUpload" type="checkbox" id="itemEncryption_option_pgpDecryptUpload" />
+                                            <label for="itemEncryption_option_pgpDecryptUpload">
+                                                PGP Decrypt
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="itemEncryption_option_pgpPrivateKeyUploadPath">
+                                                Private Key Path:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpPrivateKeyUploadPath" id="itemEncryption_option_pgpPrivateKeyUploadPath" class="bigInputBox" />
+                                            <a href="#" style="float: right;margin-right: 50px;margin-top: -3px;top:0px !important;" PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPrivateKeyUploadPath">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                <span class="">
+                                                    Browse
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="itemEncryption_option_pgpPrivateKeyUploadPassword">
+                                                Private Key Password:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input _name="pgpPrivateKeyUploadPassword" type="password" id="itemEncryption_option_pgpPrivateKeyUploadPassword" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                        </td>
+                                        <td>
+                                            <input _name="pgpEncryptUpload" type="checkbox" id="itemEncryption_option_pgpEncryptUpload" />
+                                            <label for="itemEncryption_option_pgpEncryptUpload">
+                                                PGP Encrypt
+                                            </label>
+                                            <span class="spacer"></span>
+                                            <input _name="pgpAsciiUpload" type="checkbox" id="itemEncryption_option_pgpAsciiUpload" />
+                                            <label for="itemEncryption_option_pgpAsciiUpload">
+                                                ASCII Armor
+                                            </label>
+                                            <span class="spacer"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <input type="checkbox" checked id="itemEncryption_option_hint_decrypted_size" _name="hint_decrypted_size" />
+                                            <label for="itemEncryption_option_hint_decrypted_size">Add hinted decrypted size</label>
+                                            <span class="spacer"></span>
+                                            <input type="checkbox" class="panel_switch" id="itemEncryption_option_signUpload" _name="pgpSignUpload" />
+                                            <label for="itemEncryption_option_signUpload">Sign</label>
+                                        </td>
+                                    </tr>
+                                    <tr ref="itemEncryption_option_signUpload">
+                                        <td class="right" style="height:35px;">
+                                            <label for="itemEncryption_option_pgp_sign_private_key_path_upload">
+                                                Private key to use for Signing:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="upload_pgp_sign_private_key_path" id="itemEncryption_option_pgp_sign_private_key_path_upload" class="bigInputBox" />
+                                            <a href="#"  style="float: right;margin-right: 50px;margin-top: -7px;top:0px !important;"  allowPGP="true"  PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgp_sign_private_key_path_upload">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                <span class="">
+                                                    Browse
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="itemEncryption_option_pgpPublicKeyUploadPath">
+                                                Public Key Path:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpPublicKeyUploadPath" id="itemEncryption_option_pgpPublicKeyUploadPath" class="bigInputBox" />
+                                            <a href="#" style="float: right;margin-right: 50px;margin-top: -3px;top:0px !important;" PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPublicKeyUploadPath">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                <span class="">
+                                                    Browse
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label for="itemEncryption_option_encryption_cypher_upload">
+                                                Encryption cypher:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <select _name="encryption_cypher_upload" id="itemEncryption_option_encryption_cypher_upload">
+                                                <option value="TRIPLE_DES">TRIPLE_DES</option>
+                                                <option selected value="CAST5">CAST5</option>
+                                                <option value="BLOWFISH">BLOWFISH</option>
+                                                <option value="AES_128">AES_128</option>
+                                                <option value="AES_192">AES_192</option>
+                                                <option value="AES_256">AES_256</option>
+                                                <option value="TWOFISH">TWOFISH</option>
+                                                <option value="DES">DES</option>
+                                                <option value="SAFER">SAFER</option>
+                                                <option value="IDEA">IDEA</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <fieldset class="encryption noForm nobg notInheritable">
+                                <legend class="ui-priority-primary">Download</legend>
+                                <table width="100%" class="customForm">
+                                    <tr>
+                                        <td style="width: 190px;" class="right">
+                                        </td>
+                                        <td>
+                                            <input _name="pgpDecryptDownload" type="checkbox" id="itemEncryption_option_pgpDecryptDownload" />
+                                            <label for="itemEncryption_option_pgpDecryptDownload">
+                                                PGP Decrypt
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="itemEncryption_option_pgpPrivateKeyDownloadPath">
+                                                Private Key Path:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpPrivateKeyDownloadPath" id="itemEncryption_option_pgpPrivateKeyDownloadPath" class="bigInputBox" />
+                                            <a href="#" style="float: right;margin-right: 50px;margin-top: -3px;top:0px !important;" PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPrivateKeyDownloadPath">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                <span class="">
+                                                    Browse
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="itemEncryption_option_pgpPrivateKeyDownloadPassword">
+                                                Private Key Password:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input _name="pgpPrivateKeyDownloadPassword" type="password" id="itemEncryption_option_pgpPrivateKeyDownloadPassword" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                        </td>
+                                        <td>
+                                            <input _name="pgpEncryptDownload" type="checkbox" id="itemEncryption_option_pgpEncryptDownload" />
+                                            <label for="itemEncryption_option_pgpEncryptDownload">
+                                                PGP Encrypt
+                                            </label>
+                                            <span class="spacer"></span>
+                                            <input _name="pgpAsciiDownload" type="checkbox" id="itemEncryption_option_pgpAsciiDownload" />
+                                            <label for="itemEncryption_option_pgpAsciiDownload">
+                                                ASCII Armor
+                                            </label>
+                                            <span class="spacer"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <input _name="encrypt_pgp_check_downloads" type="checkbox" id="itemEncryption_option_encrypt_pgp_check_downloads" />
+                                            <label for="itemEncryption_option_encrypt_pgp_check_downloads">
+                                                Check encrypt downloads
+                                            </label>
+                                            <span class="spacer"></span>
+                                            <input type="checkbox" id="itemEncryption_option_signDownload" _name="pgpSignDownload" />
+                                            <label for="itemEncryption_option_signDownload">Sign</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="itemEncryption_option_pgpPublicKeyDownloadPath">
+                                                Public Key Path:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpPublicKeyDownloadPath" id="itemEncryption_option_pgpPublicKeyDownloadPath" class="bigInputBox" />
+                                            <a href="#" style="float: right;margin-right: 50px;margin-top: -3px;top:0px !important;" PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPublicKeyDownloadPath">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                <span class="">
+                                                    Browse
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label for="itemEncryption_option_encryption_cypher_download">
+                                                Encryption cypher:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <select _name="encryption_cypher_download" id="itemEncryption_option_encryption_cypher_download">
+                                                <option value="TRIPLE_DES">TRIPLE_DES</option>
+                                                <option selected value="CAST5">CAST5</option>
+                                                <option value="BLOWFISH">BLOWFISH</option>
+                                                <option value="AES_128">AES_128</option>
+                                                <option value="AES_192">AES_192</option>
+                                                <option value="AES_256">AES_256</option>
+                                                <option value="TWOFISH">TWOFISH</option>
+                                                <option value="DES">DES</option>
+                                                <option value="SAFER">SAFER</option>
+                                                <option value="IDEA">IDEA</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <fieldset class="noForm nobg notInheritable">
+                                <legend class="ui-priority-primary">Generate</legend>
+                                <table width="100%">
+                                    <tr>
+                                        <td style="width: 190px;" class="right">
+                                            <label class="lbl" for="pgpCommonNameGenerate">
+                                                Common Name:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpCommonNameGenerate" id="pgpCommonNameGenerate" class="" value="" />(Username or Email)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="pgpKeySizeGenerate">
+                                                RSA Key Size:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpKeySizeGenerate" id="pgpKeySizeGenerate" class="" value="2048" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="pgpKeyDaysGenerate">
+                                                Valid Days:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpKeyDaysGenerate" id="pgpKeyDaysGenerate" class="" value="365" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="pgpPrivateKeyPasswordGenerate">
+                                                Private Key Password:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input _name="pgpPrivateKeyPasswordGenerate" type="password" id="pgpPrivateKeyPasswordGenerate" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                            <label class="lbl" for="pgpPivateKeyPathGenerate">
+                                                Private Key Path:
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" _name="pgpPivateKeyPathGenerate" id="pgpPivateKeyPathGenerate" class="bigInputBox" />
+                                            <a href="#" style="float: right;margin-right: 50px;margin-top: -3px;top:0px !important;" PickType="file" class="button noSpacing serverFilePickButton" rel="pgpPivateKeyPathGenerate">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                <span class="">
+                                                    Browse
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="right">
+                                        </td>
+                                        <td>
+                                            <a href="#" class="button noSpacing" id="pgpEncryptionGenerateButton">
+                                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-key"></span>
+                                                <span class="">
+                                                    Generate PGP Key Pair
+                                                </span>
+                                            </a>
+                                            <br/>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="itemProperty_Sync" class="sync customForm">
+                <table width="100%">
+                    <tr>
+                        <td style="width: 150px;" class="right">
+                            <label class="lbl" for="itemSync_option_syncName">
+                                Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input _name="syncName" type="text" id="itemSync_option_syncName" class="bigInputBox" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="right">
+                            <label class="lbl" for="itemSync_option_syncRevisions">
+                                Revisions:
+                            </label>
+                        </td>
+                        <td>
+                            <input _name="syncRevisions" type="text" id="itemSync_option_syncRevisions" class="smallInputBox" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="right">
+                            <label class="lbl" for="itemSync_option_syncRevisionsPath">
+                                Revisions Storage Path:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" _name="syncRevisionsPath" id="itemSync_option_syncRevisionsPath" class="bigInputBox" />
+                            <a href="#" PickType="dir" style="float: right;margin-right: 125px;margin-top: -3px;top:0px !important;" class="button noSpacing serverFilePickButton" rel="itemSync_option_syncRevisionsPath">
+                                <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                <span class="">
+                                    Browse
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="right">
+                            <label class="lbl">
+                                Upload only:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="checkbox" _name="syncUploadOnly" id="itemSync_option_syncUploadOnly" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

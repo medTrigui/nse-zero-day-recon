@@ -1,0 +1,130 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlEmailTemplates">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td style="width:260px;">
+				<select id="emailTemplatesList" style="width:250px;margin-top:5px;" class="ignoreChange">
+					<option value="">Please select</option>
+					<option value="addNew">+ Add new</option>
+				</select>
+			</td>
+			<td>
+				<a href="#" class="button" id="removeTemplate">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+					<span class="Preview btnRemoveConfigText">Remove Selected</span>
+				</a>
+				<a href="#" class="button" id="addTemplate">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+					<span class="Preview btnAddConfigText">Add New</span>
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div id="selctToContinueNote" style="margin:10px;">
+		<div class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;margin:0px 3px;">
+			<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+			<span class="msgText">
+				Select template to edit
+			</span>
+		</div>
+	</div>
+	<table id="templateDetails" width="100%" cellpadding="0" cellspacing="0" border="0" style="display:none;">
+		<tr>
+			<td class="customForm">
+				<p>
+					<label for="name" class="EmailTemplates lblTemplateNameLabelText">Template Name:</label>
+				</p>
+				<p>
+					<input style="width:450px;" type="text" id="name" name="name" />
+				</p>
+				<p>
+					<label for="emailFrom">From:</label>
+				</p>
+				<p>
+					<input style="width:450px;" type="text" id="emailFrom" name="emailFrom" />
+				</p>
+				<p>
+					<label for="emailCC">CC:</label>
+				</p>
+				<p>
+					<input style="width:450px;" type="text" id="emailCC" name="emailCC" />
+				</p>
+				<p>
+					<label for="emailBCC">BCC:</label>
+				</p>
+				<p>
+					<input style="width:450px;" type="text" id="emailBCC" name="emailBCC" />
+				</p>
+				<p>
+					<label for="emailReplyTo">Reply To:</label>
+				</p>
+				<p>
+					<input style="width:450px;" type="text" id="emailReplyTo" name="emailReplyTo" />
+				</p>
+				<p>
+					<label for="emailSubject" class="EmailTemplates lblemailSubjectLabelText">Subject:</label>
+				</p>
+				<p>
+					<input style="width:450px;" type="text" id="emailSubject" name="emailSubject" />
+				</p>
+				<p>
+					<label for="emailBody" class="EmailTemplates lblemailBodyLabelText">Body:</label>
+				</p>
+				<p>
+					<div style="background-color: white;width:600px;padding:0px 6px 3px 6px;position: relative;" class="ui-corner-all">
+						<br>
+						<span style="position: absolute;right:10px;top:3px;">
+							<input type="checkbox" id="htmlswitch" class="ignoreBind excludeXML">
+							<label for="htmlswitch">HTML</label>
+						</span>
+						<br>
+						<textarea class="formTextareaComment" id="emailBody" name="emailBody" style="width:600px;height:250px;"></textarea>
+					</div>
+				</p>
+			</td>
+			<td>
+				<div class="ui-state-highlight ui-corner-all nobg" style="padding:5px;display:block;margin:0px 3px;background-color: rgb(252, 246, 215);height:450px;overflow:auto;">
+					<strong>
+					Variables can be used for user and other information, as part of an email address, email body, subject, or event as part of the command for the Execute task.
+					</strong>
+					<br>
+					<br>
+					<strong>User Info:</strong>
+					<ul>
+						<li>{user_name}</li>
+						<li>{user_pass}</li>
+						<li>{user_email}</li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td>
+				<p class="buttonBar right">
+					<a href="#" class="button">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+						<span class="submitActionRestore Preview btnResetText">Reset To Default</span>
+					</a>
+					<a href="#" class="button" id="cancel">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+						<span class="submitActionCancel Preview btnCancelText">Cancel</span>
+					</a>
+					<a href="#" class="button" id="saveContent">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+						<span class="submitActionOk Preview btnOKText">Save</span>
+					</a>
+				</p>
+			</td>
+			<td></td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,3811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <!-- META -->
+    <title>WebInterface</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/jQuery/css/crushFtp.framework.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/jQuery/css/menuIcons.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/jQuery/css/jquery.cluetip.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/jQuery/css/jquery.colorbox.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/Resources/css/token-input-facebook.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/WebInterface/custom.css" />
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/h5utils.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery.Electron.Inject.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQueryRotate.2.2.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.dragout.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.blockUI.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.idle-timer.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery.cookie.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/WIInitVars.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/WICustomizations.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/WICommonMethods.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jqueryFileTree.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.contextmenu.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.cluetip.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.xml2json.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.meio.mask.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.cssRule.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.colorbox.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.doubleTap.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/mimeTypes.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/crushFTP.folderPreview.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.metadata.v2.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery.media.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.sessionChecker.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/browserSelector.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.tokeninput.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.notify.js"
+    ></script>
+    <!-- <script type="text/javascript" src = "/WebInterface/Resources/js/date.format.js"></script> -->
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/date.format.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.titlealert.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/browser.notification.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crush.Notify.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/jquery-ui-timepicker-addon.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"
+    ></script>
+
+    <!-- HTML Editor -->
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/js/SCEditor-2.1.3/themes/default.min.css"
+      type="text/css"
+      media="all"
+    />
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/SCEditor-2.1.3/jquery.sceditor.bbcode.min.js"
+    ></script>
+
+    <!-- Chosen -->
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/js/chosen/chosen.min.css"
+      type="text/css"
+      media="all"
+    />
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/chosen/chosen.jquery.min.js"
+    ></script>
+
+    <!-- video JS Files  -->
+    <link
+      href="/WebInterface/Resources/js/video-js/video-js.css"
+      rel="stylesheet"
+    />
+    <script src="/WebInterface/Resources/js/video-js/video.js"></script>
+    <!-- Audio JS Files  -->
+    <script
+      src="/WebInterface/Resources/js/audio-js/audio.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    <!-- Web Audio Waveform visualized with player for modern browsers -->
+    <script
+      src="/WebInterface/Resources/js/wavesurfer.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/js/audio-js/audio-js.css"
+      type="text/css"
+      media="all"
+      title="Audio JS"
+      charset="utf-8"
+    />
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/js/audio-js/skins/vim.css"
+      type="text/css"
+      media="all"
+      title="Audio JS"
+      charset="utf-8"
+    />
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/menuIcons.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/localizations/en.js"
+    ></script>
+
+    <script type="text/javascript" src="/WebInterface/custom.js"></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/js/init.js"
+    ></script>
+
+    <!-- DND Stuff -->
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/DND/css/jquery.fileupload-ui.css"
+    />
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/tmpl.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/load-image.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/jquery.fileupload.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/jquery.iframe-transport.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/jquery.fileupload-ui.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/jquery.fileupload-CrushFTP-ui.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/crushftp.DNDUpload.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/DND/js/crushftp.DNDWebInterface.js"
+    ></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+
+    <!-- Applet Custom Browse Stuff -->
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/css/localFileBrowser.css"
+    />
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"
+    ></script>
+    <style type="text/css">
+      @-moz-document url-prefix() {
+        #javaAppletDiv.ffAppletVerify {
+          height: 145px !important;
+        }
+      }
+    </style>
+    <script>
+      window.isElectron = function () {
+        // Renderer process
+        if (
+          typeof window !== "undefined" &&
+          typeof window.process === "object" &&
+          window.process.type === "renderer"
+        ) {
+          return true;
+        }
+
+        // Main process
+        if (
+          typeof process !== "undefined" &&
+          typeof process.versions === "object" &&
+          !!process.versions.electron
+        ) {
+          return true;
+        }
+
+        // Detect the user agent when the `nodeIntegration` option is set to true
+        if (
+          typeof navigator === "object" &&
+          typeof navigator.userAgent === "string" &&
+          navigator.userAgent.indexOf("Electron") >= 0
+        ) {
+          return true;
+        }
+        return false;
+      };
+      $(document).ready(function () {
+        if (window.isElectron()) {
+          $("#wrapper").hide();
+        }
+      });
+    </script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="mainContentHolder">
+        <div class="headerContent" id="headerContent">
+          <div id="header" style="padding: 0px; margin: 0px">
+            <div id="headerImages">
+              <div class="logo" style="padding: 0px; margin: 0px"></div>
+              <div class="directoryPreview"></div>
+            </div>
+            <div id="headerText"></div>
+            <div style="clear: both"></div>
+          </div>
+        </div>
+        <div
+          id="languageSelector"
+          style="display: none"
+          class="languageSelectorBtn"
+        >
+          <span id="currentLanguageName">English</span>
+        </div>
+        <ul id="languageMenu" class="contextMenu" style="width: 150px">
+          <li><a href="#en" id="languageNameEnglish">English</a></li>
+          <li><a href="#br" id="languageNameBrazilian">Brazilian</a></li>
+          <li><a href="#bg" id="languageNameBulgarian">Bulgarian</a></li>
+          <li><a href="#cn" id="languageNameChinese">Chinese</a></li>
+          <li><a href="#cs" id="languageNameCzech">Czech</a></li>
+          <li><a href="#da" id="languageNameDanish">Danish</a></li>
+          <li><a href="#nl" id="languageNameDutch">Dutch</a></li>
+          <li><a href="#fr" id="languageNameFrench">French</a></li>
+          <li><a href="#de" id="languageNameGerman">German</a></li>
+          <li><a href="#hu" id="languageNameHungarian">Hungarian</a></li>
+          <li><a href="#it" id="languageNameItalian">Italian</a></li>
+          <li><a href="#ja" id="languageNameJapanese">Japanese</a></li>
+          <li><a href="#ko" id="languageNameKorean">Korean</a></li>
+          <li><a href="#pl" id="languageNamePolish">Polish</a></li>
+          <li><a href="#ro" id="languageNameRomanian">Romanian</a></li>
+          <li><a href="#ru" id="languageNameRussian">Russian</a></li>
+          <li><a href="#sk" id="languageNameSlovak">Slovak</a></li>
+          <li><a href="#es" id="languageNameSpanish">Spanish</a></li>
+          <li><a href="#se" id="languageNameSwedish">Swedish</a></li>
+        </ul>
+        <div id="container"></div>
+        <div id="javaAppletDivU"></div>
+        <div id="mainContent">
+          <div class="breadCrumbsPanel">
+            <div class="mainProcessIndicator">
+              <img
+                src="/WebInterface/jQuery/images/process_indicator.gif"
+                alt="Loading..."
+              />
+            </div>
+            <ul id="crumbs">
+              <li><a href="#">Home</a></li>
+              <li></li>
+            </ul>
+          </div>
+          <div id="mainNav-anchor"></div>
+          <div class="mainNavigation" id="mainNavigation" style="display: none">
+            <ul class="topnav"></ul>
+            <div class="clear"></div>
+            <div
+              class="clear dropzone ui-widget-content ui-corner-all"
+              id="dropItemsPanel"
+            >
+              <h1 id="browserUploaderDragDropHoverLabelText">
+                Drop files here to upload
+              </h1>
+            </div>
+          </div>
+          <div
+            id="javaAppletDiv"
+            class="ffAppletVerify"
+            style="left: -5000px; z-index: 1001; position: fixed; width: 99%"
+          ></div>
+          <div id="dndInfoTextHolder" style="display: none">
+            <span id="browserDragdropInfoText" class="clear">
+              <span id="browserUploaderDragDropLabelText">
+                Drag &amp; drop files here to upload.
+              </span>
+              <span id="browserUploaderChromeDragDropLabelText">
+                Drag &amp; drop files and folders here to upload.
+              </span>
+            </span>
+          </div>
+          <div id="readOnlyBanner">
+            <span id="readOnlyFolderBannerText">
+              This folder is read-only.
+            </span>
+          </div>
+          <div class="filter-content">
+            <div
+              id="fileQueueInfo"
+              class="ui-widget-content ui-corner-all"
+              style="display: none"
+            >
+              <!-- The file upload form used as target for the file upload widget -->
+              <form
+                id="fileupload"
+                name="META_uploadForm"
+                action="/WebInterface/function/"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <div
+                  id="globalProgressBar"
+                  class="uploadProgressInfoMain ui-widget-content ui-corner-all"
+                  style="display: none"
+                >
+                  <div class="unzipping-progress">Unzipping...</div>
+                  <div>
+                    <span class="progressBarText"></span>
+                    <div class="progressbarMain"></div>
+                  </div>
+                  <div>
+                    <span class="uploadProgressBarMainButtons">
+                      <a href="#" class="skip globalProgressbarSkipLabelByClass"
+                        >Skip</a
+                      >
+                      <a
+                        href="#"
+                        class="pause globalProgressbarPauseLabelByClass"
+                        >Pause</a
+                      >
+                      <a href="#" class="stop globalProgressbarStopLabelByClass"
+                        >Stop</a
+                      >
+                    </span>
+                    <span class="progressInfoText">
+                      <span class="uploadInfo"></span>
+                    </span>
+                  </div>
+                  <span class="status"></span>
+                </div>
+                <div id="fileUploadBarHolder">
+                  <div
+                    id="uploadBarInformationText"
+                    style="margin-top: 6px; display: block; float: left"
+                  ></div>
+                  <div id="fileUploadBar" class="row fileupload-buttonbar">
+                    <a
+                      id="viewFileQueue"
+                      class="viewFileQueueLink open uploadBarShowHideFilesSetTitleClass"
+                      title="Show/Hide upload panel"
+                      href="#"
+                    ></a>
+                    <a
+                      id="browseTypeSelector"
+                      title="Switch to Advanced Upload"
+                      href="#"
+                      class="uploadWindowUploadTypeSwitchSetTitleClass browseTypeselectionLink normal vtip dynTitle"
+                    ></a>
+                    <span
+                      class="ui-button ui-button-custom"
+                      id="browseFileButtonPanel"
+                      style="margin-top: -2px"
+                    >
+                      <a
+                        id="browseFileButton"
+                        class="browseFileLabelByClass"
+                        href="javascript:void(0);"
+                        >Add files...</a
+                      >
+                      <input
+                        type="file"
+                        name="file_1_SINGLE_FILE_POST"
+                        multiple
+                      />
+                    </span>
+                    <a id="advanceduploadOptions" href="#"
+                      >Advanced Upload Options</a
+                    >
+                    <a id="javaLogButton" href="#">Java Log</a>
+                    <a id="uploadSwitcher" style="display: none" href="#"
+                      >Switch to new upload method</a
+                    >
+                    <!-- <span id="AdvancedBrowseResumeOption" style="display:inline-block;margin-top:5px;">
+                                <input id="resumeUpload_AppletConfig" type="checkbox" />
+                                <label for="resumeUpload_AppletConfig" class="advancedUploadResumeLabelByClass" style="display:inline-table;">Resume</label>
+                            </span> -->
+                    <div style="clear: both"></div>
+                    <div
+                      id="javalogDialog"
+                      style="margin: 3px 0; display: none"
+                    >
+                      <textarea
+                        id="javalog_area"
+                        style="width: 99%; height: 100px; resize: none"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div style="clear: both; display: block; height: 1px"></div>
+                <div id="fileRepo">
+                  <div class="fileListHeader ui-widget-header ui-corner-all">
+                    <span
+                      class="fileRepoHeader"
+                      id="filesToUploadQueueWindowHeader"
+                      >Files to upload</span
+                    >
+                    <span
+                      style="
+                        position: absolute;
+                        cursor: pointer;
+                        right: 12px;
+                        top: 14px;
+                      "
+                      class="ui-icon ui-icon-closethick"
+                      id="toggleFileList"
+                    ></span>
+                  </div>
+                  <div class="fileListPanelInfoText ui-corner-all">
+                    <table
+                      width="100%"
+                      border="0"
+                      cellpadding="0"
+                      cellspacing="0"
+                    >
+                      <tr>
+                        <td style="text-align: left">
+                          <div style="max-width: 600px; line-height: 22px">
+                            <a
+                              href="#"
+                              class="btn upload start startUploading uploadWindowStartUploadingByClass"
+                              >Start Uploading</a
+                            >
+                            <a
+                              href="#"
+                              class="btn clearCompleted cancelUploading uploadWindowCancelUploadingByClass"
+                              style="float: none"
+                              >Cancel Uploading</a
+                            >
+                            <a
+                              href="#"
+                              class="btn clearCompleted cancelUploading uploadedAll uploadWindowClearUploadedByClass"
+                              style="float: none"
+                              >Clear Uploaded</a
+                            >
+                            <a
+                              href="#"
+                              class="btn shareAllUploaded uploadWindowShareUploadedByClass"
+                              style="float: none"
+                              >Share Uploaded</a
+                            >
+                            <a
+                              href="#"
+                              id="overwriteAllLinkBtn"
+                              class="btn overwriteLink uploadWindowOverwriteAllByClass"
+                              style="float: none; display: none"
+                              >Overwrite all</a
+                            >
+                            <a
+                              href="#"
+                              id="remvoeErrorAllLinkBtn"
+                              class="btn clearCompleted uploadWindowRemoveAllWithErrorsByClass"
+                              style="float: none; display: none"
+                              >Remove all with errors</a
+                            >
+                            <a
+                              href="#"
+                              id="showCommonUploadForm"
+                              class="btn editForm uploadWindowShowCommonUploadFormByClass"
+                              style="float: none; display: none"
+                              >Details</a
+                            >
+                          </div>
+                        </td>
+                        <td style="text-align: right">
+                          <span class="stats">
+                            <label class="uploadWindowSummaryFilesByClass"
+                              >Files:</label
+                            ><span class="totalFiles"></span>
+                            <label class="uploadWindowSummarySizeByClass"
+                              >, Upload size:</label
+                            ><span class="totalSize"></span>
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                    <span class="clear"></span>
+                  </div>
+                  <ul
+                    class="files ui-widget-content dropzone ui-corner-all"
+                  ></ul>
+                </div>
+              </form>
+            </div>
+            <span style="clear: both; display: block; height: 1px"></span>
+            <div id="uploadInfoForm" title="Upload Details">
+              <form
+                method="post"
+                target="dummyIframe"
+                action="/WebInterface/function/?command=discard"
+              >
+                <div class="formContent"></div>
+              </form>
+            </div>
+            <div class="layoutActionElement">
+              <div class="filterPanel" id="filterPanel">
+                <span class="filterArea">
+                  <span id="FilterText">Filter:</span>
+                  <form
+                    autocomplete="off"
+                    autocomplete="false"
+                    onsubmit="return false;"
+                    style="padding: 0px; margin: 0px; display: inline-block"
+                  >
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      size="30"
+                      maxlength="300"
+                      value=""
+                      id="filter"
+                      name="filter"
+                    />
+                  </form>
+                  <a href="#" class="clearFilterLink"
+                    ><span id="ClearFilterLinkText">Clear</span></a
+                  >
+                </span>
+                <span class="select-by-criteria">
+                  <span
+                    ><a href="#" class="selectionLink"
+                      ><span id="SelectItemOptionLinkText">Select</span></a
+                    ></span
+                  >
+                </span>
+                <span class="per-page">
+                  <span
+                    ><a href="#" class="pageSizeSelectionLink"
+                      ><span
+                        id="PageSizeSelectionLinkText"
+                        style="display: none"
+                        >Show {0} items on page</span
+                      ></a
+                    ></span
+                  >
+                </span>
+                <span
+                  class="treeviewExpandOptions crush7Feature"
+                  style="display: none"
+                >
+                  <a href="#" class="treeViewExpandAllLink" rel="Tree"
+                    ><span id="TreeViewLinkExpandAllText">Expand All</span></a
+                  >
+                  <a href="#" class="treeViewCollapseAllLink" rel="Tree"
+                    ><span id="TreeViewLinkCollapseAllText"
+                      >Collapse All</span
+                    ></a
+                  >
+                </span>
+              </div>
+              <div class="viewSelectorPanel" id="viewSelectorPanel">
+                <a href="#" class="treeViewLink viewlink" rel="Tree"
+                  ><span id="TreeViewLinkText">Tree View</span></a
+                >
+                <a
+                  rel="Thumbnail"
+                  href="#"
+                  class="thumbnailViewLink selected viewlink"
+                  ><span id="ThumbnailViewLinkText">Thumbnail View</span></a
+                >
+                <div id="slider" style="width: 200px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div class="itemCount layoutActionElement" id="itemCount"></div>
+          <div class="pageLinksTop layoutActionElement">
+            <div class="pagination"></div>
+          </div>
+          <div class="clear layoutActionElement"></div>
+          <div class="comments layoutActionElement" id="comments"></div>
+          <div
+            class="comments layoutActionElement"
+            id="comments_listing"
+            style="display: none"
+          ></div>
+          <div style="display: none" id="htmlListingFile"></div>
+          <div id="searchResultNotification">
+            <span id="SearchResultDisplayText">Search Result:</span>
+            <a href="javascript:void(0);"
+              ><span id="SearchResultClearLinkText"
+                >(Clear Search Filter)</span
+              ></a
+            >
+          </div>
+          <div class="fileListWrapper">
+            <div id="filesListing">
+              <div class="clear"></div>
+              <div id="selectionOfItemsOptions">
+                <span class="options" id="ItemsSelectionDisplayText"
+                  >All <strong>{count}</strong> items on this page are
+                  selected.</span
+                >
+                <a href="javascript:void(0);" class="options"
+                  ><span id="ItemsSelectionSelectAllItemsInDir"
+                    >Select all <strong>{total_items}</strong> items in
+                    <strong>{list_type}</strong> (including hidden items)</span
+                  ></a
+                >
+                <span class="actions" id="ItemsSelectionSelectedAllItemsInDir">
+                  All <strong>{total_items}</strong> items in
+                  <strong>{list_type}</strong> (including hidden items) are
+                  selected
+                </span>
+                <a
+                  class="actions"
+                  href="javascript:void(0);"
+                  id="ItemsSelectionClearSelection"
+                  >Clear selection</a
+                >
+              </div>
+              <div class="dropzone">
+                <div id="thumbnailView">
+                  <table
+                    cellpadding="0"
+                    cellspacing="0"
+                    id="filesContainer"
+                    class="jqueryFilesTable tablesorter"
+                  >
+                    <tbody>
+                      <tr>
+                        <td style="text-align: center; padding: 100px">
+                          Please wait..
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div id="thumbsviewContainer">
+                  <ul id="filesContainerDiv"></ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <div class="pageLinksBottom layoutActionElement">
+            <div class="pagination"></div>
+          </div>
+          <div class="dirSizeInfo layoutActionElement" id="dirSizeInfo"></div>
+          <div id="footer">
+            <div class="footerContent" id="footerContent"></div>
+            <div style="clear: both"></div>
+          </div>
+          <ul id="myMenu" class="contextMenu"></ul>
+          <ul id="checkBoxMenu" class="contextMenu">
+            <li class="toggle">
+              <a href="#toggle" id="MainCheckboxContextMenuToggleText"
+                >Toggle</a
+              >
+            </li>
+            <li class="checkall">
+              <a href="#checkall" id="MainCheckboxContextMenuCheckAllText"
+                >Check All</a
+              >
+            </li>
+            <li class="uncheckall">
+              <a href="#uncheckall" id="MainCheckboxContextMenuUncheckAllText"
+                >Un-check All</a
+              >
+            </li>
+          </ul>
+          <ul id="selectionMenu" class="contextMenu">
+            <li class="toggle">
+              <a href="#toggle" id="SelectCheckboxContextMenuToggleText"
+                >Toggle</a
+              >
+            </li>
+            <li class="checkall">
+              <a href="#checkall" id="SelectCheckboxContextMenuCheckAllText"
+                >All items</a
+              >
+            </li>
+            <li class="uncheckall">
+              <a href="#uncheckall" id="SelectCheckboxContextMenuUncheckAllText"
+                >None</a
+              >
+            </li>
+            <li class="checkallFiles">
+              <a
+                href="#checkallfiles"
+                id="SelectCheckboxContextMenuCheckAllFilesText"
+                >All files</a
+              >
+            </li>
+            <li class="checkallFolders">
+              <a
+                href="#checkallfolders"
+                id="SelectCheckboxContextMenuCheckAllFoldersText"
+                >All folders</a
+              >
+            </li>
+            <li class="checkItemsWithDot">
+              <a
+                href="#checkitemswithdot"
+                id="SelectCheckboxContextMenuCheckItemsWithDotText"
+                >Items starting with "."</a
+              >
+            </li>
+            <li class="checkToday">
+              <a href="#checktoday" id="SelectCheckboxContextMenuCheckTodayText"
+                >Modified today</a
+              >
+            </li>
+            <li class="checkWeek">
+              <a href="#checkweek" id="SelectCheckboxContextMenuCheckWeekText"
+                >Modified this week</a
+              >
+            </li>
+            <li class="checkMonth">
+              <a href="#checkmonth" id="SelectCheckboxContextMenuCheckMonthText"
+                >Modified this month</a
+              >
+            </li>
+            <li class="checkLastTwoMonth">
+              <a
+                href="#check2months"
+                id="SelectCheckboxContextMenuCheck2MonthsText"
+                >Modified in last 60 days</a
+              >
+            </li>
+            <li class="checkLastThreeMonth">
+              <a
+                href="#check3months"
+                id="SelectCheckboxContextMenuCheck3MonthsText"
+                >Modified in last 90 days</a
+              >
+            </li>
+          </ul>
+          <ul id="pagingSizeMenu" class="contextMenu" style="width: 220px">
+            <li class="100items">
+              <a href="#100" id="pagingSize100Text">100</a>
+            </li>
+            <li class="200items">
+              <a href="#200" id="pagingSize200Text">200</a>
+            </li>
+            <li class="500items">
+              <a href="#500" id="pagingSize500Text">500</a>
+            </li>
+            <li class="1000items">
+              <a href="#1000" id="pagingSize1000Text">1000</a>
+            </li>
+            <li class="2000items">
+              <a href="#2000" id="pagingSize2000Text">2000</a>
+            </li>
+            <li class="allitems">
+              <a href="#all" id="pagingSizeAllText"
+                >All (slower on large directories)</a
+              >
+            </li>
+          </ul>
+          <table
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+            id="footerInfo"
+          >
+            <tr>
+              <td style="text-align: left; vertical-align: middle">
+                <span class="poweredby" id="PoweredByText">
+                  Powered by
+                  <a target="_blank" href="http://www.crushftp.com/"
+                    >CrushFTP</a
+                  >
+                </span>
+                <span class="copyright" id="CopyrightText">
+                  &copy; 2025
+                  <a target="_blank" href="http://www.CrushFTP.com/"
+                    >CrushFTP</a
+                  >
+                </span>
+              </td>
+              <td style="text-align: right; vertical-align: middle">
+                <span class="copyright" id="loggedInAs"></span>
+                <span class="copyright" id="SessionSeconds"></span>
+                <span class="copyright backToTop"
+                  ><span id="BackToTopLinkText">Back to top</span>
+                </span>
+              </td>
+            </tr>
+          </table>
+          <div
+            id="popupContent"
+            style="
+              visibility: hidden;
+              position: absolute;
+              width: 1px;
+              height: 1px;
+            "
+          >
+            <div id="shareOptionDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="ShareWindowHeaderText"
+              >
+                Share
+              </h2>
+              <form
+                class="myForm"
+                id="frmShareWindow"
+                method="post"
+                target="dummyIframe"
+                action="/WebInterface/function/?command=discard"
+              >
+                <fieldset>
+                  <legend class="share-title">File Name</legend>
+                  <table
+                    width="100%"
+                    border="0"
+                    cellpadding="2"
+                    cellspacing="2"
+                  >
+                    <tr class="c1">
+                      <td valign="top">
+                        <label
+                          for="txtFilesToShare"
+                          class="shareDivLabel"
+                          id="ShareWindowFilesSharingLabelText"
+                        >
+                          Sharing:
+                        </label>
+                      </td>
+                      <td>
+                        <textarea
+                          rows="3"
+                          autocomplete="off"
+                          disabled="disabled"
+                          cols="56"
+                          class="box"
+                          id="txtFilesToShare"
+                          name="txtFilesToShare"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c2 notShareUsername directLink"
+                      config="directLink"
+                    >
+                      <td colspan="2">
+                        <input
+                          checked="checked"
+                          autocomplete="off"
+                          type="checkbox"
+                          class="box"
+                          id="direct_link"
+                          name="direct_link"
+                        />
+                        <label
+                          for="direct_link"
+                          id="ShareWindowDirectLinkLabelText"
+                        >
+                          Direct link to file?
+                        </label>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c2 enterpriseFeature shareMethodRow"
+                      config="shareMethod"
+                    >
+                      <td nowrap="nowrap">
+                        <label
+                          for="shareUsername"
+                          id="ShareWindowUsernameMethodLabelText"
+                          class="shareDivLabel"
+                        >
+                          Share Method:
+                        </label>
+                      </td>
+                      <td>
+                        <span
+                          class="shareInternalOption"
+                          config="shareMethodInternal"
+                        >
+                          <input
+                            type="radio"
+                            class="box"
+                            autocomplete="off"
+                            id="shareUsername"
+                            value="shareUsername"
+                            name="shareUsername"
+                          />
+                          <label
+                            for="shareUsername"
+                            id="ShareWindowShareToInternalUserLabelText"
+                          >
+                            Internal Share
+                          </label>
+                          &nbsp;
+                        </span>
+                        <span
+                          class="shareExternalOption"
+                          config="shareMethodExternal"
+                        >
+                          <input
+                            type="radio"
+                            checked
+                            autocomplete="off"
+                            class="box"
+                            id="externalUser"
+                            value="exterNalUser"
+                            name="shareUsername"
+                          />
+                          <label
+                            for="externalUser"
+                            id="ShareWindowShareToExternalUserLabelText"
+                          >
+                            External Share
+                          </label>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c2 enterpriseFeature isShareUsername"
+                      config="userNames"
+                    >
+                      <td style="width: 15%" valign="top">
+                        <label
+                          for="shareUsernames"
+                          id="ShareWindowUsernamesLabelText"
+                          class="shareDivLabel"
+                        >
+                          Usernames:
+                        </label>
+                      </td>
+                      <td>
+                        <div class="basicSelect">
+                          <input
+                            type="text"
+                            class="box"
+                            autocomplete="off"
+                            id="shareUsernames"
+                            name="shareUsernames"
+                          />
+                          <div>
+                            <div
+                              id="discourageEmailMessage"
+                              style="display: none"
+                            >
+                              <span
+                                id="ShareWindowUsernamesLabelEmailNotAllowedText"
+                              >
+                                Internal share does not accept email address,
+                                please use username
+                              </span>
+                            </div>
+                            <label
+                              for="shareUsernames"
+                              id="ShareWindowUsernamesLabelHelpText"
+                              style="margin-top: 15px"
+                            >
+                              (Separate multiple usernames with commas.)
+                            </label>
+                          </div>
+                        </div>
+                        <span class="clear"></span>
+                        <div class="multipleSelectOption" style="display: none">
+                          <table
+                            class="ui-widget-content ui-corner-all"
+                            style="
+                              width: 525px;
+                              background: inherit;
+                              padding: 5px 0px;
+                            "
+                          >
+                            <tr>
+                              <td style="padding: 0px 5px; vertical-align: top">
+                                <div
+                                  style="padding: 5px"
+                                  class="ui-widget-content ui-corner-all ui-priority-primary"
+                                >
+                                  <label
+                                    id="ShareWindowInternalLookupAvailableUsersLabelText"
+                                    >Available Users</label
+                                  >
+                                </div>
+                                <div style="margin: 5px 0px">
+                                  <label
+                                    for="filterAvailableUsers"
+                                    id="ShareWindowInternalLookupFilterLabelText"
+                                    >Filter:
+                                  </label>
+                                  <input
+                                    style="width: 140px"
+                                    type="text"
+                                    id="filterAvailableUsers"
+                                  />
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="clearAvlUsers"
+                                    >Clear</a
+                                  >
+                                </div>
+                                <div style="margin: 5px 0px">
+                                  <label
+                                    id="ShareWindowInternalLookupSelectLabelText"
+                                    >Select</label
+                                  >
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="selectAllAvailableUsers"
+                                    >all</a
+                                  >
+                                  |
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="selectNoneAvailableUsers"
+                                    >none</a
+                                  >
+                                  <span style="float: right">
+                                    <a
+                                      href="javascript:void(0);"
+                                      id="addSelectedUsers"
+                                      >Add Selected &raquo;</a
+                                    >
+                                  </span>
+                                  <div style="clear: both"></div>
+                                </div>
+                                <div class="share-internal-select">
+                                  <select
+                                    id="internalUsersAll"
+                                    multiple="multiple"
+                                    style="height: 150px; min-width: 220px"
+                                  ></select>
+                                </div>
+                              </td>
+                              <td
+                                class="ui-widget-content leftborder"
+                                style="
+                                  padding: 0px 5px 0px 10px;
+                                  vertical-align: top;
+                                  background: inherit;
+                                "
+                              >
+                                <div
+                                  style="padding: 5px"
+                                  class="ui-widget-content ui-corner-all ui-priority-primary"
+                                >
+                                  <label
+                                    id="ShareWindowInternalLookupSelectedUsersLabelText"
+                                    >Selected Users</label
+                                  >
+                                </div>
+                                <div style="margin: 5px 0px">
+                                  <label
+                                    for="filterAddedUsers"
+                                    id="ShareWindowInternalLookupFilterLabelText2"
+                                    >Filter:
+                                  </label>
+                                  <input
+                                    style="width: 140px"
+                                    type="text"
+                                    class="ignoreBind inputBox excludeXML"
+                                    id="filterAddedUsers"
+                                  />
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="clearUsdFilter"
+                                    >Clear</a
+                                  >
+                                </div>
+                                <div style="margin: 5px 0px">
+                                  <a
+                                    href="javascript:void(0);"
+                                    id="removeSelectedUsers"
+                                    >&laquo; Remove Selected</a
+                                  >
+                                  <span style="float: right">
+                                    <span
+                                      id="ShareWindowInternalLookupSelectLabelText2"
+                                      >Select</span
+                                    >
+                                    <a
+                                      href="javascript:void(0);"
+                                      id="selectAllSelectedUsers"
+                                      >all</a
+                                    >
+                                    |
+                                    <a
+                                      href="javascript:void(0);"
+                                      id="selectNoneSelectedUsers"
+                                      >none</a
+                                    >
+                                  </span>
+                                  <div style="clear: both"></div>
+                                </div>
+                                <div class="share-internal-select">
+                                  <select
+                                    id="internalUsersSelected"
+                                    multiple="multiple"
+                                    style="height: 150px; min-width: 220px"
+                                  ></select>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                        <span class="clear"></span>
+                        <div
+                          style="margin-top: 5px; clear: both"
+                          id="shareMultipleSelectionQuickPanel"
+                        >
+                          <input
+                            type="checkbox"
+                            autocomplete="off"
+                            class="box"
+                            id="shareMultipleSelectionQuick"
+                            name="shareMultipleSelectionQuick"
+                          />
+                          <label
+                            for="shareMultipleSelectionQuick"
+                            id="ShareWindowInternalUserQuickSelectLabelText"
+                          >
+                            Select multiple users quickly
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c2 enterpriseFeature isShareUsername"
+                      config="Permissions"
+                    >
+                      <td style="width: 15%" valign="top" class="permissions">
+                        <label
+                          for="shareUsernamePermissions"
+                          id="ShareWindowUsernamePermissionsLabelText"
+                          class="shareDivLabel"
+                        >
+                          Permissions:
+                        </label>
+                      </td>
+                      <td class="permissions">
+                        <label config="downloadPermission">
+                          <input
+                            type="checkbox"
+                            autocomplete="off"
+                            class="box"
+                            id="shareUsernamePermissionsDownload"
+                            value="shareUsernamePermissions"
+                            name="shareUsernamePermissions"
+                          />
+                          <label
+                            for="shareUsernamePermissionsDownload"
+                            id="ShareWindowDownloadLabelText"
+                          >
+                            Download
+                          </label>
+                        </label>
+                        <label config="uploadPermission">
+                          <input
+                            type="checkbox"
+                            autocomplete="off"
+                            class="box"
+                            id="shareUsernamePermissionsUpload"
+                            value="shareUsernamePermissions"
+                            name="shareUsernamePermissions"
+                          />
+                          <label
+                            for="shareUsernamePermissionsUpload"
+                            id="ShareWindowUploadLabelText"
+                          >
+                            Upload
+                          </label>
+                        </label>
+                        <label config="deletePermission">
+                          <input
+                            type="checkbox"
+                            autocomplete="off"
+                            class="box"
+                            id="shareUsernamePermissionsDelete"
+                            value="shareUsernamePermissions"
+                            name="shareUsernamePermissions"
+                          />
+                          <label
+                            for="shareUsernamePermissionsDelete"
+                            id="ShareWindowDeleteLabelText"
+                          >
+                            Delete
+                          </label>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr
+                      id="shareTypeRow"
+                      class="c2 notShareUsername"
+                      config="shareType"
+                    >
+                      <td style="width: 15%">
+                        <label
+                          for="emailFrom"
+                          id="ShareWindowShareTypeLabelText"
+                          class="shareDivLabel"
+                        >
+                          Share Type:
+                        </label>
+                      </td>
+                      <td class="publishType">
+                        <label for="chkCopy" config="copyType">
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            class="box"
+                            id="chkCopy"
+                            value="copy"
+                            name="publishType"
+                          />
+                          <span id="ShareWindowShareTypeLabelCopyText">
+                            Copy</span
+                          >
+                        </label>
+                        <label for="chkReference" config="referenceType">
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            checked="checked"
+                            class="box"
+                            id="chkReference"
+                            value="reference"
+                            name="publishType"
+                          />
+                          <span id="ShareWindowShareTypeLabelReferenceText">
+                            Reference
+                          </span>
+                        </label>
+                        <label class="advanced" for="chkMove" config="moveType">
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            class="box"
+                            id="chkMove"
+                            value="move"
+                            name="publishType"
+                          />
+                          <span id="ShareWindowShareTypeLabelMoveText">
+                            Move</span
+                          >
+                        </label>
+                      </td>
+                    </tr>
+                    <tr class="c2 sendEmail" config="sendEmail">
+                      <td>
+                        <label
+                          for="sendEmail"
+                          id="ShareWindowSendEmailLabelText"
+                          class="shareDivLabel"
+                        >
+                          Send Email:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          checked="checked"
+                          autocomplete="off"
+                          type="checkbox"
+                          class="box"
+                          id="sendEmail"
+                          value="sendEmail"
+                          name="sendEmail"
+                        />
+                      </td>
+                    </tr>
+                    <tr id="shareExpirationRow" class="c2" config="expiresIn">
+                      <td>
+                        <label
+                          for="txtdays"
+                          id="ShareWindowExpiresLabelText"
+                          class="shareDivLabel"
+                        >
+                          Expires:
+                        </label>
+                      </td>
+                      <td>
+                        <span id="shareDaysHolder"
+                          ><input
+                            type="text"
+                            class="box"
+                            id="txtdays"
+                            value="29"
+                            name="txtdays"
+                            style="width: 35px"
+                          />
+                          <label
+                            for="txtdays"
+                            id="ShareWindowExpiresInDaysLabelText"
+                          >
+                            Days
+                          </label>
+                        </span>
+                        <span id="shareDateHolder"
+                          ><input
+                            type="text"
+                            autocomplete="off"
+                            class="box required"
+                            id="txtDate"
+                            name="txtDate"
+                            style="width: 125px"
+                        /></span>
+                        <span id="shareTimeHolder"
+                          ><input
+                            type="text"
+                            autocomplete="off"
+                            class="box advanced"
+                            alt="time"
+                            id="txtTime"
+                            value="23:59"
+                            name="txtTime"
+                            style="margin-left: 20px; width: 45px"
+                        /></span>
+                        <div class="errormsg" style="color: red; display: none">
+                          Expiration days can't be more than {days} days
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      id="shareMaxUsesRow"
+                      class="c2 notShareUsername"
+                      config="maxUses"
+                    >
+                      <td colspan="2">
+                        <label for="logins" id="ShareWindowMaxUsesLabelText">
+                          Maximum number of uses:
+                        </label>
+
+                        <select id="logins">
+                          <option
+                            value="-1"
+                            selected
+                            id="ShareWindowMaxUsesUnlimitedText"
+                          >
+                            Unlimited
+                          </option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c1 notShareUsername emailFrom"
+                      config="shareFrom"
+                    >
+                      <td style="width: 15%">
+                        <label
+                          for="emailFrom"
+                          id="ShareWindowFromLabelText"
+                          class="shareDivLabel"
+                        >
+                          From:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="box email required"
+                          id="emailFrom"
+                          name="emailFrom"
+                        />
+                      </td>
+                    </tr>
+                    <tr class="c1 notShareUsername emailTo" config="shareTo">
+                      <td>
+                        <label
+                          for="emailTo"
+                          id="ShareWindowToLabelText"
+                          class="shareDivLabel"
+                        >
+                          To:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="box email required"
+                          id="emailTo"
+                          name="emailTo"
+                        />
+                      </td>
+                    </tr>
+                    <tr class="c1 notShareUsername emailCc" config="shareCC">
+                      <td>
+                        <label
+                          for="emailCc"
+                          id="ShareWindowCCLabelText"
+                          class="shareDivLabel"
+                        >
+                          CC:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="box email"
+                          id="emailCc"
+                          name="emailCc"
+                        />
+                      </td>
+                    </tr>
+                    <tr class="c1 notShareUsername emailBcc" config="shareBCC">
+                      <td>
+                        <label
+                          for="emailBcc"
+                          id="ShareWindowBCCLabelText"
+                          class="shareDivLabel"
+                        >
+                          BCC:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="box email"
+                          id="emailBcc"
+                          name="emailBcc"
+                        />
+                      </td>
+                    </tr>
+                    <tr
+                      class="c1 notShareUsername emailReplyTo"
+                      config="shareReplyTo"
+                    >
+                      <td>
+                        <label
+                          for="emailReplyTo"
+                          id="ShareWindowReplyToLabelText"
+                          class="shareDivLabel"
+                        >
+                          Reply To:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="box email"
+                          id="emailReplyTo"
+                          name="emailReplyTo"
+                        />
+                      </td>
+                    </tr>
+                    <tr class="c1 emailSubject" config="shareSubject">
+                      <td>
+                        <label
+                          for="emailSubject"
+                          id="ShareWindowSubjectLabelText"
+                          class="shareDivLabel"
+                        >
+                          Subject:
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          value="Sharing: A new file is being shared with you."
+                          class="box required"
+                          id="emailSubject"
+                          name="emailSubject"
+                        />
+                      </td>
+                    </tr>
+                    <tr class="c1 emailBody" config="shareBody">
+                      <td valign="top">
+                        <label
+                          for="emailBody"
+                          id="ShareWindowBodyLabelText"
+                          class="shareDivLabel"
+                        >
+                          Body:
+                        </label>
+                      </td>
+                      <td>
+                        <div id="emailBodyTemplatePanel">
+                          <select
+                            name="emailBodyTemplate"
+                            id="emailBodyTemplate"
+                          ></select>
+                        </div>
+                        <textarea
+                          style="width: 500px; height: 200px"
+                          class="box required"
+                          id="emailBody"
+                          name="emailBody"
+                        >
+A user would like to share a file with you.  This link will expire on {date} at {time}
+
+{web_link}
+
+
+
+{files}</textarea
+                        >
+                      </td>
+                    </tr>
+                    <tr class="c1 share_comments" config="shareComments">
+                      <td valign="top">
+                        <label
+                          for="share_comments"
+                          id="ShareWindowCommentsLabelText"
+                          class="shareDivLabel"
+                        >
+                          Comments:
+                        </label>
+                      </td>
+                      <td>
+                        <textarea
+                          style="width: 470px; height: 40px"
+                          class="box"
+                          id="share_comments"
+                          name="share_comments"
+                        ></textarea>
+                      </td>
+                    </tr>
+                    <tr class="c1 share_keywords" config="shareKeywords">
+                      <td valign="top">
+                        <label
+                          for="share_keywords"
+                          id="ShareWindowKeywordsLabelText"
+                          class="shareDivLabel"
+                        >
+                          Keywords:
+                        </label>
+                      </td>
+                      <td>
+                        <textarea
+                          style="width: 470px; height: 40px"
+                          class="box"
+                          id="share_keywords"
+                          name="share_keywords"
+                        ></textarea>
+                      </td>
+                    </tr>
+
+                    <tr class="c2 notShareUsername">
+                      <td colspan="2">
+                        <span
+                          style="
+                            float: left;
+                            display: inline-block;
+                            margin-left: 15px;
+                          "
+                          id="shareAdvancedHolder"
+                          config="shareAdvanced"
+                        >
+                          <input
+                            type="checkbox"
+                            autocomplete="off"
+                            class="box"
+                            id="advanced"
+                            value="advanced"
+                            name="advanced"
+                          />
+                          <label
+                            for="advanced"
+                            id="ShareWindowAdvancedLabelText"
+                            >Advanced</label
+                          >
+                        </span>
+                        <span
+                          style="
+                            float: left;
+                            display: inline-block;
+                            margin-left: 15px;
+                          "
+                          id="shareAttachHolder"
+                          config="shareAttachThumbnail"
+                        >
+                          <input
+                            checked="checked"
+                            autocomplete="off"
+                            type="checkbox"
+                            class="box"
+                            id="attach"
+                            value="attach"
+                            name="attach"
+                          />
+                          <label
+                            for="attach"
+                            id="ShareWindowAttachThumbsLabelText"
+                            >Attach Thumbnail</label
+                          >
+                        </span>
+                        <span
+                          style="
+                            float: left;
+                            display: inline-block;
+                            margin-left: 15px;
+                          "
+                          id="shareAttachFileHolder"
+                          config="shareAttachFiles"
+                        >
+                          <input
+                            autocomplete="off"
+                            type="checkbox"
+                            class="box"
+                            id="attach_real"
+                            value="attach_real"
+                            name="attach_real"
+                          />
+                          <label
+                            for="attach_real"
+                            id="ShareWindowAttachFileLabelText"
+                            >Attach Files</label
+                          >
+                        </span>
+                        <span
+                          style="
+                            float: left;
+                            display: inline-block;
+                            margin-left: 15px;
+                          "
+                          class="advanced"
+                          id="shareFullAccessHolder"
+                          config="shareFullAccess"
+                        >
+                          <input
+                            type="checkbox"
+                            autocomplete="off"
+                            class="box"
+                            id="fullaccess"
+                            value="attach"
+                            name="fullaccess"
+                          />
+                          <label
+                            for="fullaccess"
+                            id="ShareWindowAccessLabelText"
+                          >
+                            Full Access
+                          </label>
+                          <span id="fullaccessPrivs"></span>
+                        </span>
+                        <div style="clear: both"></div>
+                        <span
+                          style="display: none; margin-left: 15px"
+                          id="hideDownloadButtonShare"
+                          config="shareHideDownloadButton"
+                        >
+                          <input
+                            autocomplete="off"
+                            type="checkbox"
+                            class="box"
+                            id="hide_download"
+                            value="hide_download"
+                            name="hide_download"
+                          />
+                          <label
+                            for="hide_download"
+                            id="ShareWindowHideDownloadLabelText"
+                            >Hide download button</label
+                          >
+                        </span>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c2 fullaccess-privs"
+                      style="display: none"
+                      config="sharePermissions"
+                    >
+                      <td valign="top" class="shareFullPrivs">
+                        <label
+                          id="ShareWindowPermissionsLabelText"
+                          class="shareDivLabel"
+                        >
+                          Permissions:
+                        </label>
+                      </td>
+                      <td class="shareFullPrivs">
+                        <span id="privsOptions">
+                          <span config="sharePermissionDownload">
+                            <input type="checkbox" id="setup_read" /><label
+                              for="setup_read"
+                              >Download</label
+                            >
+                          </span>
+                          <span config="sharePermissionUpload">
+                            <input type="checkbox" id="setup_write" /><label
+                              for="setup_write"
+                              >Upload</label
+                            >
+                          </span>
+                          <span config="sharePermissionView">
+                            <input type="checkbox" id="setup_view" /><label
+                              for="setup_view"
+                              >View</label
+                            >
+                          </span>
+                          <span config="sharePermissionSlideshow">
+                            <input type="checkbox" id="setup_slideshow" /><label
+                              for="setup_slideshow"
+                              >Slideshow</label
+                            >
+                          </span>
+                          <span config="sharePermissionDelete">
+                            <input type="checkbox" id="setup_delete" /><label
+                              for="setup_delete"
+                              >Delete</label
+                            >
+                          </span>
+                          <span config="sharePermissionDeleteFolder">
+                            <input type="checkbox" id="setup_deletedir" /><label
+                              for="setup_deletedir"
+                              >Delete Folder</label
+                            >
+                          </span>
+                          <span config="sharePermissionCreateFolder">
+                            <input type="checkbox" id="setup_makedir" /><label
+                              for="setup_makedir"
+                              >Create Folder</label
+                            >
+                          </span>
+                          <span config="sharePermissionRename">
+                            <input type="checkbox" id="setup_rename" /><label
+                              for="setup_rename"
+                              >Rename</label
+                            >
+                          </span>
+                          <span config="sharePermissionResumeTransfers">
+                            <input type="checkbox" id="setup_resume" /><label
+                              for="setup_resume"
+                              >Resume Transfers</label
+                            >
+                          </span>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr
+                      id="shareAltTempAcc"
+                      class="c1 share_alternate_tempaccount"
+                      style="display: none"
+                      config="shareAlternateTempAccount"
+                    >
+                      <td valign="top" colspan="2">
+                        <label
+                          for="share_alt_tempaccount"
+                          id="ShareWindowAlternateTempAccountLabelText"
+                          class="shareDivLabel"
+                        >
+                          Alternate TempAccount:
+                        </label>
+                        <input
+                          id="share_alt_tempaccount"
+                          name="share_alt_tempaccount"
+                          type="text"
+                        />
+                        <div class="ui-corner-all warning">
+                          <span
+                            style="float: left; margin-right: 0.3em"
+                            class="ui-icon ui-icon-info"
+                          ></span>
+                          Use this field to set alternate TempAccount while
+                          sharing, 'TempAccount_' will be added as a prefix to
+                          the name used here.
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      class="c2 advanced notShareUsername"
+                      config="shareUserPassConfig"
+                    >
+                      <td valign="top" colspan="2" class="shareUserGenerationPanel">
+                        <div class="shareUserPassGeneration">
+                          <div class="popupHeader shareDivLabel">
+                            <label id="ShareWindowUserPassLabelText">
+                              Username / Password:
+                            </label>
+                          </div>
+                          <div style="padding: 10px">
+                            <div>
+                              <label>
+                                <input
+                                  name="ShareGeneratePass"
+                                  type="radio"
+                                  id="ShareGeneratePassAuto"
+                                  value="true"
+                                />
+                                <span
+                                  class="ShareWindowByClassUserPassAutoLabelText"
+                                  >Auto</span
+                                >
+                              </label>
+                              &nbsp;&nbsp;
+                              <label>
+                                <input
+                                  cheked
+                                  name="ShareGeneratePass"
+                                  type="radio"
+                                  id="ShareGeneratePass"
+                                  value="true"
+                                />
+                                <span
+                                  class="ShareWindowByClassUserPassGenerateLabelText"
+                                  >Generate</span
+                                >
+                              </label>
+                            </div>
+                            <div class="generateUP" style="margin: 7px 0px">
+                              <input
+                                type="text"
+                                style="width: 120px"
+                                autocomplete="off"
+                                id="share_generate_user"
+                                placeholder="User Name"
+                              />
+                              <input
+                                type="text"
+                                style="width: 120px"
+                                autocomplete="off"
+                                id="share_generate_pass"
+                                placeholder="Password"
+                              />
+                              <a
+                                href="javascript:void(0);"
+                                id="shareGenerateUserPass"
+                                class="ShareWindowByClassUserPassGenerateLabelText"
+                                >Generate</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" align="right">
+                        <p class="submit">
+                          <input
+                            style="color: black"
+                            type="submit"
+                            value="Send"
+                            class="ShareWindowSendButtonText"
+                            id="btnSubmitShareAction"
+                          />
+                          <input
+                            style="color: Red"
+                            class="ShareWindowCancelButtonText"
+                            id="btnCancelShare"
+                            type="button"
+                            value="Cancel"
+                            onclick="$.unblockUI(); return false;"
+                          />
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </fieldset>
+              </form>
+            </div>
+            <div id="userOptions" popupWidth="750">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+                style="margin-top: -20px"
+              />
+              <div class="tabs" style="margin-top: 10px">
+                <ul>
+                  <li>
+                    <a href="#preferences"
+                      ><span class="ui-icon ui-icon-gear"></span>
+                      <span id="UserOptionsWindowHeaderText"
+                        >Preferences</span
+                      ></a
+                    >
+                  </li>
+                  <li class="changePasswordPanel">
+                    <a href="#changePassword"
+                      ><span class="ui-icon ui-icon-key"></span>
+                      <span id="UserOptionsWindowChangePasswordHeaderText"
+                        >Change Password</span
+                      ></a
+                    >
+                  </li>
+                  <li class="twofactorAuthPanel">
+                    <a href="#twofactorAuth"
+                      ><span class="ui-icon ui-icon-locked"></span>
+                      <span id="UserOptionsWindow2faHeaderText"
+                        >Setup 2 factor Google Authentication</span
+                      ></a
+                    >
+                  </li>
+                  <li class="changePhonePanel">
+                    <a href="#changePhone"
+                      ><span class="ui-icon ui-icon-contact"></span>
+                      <span id="UserOptionsWindowChangePhoneHeaderText"
+                        >Phone No.</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+                <div id="preferences">
+                  <div class="buttonPanel">
+                    <span
+                      id="userOptionHideDotItems"
+                      class="userOptionItemsStartingWithDot"
+                    >
+                      <input
+                        type="checkbox"
+                        id="hideItemsStartingWithDot"
+                        name="hideItemsStartingWithDot"
+                      />
+                      <label
+                        for="hideItemsStartingWithDot"
+                        id="UserOptionsWindowHideItemsStartWithDotLabelText"
+                      >
+                        Hide '.' Items</label
+                      >
+                      <br />
+                    </span>
+                    <span id="userOptionHideCheckBoxColumn">
+                      <input
+                        type="checkbox"
+                        id="hideCheckBoxColumn"
+                        name="hideCheckBoxColumn"
+                      />
+                      <label
+                        for="hideCheckBoxColumn"
+                        id="UserOptionsWindowHideCheckboxLabelText"
+                      >
+                        Hide Checkbox Column</label
+                      >
+                      <br />
+                    </span>
+                    <span id="userOptionHideFilterSection">
+                      <input
+                        type="checkbox"
+                        id="hideFilter"
+                        name="hideFilter"
+                      />
+                      <label
+                        for="hideFilter"
+                        id="UserOptionsWindowHideFilterLabelText"
+                      >
+                        Hide Filter Section</label
+                      >
+                      <br />
+                    </span>
+                    <span id="userOptionAutoStartUpload">
+                      <input
+                        type="checkbox"
+                        id="autoUploadFlag"
+                        name="autoUploadFlag"
+                      />
+                      <label
+                        for="autoUploadFlag"
+                        id="UserOptionsWindowAutostartUploadLabelText"
+                        >When choosing file to upload, auto start upload.</label
+                      >
+                      <br />
+                    </span>
+                    <span id="userOptionAutoLoadJavaApplet">
+                      <input
+                        type="checkbox"
+                        id="autoAppletFlag"
+                        name="autoAppletFlag"
+                      />
+                      <label
+                        for="autoAppletFlag"
+                        id="UserOptionsWindowLoadJavaAppletLabelText"
+                        >When loading the interface, load the Java
+                        applet.</label
+                      >
+                      <br />
+                    </span>
+                    <span id="userOptionDisableWaveform">
+                      <input
+                        type="checkbox"
+                        id="disableWaveform"
+                        name="disableWaveform"
+                      />
+                      <label
+                        for="disableWaveform"
+                        id="UserOptionsWindowDisableWaveformLabelText"
+                      >
+                        Disable inline audio playback</label
+                      >
+                      <br />
+                    </span>
+                  </div>
+                  <div
+                    style="
+                      text-align: right;
+                      margin-top: 10px;
+                      padding-top: 10px;
+                      border-top: 1px solid #eee;
+                    "
+                  >
+                    <!-- <input id="btnSaveUserOptions" onclick="saveUserOptions(true);" class="UserOptionsWindowCancelButtonText" value="Cancel" type="button" /> -->
+                    <input
+                      id="btnChangePassword"
+                      onclick="saveUserOptions();"
+                      class="UserOptionsWindowUpdateButtonText"
+                      value="Save"
+                      type="button"
+                    />
+                  </div>
+                </div>
+                <div id="changePassword" class="changePasswordPanel">
+                  <div class="buttonPanel">
+                    <div id="userOptionChangePassword">
+                      <div class="buttonPanel">
+                        <form action="" onsubmit="return false;">
+                          <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+                          <input style="display: none" autocomplete="off" type="text" name="fakeusernameremembered" />
+                          <input style="display: none" autocomplete="off" type="password" name="fakepasswordremembered" />
+                          <input autocomplete="false" name="hidden" type="text" style="display:none;">
+
+                          <label
+                            style="width: 120px; display: inline-block"
+                            for="current_password"
+                            id="UserOptionsWindowChangePasswordCurPassLabelText"
+                            >Current Password: </label
+                          ><input id="current_password" style="width:200px;" autocomplete="off" type="password" />
+                          <br />
+                          <br />
+                          <label
+                            style="width: 120px; display: inline-block"
+                            for="new_password1"
+                            id="UserOptionsWindowChangePasswordNewPassLabelText"
+                            >New Password: </label
+                          ><input id="new_password1" style="width:200px;" autocomplete="off" type="password" />
+                          <br />
+                          <br />
+                          <label
+                            style="width: 120px; display: inline-block"
+                            for="new_password2"
+                            id="UserOptionsWindowChangePasswordConfirmPassLabelText"
+                            >Confirm Password: </label
+                          ><input id="new_password2" style="width:200px;" autocomplete="off" type="password" />
+                          <div
+                            class="ui-widget-content"
+                            style="
+                              height: 1px;
+                              border-bottom: 0px;
+                              border-left: 0px;
+                              border-right: 0px;
+                              margin-top: 15px;
+                            "
+                          ></div>
+                        </form>
+                        <div
+                          id="passwordGeneratePanel"
+                          style="text-align: right; padding-top: 10px"
+                        >
+                          <input id="generated_password" autocomplete="off" style="width:200px;" type="text" />
+                          <a
+                            href="javascript:void(0);"
+                            class="usePassword"
+                            id="UserOptionsWindowChangePasswordGenerateRandomUseItLinkText"
+                            >Use this</a
+                          >&nbsp;
+                          <a
+                            href="javascript:void(0);"
+                            class="cancelPassword"
+                            id="UserOptionsWindowChangePasswordGenerateRandomCancelLinkText"
+                            >Cancel</a
+                          >
+                          <div
+                            class="ui-widget-content"
+                            style="
+                              height: 1px;
+                              border-bottom: 0px;
+                              border-left: 0px;
+                              border-right: 0px;
+                              margin-top: 15px;
+                            "
+                          ></div>
+                        </div>
+                        <div style="text-align: right; padding-top: 10px">
+                          <input
+                            id="btnGeneratePassword"
+                            class="UserOptionsWindowChangePasswordGenerateRandomButtonText"
+                            value="Generate random password"
+                            type="button"
+                          />
+                          <input
+                            id="btnChangePassword"
+                            class="UserOptionsWindowChangePasswordButtonText"
+                            onclick="changePassword();"
+                            value="Change Password"
+                            type="button"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="changePhone" class="changePhonePanel">
+                  <div class="buttonPanel">
+                    <div id="userOptionChangePhone">
+                      <div class="buttonPanel">
+                        <form action="" onsubmit="return false;">
+                          <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+                          <input style="display: none" type="text" name="fakeusernameremembered" />
+                          <input style="display: none" type="password" name="fakepasswordremembered" />
+                          <input autocomplete="false" name="hidden" type="text" style="display:none;">
+
+                          <label
+                            style="width: 80px; display: inline-block"
+                            for="new_phone"
+                            id="UserOptionsWindowChangePhoneLabelText"
+                            >Phone No.: </label
+                          ><input id="new_phone" autocomplete="off" style="width:200px;" autocomplete="off" type="text" />
+                          <div
+                            class="ui-widget-content"
+                            style="
+                              height: 1px;
+                              border-bottom: 0px;
+                              border-left: 0px;
+                              border-right: 0px;
+                              margin-top: 15px;
+                            "
+                          ></div>
+                        </form>
+                        <div style="text-align: right; padding-top: 10px">
+                          <input
+                            id="btnChangePhone"
+                            class="UserOptionsWindowUpdateButtonText"
+                            onclick="changePhone();"
+                            value="Save"
+                            type="button"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="twofactorAuth" class="twofactorAuthPanel">
+                  <div class="forced2fa" style="margin:10px;display: none;">
+                    <span class="UserOptionsWindowSetup2FAInstructionsText">Please setup 2 factor auth to continue</span> <a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Google%2520Authenticator#section-Google+Authenticator-ClientTokenDeviceConfiguration" target="_blank">Learn more</a>
+                  </div>
+                  <div class="UserOptions2FAInstructions" style="margin:10px;text-align:left;padding: 10px;line-height: 25px;font-size: 17px;">
+                    - Download & install Google Authenticator on smarphone
+                    <br>
+                    - Click on Setup button below, it will generate a QR
+                    <br>
+                    - Start Google Authenticator and use "Scan a QR code" function to register
+                    <br>
+                    <a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Google%2520Authenticator#section-Google+Authenticator-ClientTokenDeviceConfiguration" target="_blank">Learn more</a>
+                  </div>
+                  <div class="setup-button">
+                    <button
+                      id="btnSetup2FA"
+                      class="UserOptionsWindowSetup2FAButtonText"
+                    >
+                      Ready to Scan
+                    </button>
+                  </div>
+                  <div id="qrCodePanel"></div>
+                  <div class="action-button">
+                    <div class="count-down" style="margin-bottom: 15px;font-size: 17px;">
+                      <span class="UserOptions2FAQRCodeRefreshLabel">
+                        The QR Code will expire in
+                      </span>
+                      <span class="count-down-value"></span> seconds Or <a
+                      id="btnSetup2FAGenerateNew"
+                      class="UserOptionsWindowGenerate2FAButtonText"
+                      href="#"
+                      >Click here to Generate a new one</a
+                    >
+                    </div>
+                    <a
+                      id="btnSetup2FACancel"
+                      class="UserOptionsWindowCancel2FAButtonText"
+                      href="#"
+                      >Cancel</a
+                    >
+
+                    <button
+                      id="btnSetup2FAConfirm"
+                      class="UserOptionsWindowConfirm2FAButtonText"
+                    >
+                      Confirm
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="delayedUpload">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2 class="popupHeader" id="DelayedUploadHeaderText">
+                Setup delayed upload
+              </h2>
+              <div class="buttonPanel">
+                <div style="width: 100%">
+                  <div id="delayedUploadWarning">
+                    <span id="DelayedUploadAlreadyRunningWarningText">
+                      You already have set delayed upload, if you change minutes
+                      below, it will reset the timer
+                    </span>
+                  </div>
+                  <table style="width: 100%">
+                    <tbody>
+                      <tr>
+                        <td style="width: 10px">
+                          <input
+                            type="radio"
+                            name="delayUploadType"
+                            id="delayUploadTypeMinute"
+                            checked="checked"
+                          />
+                        </td>
+                        <td>
+                          <span id="DelayedUploadStartAfterLabelText">
+                            Start file uploads after
+                          </span>
+                          <input
+                            id="txtUploadTimeout"
+                            min="1"
+                            step="1"
+                            pattern="\d+"
+                            value="15"
+                            type="number"
+                            style="width: 50px"
+                          />
+                          <span id="DelayedUploadMinutesLabelText">
+                            Minutes</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <div style="height: 5px"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            type="radio"
+                            name="delayUploadType"
+                            id="delayUploadTypeDate"
+                          />
+                        </td>
+                        <td>
+                          <span id="DelayedUploadStartSelectTimeLabelText">
+                            Select specific time
+                          </span>
+                          <input
+                            type="text"
+                            id="delayedUploadTime"
+                            value=""
+                            style="width: 60px"
+                            class="futureTimeField"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br />
+                <label for="chkOverwriteFilesForDelayedupload">
+                  <input
+                    id="chkOverwriteFilesForDelayedupload"
+                    checked
+                    type="checkbox"
+                  />
+                  <span id="DelayedUploadOverwriteFilesText"
+                    >Ignore overwrite files confirmation</span
+                  >
+                </label>
+                <div style="text-align: right; margin-top: 10px">
+                  <input
+                    id="btnSubmitUploadDelay"
+                    onclick="setDelayedUpload();"
+                    value="OK"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="createFolder">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2 class="popupHeader" id="CreateFolderWindowHeaderText">
+                Create new folder.
+              </h2>
+              <div class="buttonPanel">
+                <div style="width: 100%">
+                  <input
+                    id="txtNewFolder"
+                    class="CreateFolderInputDefaultFolderName"
+                    value="New Folder"
+                    type="text"
+                    style="width: 99%"
+                  />
+                </div>
+                <br />
+                <br />
+                <label for="chkNavigateAfterMkdir">
+                  <input id="chkNavigateAfterMkdir" type="checkbox" />
+                  <span id="CreateFolderWindowNavigateToFolderCheckboxText"
+                    >Navigate to the folder after creation</span
+                  >
+                </label>
+                <div style="text-align: right; margin-top: 10px">
+                  <input
+                    class="CreateFolderButtonText"
+                    id="btnSubmitCreateNew"
+                    onclick="makedir();"
+                    value="Create"
+                    type="button"
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="copyDirectLinkDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2 class="popupHeader" id="CopyLinkWindowHeaderText">
+                Copy direct link.
+              </h2>
+              <div class="buttonPanel">
+                <hr />
+                <textarea
+                  style="width: 500px; max-width: 700px; max-height: 300px"
+                  id="txtDirectLink"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <div id="keywordsDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="KeywordsWindowHeaderText"
+              >
+                Keywords
+              </h2>
+              <div class="buttonPanel">
+                <hr />
+                <textarea
+                  style="width: 99%"
+                  id="txtKeywords"
+                  rows="6"
+                ></textarea>
+                <div style="clear: both; margin: 10px"></div>
+                <a class="button cancel" href="javascript:void(0);"
+                  ><span id="KeywordsWindowCancelLinkText">Cancel</span></a
+                >
+                <a class="button update" href="javascript:void(0);"
+                  ><span id="KeywordsWindowUpdateLinkText">Update</span></a
+                >
+              </div>
+            </div>
+            <div id="subscribeToEventsDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="SubscribeToEventsWindowHeaderText"
+              >
+                Subscribe To Events
+              </h2>
+              <div class="buttonPanel">
+                <div style="margin-left:20px;" class="eventOptions">
+                    <span>
+                        <input type="checkbox" class="eventListAction" rel="(download)" id="evtCB_download" /><label for="evtCB_download">Downloads </label>
+                    </span>
+                    <span>
+                        <input type="checkbox" class="eventListAction" rel="(upload)" id="evtCB_upload" /><label for="evtCB_upload">Uploads </label>
+                    </span>
+                    <span>
+                        <input type="checkbox" class="eventListAction" rel="(delete)" id="evtCB_delete" /><label for="evtCB_delete">Deletes </label>
+                    </span>
+                    <span>
+                        <input type="checkbox" class="eventListAction" rel="(rename)" id="evtCB_rename" /><label for="evtCB_rename">Renames </label>
+                    </span>
+                    <span>
+                        <input type="checkbox" class="eventListAction" rel="(makedir)" id="evtCB_makedir" /><label for="evtCB_makedir">Creates Folder </label>
+                    </span>
+                </div>
+                <div style="clear: both; margin: 10px"></div>
+                <div class="footerbtn">
+                  <a class="button cancel" href="javascript:$.unblockUI();"
+                    ><span id="KeywordsWindowCancelLinkText">Cancel</span></a
+                  >
+                  <a class="button update" href="javascript:void(0);"
+                    ><span id="KeywordsWindowUpdateLinkText">Update</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div id="reportAProblemDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="ReportAProblemWindowHeaderText"
+              >
+                Report a problem
+              </h2>
+              <div class="buttonPanel">
+                <hr />
+                <textarea
+                  style="width: 99%"
+                  id="txtProblem"
+                  rows="6"
+                ></textarea>
+                <div style="clear: both; margin: 10px"></div>
+                <div style="text-align: right">
+                  <a class="button cancel" href="javascript:void(0);"
+                    ><span id="ReportAProblemWindowCancelLinkText"
+                      >Cancel</span
+                    ></a
+                  >
+                  &nbsp;
+                  <button class="button update">
+                    <span id="ReportAProblemWindowUpdateLinkText">Report</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="editTextDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="EditFileWindowHeaderText"
+              >
+                Edit File
+              </h2>
+              <div class="buttonPanel">
+                <hr />
+                <textarea
+                  style="
+                    width: 99%;
+                    height: calc(100vh - 200px);
+                    min-height: 100px;
+                  "
+                  id="txtFileContent"
+                ></textarea>
+                <div style="clear: both; margin: 10px"></div>
+                <a class="button cancel" href="javascript:void(0);"
+                  ><span id="KeywordsWindowCancelLinkText">Cancel</span></a
+                >
+                <a class="button update" href="javascript:void(0);"
+                  ><span id="KeywordsWindowUpdateLinkText">Update</span></a
+                >
+              </div>
+            </div>
+            <div id="iconChangeDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="ChangeIconWindowHeaderText"
+              >
+                Change icon
+              </h2>
+              <div class="buttonPanel">
+                <hr />
+                <div id="ChangeIconWindowInstructionsText">
+                  Choose a small image to set as icon for selected file.
+                </div>
+                <br />
+                <span id="ChangeIconWindowSelectedFilesLabelText"
+                  >Selected file:
+                </span>
+                <div id="changeIconWindowSelectedFiles"></div>
+                <br />
+                <form
+                  id="changeIconForm"
+                  name="changeIconForm"
+                  action="/WebInterface/function/"
+                  enctype="multipart/form-data"
+                  method="post"
+                  target="iframeUploadIcon"
+                >
+                  <input
+                    type="hidden"
+                    class="variable"
+                    name="uploadPath"
+                    id="uploadPath"
+                  />
+                  <input
+                    type="hidden"
+                    class="variable"
+                    name="changeIconItem"
+                    id="changeIconItem"
+                  />
+                  <input
+                    type="hidden"
+                    name="the_action"
+                    id="the_action"
+                    value="STOR"
+                  />
+                  <input
+                    type="hidden"
+                    name="the_action2"
+                    id="the_action2"
+                    value="changeIcon"
+                  />
+                  <input type="hidden" name="c2f" id="c2f" value="" />
+                  <input
+                    type="file"
+                    class="variable"
+                    name="changeIconFile"
+                    id="changeIconFile"
+                  />
+                </form>
+
+                <div style="clear: both; margin: 10px"></div>
+                <a class="button cancel" href="javascript:void(0);"
+                  ><span id="ChangeIconWindowCancelLinkText">Cancel</span></a
+                >
+                <a class="button update" href="javascript:void(0);"
+                  ><span id="ChangeIconWindowUpdateLinkText">Save</span></a
+                >
+              </div>
+            </div>
+            <iframe
+              name="iframeUploadIcon"
+              id="iframeUploadIcon"
+              src="javascript:false;"
+              width="1"
+              height="1"
+              style="left: -5000px; display: none"
+            ></iframe>
+            <div id="searchDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2 class="popupHeader" id="SearchWindowHeaderText">Search</h2>
+              <form method="post" id="searchForm" enctype="multipart/form-data">
+                <input
+                  value="search"
+                  id="command"
+                  name="command"
+                  type="hidden"
+                />
+                <table
+                  class="tbl"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                >
+                  <tr class="tblRow">
+                    <td colspan="3">
+                      <label for="keyword" id="SearchWindowKeywordsLabelText">
+                        Keywords:</label
+                      >
+                      <input
+                        style="width: 250px"
+                        id="keyword"
+                        name="keyword"
+                        type="text"
+                      />
+                      &nbsp;&nbsp;
+                      <label
+                        ><input
+                          type="radio"
+                          checked
+                          value="or"
+                          name="include_type"
+                          id="includeOr"
+                        />
+                        <span id="SearchWindowOptionTypeOrLabelText">
+                          or
+                        </span></label
+                      >
+                      <span class="spacer"></span>&nbsp;&nbsp;
+                      <label
+                        ><input
+                          type="radio"
+                          value="and"
+                          name="include_type"
+                          id="includeAnd"
+                        />
+                        <span id="SearchWindowOptionTypeAndLabelText"
+                          >and</span
+                        ></label
+                      >
+                      <span class="spacer"></span>
+                      <span
+                        style="
+                          display: inline-block;
+                          border-left: 1px solid #ccc;
+                          width: 1px;
+                          height: 20px;
+                          margin-top: -2px;
+                          margin-left: 5px;
+                          position: absolute;
+                        "
+                      ></span>
+                      <span class="spacer"></span>
+                      <span class="spacer"></span>
+                      <input
+                        style="margin-left: 15px"
+                        id="exact"
+                        name="exact"
+                        type="checkbox"
+                      />
+                      <label for="exact" id="SearchWindowExactLabelText">
+                        Exact?</label
+                      >
+                      <span class="spacer"></span>&nbsp;&nbsp;
+                      <input
+                        id="keywords_only"
+                        name="keywords_only"
+                        type="checkbox"
+                      />
+                      <label
+                        for="keywords_only"
+                        id="SearchWindowKeywordsOnlyLabelText"
+                      >
+                        Search keywords only.</label
+                      >
+                    </td>
+                  </tr>
+                  <tr class="tblAltRow">
+                    <td style="width: 80px">
+                      <input id="date1" name="date1" type="checkbox" />
+                      <label
+                        for="date1"
+                        class="SearchWindowByClassModifiedLabelText"
+                      >
+                        Modified
+                      </label>
+                    </td>
+                    <td style="width: 130px">
+                      <select id="date1_action" name="date1_action">
+                        <option value="after">After</option>
+                        <option value="before">Before</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        size="25"
+                        name="date1_value"
+                        id="date1_value"
+                        type="hidden"
+                      />
+                      <input
+                        size="25"
+                        name="date1_value_display"
+                        class="normalDateField"
+                        id="date1_value_display"
+                        type="text"
+                      />
+                      <span
+                        style="margin-left: 25px"
+                        class="SearchWindowByClassDateFormatLabelText"
+                        >(mm/dd/yyyy)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr class="tblRow">
+                    <td>
+                      <input id="date2" name="date2" type="checkbox" />
+                      <label
+                        for="date2"
+                        class="SearchWindowByClassModifiedLabelText"
+                      >
+                        Modified
+                      </label>
+                    </td>
+                    <td>
+                      <select id="date2_action" name="date2_action">
+                        <option value="after">After</option>
+                        <option value="before">Before</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        size="25"
+                        name="date2_value"
+                        id="date2_value"
+                        type="hidden"
+                      />
+                      <input
+                        size="25"
+                        name="date2_value_display"
+                        class="normalDateField"
+                        id="date2_value_display"
+                        type="text"
+                      />
+                      <span
+                        style="margin-left: 25px"
+                        class="SearchWindowByClassDateFormatLabelText"
+                        >(mm/dd/yyyy)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr class="tblAltRow">
+                    <td>
+                      <input id="size1" name="size1" type="checkbox" />
+                      <label
+                        for="size1"
+                        class="SearchWindowSizeLabelByClassText"
+                      >
+                        Size is
+                      </label>
+                    </td>
+                    <td>
+                      <select id="size1_action" name="size1_action">
+                        <option selected value="bigger than">
+                          Bigger than
+                        </option>
+                        <option value="smaller than">Smaller than</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        size="25"
+                        name="size1_value"
+                        id="size1_value"
+                        type="text"
+                      />
+                      <span class="SearchWindowSizeUnitLabelTextByClass"
+                        >(Kilobytes)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr class="tblRow">
+                    <td>
+                      <input id="size2" name="size2" type="checkbox" />
+                      <label
+                        for="size2"
+                        class="SearchWindowSizeLabelByClassText"
+                      >
+                        Size is
+                      </label>
+                    </td>
+                    <td>
+                      <select id="size2_action" name="size2_action">
+                        <option value="bigger than">Bigger than</option>
+                        <option selected value="smaller than">
+                          Smaller than
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        size="25"
+                        name="size2_value"
+                        id="size2_value"
+                        type="text"
+                      />
+                      <span class="SearchWindowSizeUnitLabelTextByClass"
+                        >(Kilobytes)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr class="tblAltRow">
+                    <td>
+                      <input id="type1" name="type1" type="checkbox" />
+                      <label for="type1" id="SearchWindowTypeLabelText">
+                        Type is a</label
+                      >
+                    </td>
+                    <td>
+                      <select id="type1_action" name="type1_action">
+                        <option value="file">file</option>
+                        <option value="folder">folder</option>
+                      </select>
+                    </td>
+                    <td></td>
+                  </tr>
+                </table>
+                <div style="text-align: right; padding-right: 10px">
+                  <button
+                    onclick="return startSearch();"
+                    class="SearchWindowSearchButtonText ok-btn"
+                    type="submit"
+                  >
+                    Start Search
+                  </button>
+                  <button
+                    onclick="$.unblockUI();"
+                    class="SearchWindowCancelButtonText cancel-btn"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div id="browserFileUpload" style="text-align: left">
+              <img
+                class="closeButton"
+                id="hideUploadPanel"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+              />
+              <h2
+                style="text-align: center; cursor: move"
+                id="BrowserUploaderWindowHeaderText"
+              >
+                Upload file
+              </h2>
+              <div class="customtabs">
+                <a
+                  id="uploadDetailsTabAnchor"
+                  href="javascript:void(0)"
+                  onclick="cancelDrop();"
+                  rel="divUploadPanel"
+                  ><span id="BrowserUploaderUploadDetailsTabHeaderText"
+                    >Upload Details</span
+                  ></a
+                >
+                <a href="javascript:void(0);" rel="divTab2"
+                  ><span id="BrowserUploaderUploadFilesTabHeaderText"
+                    >Upload Files</span
+                  ></a
+                >
+              </div>
+              <div class="tab_content">
+                <div id="divUploadPanel">
+                  <div id="customUploadForm">
+                    <a
+                      href="javascript:void(0);"
+                      class="spinner"
+                      style="
+                        color: White;
+                        display: block;
+                        height: 17px;
+                        padding-left: 18px;
+                      "
+                      >Loading form..</a
+                    >
+                  </div>
+                </div>
+                <div id="divTab2">
+                  <div id="nativeBrowseOptionsDiv">
+                    <div class="autoReplyOptionPanel">
+                      <span id="lblAutoUpload"> </span>
+                    </div>
+                    <div>
+                      <table>
+                        <tr>
+                          <td style="width: 20px">
+                            <span
+                              class="slowUploadIcon vtip"
+                              id="browserUploaderNativeUploadTipSetTitle"
+                              title="Upload files using browser uploader"
+                            ></span>
+                          </td>
+                          <td>
+                            <div id="uploadPanel"></div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                  <div id="advancedBrowseOptionsDiv">
+                    <table>
+                      <tr>
+                        <td style="width: 20px; vertical-align: top">
+                          <span
+                            class="fastUploadIcon vtip"
+                            id="browserUploaderAdvancedUploadTipSetTitle"
+                            title="Upload files using advanced uploader"
+                          ></span>
+                        </td>
+                        <td>
+                          <span
+                            id="advancedBrowseOptions"
+                            style="display: none"
+                          >
+                            <label for="chkUploadResume"
+                              ><input type="checkbox" id="chkUploadResume" />
+                              <span id="BrowserUploaderResumeCheckboxText"
+                                >Resume</span
+                              >
+                            </label>
+                          </span>
+                          <input
+                            type="button"
+                            class="advancedBrowse BrowserUploaderAdvancedBrowseButtonText"
+                            value="Advanced Browse.."
+                          />
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div
+                    id="javaAppletDivHolder"
+                    style="
+                      visibility: hidden;
+                      position: absolute;
+                      width: 99%;
+                      height: 135px;
+                    "
+                  >
+                    <br />
+                    <center><b>Drag and Drop Items Here</b></center>
+                  </div>
+                  <div id="FileUploadSummary">
+                    <ul class="filesSelected"></ul>
+                    <div style="clear: both" id="progressPanel"></div>
+                    <div style="clear: both" id="submitAction">
+                      <div
+                        class="attention"
+                        id="BrowserUploaderSelectedFileAttentionRequiredText"
+                        style="display: none"
+                      >
+                        Attention Required
+                      </div>
+                      <a
+                        href="javascript:void(0);"
+                        id="BrowserUploaderClearCompletedLinkText"
+                        class="clearCompleted"
+                        >Clear Completed</a
+                      >
+                      <a
+                        id="BrowserUploaderStartUploadingLinkText"
+                        href="javascript:void(0);"
+                        class="upload"
+                        style="float: right"
+                        >Start Uploading</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- upload options dialog by carlos -->
+            <div id="uploadOptionsDialog" style="text-align: left">
+              <br />
+              <form>
+                <div>
+                  <label
+                    for="uploadOptionsDialog_ow"
+                    style="font-weight: bold"
+                    id="advancedUploadOptionsItemAvailableLabel"
+                  >
+                    When an existing item is found:</label
+                  >
+                  <select
+                    name="uploadOptionsDialog_ow"
+                    id="uploadOptionsDialog_ow"
+                    class="text ui-widget-content ui-corner-all"
+                    style="padding: 4px; width: 100%; margin-top: 10px"
+                  >
+                    <option
+                      _loc="advancedUploadActionOverWriteSelectOptionText"
+                      value="OVERWRITE"
+                    >
+                      Overwrite
+                    </option>
+                    <option
+                      _loc="advancedUploadActionResumeSelectOptionText"
+                      value="RESUME"
+                    >
+                      Resume
+                    </option>
+                    <option
+                      _loc="advancedUploadActionAskSelectOptionText"
+                      value="ASK"
+                    >
+                      Ask
+                    </option>
+                  </select>
+                  <br /><br />
+                </div>
+                <div class="compressionOptions">
+                  <label
+                    for="uploadOptionsDialog_co"
+                    style="font-weight: bold"
+                    id="advancedUploadOptionsUseCompressionLabel"
+                    >Use compression:</label
+                  >
+                  <select
+                    name="uploadOptionsDialog_co"
+                    id="uploadOptionsDialog_co"
+                    class="text ui-widget-content ui-corner-all"
+                    style="padding: 4px; width: 100%; margin-top: 10px"
+                  >
+                    <option
+                      _loc="advancedUploadActionCompressionYesSelectOptionText"
+                      value="false"
+                    >
+                      Yes
+                    </option>
+                    <option
+                      _loc="advancedUploadActionCompressionNoSelectOptionText"
+                      value="true"
+                      selected="selected"
+                    >
+                      No
+                    </option>
+                  </select>
+                </div>
+              </form>
+              <br />
+            </div>
+            <div id="askDialog" style="text-align: left">
+              <br /><input
+                type="hidden"
+                name="ask_response_uid"
+                id="ask_response_uid"
+                value=""
+              />
+              <form>
+                <div id="ask_info"></div>
+                <label
+                  for="ask_response"
+                  style="
+                    font-weight: bold;
+                    float: left;
+                    width: 20%;
+                    margin-top: 4px;
+                  "
+                  class="advancedUploadOptionsAskActionLabelByClass"
+                  >Action:</label
+                >
+                <div
+                  style="
+                    font-weight: bold;
+                    float: left;
+                    width: 80%;
+                    margin-bottom: 7px;
+                  "
+                >
+                  <select
+                    name="ask_response"
+                    id="ask_response"
+                    class="text ui-widget-content ui-corner-all"
+                    style="padding: 3px; width: 100%"
+                  >
+                    <option
+                      value="OVERWRITE"
+                      _loc="advancedUploadActionOverWriteSelectOptionText"
+                    >
+                      Overwrite
+                    </option>
+                    <option
+                      value="OVERWRITE_ALL"
+                      _loc="advancedUploadActionOverWriteAllSelectOptionText"
+                    >
+                      Overwrite All
+                    </option>
+                    <option
+                      _loc="advancedUploadActionResumeSelectOptionText"
+                      value="RESUME"
+                    >
+                      Resume
+                    </option>
+                    <option
+                      _loc="advancedUploadActionResumeAllSelectOptionText"
+                      value="RESUME_ALL"
+                    >
+                      Resume All
+                    </option>
+                    <option
+                      _loc="advancedUploadActionSkipSelectOptionText"
+                      value="SKIP"
+                    >
+                      Skip
+                    </option>
+                    <option
+                      _loc="advancedUploadActionSkilAllSelectOptionText"
+                      value="SKIP_ALL"
+                    >
+                      Skip All
+                    </option>
+                  </select>
+                </div>
+                <div style="clear: both"></div>
+              </form>
+              <br />
+            </div>
+            <div id="askDialogDownload" style="text-align: left">
+              <br /><input
+                type="hidden"
+                name="ask_responseDownload_uid"
+                id="ask_responseDownload_uid"
+                value=""
+              /><input
+                type="hidden"
+                name="ask_responseDownload_uniqueId"
+                id="ask_responseDownload_uniqueId"
+                value=""
+              />
+              <form>
+                <div id="ask_infoDownload"></div>
+                <label
+                  for="ask_responseDownload"
+                  style="
+                    font-weight: bold;
+                    float: left;
+                    width: 20%;
+                    margin-top: 4px;
+                  "
+                  class="advancedUploadOptionsAskActionLabelByClass"
+                  >Action:</label
+                >
+                <div
+                  style="
+                    font-weight: bold;
+                    float: left;
+                    width: 80%;
+                    margin-bottom: 7px;
+                  "
+                >
+                  <select
+                    name="ask_responseDownload"
+                    id="ask_responseDownload"
+                    class="text ui-widget-content ui-corner-all"
+                    style="padding: 3px; width: 100%"
+                  >
+                    <option
+                      _loc="advancedUploadActionOverWriteSelectOptionText"
+                      value="OVERWRITE"
+                    >
+                      Overwrite
+                    </option>
+                    <option
+                      _loc="advancedUploadActionOverWriteAllSelectOptionText"
+                      value="OVERWRITE_ALL"
+                    >
+                      Overwrite All
+                    </option>
+                    <option
+                      _loc="advancedUploadActionResumeSelectOptionText"
+                      value="RESUME"
+                    >
+                      Resume
+                    </option>
+                    <option
+                      _loc="advancedUploadActionResumeAllSelectOptionText"
+                      value="RESUME_ALL"
+                    >
+                      Resume All
+                    </option>
+                    <option
+                      _loc="advancedUploadActionSkipSelectOptionText"
+                      value="SKIP"
+                    >
+                      Skip
+                    </option>
+                    <option
+                      _loc="advancedUploadActionSkilAllSelectOptionText"
+                      value="SKIP_ALL"
+                    >
+                      Skip All
+                    </option>
+                  </select>
+                </div>
+                <div style="clear: both"></div>
+              </form>
+              <br />
+            </div>
+            <!-- end -->
+            <div id="filesBasket" style="text-align: left">
+              <div id="FileBasketList">
+                <div class="basket-top">
+                  <div
+                    class="filterPanel filterArea"
+                    id="filterPanelBasket"
+                    style="margin: 0px"
+                  >
+                    <span id="FilterTextBasket">Filter:</span>
+                    <form
+                      autocomplete="off"
+                      autocomplete="false"
+                      onsubmit="return false;"
+                      style="padding: 0px; margin: 0px; display: inline-block"
+                    >
+                      <input
+                        type="text"
+                        autocomplete="off"
+                        size="30"
+                        maxlength="30"
+                        value=""
+                        id="filterBasket"
+                        name="filterBasket"
+                      />
+                    </form>
+                    <a href="#" class="clearFilterLink"
+                      ><span id="ClearFilterLinkTextBasket">Clear</span></a
+                    >
+                  </div>
+                  <div
+                    class="viewSelectorPanel"
+                    id="viewSelectorPanelBasket"
+                    style="float: right"
+                  >
+                    <a href="#" class="treeViewLink viewlink" rel="Tree"
+                      ><span id="TreeViewLinkTextBasket">Tree View</span></a
+                    >
+                    <a
+                      rel="Thumbnail"
+                      href="#"
+                      class="thumbnailViewLink viewlink"
+                      ><span id="ThumbnailViewLinkTextBasket"
+                        >Thumbnail View</span
+                      ></a
+                    >
+                    <div
+                      id="sliderBasket"
+                      style="
+                        width: 200px;
+                        float: left;
+                        margin-top: 7px;
+                        padding: 1px;
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+                <div style="height: 10px"></div>
+                <div
+                  class="basketFilterInfo"
+                  style="margin-right: 15px; color: #777; float: left"
+                ></div>
+                <div class="totalItemCount" style="float: left"></div>
+                <div class="clear"></div>
+                <div style="height: 10px"></div>
+                <div class="filesSelectedInBasket"></div>
+                <div class="clear"></div>
+                <!--<div style="text-align:right;">
+    					<input type="checkbox" id="chkDownloadResume" />
+    					<label for="chkDownloadResume" id="DownloadResumeTextLabelBasket">Resume</label>
+    				</div>-->
+                <div style="clear: both"></div>
+                <div
+                  style="clear: both; border-top: 1px solid #333030"
+                  id="submitActionBasket"
+                >
+                  <a
+                    href="javascript:void(0);"
+                    class="clearCompleted"
+                    style="float: right"
+                    id="BasketClearAllLinkText"
+                    >Clear all</a
+                  >
+                  <a
+                    href="javascript:void(0);"
+                    class="download"
+                    style="float: right"
+                    id="BasketDownloadLinkText"
+                    >Download Basket</a
+                  >
+<!--                   <a
+                    href="javascript:void(0);"
+                    class="download advanced"
+                    style="float: right"
+                    id="BasketDownloadAdvancedLinkText"
+                    >Download Basket Advanced</a
+                  > -->
+                  <a
+                    href="javascript:void(0);"
+                    class="shareBasketItems"
+                    style="float: right"
+                    id="BasketShareItemsLinkText"
+                    >Share Items</a
+                  >
+                  <!-- <a
+                    href="javascript:void(0);"
+                    class="advancedoptions"
+                    style="float: right"
+                    id="BasketDownloadAdvancedOptions"
+                    ><span class="advancedDownloadOptionsButtonText"
+                      >Advanced Download Options</span
+                    ></a
+                  > -->
+                </div>
+              </div>
+            </div>
+            <div id="pasteFormPanel">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                style="text-align: center; height: 20px"
+                id="PasteFormHeaderText"
+              >
+                Paste
+              </h2>
+              <div class="pasteForm"></div>
+            </div>
+            <div id="welcomeFormPanel">
+              <h2
+                style="text-align: center; height: 20px"
+                id="WelcomeFormHeaderText"
+              >
+                Welcome
+              </h2>
+              <div class="welcomeForm"></div>
+            </div>
+            <div id="customFormPanel">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="$.unblockUI();"
+              />
+              <h2
+                style="text-align: center; height: 20px"
+                id="CustomFormHeaderText"
+              >
+                Custom Event
+              </h2>
+              <div class="customForm"></div>
+            </div>
+            <div id="manageSyncPanel" style="padding: 0px; marging: 0px"></div>
+            <div
+              id="manageSharesPanel"
+              style="padding: 0px; marging: 0px"
+            ></div>
+            <div id="editFilePopup" style="padding: 0px; marging: 0px"></div>
+            <div id="revisionsDialog" style="padding: 0px; marging: 0px"></div>
+            <div class="slideshow"></div>
+            <div id="slideshowDiv">
+              <img
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+                onclick="closeSlideshow();"
+              />
+              <h2
+                style="text-align: center; height: 20px"
+                id="SlideshowPopupHeaderText"
+              >
+                Slideshow
+              </h2>
+              <div class="content"></div>
+            </div>
+            <div id="mediaPreviewDiv">
+              <img
+                id="mediaPreviewCloseButton"
+                class="closeButton"
+                alt="close"
+                src="/WebInterface/jQuery/images/cancel.png"
+              />
+              <h2
+                class="popupHeader"
+                style="cursor: move"
+                id="MediaPreviewPopupHeaderText"
+              >
+                Media Preview
+              </h2>
+              <div class="content" style="margin: 10px"></div>
+            </div>
+          </div>
+        </div>
+        <!-- The template to display files available for upload -->
+        <script id="template-upload" type="text/x-jquery-tmpl">
+          {% for (var i=0, file; file=o.files[i]; i++) { %}
+          	<li size="{%=file.size%}" class="ui-widget-content template-upload fade {% if (file.waiting) { %} waiting ui-state-disabled {% }  %} {% if (file.error) { %} hasError ui-state-highlight {% }  %} {% if (file.fromApplet) { %} appletItem {% }  %}{% if (file.isDropped) { %} isDroppedItem {% }  %}" path="{%=escape(file._path)%}" fileName="{%=escape(file.name)%}" fullPath="{%=file.FullPath%}" privs="{%=escape(file.privs)%}">
+                        <div class="unzipping-progress">
+                            Unzipping...
+                        </div>
+          		<div class="previewIconUpload block"><span class="fade"></span></div>
+                        {% if (file.isGroup) { %}
+                            <span title="Items in this group" class="groupCount">{%=unescape(file.totalCount)%}</span>
+                            <div class="name block wrap">{%=unescape(file._path)%}:{%=file.name%}
+                            </div>
+                        {% } else { %}
+          		    <div class="name block wrap">{%=locale.fileupload.uploadTo%}{%=unescape(file._path)%}{% if (file.altName) { %}{%=file.altName%}{% } else { %}{%=file.name%}{% } %}</div>
+                        {% } %}
+          		<input id="uploadPath{%=i%}" type="hidden" name="uploadPath" value="{%=file._path%}" />
+          		<input id="theName{%=i%}" type="hidden" name="the_action" value="STOR" />
+                        <input id="theFileAltName{%=i%}" type="hidden" name="alt_name" value="{%=file.altName%}" />
+          		<div class="size block">{%=$.CrushFTP.formatBytes(file.size)%}</div>
+          		<!--div class="cancel block" style="display:none;">
+          			<a href="javascript:void(0);" class="clearCompleted cancel" style="float:none;">{%=locale.fileupload.cancel%}</a>
+          		</div-->
+                        <div class="upload-buttons">
+                            <div class="cancelUpload block" style="float:right;margin-top: 17px;">
+                                <a href="javascript:void(0);" class="clearCompleted cancelUpload" style="float:none;">{%=locale.fileupload.cancel%}</a>
+                            </div>
+                            <div class="pausePnl block" style="display:none;float:right;margin-top: 17px;">
+                                <a href="javascript:void();" class="pause pauseUpload">{%=locale.fileupload.pause%}</a>
+                            </div>
+            				{% if (!file.error) { %}
+            					<div class="start block" style="display:none;">
+            						<a href="javascript:void(0);" class="upload start">{%=locale.fileupload.start%}</a>
+            					</div>
+                                <div class="startUpload block {%=file.warning%} {%=file.alert%}" style="float:right;margin-top: 17px;">
+                                    <a href="javascript:void(0);" class="upload startUpload">{%=locale.fileupload.start%}</a>
+                                </div>
+            				{% } else { %}
+            					{% if (locale.fileupload.errors[file.error]=="true") { %}
+            						<div class="start block" style="display:none;">
+            							<a href="javascript:void(0);" class="upload start">{%=locale.fileupload.reupload%}</a>
+            						</div>
+                                    <div class="startUpload block" style="float:right;">
+                                        <a href="javascript:void(0);" class="upload startUpload">{%=locale.fileupload.reupload%}</a>
+                                    </div>
+            					{% } else { %}
+            						<div class="noCount" style="display:none;"></div>
+            					{% } %}
+            				{% } %}
+            				{% if (file.error) { %}
+                                </div>
+                                <div class="clear"></div>
+            					<span class="error {%=file.error%}">{%=locale.fileupload.errorLabel%}
+            						{%=locale.fileupload.errors[file.error] || file.error%}
+            					</span>
+          			{% } else { %}
+                                <div class="formEdit block" style="float:right;margin-top: 17px;display:none;"><a href="javascript:void(0);" class="editForm">{%=locale.fileupload.details%}</a></div>
+                                <span class='uploadedMark' title='uploaded' style="margin-top: 17px;"></span>
+                                </div>
+            				{% }  %}
+            				<div class="clear"></div>
+                            <div class="progressInfo" style="display:none;">
+                                <div class="progressbar"></div>
+                            </div>
+          	</li>
+          {% } %}
+        </script>
+        <!-- The template to display files available for download -->
+        <script id="template-download" type="text/x-tmpl">
+          {% for (var i=0, file; file=o.files[i]; i++) { %}
+          	<li size="{%=file.size%}" class="ui-widget-content template-download fade {% if (file.error) { %} ui-state-error ui-state-error-text {% }  %}" fullPath="{%=file.FullPath%}">
+          		<div class="preview"><label class="noPreviewNote ui-state-disabled">No<br>Preview</label><span class="fade"></span></div>
+          		<div class="name">{%=file.name%}</div>
+          		<div class="path">Upload to:{%=file._path%}</div>
+          		<div class="size">Size:{%=o.formatFileSize(file.size)%}</div>
+          		{% if (file.error) { %}
+          			<span class="error">Error:
+          				{%=locale.fileupload.errors[file.error] || file.error%}
+          			</span>
+          		{% }  %}
+          		<div class="delete" style="float:right;margin-top:17px;">
+          			<a href="javascript:void(0);" class="clearCompleted" style="float:none;">{%=locale.fileupload.cancel%}</a>
+          		</div>
+          		<div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
+          		{% if (!o.options.autoUpload) { %}
+          			<div class="start" style="float:right;margin-top:17px;">
+          				<a href="javascript:void(0);" class="upload start">{%=locale.fileupload.reupload%}</a>
+          			</div>
+          		{% } %}
+          		<div class="clear"></div>
+          	</li>
+          {% } %}
+        </script>
+        <div id="delayedUploadIndicator">
+          <span id="DelayedUploadIndicatorUploadStartInText">
+            Upload will start in:
+          </span>
+          <span
+            class="remaining"
+            onclick="performAction('delayedUpload');"
+          ></span>
+          <span id="DelayedUploadIndicatorUploadStartAtText">at</span>
+          <span class="time" onclick="performAction('delayedUpload');"></span>
+          <a
+            href="javascript:cancelDelayedUpload(true);"
+            class="cancel"
+            id="DelayedUploadIndicatorCancelText"
+            >Cancel</a
+          >
+        </div>
+        <div
+          id="dragUIInformationPopup"
+          class="ui-widget-content ui-corner-all"
+        >
+          <div
+            style="
+              float: left;
+              margin-top: 7px;
+              padding-right: 5px;
+              border-right: 1px solid #b2b2b2;
+            "
+          >
+            <img src="/WebInterface/Resources/images/info.png" />
+          </div>
+          <div style="margin: 5px 5px 5px 45px">
+            To move items, drag them on a folder.
+          </div>
+          <div style="margin: 10px 5px 5px 45px">
+            To download, hold down Ctrl/Cmd(Mac) key and drag to your desktop.
+          </div>
+          <div style="margin: 10px 5px 5px 45px">Press Esc to cancel</div>
+        </div>
+        <div id="metaInfoDialog" style="display: none">
+          <div class="quarter-panel">
+            <label for="varKey"><strong>Key:</strong></label>
+          </div>
+          <div class="third-half-panel">
+            <label for="varValue"><strong>Value:</strong></label>
+          </div>
+          <div class="clear" style="position: relative">
+            <div class="key-val-field">
+              <div class="quarter-panel">
+                <input
+                  class="key"
+                  placeholder="Key"
+                  recName="key"
+                  type="text"
+                  id="varKey"
+                  name="varKey"
+                  style="width: 100%"
+                />
+              </div>
+              <div class="third-half-panel">
+                <textarea
+                  class="value"
+                  placeholder="Value"
+                  recName="value"
+                  type="text"
+                  id="varValue"
+                  name="varValue"
+                  style="width: 100%"
+                  rows="2"
+                ></textarea>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <iframe
+          id="dummyIframe"
+          name="dummyIframe"
+          src="javascript:false;"
+          style="display: none"
+        ></iframe>
+        <div id="loadingIndicator" style="display: none">Please wait...</div>
+        <div id="loadingIndicatorUpload" style="display: none">
+          Please wait...
+        </div>
+        <div id="growlContainer" style="display: none">
+          <div id="growl">
+            <a class="ui-notify-close" href="#"
+              ><span class="ui-icon ui-icon-close" style="float: right">
+              </span></a
+            ><span
+              style="float: left; margin: 2px 5px 0 0"
+              class="ui-icon ui-icon-alert"
+            >
+            </span>
+            <h2>#{title}</h2>
+            <p>#{text}</p>
+          </div>
+        </div>
+        <div id="fileExistConfirm" style="display: none">
+          <div class="ui-priority-primary">
+            These items exist in target location:
+          </div>
+          <ul class="ui-widget"></ul>
+        </div>
+        <div id="refreshTokenDialog" style="display:none" popupWidth="700">
+          <h2
+            class="popupHeader"
+            id="RefreshTokenWindowHeaderText"
+          >
+            Get Refresh Token
+          </h2>
+          <div class="buttonPanel">
+            <hr />
+            <div>
+              <label style="width: 100%;" for="appKey">App Key:</label>
+              <input style="width: 100%;" autocomplete="off" readonly type="text" onfocus="if(this.hasAttribute('readonly')) {this.removeAttribute('readonly');this.blur();this.focus();}" id="appKey" >
+            </div>
+            <div>
+              <label style="width: 100%;"  for="appSecret">App Secret:</label>
+              <input style="width: 100%;"  autocomplete="off" type="password" readonly onfocus="if(this.hasAttribute('readonly')) {this.removeAttribute('readonly');this.blur();this.focus();}" id="appSecret" >
+            </div>
+            <div style="clear: both; margin: 10px"></div>
+            <div class="btn-footer">
+              <a class="button ok" href="javascript:void(0);"
+                ><span id="OkLinkText">OK</span></a
+              >
+            </div>
+          </div>
+        </div>
+        <div id="shareEmailTemplateDialog" style="display:none" popupWidth="400">
+          <h2
+            class="popupHeader"
+            id="EmailTemplate"
+          >
+            Choose Email Template
+          </h2>
+          <div class="buttonPanel">
+            <hr />
+            <div>
+              <label style="width: 100%;" for="shareEmailTemplatePicker">Template:</label>
+              <select id="shareEmailTemplate"></select>
+            </div>
+            <div style="clear: both; margin: 10px"></div>
+            <div class="btn-footer">
+              <a class="button ok" href="javascript:void(0);"
+                ><span id="OkLinkText">OK</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

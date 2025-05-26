@@ -1,0 +1,32 @@
+/* Context Menu */
+
+ul#context-menu,
+ul#context-menu ul {
+	display: none;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	min-width:150px;
+	width: auto;
+}
+
+ul#context-menu li {
+	display: block;
+	margin: 0px;
+	padding: 0px;	
+}
+
+ul#context-menu li a:link,
+ul#context-menu li a:visited {
+	display: block;
+	height: 25px;
+	line-height: 20px;
+	margin: 0px;
+	padding: 0px 10px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+ul#context-menu li a.parent {
+	background: url(right_arrow.gif) no-repeat 98% 50%;
+}

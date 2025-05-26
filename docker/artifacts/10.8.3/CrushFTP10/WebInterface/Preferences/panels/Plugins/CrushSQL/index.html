@@ -1,0 +1,315 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginCrushSQL">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div id="pluginSection" class="customForm">
+                    <p>
+                        <div style="padding:5px;font-size:13px;font-weight:bolder;" class="ui-corner-all ui-state-error">
+                            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span>
+                            <span class="Preview lblCautionText">This plugin should not be used and only remains for backwards compatibility for CrushFTP 4 users who haven't upgraded yet.
+                                <br/>The plugin is unsupported, and will be going away soon.</span>
+                        </div>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="enabled" id="enabled" />
+                        <label for="enabled" class="ui-priority-primary CrushSQL lblEnabledText">Enabled</label>
+
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+
+                        <input type="checkbox" name="debug" id="debug" />
+                        <label for="debug" class="ui-priority-primary CrushSQL lblDebugText">Debug</label>
+                        <span style="float:right;">
+                            <span class="CrushSQL lblVersionText" class="nonEmbed">Version:</span>
+                            <span class="liveData" id="version"></span>
+                        </span>
+                    </p>
+                    <div class="tabs nobg">
+                        <ul>
+                            <li><a href="#Help" class="CrushSQL lblHelpTabText">Help</a>
+                            </li>
+                            <li><a href="#Setup" id="setupTabLink" class="CrushSQL lblSetupTabText">Setup</a>
+                            </li>
+                            <li><a href="#Options" class="CrushSQL lblAdvancedOptionsTabText">Advanced Options</a>
+                            </li>
+                        </ul>
+                        <div class="pluginDetails CrushSQL pnlHelpInstructionsText" id="Help">
+                            <b>Instructions</b>
+                            <br />CrushFTP will need to be able to load the java driver for whatever SQL type you are using.
+                            <br />
+                            <br />You can get the MySQL driver here: http://dev.mysql.com/downloads/connector/j/5.0.html
+                            <br />
+                            <br />Then use the browse button above to pick the .jar file. If you move the folder where this .jar file is at, you will need to pick it again. (MySQL: mysql-connector-java-5.0.4-bin.jar)
+                            <br />There is nothing that limits this plugin to MySQL, its just the database I have provided the table creation scripts for. The tables are simple, and you can create them by hand as well. Just be sure to match up the column names correctly, as well as the table names.
+                            <br />
+                            <br />
+                            <b>Setup</b>
+                            <br />
+                            <b>1)</b> You will be using these tables (The table scripts are included below):
+                            <br />users, directories, events, etc.
+                            <br />
+                            <b>2)</b> Create a database for CrushFTP...name it something like 'crushftp'.
+                            <br />
+                            <b>3)</b> Use the table scripts to generate the table structures in the 'crushftp' database.
+                            <br />
+                            <b>4)</b> Change the settings above to match the SQL driver you are using. Also set the correct IP to the server, the correct database name, and a valid user / pass.
+                            <br />
+                            <b>5)</b> Create a record in the users table. Give it a username and password...the rest can be left at their defaults.
+                            <br />
+                            <b>6)</b> Create a record in the directories table. The directory's ID must link to a user's ID. For example: ID=1,dirName=MyApps, dirFTPPath=/, dirLocalPath=/Applications/, privDownload=Y, privView=Y (leave the rest at their defaults.)
+                            <br />dirName is the display name CrushFTP will display this item as.
+                            <br />dirFTPPath is the FTP path at which this item should appear. (usually '/')
+                            <br />dirLocalPath is the local directory path this item links to. It MUST end and start with '/'. If this is a path on windows you should use forward slashes ex:'/C:/Program Files/'. If this is MacOS X '/Applications/'.
+                            <br />
+                            <b>7)</b> Go login with an FTP client and test!
+                            <br />
+                            <br />If you do not know what to enter in a field, look at a user.xml file for a user that was made in the CrushFTP User Manager. The tables basically represent the xml file.
+                            <br />
+                            <br />
+                            <b>Microsoft SQL Server Setup Instructions</b>
+                            <br />1)The Microsoft SQL Server driver is sqljdbc.jar, and can be downloaded here: http://msdn2.microsoft.com/en-us/data/aa937724.aspx If the sqljdbc.jar is loaded into c:\CrushFTP, then the Database Driver File input box would hold: 'C:\CrushFTP\sqljdbc.jar'.
+                            <br />2)The class name has changed between SQL Server 2000 JDBC driver and the SQL Server 2005 JDBC driver. The class name for the SQL Server 2000 JDBC driver is: 'com.microsoft.jdbc.sqlserver.SQLServerDriver'. The SQL Server 2005 JDBC driver class name is 'com.microsoft.sqlserver.jdbc.SQLServerDriver'. Note the change from 'microsoft.jdbc.sqlserver' to 'microsoft.sqlserver.jdbc'.
+                            <br />3)The URL prefix has also changed between the SQL Server 2000 JDBC driver and the SQL Server 2005 JDBC driver. The SQL Server JDBC driver uses a URL prefix of 'jdbc:microsoft:sqlserver://', while SQL Server 2005 JDBC driver uses a URL prefix of: 'jdbc:sqlserver://'. Note the removal of 'microsoft' from the URL path.
+                            <br />
+                            <br />--Support support@crushftp.com
+                            <br />
+                            <br />The SQL scripts below are for MySQL. (You will have to tweak them slightly for MS SQL.) They will generate the tables needed by this plugin. You can add additional columns to the users table, just look in the user.xml file for the proper column names. (CMD-C, or CTR-C will copy the text if you select it even though there is no right click or 'Edit' menu.)
+                            <br />
+                            <br /># Database: crushftp
+                            <br /># ************************************************************
+                            <br /># Dump of table directories
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br />CREATE TABLE `users` (
+                            <br />`id` int(11) NOT NULL auto_increment,
+                            <br />`userName` varchar(50) NOT NULL default 'anonymous',
+                            <br />`userPass` varchar(50) NOT NULL default '',
+                            <br />`maxIdleTime` int(11) NOT NULL default '10',
+                            <br />`expireDate` datetime default NULL,
+                            <br />`maxSimultaneousLogins` int(11) NOT NULL default '0',
+                            <br />`maxLoginsPerIP` int(11) NOT NULL default '0',
+                            <br />`canRequestFilesAsZip` char(1) NOT NULL default 'Y',
+                            <br />`requireEncryption` char(1) NOT NULL default 'N',
+                            <br />PRIMARY KEY (`id`)
+                            <br />) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+                            <br />
+                            <br />
+                            <br />CREATE TABLE `directories` (
+                            <br />`id` int(11) NOT NULL default '0',
+                            <br />`dirName` varchar(255) NOT NULL default 'dirName',
+                            <br />`dirFTPPath` varchar(255) NOT NULL default '/',
+                            <br />`dirLocalPath` varchar(255) NOT NULL default '/',
+                            <br />`privDownload` char(1) NOT NULL default 'Y',
+                            <br />`privUpload` char(1) NOT NULL default 'N',
+                            <br />`privView` char(1) NOT NULL default 'Y',
+                            <br />`privDelete` char(1) NOT NULL default 'N',
+                            <br />`privDeleteDir` char(1) NOT NULL default 'N',
+                            <br />`privMakeDir` char(1) NOT NULL default 'N',
+                            <br />`privRename` char(1) NOT NULL default 'N',
+                            <br />`privResume` char(1) NOT NULL default 'Y',
+                            <br />`privRealQuota` char(1) NOT NULL default 'Y',
+                            <br />`quotaBytes` varchar(255) NOT NULL default ''
+                            <br />) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                            <br />
+                            <br />
+                            <br /># Dump of table events
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br />CREATE TABLE `events` (
+                            <br />`userid` int(11) NOT NULL default '0',
+                            <br />`name` varchar(255) NOT NULL default '',
+                            <br />`command` varchar(255) NOT NULL default '',
+                            <br />`event_dir_data` varchar(255) NOT NULL default '',
+                            <br />`event_if_list` varchar(255) NOT NULL default '',
+                            <br />`event_action_list` varchar(255) NOT NULL default '',
+                            <br />`event_user_action_list` varchar(255) NOT NULL default '',
+                            <br />`event_after_list` varchar(255) NOT NULL default '',
+                            <br />`event_plugin_list` varchar(255) NOT NULL default '',
+                            <br />`from` varchar(255) NOT NULL default '',
+                            <br />`to` varchar(255) NOT NULL default '',
+                            <br />`cc` varchar(255) NOT NULL default '',
+                            <br />`bcc` varchar(255) NOT NULL default '',
+                            <br />`subject` varchar(255) NOT NULL default '',
+                            <br />`body` varchar(255) NOT NULL default '',
+                            <br />`event_always_cb` varchar(10) NOT NULL default 'false',
+                            <br />`event_after_cb` varchar(10) NOT NULL default 'false',
+                            <br />`event_now_cb` varchar(10) NOT NULL default 'false',
+                            <br />`event_if_cb` varchar(10) NOT NULL default 'false'
+                            <br />) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                            <br />
+                            <br />
+                            <br /># Dump of table ip_restrictions
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br />CREATE TABLE `ip_restrictions` (
+                            <br />`userid` int(11) NOT NULL default '0',
+                            <br />`start_ip` varchar(255) default NULL,
+                            <br />`type` varchar(1) default NULL,
+                            <br />`stop_ip` varchar(255) default NULL
+                            <br />) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                            <br />
+                            <br />
+                            <br /># Dump of table users
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br /># Dump of table domain_root_list
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br />CREATE TABLE `domain_root_list` (
+                            <br />`userid` int(11) NOT NULL default '0',
+                            <br />`domain` varchar(255) default NULL,
+                            <br />`path` varchar(255) default NULL
+                            <br />) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                            <br />
+                            <br />
+                            <br /># Dump of table web_buttons
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br />CREATE TABLE `web_buttons` (
+                            <br />`userid` int(11) NOT NULL default '0',
+                            <br />`sort_order` int(11) NOT NULL default '0',
+                            <br />`key` varchar(255) default NULL,
+                            <br />`value` varchar(255) default NULL
+                            <br />) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                            <br />
+                            <br />
+                            <br /># Dump of table web_customizations
+                            <br /># ------------------------------------------------------------
+                            <br />
+                            <br />CREATE TABLE `web_customizations` (
+                            <br />`userid` int(11) NOT NULL default '0',
+                            <br />`key` varchar(255) default NULL,
+                            <br />`value` varchar(255) default NULL
+                            <br />) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                            <br />
+                        </div>
+                        <div class="pluginDetails customForm" id="Setup">
+                            <p>
+                                <label for="db_drv_file" class="CrushSQL lblDataBaseDriverFileText">Database Driver File:</label>
+                                <input type="text" id="db_drv_file" name="db_drv_file" class="bigInputBox url" />
+
+                                <a href="#" class="button serverFilePickButton" rel="db_drv_file">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    <span class="CrushSQL btnBrowseText">Browse</span>
+                                </a>
+                            </p>
+                            <p>
+                                <label for="db_drv" class="CrushSQL lblDatabaseDriverClassText">Database Driver Class:</label>
+                                <input type="text" id="db_drv" name="db_drv" class="bigInputBox url" />
+                            </p>
+                            <p>
+                                <label for="db_url" class="CrushSQL lblDatabaseURLText">Database URL:</label>
+                                <input type="text" id="db_url" name="db_url" class="bigInputBox url" />
+                            </p>
+                            <p>
+                                <label for="db_user" class="CrushSQL lblDatabaseUserText">Database User:</label>
+                                <input type="text" id="db_user" name="db_user" />
+
+                                <span class="spacer"></span>
+
+                                <label for="db_pass" class="CrushSQL lblDatabasePasswordText">Pass:</label>
+                                <input type="password" id="db_pass" class="encryptPass" name="db_pass" />
+
+                                <span class="spacer"></span>
+
+                                <label for="sql_df" class="CrushSQL lblDateFormatText">Date Format:</label>
+                                <input type="text" id="sql_df" name="sql_df" />
+                            </p>
+                            <p>
+                                <label for="server_item" class="CrushSQL lblServerItemText">Server Item:</label>
+                                <select id="server_item" name="server_item"></select>
+
+                                <span class="spacer"></span>
+
+                                <label for="templateUser" class="CrushSQL lblTemplateUsernameText">Template Username:</label>
+                                <input type="text" id="templateUser" name="templateUser" />
+                            </p>
+                            <p>
+                                <span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;width:700px;">
+                                    <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                    <span class="CrushSQL lblServerItemInstructionsText">
+                                        You can specify which server item will use this plugin. Example:lookup_21, or lookup_8080. (Leave blank for all.)
+                                    </span>
+                                </span>
+                            </p>
+                            <p>
+                                <label style="float:left;margin:10px 0px;" for="db_user_query" class="CrushSQL lblUserLookupQueryText">User Lookup Query:</label>
+                                <textarea style="float:left;margin:10px;margin-top:0px;" id="db_user_query" name="db_user_query" class="formTextarea"></textarea>
+                            </p>
+                            <p class="clear"></p>
+                            <p>
+                                <label style="float:left;margin:10px 0px;" for="db_quota_query" class="CrushSQL lblUserQuotaUpdateQueryText">User Quota Update Query:</label>
+                                <textarea style="float:left;margin:10px;margin-top:0px;" id="db_quota_query" name="db_quota_query" class="formTextarea"></textarea>
+                            </p>
+                            <p class="clear"></p>
+                            <p>
+                                <a href="#" class="button" id="testSettings">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-transferthick-e-w'></span>
+                                    <span class="CrushSQL btnTestSettingsText">Test Settings</span>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="pluginDetails" id="Options">
+                            <p>
+                                <label for="scan_interval" class="CrushSQL lblScanAccountEveryXMinutesText">Scan for accounts every x minutes:</label>
+                                <input type="text" id="scan_interval" name="scan_interval" class="smallInputBox" />
+                            </p>
+                            <p>
+                                <input type="checkbox" id="create_sql_dirs" name="create_sql_dirs" />
+                                <label for="create_sql_dirs" class="CrushSQL lblCreateSQLDirectoriesText">Create SQL directories if they don't exist?</label>
+
+                                <span class="spacer"></span>
+
+                                <input type="checkbox" id="create_sql_dirs_needed" name="create_sql_dirs_needed" />
+                                <label for="create_sql_dirs_needed" class="CrushSQL lblCreateAsNeededText">Create as needed?</label>
+                            </p>
+                            <p class="subPanel ui-widget-content leftborder nobg lineHeight">
+                                <label for="db_user_list_query" class="CrushSQL lblQueryAllText">Query All:</label>
+                                <input type="text" id="db_user_list_query" name="db_user_list_query" class="bigInputBox" />
+
+                                <br />
+
+                                <label for="db_user_list_1_query" class="CrushSQL lblQueryOneText">Query One:</label>
+                                <input type="text" id="db_user_list_1_query" name="db_user_list_1_query" class="bigInputBox" />
+                            </p>
+                            <p>
+                                <input type="checkbox" id="delete_expired_accounts" name="delete_expired_accounts" />
+                                <label for="delete_expired_accounts" class="CrushSQL lblDeleteExpiredAccountsText">Delete expired accounts?</label>
+                            </p>
+                            <p class="subPanel ui-widget-content leftborder nobg lineHeight">
+                                <label style="float:left;margin:10px 0px;" for="db_expired_user_query" class="CrushSQL lblQueryText">Query:</label>
+                                <textarea style="float:left;margin:10px;margin-top:0px;" id="db_expired_user_query" name="db_expired_user_query" class="formTextarea"></textarea>
+                            </p>
+                            <p class="clear"></p>
+                            <p title="Recursively delete folders that the user has access to.">
+                                <input type="checkbox" id="delete_expired_accounts_filesystem" name="delete_expired_accounts_filesystem" />
+                                <label for="delete_expired_accounts_filesystem" class="CrushSQL lblDeleteExpiredAccountsFileSystemText">Delete expired accounts file system?</label>
+                            </p>
+                            <p title="Recursively move folders that the user has access to into an archive location.">
+                                <input type="checkbox" id="move_expired_accounts_filesystem" name="move_expired_accounts_filesystem" />
+                                <label for="move_expired_accounts_filesystem" class="CrushSQL lblMoveExpiredAccountsToArchiveText">Move expired accounts file system to Archive?</label>
+                            </p>
+                            <p class="subPanel ui-widget-content leftborder nobg lineHeight">
+                                <label for="archive_path" class="CrushSQL lblPathLocationToMoveFilesToText">Path location to move files to:</label>
+                                <input type="text" id="archive_path" name="archive_path" class="bigInputBox" />
+
+                                <a FileMode="user" href="#" class="button serverFilePickButton" rel="archive_path">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    <span class="CrushSQL btnBrowseText">Browse</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

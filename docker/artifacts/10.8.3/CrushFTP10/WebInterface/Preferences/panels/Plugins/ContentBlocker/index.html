@@ -1,0 +1,150 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginContentBlocker">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div id="pluginSection" class="customForm">
+				<p>
+					<input type="checkbox" name="enabled" id="enabled" />
+					<label for="enabled" class="ui-priority-primary ContentBlocker lblEnabledText">Enabled</label>
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" name="debug" id="debug" />
+					<label for="debug" class="ui-priority-primary ContentBlocker lblDebugText">Debug</label>
+					<span style="float:right;" class="nonEmbed"><span class="ContentBlocker lblVersionText">Version:</span><span class="liveData" id="version"></span></span>
+				</p>
+				<div class="tabs nobg">
+					<ul>
+						<li><a href="#Setup" class="ContentBlocker lblSetupTabText">Setup</a></li>
+						<li><a href="#PathHelp" class="ContentBlocker lblHelpTabText">Help</a></li>
+					</ul>
+					<div class="pluginDetails" id="Setup">
+						<p>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td colspan="2">
+										<p>
+											<label for="usernames" class="ContentBlocker lblUsernamesToMonitorText">Usernames to monitor:</label>
+											<input type="text" id="usernames" name="usernames" class="ignoreBind" style="width:450px;" />
+											<span class="ContentBlocker lblUsernameInstructionText">
+											(Separate multiple usernames with a comma)
+											</span>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<span class="ContentBlocker lblListOfFPTPathNoteText">
+										List of FTP paths to watch (Example:'/uploads/')</span>
+									</td>
+								</tr>
+								<tr>
+									<td width="70%" class="ui-widget-content rightborder nobg">
+										<div style="margin:0px 10px;">
+											<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="height:200px;">
+												<ol class="nobg selectable single sideScroll" id="pathList" name="pathList">
+												</ol>
+											</div>
+										</div>
+									</td>
+									<td width="30%">
+										<div  style="margin:0px 10px;">
+											<p>
+												<a href="#" class="button" id="addNewPath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus' ></span>
+												<span class="ContentBlocker btnAddPathText">
+												Add Path</span></a>
+											</p>
+											<p>
+												<a href="#" class="button" id="editPath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+												<span class="ContentBlocker btnEditPathText">
+												Edit Selected
+												</span></a>
+											</p>
+											<p>
+												<a href="#" class="button"  id="removePath">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+												<span  class="ContentBlocker btnRemovePathText">
+												Remove Selected
+												</span></a>
+											</p>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</p>
+						<div id="trackedItems" style="display:none;">
+							<span class="ContentBlocker lblListOfAllowedExtensionsText">
+							List of allowed extensions for uploads from above directory selection:
+							</span>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td style="width:40%;">
+										<div class="MediumListBox ui-corner-all ui-widget-content nobg sideScroll">
+											<ol class="nobg selectable multiple sideScroll ui-selectable" id="allowedExtensions" name="allowedExtensions">
+											</ol>
+										</div>
+									</td>
+									<td style="padding-left:10px;">
+										<p>
+											<a href="#" class="button" id="addExtension">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-circle-plus' ></span>
+												<span class="removeFolderButtonText ContentBlocker btnAddExtensionText">Add</span>
+											</a>
+										</p>
+										<p>
+											<a href="#" class="button" id="editExtension">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-pencil' ></span>
+												<span class="removeFolderButtonText ContentBlocker btnEditExtensionText">Edit</span>
+											</a>
+										</p>
+										<p>
+											<a href="#" class="button" id="removeExtension">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+												<span class="removeFolderButtonText ContentBlocker btnRemoveExtensionText">Remove</span>
+											</a>
+										</p>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div id="PathHelp">
+					<p class="ContentBlocker pnlHelpText">
+						<strong>ContentBlocker Help</strong>
+						<br />
+						<br />
+						This plugin allows you to block uploads of files that don't have an allowed extension.
+						So for example, you could have a folder named 'PDFs', and a folder named 'IMAGES'.
+						You could set the PDFs folder to only except '.PDF' files, and the IMAGES folder to only
+						accept 'JPG', '.PNG', '.GIF', '.TIF', '.TIFF', etc. If the file being uploaded does not
+						have this proper extension, then it will be blocked. This plugin also prevents a user
+						from renaming a file to a non allowed extension... so they couldn't upload stuff.gif, then rename it to stuff.exe for example.
+						<br />
+						<br />
+						To use, enter a list of usernames this plugin will monitor. Then add FTP paths to the
+						list of monitored directories. An FTP path is ths path that the user sees from their
+						FTP client, not the real physical path on your HD. All uploads inside of that location will be monitored and blocked when appropriate.
+						<br />
+						<br />
+						Questions? Email us: support@crushftp.com
+						<br />
+						--Support
+						</p>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>

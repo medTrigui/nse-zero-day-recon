@@ -1,0 +1,348 @@
+.separator {
+    margin-top: 5px;
+    padding: 2px;
+    border-top: 1px solid #eee;
+    font-weight: normal !important;
+    font-size: 11px;
+}
+.contextMenu li.start a, .contextMenu li.startAllServers a {
+    background-image: url(/WebInterface/Resources/images/server_connect.png);
+}
+.contextMenu li.restart a {
+    background-image: url(/WebInterface/Resources/images/server_go.png);
+}
+.contextMenu li.stop a, .contextMenu li.stopAllServers a {
+    background-image: url(/WebInterface/Resources/images/server_database.png);
+}
+.contextMenu li.diag a {
+    background-image: url(/WebInterface/Resources/images/table_relationship.png);
+}
+.running .icon, .stopped .icon {
+    display: inline-block;
+    float: right;
+    width: 16px;
+    height: 16px;
+    background-image: url("/WebInterface/Resources/images/bullet_red.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: right top !important;
+}
+.running .icon {
+    background-image: url("/WebInterface/Resources/images/bullet_green.png") !important;
+}
+.comments span{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+#server_item_list .item {
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.ban-info {
+    padding: 1px 5px;
+    border-left: 2px solid #ccc;
+    margin: 5px;
+    font-size: 11px;
+    min-height: 15px;
+    max-height: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.saml-special .bigLabel
+{
+    width: 180px;
+}
+.sortableWebInterfaceForm{
+    list-style-type: none;
+    padding: 0;
+}
+#formPreview span.ui-state-default.ui-corner-all
+{
+    position: relative;
+    margin-bottom: -3px;
+}
+
+#formPreview , #formPreview label, #formPreview input, #formPreview select, #formPreview textarea
+{
+    font-weight: normal;
+}
+
+.custom-list
+{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border: 0px !important;
+}
+
+.custom-list li
+{
+    list-style: none;
+    margin: 3px;
+    padding: 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    position: relative;
+    border-radius: 0px;
+}
+
+.custom-list li span.drag
+{
+    cursor: move;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+margin-top: -8px;}
+
+.custom-list li span.delete-control
+{
+    position: absolute;
+    right: 25px;
+top: 50%;margin-top: -7px;}
+
+.addControlTrigger
+{
+    cursor: move;
+    animation: all 3s ease-in;
+}
+.addControlTriggerDragging
+{
+    background: #fff;
+    opacity: 0.8;
+    box-shadow: #BDB6B6 0px 0px 5px 4px;
+    list-style: none;
+    border-radius: 4px !important;
+    border:1px solid #eee;
+    min-width: 450px;
+    padding: 5px 5px 0px 5px;
+}
+.addControlTriggerDragging .drag, .addControlTriggerDragging span.pointer
+{
+    display: none !important;
+}
+
+.addControlTriggerDragging input, .addControlTriggerDragging textarea, .addControlTriggerDragging select
+{
+    width: 98%;
+}
+.delete-control
+{
+    color: red;
+    float: right;
+    font-size: 13px;
+    line-height: 14px;
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    border-radius: 16px;
+    height: 16px;
+}
+div#footer {
+    z-index: 800;
+}
+
+.sortby.asc::before{
+    content : '\25B2'
+}
+
+.sortby.desc::before{
+    content : '\25BC'
+}
+.unfix-labels label{
+    width: auto;
+}
+.hidden{
+    display: none !important;
+}
+.error-text{
+    color: red;
+    font-weight: normal;
+    font-size: 12px;
+    padding-top: 4px;
+}
+
+.advanced-options, .advanced-options-all {
+    border: 1px solid #ddd;
+    padding: 0px 10px;
+    margin: 3px -10px;
+    line-height: 22px;
+}
+.advanced-options h3, .advanced-options-all h3 {
+    margin: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 4px 1px;
+    cursor: pointer;
+    position: relative;
+}
+.advanced-options.open h3, .advanced-options-all.open h3 {
+    border-bottom: 1px solid #ddd;
+}
+.advanced-options h3 span.icon, .advanced-options-all h3 span.icon{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    display: none;
+}
+
+.advanced-options.open h3 span.icon-open, .advanced-options-all.open h3 span.icon-open{
+    display: inline-block;
+}
+
+.advanced-options.closed h3 span.icon-closed, .advanced-options-all.closed h3 span.icon-closed{
+    display: inline-block;
+}
+
+.advanced-options.open .advanced-options-content, .advanced-options-all.open .advanced-options-all-content{
+    display: block;
+}
+
+.advanced-options.closed .advanced-options-content, .advanced-options-all.closed .advanced-options-all-content{
+    display: none;
+}
+.advanced-options-content input, .advanced-options-all-content input {
+    max-width: 330px;
+}
+#argondOption{
+    line-height: 30px;
+    display: inline-block;
+    position: absolute;
+    padding: 10px 20px 0px;
+    margin-top: -55px;
+    min-width: 250px;
+}
+#pnlEncryption #argondOption .fieldLabel {
+    width: 130px;
+}
+
+.advanced-options.left-btn h3 span.icon{
+    top: 3px;
+    left: 5px;
+    transform: rotate(180deg);
+    right: auto;
+}
+
+.advanced-options.left-btn h3 span.icon.icon-open{
+    transform: rotate(0deg);
+}
+
+.advanced-options.left-btn h3{
+    padding: 4px 1px 4px 25px;
+}
+
+#WICSP .domains-form .removeItemFileParser, #WICSP .domains-form .addItemFileParser{
+    position: absolute;
+    top: 13px;
+    right: 15px;
+}
+
+.bigInputBox.url{
+    width: 600px;
+}
+.sbPrefs label.bigLabel{
+    width: 300px;
+    display: inline-block;
+    text-align: right;
+}
+
+.sbPrefs input[type='text']{
+    width: 500px;
+}
+
+.dmz-blocked{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00000059;
+    z-index: 1;
+    border-radius: 6px;
+    margin: -10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smallInputBox.mins{
+    width: 80px;
+}
+
+.checkbox-group {
+    /* white-space: nowrap; */
+    display: block;
+    width: 875px;
+}
+
+.checkbox-group span.checkbox{
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 0px;
+    margin-right: 5px;
+    flex: 1;
+    width: 130px;
+    margin-top: 10px;
+}
+.checkbox-group span.vtip{
+    position: relative;
+    top: -3px;
+margin-left: 2px;opacity: 0.8;}
+.warn-url{
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 373px;
+    top: 10px;
+    color: #eb3434;
+}
+.csp-domain{
+    position: relative;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #dedede;
+}
+.memory-trigger .ui-slider{
+    display: inline-block;
+    width: 300px;
+    padding: 2px;
+    margin-left: 10px;
+    position: relative;
+    top: 4px;
+    margin-bottom: 10px;
+}
+
+.memory-trigger .tip{
+    position: relative;
+    top: 17px;
+}
+
+.custom-handle {
+    width: 3em !important;
+    height: 1.6em !important;
+    margin-top: -1px;
+    text-align: center;
+    line-height: 1.6em;
+    cursor: move !important;
+  }
+
+div#oAuthPanel label[for] {
+    display: inline-block;
+    width: 125px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+div#oAuthPanel label.flag{
+    width: auto;
+    text-align: left;
+    font-weight: bold;
+}
+
+.LargeListBox li.disabled{
+    opacity: 0.5;
+}

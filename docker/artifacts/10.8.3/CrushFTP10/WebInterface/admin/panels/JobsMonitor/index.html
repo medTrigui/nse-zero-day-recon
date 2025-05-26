@@ -1,0 +1,47 @@
+<!-- Panel HTML -->
+<div id="pnlJobsMonitor" class="adminPanel">
+	<div class="customForm" style="padding-top:10px;">
+		<label for="jobStatus">Show Job Status:</label>
+		<select id="jobStatus">
+			<option>All</option>
+			<option>Running</option>
+			<option>Completed</option>
+			<option>Paused</option>
+			<option>Error</option>
+			<option>Canceled</option>
+		</select>
+		<a href="#" class="button pauseResumeJob"><span style='display: inline-block; margin: -1px 3px 0px -12px; float: left;' class='pointer ui-icon ui-icon-play'></span>
+			<span class="btnDeleteText">Pause / Resume</span>
+		</a>
+		<a href="#" class="button cancelJob">
+			<span style='display: inline-block; margin: 0px 3px 0px -12px;float: left;' class='pointer ui-icon ui-icon-circle-close'></span>
+			<span>Cancel Job</span>
+		</a>
+		<a href="#" class="button reloadJob"><span style='display: inline-block; margin: -1px 3px 0px -12px; float: left;' class='pointer ui-icon ui-icon-refresh'></span>
+			<span class="btnDeleteText">Reload</span>
+		</a>
+	</div>
+	<div>
+		<label class="ui-priority-primary">Jobs:</label>
+		<span style="float:right;">
+			<span class="ui-priority-secondary">Last updated:<span id="lastJobListUpdatedTimestamp"></span></span>
+		</span>
+		<div class="ui-corner-all ui-widget-content nobg sideScroll" style="width: auto;">
+			<ol id="lstJobs" class="nobg selectable single logItemList">
+			</ol>
+		</div>
+	</div>
+	<div style="margin-top:10px;">
+		<fieldset class="nospacing nobg">
+			<legend>Job Log:</legend>
+			<div id="logsSimple">
+				<span style="float:right;">
+					<span class="ui-priority-secondary">Log last updated:<span id="lastJobLogUpdatedTimestamp"></span></span>
+				</span>
+				<pre id="jobsLog" class="logArea ui-widget-content ui-state-default" style="width:99%;"></pre>
+			</div>
+			<div id="jobsLogViewer">
+			</div>
+		</fieldset>
+	</div>
+</div>

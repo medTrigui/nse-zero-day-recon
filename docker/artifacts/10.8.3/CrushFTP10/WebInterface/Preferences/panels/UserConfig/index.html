@@ -1,0 +1,402 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlUserConfig">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+      <div class="ui-priority-primary UserConfig headerText">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="tabs nobg">
+        <ul>
+          <li><a href="#UCUserDB" class="UserConfig lblUserDatabaseTabText">User Database</a></li>
+          <li><a href="#UCScriptMySQL" class="UserConfig lblScriptMySQLTabText">Script MySQL</a></li>
+          <li><a href="#UCScriptMsSQL" class="UserConfig lblScriptMSSQLTabText">Script MS SQL</a></li>
+          <li><a href="#SQLQuery" class="StatsConfig lblScriptMSSQLTabText">SQL Query</a></li>
+        </ul>
+        <div id="UCUserDB" class="customForm">
+          <p>
+            <input type="radio" name="xmlUsers" id="xmlUsers" />
+            <label for="xmlUsers" class="UserConfig lblXmlUSerDBText ui-priority-primary">XML User Database</label>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input type="radio" name="xmlUsers" id="externalSqlUsers" />
+            <label for="externalSqlUsers" class="UserConfig lblExternalSQLDBText ui-priority-primary">Use external SQL Database</label>
+          </p>
+          <p class="buttonBar left buttonBarNoBottom">
+            <a href="#" class="button" id="importFromXML">
+              <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-arrow-1-e' ></span>
+              <span class="UserConfig lblImportFromXMLText">Import From XML</span>
+            </a>
+
+            <a href="#" class="button" id="exportToXML">
+              <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-arrow-1-w' ></span>
+              <span class="UserConfig lblExportToXMLText">Export To XML</span>
+            </a>
+          </p>
+          <p>
+            <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+              <ol class="nobg selectable multiple sideScroll ui-selectable" id="sqlItems" name="sqlItems">
+              </ol>
+            </div>
+          </p>
+          <p id="formDetailsPanel">
+            <a href="#" id="browsePopupBtn" class="button serverFilePickButton" rel="txtDBAction">
+              <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+              <span class="UserConfig btnBrowseText">Browse
+              </span>
+            </a>
+            <textarea id="txtDBAction" name="txtDBAction" style="width:100%;" class="formTextareaComment nobg"></textarea>
+            <input type="password" id="db_pass" name="db_pass" class="encryptPass bigInputBox ui-helper-hidden" />
+          </p>
+          <br>
+          <p class="buttonBar left buttonBarNoBottom">
+            <a href="#" class="button" id="testDB">
+              <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh' ></span>
+              <span class="UserConfig btnTestDBText">Test DB</span>
+            </a>
+          </p>
+        </div>
+        <p class="buttonBar right">
+          <a href="#" class="button">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+            <span class="submitActionRestore UserConfig btnResetText">Reset To Default</span>
+          </a>
+          <a href="#" class="button" id="cancel">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+            <span class="submitActionCancel UserConfig btnCancelText">Cancel</span>
+          </a>
+          <a href="#" class="button" id="saveContent">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+            <span class="submitActionOk UserConfig btnOKText">OK</span>
+          </a>
+        </p>
+        <div id="UCScriptMySQL">
+          <p>
+            <textarea id="txtScriptMySQL" name="txtDBAction" style="width:100%;height:500px;" class="formTextareaComment nobg ignoreBind">
+#/* Script for MYSQL to make the DB tables needed for CrushFTP. */
+
+# http://www.crushftp.com/crush9wiki/Wiki.jsp?page=MySQL
+
+
+# Dump of table DOMAIN_ROOT_LIST
+# ------------------------------------------------------------
+
+CREATE TABLE `DOMAIN_ROOT_LIST` (
+  `userid` int(11) NOT NULL default '0',
+  `domain` varchar(255) default NULL,
+  `path` varchar(255) default NULL,
+  `sort_order` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table EVENTS5
+# ------------------------------------------------------------
+
+CREATE TABLE `EVENTS5` (
+  `userid` int(11) NOT NULL default '0',
+  `event_name` varchar(255) NOT NULL default '',
+  `prop_name` varchar(255) NOT NULL default '',
+  `prop_value` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table INHERITANCE
+# ------------------------------------------------------------
+
+CREATE TABLE `INHERITANCE` (
+  `userid` int(11) default NULL,
+  `inherit_username` varchar(255) default NULL,
+  `sort_order` int(11) default NULL,
+  `server_group` varchar(50) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table IP_RESTRICTIONS
+# ------------------------------------------------------------
+
+CREATE TABLE `IP_RESTRICTIONS` (
+  `userid` int(11) NOT NULL default '0',
+  `start_ip` varchar(255) default NULL,
+  `type` varchar(1) default NULL,
+  `stop_ip` varchar(255) default NULL,
+  `sort_order` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table USER_PROPERTIES
+# ------------------------------------------------------------
+
+CREATE TABLE `USER_PROPERTIES` (
+  `userid` int(11) default NULL,
+  `prop_name` varchar(255) default NULL,
+  `prop_value` varchar(2000) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table USERS
+# ------------------------------------------------------------
+
+CREATE TABLE `USERS` (
+  `userid` int(11) NOT NULL auto_increment,
+  `username` varchar(255) default NULL,
+  `password` varchar(255) default NULL,
+  `server_group` varchar(50) default NULL,
+  PRIMARY KEY  (`userid`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table VFS
+# ------------------------------------------------------------
+
+CREATE TABLE `VFS` (
+  `userid` int(11) default NULL,
+  `url` varchar(255) default NULL,
+  `type` varchar(50) default NULL,
+  `path` varchar(255) default NULL,
+  `sort_order` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table VFS_PERMISSIONS
+# ------------------------------------------------------------
+
+CREATE TABLE `VFS_PERMISSIONS` (
+  `userid` int(11) default NULL,
+  `path` varchar(255) default NULL,
+  `privs` varchar(255) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table WEB_BUTTONS
+# ------------------------------------------------------------
+
+CREATE TABLE `WEB_BUTTONS` (
+  `userid` int(11) NOT NULL default '0',
+  `sql_field_key` varchar(255) default NULL,
+  `sql_field_value` varchar(255) default NULL,
+  `for_menu` varchar(10) default NULL,
+  `for_context_menu` varchar(10) default NULL,
+  `sort_order` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table WEB_CUSTOMIZATIONS
+# ------------------------------------------------------------
+
+CREATE TABLE `WEB_CUSTOMIZATIONS` (
+  `userid` int(11) NOT NULL default '0',
+  `sql_field_key` varchar(255) default NULL,
+  `sql_field_value` varchar(255) default NULL,
+  `sort_order` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table GROUPS
+# ------------------------------------------------------------
+
+CREATE TABLE `GROUPS` (
+  `groupname` varchar(255) default NULL,
+  `userid` int(11) default NULL,
+  `server_group` varchar(50) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table MODIFIED_TIMES
+# ------------------------------------------------------------
+CREATE TABLE `MODIFIED_TIMES` (
+  `SERVER_GROUP` varchar(50) default NULL,
+  `PROP_NAME` varchar(255) default NULL,
+  `PROP_VALUE` varchar(255) default NULL,
+  UNIQUE (`SERVER_GROUP`,`PROP_NAME`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+# Dump of table VFS_PROPERTIES.  New in v6.4
+# ------------------------------------------------------------
+CREATE TABLE `VFS_PROPERTIES` (
+  `userid` int(11) default NULL,
+  `path` varchar(1024) default NULL,
+  `prop_name` varchar(255) default NULL,
+  `prop_value` varchar(2000) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+</textarea>
+          </p>
+        </div>
+        <div id="UCScriptMsSQL">
+          <textarea id="txtScriptMySQL" name="txtDBAction" style="width:100%;height:500px;" class="formTextareaComment nobg ignoreBind">
+/* Script for MS SQL to make the DB tables needed for CrushFTP. */
+/* http://www.crushftp.com/crush9wiki/Wiki.jsp?page=MSSQL */
+
+CREATE TABLE DOMAIN_ROOT_LIST (
+  userid int NOT NULL default '0',
+  domain varchar(MAX) default NULL,
+  path varchar(MAX) default NULL,
+  sort_order int default NULL
+)
+
+
+
+
+CREATE TABLE EVENTS5 (
+  userid int NOT NULL default '0',
+  event_name varchar(MAX) NOT NULL default '',
+  prop_name varchar(MAX) NOT NULL default '',
+  prop_value text NOT NULL
+)
+
+
+
+CREATE TABLE INHERITANCE (
+  userid int default NULL,
+  inherit_username varchar(MAX) default NULL,
+  server_group varchar(MAX) default NULL,
+  sort_order int default NULL
+)
+
+
+
+CREATE TABLE IP_RESTRICTIONS (
+  userid int NOT NULL default '0',
+  start_ip varchar(MAX) default NULL,
+  type varchar(1) default NULL,
+  stop_ip varchar(MAX) default NULL,
+  sort_order int default NULL
+)
+
+
+
+
+CREATE TABLE USER_PROPERTIES (
+  userid int default NULL,
+  prop_name varchar(MAX) default NULL,
+  prop_value varchar(MAX) default NULL
+)
+
+
+
+
+CREATE TABLE USERS (
+  userid int NOT NULL IDENTITY (1, 1) NOT FOR REPLICATION,
+  username varchar(MAX) default NULL,
+  password varchar(MAX) default NULL,
+  server_group varchar(MAX) default NULL,
+  PRIMARY KEY  (userid)
+)
+
+
+
+CREATE TABLE VFS (
+  userid int default NULL,
+  url varchar(MAX) default NULL,
+  type varchar(MAX) default NULL,
+  path varchar(MAX) default NULL,
+  sort_order int default NULL
+)
+
+
+
+CREATE TABLE VFS_PERMISSIONS (
+  userid int default NULL,
+  path varchar(MAX) default NULL,
+  privs varchar(MAX) default NULL
+)
+
+
+
+CREATE TABLE WEB_BUTTONS (
+  userid int NOT NULL default '0',
+  sql_field_key varchar(MAX) default NULL,
+  sql_field_value varchar(MAX) default NULL,
+  for_menu varchar(MAX) default NULL,
+  for_context_menu varchar(MAX) default NULL,
+  sort_order int default NULL
+)
+
+
+
+CREATE TABLE WEB_CUSTOMIZATIONS (
+  userid int NOT NULL default '0',
+  sql_field_key varchar(MAX) default NULL,
+  sql_field_value varchar(MAX) default NULL,
+  sort_order int default NULL
+)
+
+
+
+
+CREATE TABLE GROUPS (
+  groupname varchar(MAX) default NULL,
+  userid int default NULL,
+  server_group varchar(MAX) default NULL
+)
+
+
+
+
+CREATE TABLE MODIFIED_TIMES (
+  server_group varchar(MAX) default NULL,
+  prop_name varchar(MAX) default NULL,
+  prop_value varchar(MAX) default NULL
+)
+
+/*New in v6.4*/
+CREATE TABLE VFS_PROPERTIES (
+  userid int default NULL,
+  path varchar(MAX) default NULL,
+  prop_name varchar(MAX) default NULL,
+  prop_value varchar(MAX) default NULL
+)
+</textarea>
+        </div>
+        <div id="SQLQuery">
+            <p>
+              <label for="sql_query" class="StatsConfig txtQueryTitle" style="font-weight: bold">SQL Query:</label>
+              <textarea id="sql_query" style="width:100%;height:300px;" class="formTextareaComment nobg ignoreBind"></textarea>
+            </p>
+            <p>
+              <label for="sql_limit" class="StatsConfig txtReturnTitle" style="font-weight: bold">Return Limit:</label>
+              <input id="sql_limit" class="nobg ignoreBind" value="1000" type="number" style="width: 80px; text-align: center" />
+            </p>
+            <p class="buttonBar left buttonBarNoBottom">
+              <a href="#" class="button" id="execute_query">
+                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-play' ></span>
+                <span class="StatsConfig btnExecuteQuery">Execute Query</span>
+              </a>
+
+              <a href="#" class="button" id="clear_querys">
+                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+                <span class="StatsConfig btnClearQuerys">Clear</span>
+              </a>
+            </p>
+            <p>
+              <label for="sql_response" class="StatsConfig txtQueryResponseTitle" style="font-weight: bold">SQL Response:</label>
+              <p id="sql_response"></p>
+            </p>
+          </div>
+      </div>
+    </td>
+  </tr>
+  </table>
+</div>

@@ -1,0 +1,639 @@
+<!-- Panel HTML -->
+<div id="pnlReportsSetup" class="adminPanel">
+	<div id="reportInputs">
+		<fieldset class="ui-widget-content nobg allignedForm" style="width:40%;float:left;white-space: nowrap;margin-right: 10px;">
+			<div class="customForm">
+				<p>
+					<select class="bigInputBox reportElement" id="reportName">
+						<option value=""></option>
+						<option value="TopDownloadsUploads">Top Downloads/Uploads</option>
+						<option value="SharesSummary">Shares Summary</option>
+						<option value="AccountActivitySummary">Account Activity Summary</option>
+						<option value="UploadDownloadSummary">Upload Download Summary</option>
+						<option value="AuditSummary">Audit Summary</option>
+						<option value="UploadDownloadRatios">Upload/Download Ratios</option>
+						<option value="UserIPs">User IPs</option>
+						<option value="FailedLogins">Failed Logins</option>
+						<option value="WhoDownloadedFile">Who Downloaded File</option>
+						<option value="WhoUploadedFile">Who Uploaded File</option>
+						<option value="WhoDeletedFile">Who Deleted File</option>
+						<option value="WhoRenamedFile">Who Renamed File</option>
+						<option value="WhoMovedFile">Who Moved File</option>
+						<option value="WhoCreatedFolder">Who Created Folder</option>
+						<option value="CurrentLogins">Current Logins</option>
+						<option value="ChangedPassword">Changed Password</option>
+						<option value="UploadFormsSearch">Upload Forms Search</option>
+						<option value="WelcomeFormsSearch">Welcome Forms Search</option>
+						<option value="UserFolderSizes">User Folder Sizes</option>
+						<option value="UserFolderPermissions">User Folder Permissions</option>
+						<option value="UserFolderAccess">User Folder Access</option>
+						<option value="UserUsage">User Usage</option>
+						<option value="UserEvents">User Events</option>
+						<!-- <option value="NewFiles">New Files</option> -->
+						<option value="ExportUserPass">Export User Pass</option>
+						<option value="ExpiringAccounts">Expiring Accounts</option>
+						<option value="JobSchedules">Job Schedules</option>
+						<option value="JobSchedulesHistory">Job Schedules History</option>
+						<option value="JobDestinations">Job Destinations</option>
+						<!-- <option value="JobStats">Job Stats</option> -->
+					</select>
+					<a href="#" class="button" id="runReport">
+						<i class="fa fa-play"></i>
+						<span class="">
+							Run Report
+						</span>
+					</a>
+				</p>
+				<p style="display: none;">
+					<input type="checkbox" class="reportElement" id="export" />
+					<label for="export">Export to .CSV</label>
+				</p>
+				<p>
+
+				</p>
+			</div>
+		</fieldset>
+		<fieldset class="ui-widget-content nobg" style="min-width:50%;float:left;position:relative;white-space: nowrap;">
+			<div class="customForm" style="position:relative;">
+				<table width="100%" class="valignMiddle reportsTable">
+					<tr>
+						<td width="100px"><label class="vtip" title="mm/dd/yyyy" for="startDate">Start Date: </label></td>
+						<td>
+							<input type="text" class="reportElement" id="startDate" />
+							<select id="dateRange">
+								<option value=""></option>
+								<option value="1">Last Day</option>
+								<option value="1h">Last Hour</option>
+								<option value="4h">Last 4 Hours</option>
+								<option value="8h">Last 8 Hours</option>
+								<option value="12h">Last 12 Hours</option>
+								<option value="24h">Last 24 Hours</option>
+								<option value="7">Last 7 Days</option>
+								<option value="14">Last 14 Days</option>
+								<option value="30">Last 30 Days</option>
+								<option value="60">Last 60 Days</option>
+								<option value="90">Last 90 Days</option>
+								<option value="120">Last 120 Days</option>
+								<option value="180">Last 180 Days</option>
+								<option value="365">Last 365 Days</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label class="vtip" title="mm/dd/yyyy" for="endDate">End Date: </label></td>
+						<td><input class="reportElement" type="text" id="endDate" /></td>
+					</tr>
+					<tr>
+						<td><label for="usernames">User Name: </label></td>
+						<td>
+							<input type="text" class="bigInputBox reportElement" id="usernames" />
+							<a href="#" class="button slim" id="pickUsers" style="padding: 3px 10px;position: relative;top: inherit !important;margin: -10px 0px 0px 10px;">
+								<i class="fa fa-user"></i>
+								<span class="">
+									Pick
+								</span>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span class="ui-state-highlight ui-corner-all warning" style="padding:5px;display:inline-block;margin:0px 3px;">
+								<i class="fa fa-info"></i>
+								Separate multiple with commas. Leave blank for all.
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</fieldset>
+	</div>
+	<div class="clear"></div>
+	<div id="reportDialog"></div>
+	<div id="reportConfiguration" style="padding: 10px;border:0px;border-radius: 0px;" class="ui-widget-content noForm">
+		<h2 style="border: 0px;border-bottom: 1px solid #eee;border-radius: 0px;padding: 10px 0px;font-size:1.1rem;">Report configuration</h2>
+		<div style="padding-top: 10px;">
+			<div class="reportConfig ui-helper-hidden" id="reportConfigTopDownloadsUploads">
+				<p>
+					<label for="downloadCount">List how many downloaded files: </label>
+					<input type="text" value="100" class="reportElement" id="downloadCount" />
+				</p>
+				<p>
+					<label for="uploadCount_1">List how many uploaded files: </label>
+					<input type="text" value="100" class="reportElement" id="uploadCount_1" />
+				</p>
+				<p>
+					<input type="checkbox" id="showPaths_1" class="reportElement" />
+					<label for="showPaths_1">Show File Paths</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="showURLs_1" class="reportElement" />
+					<label for="showURLs_1">Show URL</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="showFormInfo_1" class="reportElement" />
+					<label for="showFormInfo_1">Show Upload Form Info (if available)</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigSharesSummary">
+				<p>
+					<input type="checkbox" id="showPaths_1" class="reportElement" />
+					<label for="showPaths_1">Show File Paths</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="showURLs_1" class="reportElement" />
+					<label for="showURLs_1">Show URL</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="showFormInfo_1" class="reportElement" />
+					<label for="showFormInfo_1">Show Share Info (if available)</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigAccountActivitySummary">
+				<p>
+					<input type="checkbox" class="reportElement" id="reverseDNS_1" />
+					<label for="reverseDNS_1">Do reverse DNS Lookup on IPs</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUploadDownloadSummary">
+				<p style="line-height:25px;display:none;">
+					<input type="checkbox" checked id="showUploads" class="reportElement" />
+					<label for="showUploads">Show Uploads</label>
+				</p>
+				<p style="line-height:25px;display:none;">
+					<input type="checkbox" checked id="showDownloads" class="reportElement" />
+					<label for="showDownloads">Show Downloads</label>
+				</p>
+				<p style="line-height:25px;display:none;">
+					<input type="checkbox" checked id="showFiles_1" class="reportElement" />
+					<label for="showFiles_1">Show Files</label>
+				</p>
+				<p style="line-height:25px;">
+					<input checked type="checkbox" id="showIPs_1" class="reportElement" />
+					<label for="showIPs_1">Show IPs</label>
+					<br />
+					<input checked type="checkbox" id="showDates" class="reportElement" />
+					<label for="showDates">Show Dates</label>
+					<br />
+					<input checked type="checkbox" id="showSizes" class="reportElement" />
+					<label for="showSizes">Show Sizes</label>
+					<br />
+					<input checked type="checkbox" id="showPaths_2" class="reportElement" />
+					<label for="showPaths_2">Show Paths</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigAuditSummary">
+				<p>
+					<label for="searchFilename">File Name: </label>
+					<select id="searchFilename" class="reportElement">
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+					</select>
+					<input type="text" id="filename" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<select id="searchPath_1" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_1" value="/" class="reportElement" />
+				</p>
+				<p>
+					<label for="successLogin">Login Status: </label>
+					&nbsp;
+					<select id="successLogin" class="reportElement">
+						<option value="any" selected="selected">Any</option>
+						<option value="true">Successful Login</option>
+						<option value="false">Failed login</option>
+					</select>
+				</p>
+				<p>
+					<input type="checkbox" checked id="showUploads" class="reportElement" />
+					<label for="showUploads">Show Uploads</label>
+				</p>
+				<p>
+					<input type="checkbox" checked id="showDownloads" class="reportElement" />
+					<label for="showDownloads">Show Downloads</label>
+				</p>
+				<p>
+					<input type="checkbox" checked id="showDeletes" class="reportElement" />
+					<label for="showDownloads">Show Deletes</label>
+				</p>
+				<p>
+					<input type="checkbox" checked id="showRenames" class="reportElement" />
+					<label for="showDownloads">Show Renames</label>
+				</p>
+				<p>
+					<input type="checkbox" checked id="showLogins_1" class="reportElement" />
+					<label for="showLogins_1">Show Logins</label>
+				</p>
+				<p style="line-height:25px;display:none;">
+					<input type="checkbox" checked id="showFiles_1" class="reportElement" />
+					<label for="showFiles_1">Show Files</label>
+				</p>
+				<p>
+					<strong>File record options:</strong>
+				</p>
+				<p class="subPanel ui-widget-content leftborder nobg" style="line-height:25px;">
+					<input checked type="checkbox" id="showIPs_1" class="reportElement" />
+					<label for="showIPs_1">Show IPs</label>
+					<br />
+					<input checked type="checkbox" id="showDates" class="reportElement" />
+					<label for="showDates">Show Dates</label>
+					<br />
+					<input checked type="checkbox" id="showSizes" class="reportElement" />
+					<label for="showSizes">Show Sizes</label>
+					<br />
+					<input checked type="checkbox" id="showPaths_2" class="reportElement" />
+					<label for="showPaths_2">Show Paths</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUploadDownloadRatios">
+				<p style="display: none;">
+					<input checked type="checkbox" id="showBytes" class="reportElement" />
+					<label for="showBytes">Show Bytes</label>
+				</p>
+				<p style="display: none;">
+					<input checked type="checkbox" id="showCounts_1" class="reportElement" />
+					<label for="showCounts_1">Show Counts</label>
+				</p>
+				<p>
+					Nothing to configure
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUserIPs">
+				<p>
+					<input checked type="checkbox" id="showCounts_2" class="reportElement" />
+					<label for="showCounts_2">Show Counts</label>
+				</p>
+				<p>
+					<input checked type="checkbox" id="showIPs_2" class="reportElement" />
+					<label for="showIPs_2">Show IPs</label>
+				</p>
+				<p>
+					<input checked type="checkbox" id="reverseDNS_2" class="reportElement" />
+					<label for="reverseDNS_2">Do reverse DNS Lookup on IPs</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigFailedLogins">
+				<p>
+					<input checked type="checkbox" id="excludeAnonymous" class="reportElement" />
+					<label for="excludeAnonymous">Exclude "Anonymous" user entries</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWhoDownloadedFile">
+				<p>
+					<label for="searchFilename">File Name: </label>
+					<select id="searchFilename" class="reportElement">
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+					</select>
+					<input type="text" id="filename" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<select id="searchPath_1" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_1" value="/" class="reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWhoCreatedFolder">
+				<p>
+					<label for="foldername">Folder Name: </label>
+					<input type="text" id="foldername" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<input type="text" id="path" value="/" class="reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWhoMovedFile">
+				<p>
+					<label for="filename">Name: </label>
+					<input type="text" id="filename" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<input type="text" id="path" value="/" class="reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWhoUploadedFile">
+				<p>
+					<label for="searchFilename">File Name: </label>
+					<select id="searchFilename" class="reportElement">
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+					</select>
+					<input type="text" id="filename" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<select id="searchPath_1" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_1" value="/" class="reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWhoDeletedFile">
+				<p>
+					<label for="searchFilename">File Name: </label>
+					<select id="searchFilename" class="reportElement">
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+					</select>
+					<input type="text" id="filename" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<select id="searchPath_1" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_1" value="/" class="reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWhoRenamedFile">
+				<p>
+					<label for="searchFilename">File Name: </label>
+					<select id="searchFilename" class="reportElement">
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+					</select>
+					<input type="text" id="filename" class="reportElement" />
+				</p>
+				<p>
+					<label for="searchPath_1">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<select id="searchPath_1" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_1" value="/" class="reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigCurrentLogins">
+				<p>
+					<span class="ui-state-highlight ui-corner-all warning" style="padding:5px;display:inline-block;margin:0px 3px;">
+						<i class="fa fa-info"></i>
+						Start Date, End Date and UserNames have no affect on this report as its reporting on current information in memory
+					</span>
+				</p>
+				<p>
+					<input checked type="checkbox" id="excludeAnonymous" class="reportElement" />
+					<label for="excludeAnonymous">Exclude "Anonymous" user entries</label>
+				</p>
+				<p>
+					<input type="checkbox" class="reportElement" id="showFiles_2" />
+					<label for="showFiles_2">Show Files Transferred</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUploadFormsSearch">
+				<p>
+					<label for="uploadCount_2">List How Many Uploaded Files: </label>
+					<input type="text" value="100" id="uploadCount_2" class="smallInputBox reportElement" />
+				</p>
+				<p>
+					<label for="uploadForm">Upload Form: </label>
+					<select class="inputBox reportElement" id="uploadForm">
+					</select>
+					<a href="#" id="showUploadFormPopup" style="display: inline-block;margin-top: 1px;position: absolute;margin-left: 5px;">Show Form</a>
+				</p>
+				<p>
+					<input type="checkbox" id="showPaths_3" class="reportElement" />
+					<label for="showPaths_3">Show Paths</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="showURLs_2" class="reportElement" />
+					<label for="showURLs_2">Show URL</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="showFormInfo_2" class="reportElement" />
+					<label for="showFormInfo_2">Show Upload Form Info (If available)</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigWelcomeFormsSearch">
+				<p>
+					<label for="welcomeForm">Welcome Form: </label>
+					<select class="inputBox" id="welcomeForm">
+					</select>
+					<a href="#" id="showWelcomeFormPopup" style="display: inline-block;margin-top: 1px;position: absolute;margin-left: 5px;">Show Form</a>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUserFolderSizes">
+				<!-- <p>
+					<label for="searchPath_2">Path: </label>
+					<span class="spacer"></span>&nbsp;
+					<select id="searchPath_2" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_2" value="/" class="reportElement" />
+				</p> -->
+				<p>
+					<label for="depth_1">Depth: </label>
+					<input type="text" value="10" id="depth_1" class="smallInputBox reportElement" />
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUserFolderPermissions">
+				<p>
+					<label for="linked_vfs_users">Only list users linked to these user's VFS: </label>
+					<input type="text" id="linked_vfs_users" class="bigInputBox reportElement" />
+				</p>
+				<p>
+					<input type="checkbox" id="errors_only" class="reportElement" />
+					<label for="errors_only">Show only user's bad VFS items</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUserFolderAccess">
+				<p>
+					<label for="search_url">Search for URL starting with:</label>
+					<input type="text" id="search_url" class="bigInputBox reportElement" />
+					<label for="search_url" style="font-size: 11px;">
+						(Example URLs: FILE://C:/Users/files/ or ftp://myftp.somedomain.com/folder/ or SMB3://servername/share/)
+					</label>
+				</p>
+				<p>
+					<label for="search_name">Search for VFS item name containing:</label>
+					<input type="text" id="search_name" class="bigInputBox reportElement" />
+				</p>
+				<p>
+					<span class="ui-state-highlight ui-corner-all warning" style="padding:5px;display:inline-block;margin:0px 3px;">
+						<i class="fa fa-info"></i>
+						Name searches by "contains" and url searches by "starts with"
+					</span>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigUserUsage">
+				<p>
+					Nothing to configure
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigJobStats">
+				<p style="line-height:25px;">
+					<input type="checkbox" checked id="showFiles_3" class="reportElement" />
+					<label for="showFiles_3">Show Files</label>
+					<br />
+					<input checked type="checkbox" id="showIPs_3" class="reportElement" />
+					<label for="showIPs_3">Show IPs</label>
+					<br />
+					<input checked type="checkbox" id="showDates_3" class="reportElement" />
+					<label for="showDates_3">Show Dates</label>
+					<br />
+					<input checked type="checkbox" id="showSizes_3" class="reportElement" />
+					<label for="showSizes_3">Show Sizes</label>
+					<br />
+					<input checked type="checkbox" id="showPaths_3" class="reportElement" />
+					<label for="showPaths_3">Show Paths</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigJobSchedulesHistory">
+				<p style="line-height:25px;">
+					<input type="checkbox" checked id="showCompleted" class="reportElement" />
+					<label for="showCompleted">Completed</label>
+					<span class="spacer"></span>
+					<input type="checkbox" checked id="showCompletedWithErrors" class="reportElement" />
+					<label for="showCompletedWithErrors">Completed With Errors</label>
+					<span class="spacer"></span>
+					<input type="checkbox" checked id="showRunning" class="reportElement" />
+					<label for="showRunning">Running</label>
+					<span class="spacer"></span>
+					<input type="checkbox" checked id="showPaused" class="reportElement" />
+					<label for="showPaused">Paused</label>
+					<span class="spacer"></span>
+					<input type="checkbox" checked id="showCancelled" class="reportElement" />
+					<label for="showCancelled">Cancelled</label>
+				</p>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigNewFiles">
+				<p>
+					<label for="searchPath_3">Path: </label>
+					<select id="searchPath_3" class="reportElement">
+						<option value="starts with">Starts With</option>
+						<option value="ends with">Ends With</option>
+						<option value="contains">Contains</option>
+						<option value="equals">Equals</option>
+					</select>
+					<input type="text" id="path_3" value="/" class="reportElement" />
+					<span class="spacer"></span>
+					<input type="checkbox" id="onlyFolders" class="reportElement" />
+					<label for="onlyFolders">Only Folders?</label>
+				</p>
+				<p>
+					<label for="depth_2">Depth: </label>
+					<input type="text" value="3" id="depth_2" class="smallInputBox reportElement" />
+				</p>
+				<p>
+					<label class="ui-priority-primary">Email Notification Setup: </label>
+				</p>
+				<table class="subPanel ui-widget-content leftborder nobg" width="100%">
+					<tr>
+						<td width="80px;" class="right" style="vertical-align:middle;">
+							<label for="from_1">From: </label>
+						</td>
+						<td>
+							<input type="text" class="bigInputBox reportElement" id="from_1" name="from_1">
+						</td>
+					</tr>
+					<tr>
+						<td class="right" style="vertical-align:middle;">
+							<label for="to_1">To: </label>
+						</td>
+						<td>
+							<input type="text" class="bigInputBox reportElement" value="%user_email%" id="to_1" name="to_1">
+						</td>
+					</tr>
+					<tr>
+						<td class="right" style="vertical-align:middle;">
+							<label for="cc_1">CC: </label>
+						</td>
+						<td>
+							<input type="text" class="bigInputBox reportElement" id="cc_1" name="cc_1">
+						</td>
+					</tr>
+					<tr>
+						<td class="right" style="vertical-align:middle;">
+							<label for="bcc_1">BCC: </label>
+						</td>
+						<td>
+							<input type="text" class="bigInputBox reportElement" id="bcc_1" name="bcc_1">
+						</td>
+					</tr>
+					<tr>
+						<td class="right" style="vertical-align:middle;">
+							<label for="subject_1" >Subject: </label>
+						</td>
+						<td>
+							<input type="text" class="bigInputBox reportElement" value="New files are waiting..." id="subject_1" name="subject_1" />
+						</td>
+					</tr>
+					<tr>
+						<td class="right" style="vertical-align:top;">
+							<label for="body_1">Body: </label>
+						</td>
+						<td>
+							<textarea id="body_1"  style="height:200px;width:500px;" class="reportElement" name="body_1">There are new files waiting for you.  Below is a list of new files:
+&lt;LINE&gt;%the_file_path%%the_file_name% %the_file_size_formatted%&lt;/LINE&gt;</textarea>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigExportUserPass"></div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigJobSchedules"></div>
+			<div class="reportConfig ui-helper-hidden" id="reportConfigExpiringAccounts">
+				<p>
+					<label for="days">Days Until Expiration: </label>
+					<input type="text" id="days" value="7" class="smallInputBox reportElement" />
+				</p>
+				<p>
+					<input type="checkbox" id="expire_account" checked class="reportElement" />
+					<label for="expire_account">Expiring Account</label>
+				</p>
+				<p>
+					<input type="checkbox" id="expire_password" checked class="reportElement" />
+					<label for="expire_password">Expiring Password</label>
+				</p>
+				<p>
+					<input type="checkbox" id="expire_disabled" checked class="reportElement" />
+					<label for="expire_disabled">Disabled Accounts</label>
+				</p>
+			</div>
+		</div>
+	</fieldset>
+	<div id="hasChanges">
+		You have made changes to report configuration, please re-run report to apply them.
+		<br>
+		<a href="#" class="button" onClick="javascript:$('#runReport').click();return false;">
+			<span style="display:inline-block;margin:0px 3px 0px -11px;float:left;" class="pointer ui-icon ui-icon-play"></span>
+			<span class="">
+				Run Report
+			</span>
+		</a>
+	</div>
+	<div id="customFormPanel"></div>
+</div>
+<div id="reportDialogNew" style="width:100%;border: 0px;overflow: scroll;overflow-x: hidden;overflow-y: hidden;"></div>

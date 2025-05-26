@@ -1,0 +1,262 @@
+/**/
+.sharesTable
+{
+    padding: 10px 0px 0px 0px;
+}
+.sharesTable th
+{
+    font-size: 12px;
+    padding: 3px;
+    text-align: center;
+    font-weight: bold !important;
+    cursor: pointer;
+    margin: 1px;
+    vertical-align: middle !important;
+    border-left: 1px solid #FFF;
+    border-top: 1px solid #FFF;
+    padding-left: 10px;
+    height: auto;
+    background-image: none;
+}
+
+.sharesTable td
+{
+    padding: 3px 5px !important;
+    font-size: 11px;
+    font-weight: normal;
+    vertical-align: middle !important;
+    color: #000;
+    cursor: pointer;
+}
+
+.hovered
+{
+    border:1px solid #000;
+}
+
+.sharesTable td.center
+{
+    text-align: center;
+}
+
+.fewMore
+{
+    font-style: italic;
+    opacity: 0.6;
+    float: right;
+}
+
+.shareItemDetailsPanel td
+{
+    vertical-align: top;
+}
+
+.shareItemDetailsPanel td div.shareItem
+{
+    padding: 5px;
+    font-weight: normal;
+    border-bottom: 1px solid #eee;
+    max-width: 600px;
+    word-wrap: break-word;
+}
+
+.shareItemDetailsPanel label
+{
+    width: 125px;
+    text-align: right;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.shareItemDetailsPanel .smallLbls label
+{
+    width: 80px;
+}
+
+.shareItemDetailsPanel .pathlist, .shareItemDetailsPanel .emailBody, .shareItemDetailsPanel .emailList
+{
+    padding: 0px;
+    margin: 0px;
+    max-height: 250px;
+    overflow: auto;
+}
+
+.shareItemDetailsPanel .emailList
+{
+    max-height: 100px;
+    list-style: none;
+    top: -2px;
+    position: relative;
+}
+
+.shareItemDetailsPanel .emailList li
+{
+    float: left;
+    margin: 2px 5px;
+    list-style: none;
+    background-image: url("/WebInterface/Resources/images/bullet_disabled.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+.shareItemDetailsPanel .pathlist li
+{
+    list-style: circle;
+    padding: 2px;
+    margin: 1px;
+    background-image: url("/WebInterface/Resources/images/bullet_disabled.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+a.deleteShare, a.prevShare, a.nextShare, a.editShare
+{
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    color: red;
+    display: inline-block;
+    height: 16px;
+    color: black !important;
+    padding-right: 10px;
+}
+
+a.deleteShare
+{
+    background-image: url("/WebInterface/Resources/images/delete.png");
+}
+
+a.editShare
+{
+    background-image: url("/WebInterface/Resources/images/pencil.png");
+}
+
+a.prevShare
+{
+    background-image: url("/WebInterface/Resources/images/bullet_go_2.png");
+}
+
+a.nextShare
+{
+    background-image: url("/WebInterface/Resources/images/bullet_go.png");
+    background-position: right;
+    padding-right: 20px;
+    padding-left: 0px;
+}
+
+ a.prevShare.disabled, a.nextShare.disabled
+ {
+    background-color: transparent !important;
+    opacity: 0.4;
+ }
+
+.shareItem .findSimilar
+{
+    float: right;
+    background-image: url("/WebInterface/jQuery/images/magnifier.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width:16px;
+    height: 16px;
+    display: none;
+}
+
+.shareItem:hover .findSimilar
+{
+    display: inline-block;
+}
+
+ .nowrap
+ {
+    white-space: nowrap;
+ }
+
+ #popup_container {
+    min-width: 400px; /* Dialog will be no smaller than this */
+    max-width: 600px; /* Dialog will wrap after this width */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding:15px;
+}
+
+#popup_title {
+    text-align: center;
+    line-height: 1.75em;
+    cursor: default;
+    padding: 0em;
+    margin: 5px 3px;
+    font-size:13px;
+}
+
+#popup_content {
+    background: 16px 16px no-repeat url(/WebInterface/Resources/images/info.png);
+    padding: 1em 1.75em;
+    margin: 0em;
+    background-position: 15px 7px;
+}
+
+#popup_content.alert {
+    background-image: url(/WebInterface/Resources/images/info.png);
+}
+
+#popup_content.confirm {
+    background-image: url(/WebInterface/Resources/images/important.png);
+}
+
+#popup_content.prompt {
+    background-image: url(/WebInterface/Resources/images/help.png);
+}
+
+#popup_content.warning {
+    background-image: url(/WebInterface/Resources/images/cancel.png);
+}
+
+#popup_message {
+    padding-left: 48px;
+}
+
+#popup_panel {
+    text-align: center;
+    margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+    margin: .5em 0em;
+}
+
+
+.ui-notify { width:350px; position:fixed; top:10px; right:10px; z-index: 1105;}
+.ui-notify-message { padding:10px; margin-bottom:15px; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px }
+.ui-notify-message h2 { font-size:14px; margin:0; padding:0; text-align: left; }
+.ui-notify-message p { margin:3px 0; padding:0; line-height:18px }
+.ui-notify-message:last-child { margin-bottom:0 }
+.ui-notify-message-style { -moz-box-shadow: 0 0 6px #000; -webkit-box-shadow: 0 0 6px #000; box-shadow: 0 0 6px #000; }
+.ui-notify-message-style h2 {font-weight:bold }
+.ui-notify-message-style p { }
+.ui-notify-close { text-decoration:underline }
+.ui-notify-click { cursor:pointer }
+.ui-notify-cross { margin-top:-4px; float:right; cursor:pointer; text-decoration:none; font-size:12px; font-weight:bold; text-shadow:0 1px 1px #fff; padding:2px }
+.ui-notify-cross:hover { }
+.ui-notify-cross:active { position:relative; top:1px }
+
+.contextMenu LI.similar A
+{
+    background-image: url(/WebInterface/jQuery/images/tree_view.png);
+}
+
+.comments
+{
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow : ellipsis;
+}
+#manageShareslist td
+{
+    word-wrap: break-word;
+    word-break: break-word;
+}

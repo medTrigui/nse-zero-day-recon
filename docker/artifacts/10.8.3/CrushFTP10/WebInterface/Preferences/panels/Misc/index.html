@@ -1,0 +1,886 @@
+<div id="autocompleteFix" style="position: absolute; top: -200px">
+  <input type="text" name="email" value="" style="display: none" />
+  <input type="text" name="email" value="" />
+  <input type="text" name="not-an-email" value="" style="display: none" />
+  <input type="password" name="password" value="" style="display: none" />
+  <input type="password" name="password" value="" />
+</div>
+<!-- Panel HTML -->
+<div id="pnlMisc">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <div class="ui-priority-primary Misc headerText"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="Misc" class="customForm">
+          <p>
+            <span>
+              <input type="checkbox" id="beep_connect" name="beep_connect" />
+              <label
+                for="beep_connect"
+                class="Misc lblBeepWhenUsersConnectText"
+              >
+                Beep when users connect?</label
+              >
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+            </span>
+
+            <input type="checkbox" id="binary_mode" name="binary_mode" />
+            <label for="binary_mode" class="Misc lblAlwaysDoRETRInBinaryText">
+              Always do RETR in BINARY?</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input
+              type="checkbox"
+              id="binary_mode_stor"
+              name="binary_mode_stor"
+            />
+            <label
+              for="binary_mode_stor"
+              class="Misc lblAlwaysDoSTORInBinaryText"
+            >
+              Always do STOR in BINARY?</label
+            >
+          </p>
+          <p>
+            <input type="checkbox" id="newversion" name="newversion" />
+            <label for="newversion" class="Misc lblForNewVersionsText">
+              Check for New Versions</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input type="checkbox" id="epsveprt" name="epsveprt" />
+            <label
+              for="epsveprt"
+              class="Misc lblAllowExtendedPassiveCommandsText"
+            >
+              Allow extended passive and port commands (EPSV/EPRT)</label
+            >
+          </p>
+          <!--p>
+					<input type="checkbox" id="hide_splash" name="hide_splash" />
+					<label for="hide_splash" class="Misc lblHideSplashScreenText">
+					Hide Splash Screen?</label>
+					<input type="checkbox" id="macbinary" name="macbinary" />
+					<label for="macbinary" class="Misc lblAllowMacBinaryOpertaionsText">
+					Allow MacBinary Operations?</label>
+				</p-->
+          <p>
+            <input
+              type="checkbox"
+              id="allow_directory_caching"
+              name="allow_directory_caching"
+            />
+            <label
+              for="allow_directory_caching"
+              class="Misc lblAllowDirectoryCachingText"
+            >
+              Allow Directory Caching</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input type="checkbox" id="lsla2" name="lsla2" />
+            <label for="lsla2" class="Misc lblUseISLAText">
+              Use 'Is-la' for directory listings (OSX, Unix, Linux)</label
+            >
+
+            <span class="spacer"></span>
+
+            <input
+              type="checkbox"
+              id="count_dir_items"
+              name="count_dir_items"
+            />
+            <label for="count_dir_items" class="Misc">
+              Count folder items</label
+            >
+          </p>
+          <p>
+            <input
+              type="checkbox"
+              id="auto_ip_discovery"
+              name="auto_ip_discovery"
+            />
+            <label for="auto_ip_discovery" class="Misc lblAutoIPDiscoveryText">
+              Auto IP discovery refresh interval in minutes:</label
+            >
+
+            <input
+              type="text"
+              id="discover_ip_refresh"
+              name="discover_ip_refresh"
+              class="smallInputBox"
+            />
+          </p>
+          <!--p>
+					<input type="checkbox" id="chkAnnounceServerViaBonjour" name="chkAnnounceServerViaBonjour" />
+					<label for="chkAnnounceServerViaBonjour" class="Misc formChkAnnounceServerViaBonjour">
+					Announce server via Bonjour</label>
+				</p-->
+          <p>
+            <input
+              type="checkbox"
+              id="slow_directory_scanners"
+              name="slow_directory_scanners"
+            />
+            <label
+              for="slow_directory_scanners"
+              class="Misc lblSlowDownHackAttemptScansText"
+            >
+              Slow Down Hack Attempt Scans?</label
+            >
+
+            <span class="spacer"></span>
+            &nbsp;
+            <input
+              type="checkbox"
+              id="disable_referer_cookie"
+              name="disable_referer_cookie"
+            />
+            <label
+              for="disable_referer_cookie"
+              class="Misc lblDisableRefererCookieText"
+            >
+              Disable Referer Cookie</label
+            >
+          </p>
+
+          <p class="crush7Feature">
+            <span class="wrap">
+              <input
+                type="checkbox"
+                id="allow_local_ip_pasv"
+                name="allow_local_ip_pasv"
+              />
+              <label for="allow_local_ip_pasv">Allow local passive IP?</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+
+              <input type="checkbox" id="allow_mlst" name="allow_mlst" />
+              <label for="allow_mlst">Allow MLST?</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              &nbsp;
+
+              <input
+                type="checkbox"
+                id="allow_ssh_0_byte_file"
+                name="allow_ssh_0_byte_file"
+              />
+              <label for="allow_ssh_0_byte_file">Allow 0 byte SSH file?</label>
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <input
+                type="checkbox"
+                id="case_sensitive_list_search"
+                name="case_sensitive_list_search"
+              />
+              <label for="case_sensitive_list_search"
+                >Case sensitive list search?</label
+              >
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+
+              <input
+                type="checkbox"
+                id="create_home_folder"
+                name="create_home_folder"
+              />
+              <label for="create_home_folder">Create home folder?</label>
+
+              <span class="spacer"></span>
+
+              <input type="checkbox" id="fix_slashes" name="fix_slashes" />
+              <label for="fix_slashes">Fix Slashes?</label>
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <input
+                type="checkbox"
+                id="instant_chmod_chown_chgrp"
+                name="instant_chmod_chown_chgrp"
+              />
+              <label for="instant_chmod_chown_chgrp">Instant chmod?</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+
+              <input type="checkbox" id="list_zip_app" name="list_zip_app" />
+              <label for="list_zip_app">List zip app?</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              &nbsp;
+
+              <input type="checkbox" id="mdtm_gmt" name="mdtm_gmt" />
+              <label for="mdtm_gmt">MDTM GMT</label>
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <input type="checkbox" id="posix" name="posix" />
+              <label for="posix">POSIX</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              &nbsp;&nbsp;
+
+              <input type="checkbox" id="rfc_proxy" name="rfc_proxy" />
+              <label for="rfc_proxy">RFC Proxy?</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              &nbsp; &nbsp;
+
+              <input
+                type="checkbox"
+                id="sftp_recurse_delete"
+                name="sftp_recurse_delete"
+              />
+              <label for="sftp_recurse_delete">Recurse SFTP Delete?</label>
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <input type="checkbox" id="show_date_time" name="show_date_time" />
+              <label for="show_date_time">Show Date-Time?</label>
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+              &nbsp;&nbsp;
+
+              <input type="checkbox" id="site_ack" name="site_ack" />
+              <label for="site_ack">Site acknowledgement?</label>
+
+              <span class="spacer"></span>
+
+              <input type="checkbox" id="sort_listings" name="sort_listings" />
+              <label for="sort_listings">Sort Listings?</label>
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p>
+            <input
+              type="checkbox"
+              id="track_last_logins"
+              name="track_last_logins"
+            />
+            <label for="track_last_logins" class="Misc">
+              Track Last Logins</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            &nbsp;&nbsp;
+
+            <input
+              type="checkbox"
+              id="serverbeat_dmz_master"
+              name="serverbeat_dmz_master"
+            />
+            <label for="serverbeat_dmz_master" class="Misc">
+              DMZ only listens for connections from master ServerBeat
+              server</label
+            >
+          </p>
+          <p>
+            <input
+              type="checkbox"
+              id="pgp_check_downloads"
+              name="pgp_check_downloads"
+            />
+            <label for="pgp_check_downloads" class="Misc">
+              Pre-check PGP decrypt on the fly downloads?</label
+            >
+          </p>
+          <p>
+            <label
+              for="user_default_folder_privs"
+              class="Misc lblDefaultPrivsText"
+            >
+              Default privs for new VFS items in User Manager:</label
+            >
+            <input
+              type="text"
+              id="user_default_folder_privs"
+              class="bigInputBox"
+              name="user_default_folder_privs"
+            />
+          </p>
+          <p>
+            <label for="log_date_format" class="Misc lblLogDateTimeFormatText">
+              Log Date / Time Format:</label
+            >
+            <input
+              type="text"
+              id="log_date_format"
+              class="bigInputBox"
+              name="log_date_format"
+            />
+          </p>
+          <p>
+            <label for="default_system_owner" class="Misc lblDefaultOwnerText">
+              Default 'owner' of settings files:</label
+            >
+            <input
+              type="text"
+              id="default_system_owner"
+              name="default_system_owner"
+            />
+
+            <span class="spacer"></span>
+
+            <label for="default_system_group" class="Misc lblDefaultGroupText">
+              Default 'group' of settings files:</label
+            >
+            <input
+              type="text"
+              id="default_system_group"
+              name="default_system_group"
+            />
+          </p>
+          <p>
+            <label for="http_redirect_base" class="Misc">
+              HTTP Redirect Base:</label
+            >
+            <input
+              type="text"
+              id="http_redirect_base"
+              class="bigInputBox"
+              name="http_redirect_base"
+            />
+          </p>
+          <p>
+            <label for="user_backup_count" class="Misc lblNoOfUserBackupText">
+              Keep x backups of users in User Manager:</label
+            >
+            <input
+              type="text"
+              id="user_backup_count"
+              name="user_backup_count"
+              class="smallInputBox"
+            />
+
+            <!--
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					&nbsp;
+
+					<label for="localization" class="Misc lblLocalizationNameText">
+					Localization Name:</label>
+					<input type="text" id="localization"  name="localization" />-->
+          </p>
+          <p>
+            <label
+              for="zipCompressionLevel"
+              class="Misc lblZipCompressionLevelText"
+            >
+              Zip Compression Level:</label
+            >
+            <select id="zipCompressionLevel" name="zipCompressionLevel">
+              <option>Best</option>
+              <option>Fast</option>
+              <option>None</option>
+            </select>
+
+            <span class="crush7Feature">
+              <span class="wrap">
+                <span class="spacer"></span>
+                &nbsp;
+
+                <input type="checkbox" id="zip64" name="zip64" />
+                <label for="zip64">Zip64</label>
+                <span class="spacer"></span>
+                &nbsp;
+
+                <input type="checkbox" id="zip64_always" name="zip64_always" />
+                <label for="zip64_always">Zip64 Always</label>
+              </span>
+              <span class="infoPH" rel=".wrap"></span>
+            </span>
+            <span class="spacer"></span>
+            &nbsp;
+
+            <input
+              type="checkbox"
+              id="disable_mdtm_modifications"
+              name="disable_mdtm_modifications"
+            />
+            <label
+              for="disable_mdtm_modifications"
+              class="Misc lblDisableMDTMModificationsText"
+            >
+              Disable MDTM modifications</label
+            >
+          </p>
+          <p>
+            <input
+              type="checkbox"
+              id="allow_zipstream"
+              name="allow_zipstream"
+            />
+            <label for="allow_zipstream" class="Misc lblAllowZipstreamText">
+              Allow '.zipstream' Expansion</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            &nbsp;
+
+            <input
+              type="checkbox"
+              id="delete_partial_uploads"
+              name="delete_partial_uploads"
+            />
+            <label
+              for="delete_partial_uploads"
+              class="Misc lblDeletePartialUploadsText"
+            >
+              Delete partial uploads.</label
+            >
+          </p>
+          <p>
+            <input type="checkbox" id="allow_filetree" name="allow_filetree" />
+            <label
+              for="allow_filetree"
+              class="Misc lblAllowMagicFileTreeDownloadText"
+            >
+              Allow Magic '.filetree' Download</label
+            >
+
+            <span class="spacer"></span>&nbsp;
+
+            <input
+              type="checkbox"
+              id="disable_dir_filter"
+              name="disable_dir_filter"
+            />
+            <label
+              for="disable_dir_filter"
+              class="Misc lblAllowListingSubdirsViaLSTText"
+            >
+              Allow listing subdirectories via LIST.</label
+            >
+          </p>
+          <p>
+            <!--label for="remote_admin_interval" class="Misc lblRemoteAdminRefreshIntervalText">
+					Remote Admin Refresh Interval (seconds):</label>
+					<input type="text" id="remote_admin_interval"  name="remote_admin_interval" class="smallInputBox"  />
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					&nbsp;-->
+
+            <input type="checkbox" id="event_reuse" name="event_reuse" />
+            <label
+              for="event_reuse"
+              class="Misc lblAllowReUseInEmailEventsText"
+            >
+              Allow re-use in Email Events</label
+            >
+            <span class="spacer"></span>
+            <span class="spacer"></span>&nbsp;
+
+            <input
+              type="checkbox"
+              id="listing_multithreaded"
+              name="listing_multithreaded"
+            />
+            <label
+              for="listing_multithreaded"
+              class=""
+            >
+              Send listings multithreaded</label
+            >
+          </p>
+          <p>
+            <input type="checkbox" id="event_asynch" name="event_asynch" />
+            <label for="event_asynch" class="Misc lblRunEventsAsyncText">
+              Run Events Asynchronously</label
+            >
+          </p>
+          <p>
+            <input type="checkbox" id="encrypt_job_files_sensitive_data" name="encrypt_job_files_sensitive_data" />
+            <label for="encrypt_job_files_sensitive_data" class="Misc">
+              Encrypt job files sensitive data</label
+            >
+          </p>
+          <p>
+            <label for="max_job_summary_scan" class="Misc">
+              Maximum jobs to scan for job monitor:</label
+            >
+            <input
+              type="text"
+              id="max_job_summary_scan"
+              name="max_job_summary_scan"
+              class="smallInputBox"
+            />
+          </p>
+          <p>
+            <label
+              for="invalid_usernames_seconds"
+              class="Misc lblRememberInvalidUserNamesForXSecondsText"
+            >
+              Remember invalid usernames for x seconds:</label
+            >
+            <input
+              type="text"
+              id="invalid_usernames_seconds"
+              name="invalid_usernames_seconds"
+              class="smallInputBox"
+            />
+            <label for="invalid_usernames_seconds_attempts" class="Misc">
+              after</label
+            >
+            <input
+              type="number"
+              id="invalid_usernames_seconds_attempts"
+              name="invalid_usernames_seconds_attempts"
+              class="smallInputBox"
+            />
+            <label for="invalid_usernames_seconds_attempts" class="Misc">
+              attempts</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input
+              type="checkbox"
+              id="lowercase_usernames"
+              name="lowercase_usernames"
+            />
+            <label
+              for="lowercase_usernames"
+              class="Misc lblFroceLowercaseUserNamesText"
+            >
+              Force Lowercase Usernames</label
+            >
+          </p>
+          <p>
+            <label
+              for="webdav_timezone"
+              class="Misc lblWebDAVTimezoneOffsetText"
+            >
+              WebDAV Timezone Offset:</label
+            >
+            <input
+              type="text"
+              id="webdav_timezone"
+              name="webdav_timezone"
+              class="smallInputBox"
+            />
+            <!--
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" id="allow_alternate_url_decode" name="allow_alternate_url_decode" />
+					<label for="allow_alternate_url_decode" class="Misc lblAllowAlternateURLDecodeText">
+					Allow Alternate URL Decode</label>-->
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <label for="file_transfer_mode"> File transfer mode:</label>
+              <input
+                type="text"
+                id="file_transfer_mode"
+                name="file_transfer_mode"
+                class="inputBox"
+              />
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+
+              <label for="max_threads"> Max Threads:</label>
+              <input
+                type="text"
+                id="max_threads"
+                name="max_threads"
+                class="smallInputBox"
+              />
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <label for="unsafe_filename_chars">
+                Unsafe filename characters:</label
+              >
+              <input
+                type="text"
+                id="unsafe_filename_chars"
+                name="unsafe_filename_chars"
+                class="smallInputBox"
+              />
+
+              <span class="spacer"></span>
+
+              <label for="unsafe_filename_chars_rename">
+                Replace unsafe filename characters with:</label
+              >
+              <input
+                type="text"
+                id="unsafe_filename_chars_rename"
+                name="unsafe_filename_chars_rename"
+                class="smallInputBox"
+              />
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p class="crush7Feature">
+            <span class="wrap">
+              <label for="restart_command"> Restart Command &nbsp;:</label>
+              <input
+                type="text"
+                id="restart_command"
+                name="restart_command"
+                class="inputBox"
+              />
+
+              <span class="spacer"></span>
+              <span class="spacer"></span>
+
+              <label for="trusted_ip_parts"> Trusted IP Parts:</label>
+              <input
+                type="text"
+                id="trusted_ip_parts"
+                name="trusted_ip_parts"
+                class="smallInputBox"
+              />
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+          </p>
+          <p>
+            <label
+              for="server_start_message"
+              class="Misc lblServerStartMessageText"
+            >
+              Server Start Message:</label
+            >
+            <textarea
+              id="server_start_message"
+              name="server_start_message"
+              class="formTextarea"
+            ></textarea>
+          </p>
+          <p>
+            <label for="max_items_dir">
+              Max items before CrushFTP tries to trigger an alert and logs
+              errors about giant directories which may cause memory
+              issues:</label
+            >
+            <input
+              type="text"
+              id="max_items_dir"
+              name="max_items_dir"
+              class="inputBox"
+            />
+          </p>
+          <p>
+            <label for="geoip_access_key"> Geo ip access key &nbsp;:</label>
+            <input
+              type="password"
+              id="geoip_access_key"
+              name="geoip_access_key"
+              class="bigInputBox encryptPass"
+            />
+
+            <span
+              class="ui-state-highlight ui-corner-all googleSMTPOptions"
+              style="
+                padding: 3px;
+                display: inline-block;
+                margin: 0px 3px;
+                width: auto;
+                position: relative;
+                top: -4px;
+              "
+            >
+              <span
+                style="float: left; margin-right: 0.3em"
+                class="ui-icon ui-icon-info"
+              ></span>
+              <span>
+                <a target="_blank" href="https://ipstack.com/product"
+                  >Get an access key</a
+                >
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="ui-priority-primary"> S3 Configuration:</span>
+          </p>
+          <div class="subPanel ui-widget-content leftborder nobg">
+            <label style="display:inline-block;width:130px;text-align:right;" for="s3_max_buffer_download">
+            Max Download Buffer:</label>
+            <input type="text" id="s3_max_buffer_download"  name="s3_max_buffer_download" class="smallInputBox"  />
+            <label
+              style="display: inline-block;"
+              for="s3_max_buffer_download">
+              MB
+            </label>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <label style="display:inline-block;width:130px;text-align:right;" for="s3_threads_download">
+            Download Threads:</label>
+            <input type="text" id="s3_threads_download"  name="s3_threads_download" class="smallInputBox"  />
+            <div style="display:block;height:15px;"></div>
+            <label style="display:inline-block;width:130px;text-align:right;" for="s3_buffer">
+            Upload Buffer:</label>
+            <input type="text" id="s3_buffer"  name="s3_buffer" class="smallInputBox"  />
+            <label
+              style="display: inline-block;"
+              for="s3_buffer">
+              MB
+            </label>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <label style="display:inline-block;width:130px;text-align:right;" for="s3_threads_upload">
+            Upload Threads:</label>
+            <input type="text" id="s3_threads_upload"  name="s3_threads_upload" class="smallInputBox"  />
+            <div style="display:block;height:15px;"></div>
+            <label style="display:inline-block;width:130px;text-align:right;" for="s3_buffer_download">
+            Download Buffer:</label>
+            <input type="text" id="s3_buffer_download"  name="s3_buffer_download" class="smallInputBox"  />
+            <label
+              style="display: inline-block;"
+              for="s3_buffer_download">
+              MB
+            </label>
+            <div style="display:block;height:15px;"></div>
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+            <input type="checkbox" id="s3crush_replicated" name="s3crush_replicated" />
+            <label for="s3crush_replicated">Replicated?</label>
+            <span class="spacer"></span>
+            <input type="checkbox" id="s3_ignore_partial" name="s3_ignore_partial" />
+            <label for="s3_ignore_partial">Disable uploads in progress and resume</label>
+            <span class="spacer"></span>
+            <input type="checkbox" id="s3_ec2_imdsv2" name="s3_ec2_imdsv2" />
+            <label for="s3_ec2_imdsv2">Enable IMDSv2</label>
+            <span class="spacer"></span>
+            <input type="checkbox" id="s3_use_contianer_credentials_relative_uri" name="s3_use_contianer_credentials_relative_uri" />
+            <label for="s3_use_contianer_credentials_relative_uri">EC2 Use relative URL</label>
+          </div>
+        </div>
+        <p>
+          <span class="ui-priority-primary">Low memory alert trigger: (% of memory usage)</span>
+        </p>
+        <div class="subPanel ui-widget-content leftborder nobg memory-trigger">
+          <div style="padding:10px 0px">
+            <label style="display:inline-block;width:130px;text-align:right;" for="low_memory_trigger_value1 ">
+            Warning Level:</label>
+            <div id="low_memory_trigger_value1" class="ui-slider">
+                <div class="ui-slider-handle custom-handle"></div>
+                <div class="tip"></div>
+            </div>
+          </div>
+          <div style="padding:10px 0px">
+            <label style="display:inline-block;width:130px;text-align:right;" for="low_memory_trigger_value2 ">
+            Important:</label>
+            <div id="low_memory_trigger_value2" class="ui-slider">
+                <div class="ui-slider-handle custom-handle"></div>
+                <div class="tip"></div>
+            </div>
+          </div>
+          <div style="padding:10px 0px">
+            <label style="display:inline-block;width:130px;text-align:right;" for="low_memory_trigger_value3 ">
+            Critical/Urgent:</label>
+            <div id="low_memory_trigger_value3" class="ui-slider">
+                <div class="ui-slider-handle custom-handle"></div>
+                <div class="tip"></div>
+            </div>
+          </div>
+
+        </div>
+        <p class="buttonBar right">
+          <a href="javascript:void(0);" class="button">
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 3px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-folder-collapsed"
+            ></span>
+            <span class="submitActionRestore Misc btnResetText"
+              >Reset To Default</span
+            >
+          </a>
+          <a href="javascript:void(0);" class="button" id="cancel">
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 3px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-cancel"
+            ></span>
+            <span class="submitActionCancel Misc btnCancelText">Cancel</span>
+          </a>
+          <a href="javascript:void(0);" class="button" id="saveContent">
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 3px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-disk"
+            ></span>
+            <span class="submitActionOk Misc btnOKText">Save</span>
+          </a>
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>

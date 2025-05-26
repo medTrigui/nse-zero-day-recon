@@ -1,0 +1,3 @@
+var configSuggestions = {
+    sftp: "custom_setKeyReExchangeDisabled:false,custom_setIdleConnectionTimeoutSeconds:600,custom_enableCompression:false,custom_checkDirectoryAttributeBeforeList:false,custom_enableFIPSMode:false,custom_setDHGroupExchangeBackwardsCompatible:false,custom_preferredCipher:aes128-ctr,custom_preferredKex:diffie-hellman-group14-sha1,custom_preferredMac:hmac-sha256,custom_setMaximumPacketLength:70000,custom_setSessionMaxPacketSize:70000,custom_setSessionMaxWindowSpace:150000,custom_enableETM:false,custom_enableNonStandardAlgorithms:false,custom_setUseRSAKey:true,custom_setSftpBufferSize:32768,custom_setSftpBlockSize:32768,custom_setMaxAsyncRequests:100,custom_charEncoding:UTF-8,custom_dot_default_dir:false"
+};

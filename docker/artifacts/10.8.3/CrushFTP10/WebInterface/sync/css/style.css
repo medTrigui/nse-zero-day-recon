@@ -1,0 +1,466 @@
+/*---------- User Manager CSS----------*/
+table
+{
+	width:100%;
+	border:0px;
+	padding:0px;
+}
+.checkboxArea, .labelArea
+{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 70px;
+}
+
+.labelArea
+{
+    width: 120px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.labelArea label
+{
+    top:-2px;
+}
+
+.checkboxAreaPadded, .labelAreaPadded
+{
+    left: 12px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 12px;
+}
+.checkboxArea span
+{
+	cursor:pointer;
+}
+.settingsArea
+{
+	padding-left:15px;
+	width: 500px;
+	position: relative;
+}
+.settingsArea .button span.ui-button-text{
+    padding: 0.3em 1em;
+    background-repeat: no-repeat;
+}
+
+.highlight
+{
+    background-color: yellow;
+    border: #C9BDBD thin solid;
+    color: #050505;
+    padding: 1px;
+}
+.customForm .button
+{
+    position: relative;
+    top: 5px;
+}
+#GUIAdmin .blockOverlay
+{
+	-webkit-border-radius:  5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+    height: 100% !important;
+    padding: 10px 0 4px !important;
+    top: -8px !important;
+	z-index:95 !important;
+}
+
+
+#growlContainer
+{
+	z-index:100;
+}
+
+.reloadLink, .refreshData
+{
+	background-image: url("/WebInterface/Resources/images/arrow_refresh_small.png");
+	background-position: 0px 1px;
+    background-repeat: no-repeat;
+	margin-left:3px;
+	margin-top:3px;
+	height:20px;
+	display:inline-block;
+	padding-left:16px;
+}
+
+.refreshData
+{
+    margin-left: -2px;
+    margin-top: -2px;
+    padding-left: 20px;
+}
+
+#loadingIndicator, .waitLoading {
+    background: url("/WebInterface/Resources/images/loading.gif") no-repeat 5px 8px;
+    padding-left: 25px;
+}
+
+.loading
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("/WebInterface/Resources/images/loading.gif") no-repeat 0px 0px;
+    margin-right: 8px;
+}
+
+.syncStatusLoading
+{
+    padding-left: 18px;
+    background-position: 0px -1px;
+    width: auto;
+    display: inline-block;
+    height: 16px;
+    background: url("/WebInterface/Resources/images/loading.gif") no-repeat 0px 0px;
+    margin-right: 8px;
+}
+
+.progressBG
+{
+    background: url("/WebInterface/Resources/images/loading.gif") no-repeat 0px -2px;
+    padding-left: 20px;
+}
+
+.waitLoading
+{
+    background-position:  5px -1px;
+    margin: 10px auto 10px auto;
+    width:100px;
+}
+
+.loadingIndicatorWindow .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.vButtons .button
+{
+	margin-bottom:5px;
+}
+
+.pingTS
+{
+	font-size:11px;
+	font-weight:normal;
+}
+
+.loadingIndicator, .waitLoading
+{
+	border:0 !important;
+	-moz-opacity:.80;
+	filter:alpha(opacity=80);
+	opacity:.80;
+	z-index:90 !important;
+}
+
+li.ui-draggable
+{
+	list-style: none;
+}
+
+/*IE 7 Patches*/
+
+.ie7 .button
+{
+	margin:2px;
+}
+
+.ie7 .customForm label
+{
+	top : 0px !important;
+}
+
+.logArea
+{
+	margin:5px 0px;
+	padding:5px;
+	display:block;
+	width:100%;
+	height:350px;
+	overflow:auto;
+}
+
+.logItemList
+{
+	max-height:150px;
+	min-height:40px;
+	padding:0px;
+	margin:5px 0px;
+}
+
+.logItemList li
+{
+	margin:1px;
+	padding:0px 5px;
+}
+
+.ie #actionButtons
+{
+	margin-top:5px;
+}
+
+.smallButtons .ui-button-text
+{
+	padding: 0.2em;
+}
+
+.ui-progressbar-value
+{
+	background-image: url(/WebInterface/Resources/images/pbar-ani.gif);
+}
+
+.activeSync, .syncError, .inactiveSync, .activeSyncLbl, .syncErrorLbl, .inactiveSyncLbl
+{
+    display:inline-block;
+    background-image: url("/WebInterface/Resources/images/bullet_green.png");
+    background-position:  0px -1px;
+    background-repeat: no-repeat;
+    font-weight:bolder;
+    float: left;
+    margin-top: -5px;
+    padding-left: 18px;
+}
+
+.activeSyncLbl, .syncErrorLbl, .inactiveSyncLbl
+{
+    padding-left: 18px;
+    float: none;
+}
+
+.syncError, .syncErrorLbl
+{
+    background-image: url("/WebInterface/Resources/images/bullet_red.png");
+}
+
+.inactiveSync, .inactiveSyncLbl
+{
+    background-image: url("/WebInterface/Resources/images/bullet_disabled.png");
+}
+
+#instancesPanel fieldset
+{
+    margin-bottom: 10px;
+}
+
+.instancesHeader td
+{
+    text-align: center;
+    font-weight: bolder;
+    padding: 5px;
+}
+
+.syncInstances td{
+    padding: 5px 10px;
+}
+
+
+td.alignMiddle
+{
+    vertical-align: middle;
+    text-align: center;
+}
+
+td.alignMiddle .activeSyncLbl, td.alignMiddle .syncErrorLbl, td.alignMiddle .inactiveSyncLbl
+{
+    margin-left: -35px;
+}
+
+.instanceItem td{
+    vertical-align: middle;
+    font-weight: normal !important;
+}
+
+#openInPopup
+{
+    display:inline-block;
+    float: right;
+    margin: 10px;
+}
+
+.syncClient h2
+{
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    margin: 0px;
+}
+
+.syncClient table
+{
+    padding: 5px;
+}
+
+.logArea
+{
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.logArea p
+{
+    padding: 2px;
+    margin: 2px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+#instancesPanel
+{
+    padding: 5px;
+}
+
+.disabledUI
+{
+    -moz-opacity:.60;
+    filter:alpha(opacity=60);
+    opacity:.60;
+}
+
+.disabledUI:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+}
+
+.badPassMessage
+{
+    display: inline-block;
+    font-weight: normal;
+    color: red;
+    margin: 0px 0px 0px 14px;
+    position: relative;
+    padding-bottom: 8px;
+    width: 360px;
+    float: right;
+}
+
+.agentName
+{
+    position: relative;
+    display: inline-block;
+    float: none;
+    top: -7px;
+}
+
+.progressbar
+{
+    margin:5px 5px 10px 5px;
+    height: 13px;
+}
+.progressbar div{
+    height: 13px;
+}
+
+.uploadStatusLabel
+{
+    float: right;
+    position: relative;
+    top: -24px;
+    right: 10px;
+    color: black;
+    font-weight: bolder;
+    font-size: 11px;
+}
+
+.time, .speed
+{
+  margin:-5px 5px 5px 5px;
+}
+
+.speed
+{
+    margin-top: 5px;
+}
+
+.status
+{
+    font-size: 11px;
+    padding: 0px 0px 0px 5px;
+}
+
+.statusProgress fieldset{
+    padding: 2px;
+    margin: 0px 2px 0px 2px;
+    position: relative;
+    top:2px;
+}
+
+.statusProgress fieldset legend{
+    background: none;
+    border: none;
+    color: black;
+    padding: 4px;
+}
+
+.syncItem
+{
+    background: url("/WebInterface/Resources/images/logo_sync.png") no-repeat 98% 5px !important;
+    padding-right: 10px;
+}
+
+#serverDirListingPanelPopup li
+{
+    border:1px solid #eee;
+}
+
+#serverDirListingPanelPopup li.ui-state-active, #serverDirListingPanelPopup li.hoverVFS
+{
+    border:1px solid #ccc !important;
+    background-color: #fff !important;
+}
+
+.saveButton
+{
+    background: url("/WebInterface/jQuery/images/accept.png" ) no-repeat 0px 6px transparent;
+    padding-left: 18px;
+    margin-left: 2px;
+    overflow: hidden;
+    float: left;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 25px;
+}
+
+.cancelButton,.refreshBtn
+{
+    margin-left: 5px;
+    background: url("/WebInterface/jQuery/images/cancel.png" ) no-repeat scroll 0 6px transparent;
+    padding-left: 18px;
+    margin-left: 4px;
+    overflow: hidden;
+    float: left;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 25px;
+}
+.refreshBtn
+{
+    background: url("/WebInterface/jQuery/images/refresh.png" ) no-repeat scroll 0 6px transparent;
+    float: right;
+}
+
+h2
+{
+    padding: 0px;
+    margin: 0px;
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.popupHeader
+{
+    padding: 4px;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+}

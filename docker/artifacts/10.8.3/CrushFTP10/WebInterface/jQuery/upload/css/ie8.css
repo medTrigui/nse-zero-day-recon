@@ -1,0 +1,16 @@
+.inputFileWraperIE8 {
+    display: inline-block;
+    position: relative;
+}
+.inputFileWraperIE8 a{
+    padding: 0 10px;
+}
+.inputFileWraperIE8 .inputFileIE8 {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: -145px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

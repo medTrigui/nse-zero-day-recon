@@ -1,0 +1,438 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlAdmin" class="userMgrPanel">
+    <table>
+        <tr>
+            <td>
+                <div class="ui-priority-primary Admin headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg">
+                <fieldset class="ui-widget-content nobg" config="SITE">
+                    <legend class="collapseHandle pointer"></legend>
+                    <div class="dataDiv">
+                        <fieldset class="ui-widget-content nobg" filterKeywords="admin site kick ban zip chown chgrp chmod email password remote admin user sub delegate" pnlId="admin1" config="SITE">
+                            <table quickLocate="Admin preferences">
+                                <tr>
+                                    <td id="sitePrefsCheck" propertyType="panelAdmin:All" class="checkboxArea ui-widget-content rightborder nobg extraFields">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div id="adminSiteSettings" class="fields siteSettings">
+                                            <!--span class="ui-helper-hidden">
+                                                <input type="checkbox" id="connect" class="ignoreBind siteField" />
+                                            </span-->
+                                            <input type="checkbox" id="site_version" class="ignoreBind siteField" />
+                                            <label for="site_version">
+                                                SITE VERSION</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_users" class="ignoreBind siteField" />
+                                            <label for="site_users">
+                                                SITE USERS</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_kick" class="ignoreBind siteField" />
+                                            <label for="site_kick">
+                                                SITE KICK</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_kickban" class="ignoreBind siteField" />
+                                            <label for="site_kickban">
+                                                SITE KICKBAN</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_pass" class="ignoreBind siteField" />
+                                            <label for="site_pass">
+                                                SITE PASS (Allows changing the password.)</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_zip" class="ignoreBind siteField" />
+                                            <label for="site_zip">
+                                                SITE ZIP (Changes dir listings to be .ZIPs.)</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_dot" class="ignoreBind siteField" />
+                                            <label for="site_dot">
+                                                SITE DOT (Allows hiding of items starting with a '.')</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_quit" class="ignoreBind siteField" />
+                                            <label for="site_quit">
+                                                SITE QUIT (Allows shutdown to server.)</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_chmod" class="ignoreBind siteField" />
+                                            <label for="site_chmod">
+                                                SITE CHMOD</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_chown" class="ignoreBind siteField" />
+                                            <label for="site_chown">
+                                                SITE CHOWN</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_chgrp" class="ignoreBind siteField" />
+                                            <label for="site_chgrp">
+                                                SITE CHGRP</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_plugin" class="ignoreBind siteField" />
+                                            <label for="site_plugin">
+                                                SITE PLUGIN</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_emailpassword" class="ignoreBind siteField" />
+                                            <label for="site_emailpassword">
+                                                Allow password to be emailed if they forget it.</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <input type="checkbox" id="site_webftpproxy" class="ignoreBind siteField" />
+                                            <label for="site_webftpproxy">
+                                                Allow Web Proxy</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <span class="spacer"></span>
+                                            <input type="checkbox" id="site_adhocwebftpproxy" class="ignoreBind siteField" />
+                                            <label for="site_adhocwebftpproxy">
+                                                Allow Adhoc Web Proxy</label>
+                                            <div style="clear: both;">
+                                            </div>
+                                            <div class="enterpriseFeatureAdmin crush7Feature">
+                                                <span>
+                                                    <input type="checkbox" id="site_proxy" class="ignoreBind siteField" />
+                                                    <label for="site_proxy">Allow HTTP(s) Forward Proxy</label>
+                                                </span>
+                                                <span style="display:inline-block;position:absolute;margin:-2px 13px;font-weight: normal;padding:3px 10px 3px 4px;cursor:help;" class="ui-widget-content ui-state-highlight enterpriseFeatureTag">
+                                                    <span style="float:left;cursor:pointer;margin-top:-1px;margin-left:-15px;" class="ui-icon ui-icon-arrowthick-1-w"></span>
+                                                    <span style="float:left;cursor:pointer;margin-top:-2px;margin-right:2px;" class="ui-icon ui-icon-flag"></span>
+                                                    Enterprise only feature
+                                                </span>
+                                                <div style="clear: both;"></div>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" id="connect" class="ignoreBind siteField" />
+                                                <label for="connect">
+                                                    Remote Server Administration (Everything)</label>
+                                            </div>
+                                            <div style="margin-top: 10px;">
+                                                <a id="limitedUserRoles" href="javascript:void(0);" class="button">
+                                                    <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-locked"></span>
+                                                    <span class="">
+                                                        Setup Roles
+                                                    </span>
+                                                </a>
+                                                <a id="adminUserPermissions" href="javascript:void(0);" class="button" style="margin-left: 6px;">
+                                                    <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-person"></span>
+                                                    <span class="">
+                                                        Setup Permissions (limited admin only)
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div id="limitedUserRolesPanel">
+                                                <div class="">
+                                                    <input type="checkbox" id="user_admin" class="ignoreBind siteField" />
+                                                    <label for="user_admin">
+                                                        Remote User Only Administration (Limited)</label>
+                                                    <div style="padding:10px 22px;">
+                                                        <a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=UserManagerAdminRestricted" target="_blank">Read this for instructions on how to configure.</a>
+                                                    </div>
+                                                </div>
+                                                <div style="clear: both;">
+                                                </div>
+                                                <span class="multicheckAll" style="float: left;margin: 10px;">Check:<a class="everything" href="#">All</a> | <a class="nothing" href="#">None</a>
+                                                </span>
+                                                <div class="roles">
+                                                    <div class="roleGroup">
+                                                        <div class="ui-priority-primary">User
+                                                            <span class="multicheck">Check:<a class="all" href="#">All</a> | <a class="none" href="#">None</a>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" id="user_view" class="ignoreBind siteField" />
+                                                            <label for="user_view">Allow viewing all users in the user manager.</label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="checkbox" rel="#user_view" id="user_edit" class="ignoreBind siteField" />
+                                                            <label for="user_edit">Allow viewing and editing of users in the user manager</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="roleGroup">
+                                                        <div class="ui-priority-primary">Job
+                                                            <span class="multicheck">Check:<a class="all" href="#">All</a> | <a class="none" href="#">None</a>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                <input type="checkbox" id="job_list" class="ignoreBind siteField" />
+                                                                <label for="job_list">Allow viewing list of job configurations.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" id="job_list_history" class="ignoreBind siteField" />
+                                                                <label for="job_list_history">Allow viewing list of previously run jobs.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" id="job_view" class="ignoreBind siteField" />
+                                                                <label for="job_view">Allow viewing job configurations.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" id="job_monitor" class="ignoreBind siteField" />
+                                                                <label for="job_monitor">Allow monitoring jobs.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" rel="" id="job_run" class="ignoreBind siteField" />
+                                                                <label for="job_run">Allow running jobs.</label>
+                                                            </div>
+                                                                <input type="checkbox" reverserel="#job_monitor" rel="#job_view,#job_run,#job_list,#job_list_history" id="job_edit" class="ignoreBind siteField" />
+                                                                <label for="job_edit">Allow viewing, running, end editing of jobs.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="roleGroup">
+                                                        <div class="ui-priority-primary">Report
+                                                            <span class="multicheck">Check:<a class="all" href="#">All</a> | <a class="none" href="#">None</a>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                <input type="checkbox" id="report_view" class="ignoreBind siteField" />
+                                                                <label for="report_view">Allow viewing report configurations.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" rel="#report_view" id="report_run" class="ignoreBind siteField" />
+                                                                <label for="report_run">Allow viewing and running reports.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" rel="#report_view, #report_run" id="report_edit" class="ignoreBind siteField" />
+                                                                <label for="report_edit">Allow viewing, running, and editing of reports.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="roleGroup">
+                                                        <div class="ui-priority-primary">Shares
+                                                            <span class="multicheck">Check:<a class="all" href="#">All</a> | <a class="none" href="#">None</a>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+
+                                                            <div>
+                                                                <input type="checkbox" id="share_view" class="ignoreBind siteField" />
+                                                                <label for="share_view">Allow viewing of shares (TempAccounts).</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" rel="#share_view" id="share_edit" class="ignoreBind siteField" />
+                                                                <label for="share_edit">Allow viewing, and editing of shares (TempAccounts).</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="roleGroup">
+                                                        <div class="ui-priority-primary">Preferences
+                                                            <span class="multicheck">Check:<a class="all" href="#">All</a> | <a class="none" href="#">None</a>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                <input type="checkbox" id="pref_view" class="ignoreBind siteField" />
+                                                                <label for="pref_view">Allow viewing server preferences.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" rel="#pref_view" id="pref_edit" class="ignoreBind siteField" />
+                                                                <label for="pref_edit">Allow viewing and editing of preferences.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="roleGroup">
+                                                        <div class="ui-priority-primary">Server
+                                                            <span class="multicheck">Check:<a class="all" href="#">All</a> | <a class="none" href="#">None</a>
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                <input type="checkbox" id="log_access" class="ignoreBind siteField" />
+                                                                <label for="log_access">Allow viewing of server files, including the server log, job logs, and any other file on the server that has a ".log" extension.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" id="server_view" class="ignoreBind siteField" />
+                                                                <label for="server_view">Allow viewing server status info.</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" rel="#server_view" id="server_edit" class="ignoreBind siteField" />
+                                                                <label for="server_edit">Allow viewing server status info, and executing server actions (restart port, kick user, etc.)</label>
+                                                            </div>
+                                                            <div>
+                                                                <input type="checkbox" id="update_run" class="ignoreBind siteField" />
+                                                                <label for="update_run">Allow running server self update.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="limited admin group sub delegate" pnlId="admin2" config="admin_group_name">
+                            <table quickLocate="User can administer group named">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="admin_group_name">User can administer group named:</label>
+                                            <input type="text" id="admin_group_name" class="bigInputBox" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="unsafe password characters" pnlId="admin3" config="unsafe_password_chars">
+                            <table quickLocate="Unsafe Password Characters">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="unsafe_password_chars">Unsafe Password Characters:</label>
+                                            <input type="text" id="unsafe_password_chars" class="inputBox" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="number of characters for random passwords" pnlId="admin4" config="random_password_length">
+                            <table quickLocate="Number of characters for random passwords">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="random_password_length" class="Encryption fieldLabel lblNumberOfCharactersForRandomPasswordText">Number of characters for random passwords:</label>
+                                            <input class="smallInputBox" type="text" id="random_password_length" name="random_password_length" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="new password minimum length" pnlId="admin5" config="min_password_length">
+                            <table quickLocate="New password minimum length">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_password_length" class="Encryption fieldLabel lblNewPasswordMinimumLengthText">New password minimum length:</label>
+                                            <input class="smallInputBox" type="text" id="min_password_length" name="min_password_length" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="minimum password numeric characters" pnlId="admin6" config="min_password_numbers">
+                            <table quickLocate="Minimum numeric characters">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_password_numbers" class="Encryption fieldLabel lblMinimumNumericCharsText">Minimum numeric characters:</label>
+                                            <input class="smallInputBox" type="text" id="min_password_numbers" name="min_password_numbers" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="minimum password lower case characters" pnlId="admin7" config="min_password_lowers">
+                            <table quickLocate="Minimum lower case characters">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_password_lowers" class="Encryption fieldLabel lblMinimumLowerCaseCharsText">Minimum lower case characters:</label>
+                                            <input class="smallInputBox" type="text" id="min_password_lowers" name="min_password_lowers" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="minimum password upper case characters" pnlId="admin8" config="min_password_uppers">
+                            <table quickLocate="Minimum upper case characters">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_password_uppers" class="Encryption fieldLabel lblMinimumUpperCaseCharsText">Minimum upper case characters:</label>
+                                            <input class="smallInputBox" type="text" id="min_password_uppers" name="min_password_uppers" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="minimum password special characters" pnlId="admin9" config="min_password_specials">
+                            <table quickLocate="Minimum special characters">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_password_specials" class="Encryption fieldLabel lblMinimumSpecialCharsText">Minimum special characters:</label>
+                                            <input class="smallInputBox" type="text" id="min_password_specials" name="min_password_specials" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="password history count" pnlId="admin10" config="password_history_count">
+                            <table quickLocate="Password history count">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="password_history_count" class="Encryption fieldLabel lblPasswordHistoryCountText">Password history count:</label>
+                                            <input class="smallInputBox" type="text" id="password_history_count" name="password_history_count" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <div id="user-roles">
+        <div class="filters">
+            <label>Filter: <input type="text" id="userRolesFilter" placeholder="Enter phrase to filter"></label>
+            <span class="select-items">Select <a href="#" class="selectAll">All</a> | <a href="#" class="selectNone">None</a> | <a href="#" class="selectInverse">Inverse</a></span>
+        </div>
+        <span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;width: 98%">
+            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+            <span class="">
+                <strong>If nothing is selected it will allow modifying all items.</strong>
+            </span>
+        </span>
+        <div class="panel"></div>
+    </div>
+</div>

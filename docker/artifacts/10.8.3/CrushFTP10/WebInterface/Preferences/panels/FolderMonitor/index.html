@@ -1,0 +1,167 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlFolderMonitor">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary FolderMonitor headerText"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg">
+                <div style="margin:10px;">
+                    <div class="ui-state-highlight ui-corner-all" style="padding:3px;display:block;padding:10px;text-align: center;">
+                        <h2 style="margin:5px 0px 10px 0px;">Enterprise users, please use Jobs instead of Folder Monitor</h2>
+                        If you are not Enterprise user, see the following links to get more information on features and pricing:<br><br> <a href="http://crushftp.com/pricing.html#enterprise" tabIndex="-1" target="_blank">Plans &amp; Pricing</a> | <a href="http://www.crushftp.com/crush6wiki/Wiki.jsp?page=Enterprise%20License%20Enhancements" tabIndex="-1" target="_blank">Enterprise License Enhancements</a>
+                    </div>
+                </div>
+                <p>
+                    <span class="FolderMonitor pnlDescText ui-priority-primary">
+                        Item in this list will be deleted or archived. Use with caution!
+                    </span>
+                </p>
+                <p>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td style="width:75%;">
+                                <div class="MediumListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                    <ol class="nobg selectable multiple sideScroll ui-selectable" id="monitored_folders" name="monitored_folders">
+                                    </ol>
+                                </div>
+                            </td>
+                            <td style="padding-left:10px;">
+                                <p class="buttonBar left buttonBarNoBottom">
+                                    <a href="#" class="button" id="addRule">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                        <span class="FolderMonitor btnAddText">Add</span>
+                                    </a>
+                                    <a href="#" class="button" id="deleteRule">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>
+                                        <span class="FolderMonitor btnDeleteText">Delete</span>
+                                    </a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+                <div id="formDetailsPanel" class="formDetailsPanel" style="display:none;">
+                    <p>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="enabled" name="enabled" />
+                        <label for="enabled" class="FolderMonitor lblFormChkEnabledText">
+                            Enabled</label>
+                    </p>
+                    <p>
+                        <label for="folder" class="FolderMonitor lblFolderLocationText">Folder Location:</label>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" style="width:250px;" type="text" id="folder" name="folder" />
+
+                        <a fileMode="user" PickType="dir" href="#" class="button serverFilePickButton" rel="folder" style="top:4px;">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                            <span class="FolderMonitor btnFolderLocationBrowseText">Browse
+                            </span>
+                        </a>
+                    </p>
+                    <p>
+                        <label for="folder_match" class="FolderMonitor lblAndPathToItemMatchesText">And path to item matches:</label>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" style="width:350px;" type="text" id="folder_match" name="folder_match" />
+                    </p>
+                    <p>
+                        <label for="folder_not_match" class="FolderMonitor lblAndItemDsntMatchText">And doesn't match path:</label>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" style="width:350px;" type="text" id="folder_not_match" name="folder_not_match" />
+                    </p>
+                    <p>
+                        <label for="folder_not_match_name">And doesn't match name:</label>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" style="width:150px;" type="text" id="folder_not_match_name" name="folder_not_match_name" />
+                    </p>
+                    <p>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="monitor_files" name="monitor_files" />
+                        <label for="monitor_files" class="FolderMonitor lblFormChkFilesText">
+                            Files</label>
+                        <span class="spacer"></span>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="monitor_non_empty_folders" name="monitor_non_empty_folders" />
+                        <label for="monitor_non_empty_folders" class="FolderMonitor lblFormChkNonEmptyFoldersText">
+                            Non Empty Folders</label>
+                        <span class="spacer"></span>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="monitor_sub_folders" name="monitor_sub_folders" />
+                        <label for="monitor_sub_folders" class="FolderMonitor lblFormMonitorSubFoldersText">
+                            Monitor Subfolders</label>
+                    </p>
+                    <p>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="monitor_empty_folders" name="monitor_empty_folders" />
+                        <label for="monitor_empty_folders" class="FolderMonitor lblFormChkEmptyFoldersText">
+                            Empty Folders</label>
+                    </p>
+                    <p class="subPanel ui-widget-content leftborder nobg">
+                        <span class="crush6Feature">
+                            <span class="spacer"></span>
+                            <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="empty_count_folders" name="empty_count_folders" />
+                            <label for="empty_count_folders" class="FolderMonitor ">
+                                Count folders when checking if empty?</label>
+                        </span>
+                    </p>
+                    <p class="subPanel ui-widget-content leftborder nobg">
+                        <span class="crush6Feature">
+                            <span class="spacer"></span>
+                            <input class="excludeXML folderMonitorDetails ignoreBind" type="checkbox" id="empty_count_files" name="empty_count_files" />
+                            <label for="empty_count_files" class="FolderMonitor ">
+                                Count files when checking if empty?</label>
+                        </span>
+                    </p>
+                    <p>
+                        <label for="time_units" class="FolderMonitor lblExpiresDurationUnitText">
+                            Expires when:</label>
+                        <select class="excludeXML folderMonitorDetails ignoreBind" id="time_units" name="time_units">
+                            <option value="0">Minutes</option>
+                            <option value="1">Hours</option>
+                            <option value="2">Days</option>
+                        </select>
+                        <input class="excludeXML folderMonitorDetails ignoreBind" class="smallInputBox" type="text" id="time_units_no" name="time_units_no" />
+                    </p>
+                    <p>
+                        <label for="folderMonitorAction" class="FolderMonitor lblActionToTakeText">
+                            Action to take:</label>
+                        <select class="excludeXML folderMonitorDetails ignoreBind" id="folderMonitorAction" name="folderMonitorAction">
+                        </select>
+                    </p>
+                    <div class="noForCrushTask">
+                        <p>
+                            <input type="checkbox" id="delete" name="delete" />
+                            <label for="delete" class="FolderMonitor lblFormChkDeleteItemsFoundText">
+                                Delete Items Found</label>
+                        </p>
+                        <p class="zippath_panel">
+                            <label for="zippath" class="FolderMonitor lblArchiveToFolderLocationText">Archive to Folder:</label>
+                            <input class="excludeXML folderMonitorDetails ignoreBind" style="width:250px;" type="text" id="zippath" name="zippath" />
+
+                            <a fileMode="user" PickType="dir" href="#" class="button serverFilePickButton" rel="zippath" style="top:4px;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                <span class="FolderMonitor btnFolderLocationBrowseText">Browse
+                                </span>
+                            </a>
+                        </p>
+                    </div>
+                    <p class="clear"></p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="buttonBar right">
+        <a href="#" class="button">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+            <span class="submitActionRestore FolderMonitor btnResetText">Reset To Default</span>
+        </a>
+        <a href="#" class="button" id="cancel">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel'></span>
+            <span class="submitActionCancel FolderMonitor btnCancelText">Cancel</span>
+        </a>
+        <a href="#" class="button" id="saveContent">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk'></span>
+            <span class="submitActionOk FolderMonitor btnOKText">Save</span>
+        </a>
+    </p>
+</div>

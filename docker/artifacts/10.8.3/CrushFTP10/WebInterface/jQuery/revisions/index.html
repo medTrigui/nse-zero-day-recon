@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="cache-control" content="no-cache">
+        <title>Revisions</title>
+        <link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/crushFtp.framework.css" />
+        <link type="text/css" href="/WebInterface/Resources/css/vtip.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/WebInterface/custom.css" />
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/date.format.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/vtip.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/browserSelector.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.cssRule.js"></script>
+        <script type="text/javascript" src = "js/crushftp.revisions.js"></script>
+        <style type="text/css">
+            #manageRevisionlist tbody td {
+                border: 1px solid #fff;
+                padding: 10px;
+            }
+            #manageRevisionlist tbody tr:hover td{
+                background: #FEFFD3;
+            }
+            #manageRevisionlist thead th
+            {
+                background : #eee;
+                padding: 10px;
+            }
+            hr
+            {
+                border:0px;
+                border-top:1px solid #eee;
+                margin:10px 0px;
+            }
+        </style>
+    </head>
+    <body id="GUIAdmin" class="manageRevisionBody" style="display:none;">
+        <div class="clear content">
+        <div id="manageRevision">
+        <div id="loadingIndicator"></div>
+        <div style="padding:5px 0px 5px 0px;" class="manageRevisionFilterTop">
+            <div style="margin-bottom: 0px;padding:7px 15px 0 15px" class="basket-top manageRevision">
+            </div>
+            <div style="clear: both;">
+                <div>
+                    <label for="">
+                        <img src="/WebInterface/jQuery/images/fileLarge.png" alt="">
+                        <span id="pathName" style=" position: relative;display: inline-block;top: -10px;font-size: 17px;font-weight: normal;"></span>
+                    </label>
+                    <a href="javascript:void(0);" id="refreshBtn" class="refreshBtn">Refresh</a>
+                </div>
+                <div style="clear: both;"></a>
+                </div>
+                <hr>
+                <div class="manageRevisionContent">
+                    <table id="manageRevisionlist" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th width="10%" _column="crushftp_rev" _loc="RevisionsNumberLabelText">Revision No</th>
+                                <th width="20%" _column="crushftp_user_name" _loc="RevisionsModifiedLabelText">Modified By</th>
+                                <th width="20%" _column="modified" _loc="RevisionsCreatedLabelText">Created On</th>
+                                <th width="20%" _column="size" _loc="RevisionsSizeLabelText">Size</th>
+                                <th width="50%" _column="" _loc="RevisionsDownloadLabelText">Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="growlContainer" style="display: none;">
+                    <div id="growl">
+                        <a class="ui-notify-close" href="#"><span class="ui-icon ui-icon-close" style="float: right">
+                        </span></a><span style="float: left; margin: 2px 5px 0 0;" class="ui-icon ui-icon-alert">
+                        </span>
+                        <h2>
+                            #{title}
+                        </h2>
+                        <p>
+                            #{text}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialog-message"></div>
+    </body>
+</html>

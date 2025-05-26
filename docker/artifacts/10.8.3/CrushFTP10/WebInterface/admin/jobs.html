@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="cache-control" content="no-cache">
+    <title>CrushFTP - Jobs Schedule &amp; Monitor</title>
+    <link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/style.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/vtip.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/simpleMinimap.css" rel="stylesheet" />
+
+    <link type="text/css" href="css/adminStyle.css" rel="stylesheet" />
+
+	<!--[if lte IE 7]>
+	<style type="text/css">
+	html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
+	</style>
+	<![endif]-->
+
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery-ui-1.8.9.custom.min.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.ui.selectableAdvanced.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+
+	<script type="text/javascript" src="/WebInterface/Resources/js/jquery-ui-timepicker-addon.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.blockUI.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.xml2json.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json2xml.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.alerts.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.textChange.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.notify.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/date.format.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/vtip.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/url.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/browserSelector.js"></script>
+
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.contextMenu.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.browseVFSPopup.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.PickUserPopup.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.validator.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.passwordValidator.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.encryptPassword.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.sparkline.min.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.highlight.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.simpleMinimap.js"></script>
+
+	<script type="text/javascript" src = "/WebInterface/Resources/js/jquery.mousewheel.min.js"></script>
+
+    <script type="text/javascript" src = "js/crushftp.admin.localizations.js"></script>
+
+    <script type="text/javascript" src = "js/crushftp.adminPanel.js"></script>
+
+    <script type="text/javascript" src = "js/crushftp.admin.init.js"></script>
+
+    <!-- File Browser stuff -->
+	<link rel="stylesheet" href="/WebInterface/Resources/css/localFileBrowser.css" />
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"></script>
+
+	<script type="text/javascript">
+		window.jobsOnly = true;
+        $(document).ready(function () {
+            $('#switcher').themeswitcher({onSelect:function(item){}});
+        });
+    </script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/themeswitcher.js">
+    </script>
+</head>
+<body id="GUIAdmin">
+	<div class="navigation ui-widget-content" id="header" style="background:none;background-color:white;height:55px;">
+		<div id="topSwitchButtons" style="margin:5px;float:left;background:none;border-top:0px;border-right:0px;border-left:0px;">
+		   <ul style="background:none;border:none;">
+			  <li class="ui-state-default ui-corner-top"><a href="/WebInterface/../"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-folder-open">
+				</span>Files</a></li>
+			  <li class="ui-state-default ui-corner-top adminOnly"><a href="/WebInterface/admin/index.html"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-gear">
+				</span>Server Admin</a></li>
+			  <li class="ui-state-default ui-corner-top adminOnly ui-state-active"><a href="/WebInterface/Jobs/index.html"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-copy">
+				</span>Jobs</a></li>
+			  <li  class="ui-state-default ui-corner-top"><a href="/WebInterface/UserManager/index.html"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-person">
+				</span>User Manager</a></li>
+			  <li  class="ui-state-default ui-corner-top adminOnly"><a href="/WebInterface/Preferences/index.html"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-copy">
+				</span>Preferences</a></li>
+			  <li  class="ui-state-default ui-corner-top adminOnly"><a href="/WebInterface/TempAccounts/index.html"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-bookmark">
+				</span>Shares</a></li>
+			  <li class="ui-state-default ui-corner-top vtip" title="Logout"><a href="#tabs-5" onclick="return doLogout();"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-locked">
+				</span></a></li>
+			  <li class="clear"></li>
+		   </ul>
+		</div>
+		<div class="logoContainer">
+			<a id="logo" style="border:0px;padding:0px;" href="javascript:void(0);">
+				<img src="/WebInterface/Resources/images/crushftp_gray_logo_resized.png" alt="" border="0" width="200" />
+			</a>
+			<div  class="clear"></div>
+		</div>
+		<div style="position:absolute; top:38px; left:5px;">
+			<span class="note" id="loggedInAs"></span>
+			<span style="margin-left:5px;" class="note" id="SessionSeconds"></span>
+			<span style="margin-left:6px;" class="liveData ui-priority-primary note" id="crushVersionInfo"></span>
+		</div>
+		<div>
+			<span id="switcher"></span>
+		</div>
+		<div class="enterpriseFeature" style="position:relative;left:160px;top:8px;display:inline-block;">
+			<label for="mainServerInstance">Server Instance:</label>
+			<select id="mainServerInstance" class="inputBox">
+				<option value=""></option>
+				<option value="">Main</option>
+			</select>
+		</div>
+	</div>
+	<div class="clear content">
+		<div class="mainContentPanel" id="adminPanel">
+			<div id="loadingIndicator"></div>
+			<div class="ui-widget-content">
+				<div id="notification" style="display:none;" class="ui-corner-all ui-state-error"></div>
+				<div id="placeHolder" class="customForm">
+					<div class="settings_panel">
+						<div id="jobsPanelTabs" class="smalltabs tabs">
+						   <ul>
+							  <li><a href="#jobsSchedulePlaceHolder" class="tablink"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-clock">
+			</span>Schedule</a></li>
+							  <li><a href="#jobsMonitorPlaceHolder" class="tablink"><span style="display: inline-block;margin: 0px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-disk">
+			</span>Monitor</a></li>
+						   </ul>
+						   <div class="panelHolder" id="jobsSchedulePlaceHolder"></div>
+						   <div class="panelHolder" id="jobsMonitorPlaceHolder">
+						   	<div style="margin:10px;">
+								<div class="ui-state-highlight ui-corner-all" style="padding:3px;display:block;padding:10px;text-align: center;">
+									<h2 style="margin:5px 0px 10px 0px;">This is an Enterprise License feature</h2>
+									To use this feature, an Enterprise license is required. To get more information on features and pricing, see the following links:<br><br> <a href="http://crushftp.com/pricing.html#enterprise" tabIndex="-1" target="_blank">Plans &amp; Pricing</a> | <a href="http://www.crushftp.com/crush6wiki/Wiki.jsp?page=Enterprise%20License%20Enhancements" tabIndex="-1" target="_blank">Enterprise License Enhancements</a>
+								</div>
+							</div>
+						   </div>
+						 </div>
+					</div>
+					<div class="clear">
+					</div>
+				</div>
+			</div>
+			<div id="growlContainer" style="display: none;">
+				<div id="growl">
+					<a class="ui-notify-close" href="#"><span class="ui-icon ui-icon-close" style="float: right">
+					</span></a><span style="float: left; margin: 2px 5px 0 0;" class="ui-icon ui-icon-alert">
+					</span>
+					<h2>
+						#{title}</h2>
+					<p>
+						#{text}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="ui-widget-content">
+		<div style="margin: 5px 0px; padding: 5px; height: 25px">
+			<div class="fields" style="float:right">
+				<a href="#" class="button backToTop" id=""><span style='display: inline-block;
+					margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-arrowreturnthick-1-n'>
+				</span><span class="">Back to top</span> </a>
+			</div>
+			<div style="float:left;margin-top:10px;">
+				<span id="PoweredByText" class="poweredby">Powered by
+					<a href="http://www.crushftp.com/" target="_blank">CrushFTP</a>
+				</span>
+				<span id="CopyrightText" class="copyright">&copy; 2025
+					<a href="http://www.CrushFTP.com/" target="_blank">CrushFTP</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="expiredNote" style="display:none;text-align:center;">
+		<div class="ui-priority-primary">
+			We hope you enjoyed your trial.
+		</div>
+		<div style="margin:15px 0px;">
+			Your trial period for <a href="http://www.crushftp.com/" tabIndex="-1" target="_blank">CrushFTP</a> has expired. To continue using <a href="http://www.crushftp.com/" tabIndex="-1" target="_blank">CrushFTP</a>, please purchace a license.
+		</div>
+		<div style="margin:15px 0px;">
+			<a href="http://www.crushftp.com/pricing.html" tabIndex="-1" target="_blank">Plans &amp; Pricing</a> | <a  tabIndex="-1"  target="_blank" href="http://www.crushftp.com/features.html">Features</a>
+		</div>
+		<div class="ui-priority-secondary" style="margin:5px 0px;">
+			Installed on:<span id="installationDate"></span>
+		</div>
+		<div style="margin:20px 0px;">
+			<a tabIndex="-1" href="#" class="button" id="ignorePurchase" style="float:right;"><span style='display: inline-block;
+				margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-circle-arrow-e'>
+			</span><span class="">Continue..</span> </a>
+		</div>
+	</div>
+	<div id="dialog-message"></div>
+</div>
+</body>
+</html>

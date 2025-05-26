@@ -1,0 +1,1835 @@
+<div id="remoteVFSItemForm" class="customForm" style="max-height: 700px">
+  <table width="100%">
+    <tr>
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_itemType"> Item type:</label>
+      </td>
+      <td>
+        <select
+          id="remoteVFSItem_option_itemType"
+          class="ignoreBind inputBox excludeXML"
+        >
+          <option value="file">File</option>
+          <option value="smb">SMB</option>
+          <option value="smb1">SMB1</option>
+          <option value="smb3">SMB3</option>
+          <option value="ftp">FTP</option>
+          <option value="ftps">FTPS</option>
+          <option value="ftpes">FTPES</option>
+          <option value="sftp">SFTP</option>
+          <option value="http">HTTP</option>
+          <option value="https">HTTPS</option>
+          <option value="webdav">WEBDAV</option>
+          <option value="webdavs">WEBDAVS</option>
+          <option value="s3">S3</option>
+          <option value="s3crush">S3Crush</option>
+          <option value="gdrive">GDrive</option>
+          <option value="gstorage">GStorage</option>
+          <option value="memory">Memory</option>
+          <option value="rfile">RFile</option>
+          <option value="hadoop">HADOOP</option>
+          <option value="azure">Azure</option>
+          <option value="citrix">Citrix</option>
+          <option value="glacier">Glacier</option>
+          <option value="dropbox">Dropbox</option>
+          <option value="backblaze">Backblaze(b2)</option>
+          <option value="onedrive">OneDrive</option>
+          <option value="sharepoint">SharePoint</option>
+          <option value="sharepoint2">SharePoint2</option>
+          <option value="box">Box</option>
+        </select>
+      </td>
+    </tr>
+    <tr class="s3Credentials nonS3API">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_s3serverURL">Server:</label>
+      </td>
+      <td>
+        <select id="remoteVFSItem_option_s3serverURL">
+          <option value="s3.amazonaws.com">s3.amazonaws.com</option>
+          <option value="s3-af-south-1.amazonaws.com">
+            s3-af-south-1.amazonaws.com
+          </option>
+          <option value="s3.af-south-1.amazonaws.com">s3.af-south-1.amazonaws.com</option>
+          <option value="s3-accesspoint.af-south-1.amazonaws.com">
+            s3-accesspoint.af-south-1.amazonaws.com
+          </option>
+          <option value="s3-ap-east-1.amazonaws.com">
+            s3-ap-east-1.amazonaws.com
+          </option>
+          <option value="s3-ap-northeast-1.amazonaws.com">
+            s3-ap-northeast-1.amazonaws.com
+          </option>
+          <option value="s3-ap-northeast-2.amazonaws.com">
+            s3-ap-northeast-2.amazonaws.com
+          </option>
+          <option value="s3-ap-northeast-3.amazonaws.com">
+            s3-ap-northeast-3.amazonaws.com
+          </option>
+          <option value="s3-ap-south-1.amazonaws.com">
+            s3-ap-south-1.amazonaws.com
+          </option>
+          <option value="s3-ap-southeast-1.amazonaws.com">
+            s3-ap-southeast-1.amazonaws.com
+          </option>
+          <option value="s3-ap-southeast-2.amazonaws.com">
+            s3-ap-southeast-2.amazonaws.com
+          </option>
+          <option value="s3-ca-central-1.amazonaws.com">
+            s3-ca-central-1.amazonaws.com
+          </option>
+          <option value="s3-cn-north-1.amazonaws.com">
+            s3-cn-north-1.amazonaws.com
+          </option>
+          <option value="s3-cn-northwest-1.amazonaws.com">
+            s3-cn-northwest-1.amazonaws.com
+          </option>
+          <option value="s3-eu-central-1.amazonaws.com">
+            s3-eu-central-1.amazonaws.com
+          </option>
+          <option value="s3-eu-north-1.amazonaws.com">
+            s3-eu-north-1.amazonaws.com
+          </option>
+          <option value="s3-eu-south-1.amazonaws.com">
+            s3-eu-south-1.amazonaws.com
+          </option>
+          <option value="s3-eu-west-1.amazonaws.com">
+            s3-eu-west-1.amazonaws.com
+          </option>
+          <option value="s3-eu-west-2.amazonaws.com">
+            s3-eu-west-2.amazonaws.com
+          </option>
+          <option value="s3-eu-west-3.amazonaws.com">
+            s3-eu-west-3.amazonaws.com
+          </option>
+          <option value="s3-external-1.amazonaws.com">
+            s3-external-1.amazonaws.com
+          </option>
+          <option value="s3-me-south-1.amazonaws.com">
+            s3-me-south-1.amazonaws.com
+          </option>
+          <option value="s3-sa-east-1.amazonaws.com">
+            s3-sa-east-1.amazonaws.com
+          </option>
+          <option value="s3.us-east-1.amazonaws.com">
+            s3.us-east-1.amazonaws.com
+          </option>
+          <option value="s3-us-east-2.amazonaws.com">
+            s3-us-east-2.amazonaws.com
+          </option>
+          <option value="s3-us-west-1.amazonaws.com">
+            s3-us-west-1.amazonaws.com
+          </option>
+          <option value="s3-us-west-2.amazonaws.com">
+            s3-us-west-2.amazonaws.com
+          </option>
+          <option value="s3-us-south-1.amazonaws.com">s3-us-south-1.amazonaws.com</option>
+          <option value="s3-us-south-2.amazonaws.com">s3-us-south-2.amazonaws.com</option>
+        </select>
+      </td>
+    </tr>
+    <tr class="s3Credentials nonS3API" style="display: none">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_url">URL:</label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox maskPasswordOnURL"
+          style="width: 550px"
+          type="text"
+          _name="destPath"
+          id="remoteVFSItem_option_url"
+        />
+        <input
+          class="ui-helper-hidden excludeXML"
+          type="text"
+          _name="destPath"
+          id="remoteVFSItem_option_url_static"
+        />
+        <input
+          class="ui-helper-hidden excludeXML"
+          type="text"
+          _name="name"
+          id="remoteVFSItem_option_name_static"
+        />
+        <input
+          class="ui-helper-hidden excludeXML"
+          type="text"
+          _name="type"
+          id="remoteVFSItem_option_type_static"
+        />
+        <div
+          id="warningText"
+          style="
+            padding: 5px;
+            position: absolute;
+            z-index: 100;
+            margin-top: -5px;
+            display: none;
+          "
+          class="ui-corner-all ui-state-highlight"
+        >
+          <span
+            style="top:1px;"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="">Caution: Change this field carefully</span>
+        </div>
+      </td>
+    </tr>
+    <tr class="glacierCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_glacierServerURL">Server:</label>
+      </td>
+      <td>
+        <select id="remoteVFSItem_option_glacierServerURL">
+          <option value="glacier.us-east-1.amazonaws.com">
+            glacier.us-east-1.amazonaws.com
+          </option>
+          <option value="glacier.external-1.amazonaws.com">
+            glacier.external-1.amazonaws.com
+          </option>
+          <option value="glacier.us-east-2.amazonaws.com">
+            glacier.us-east-2.amazonaws.com
+          </option>
+          <option value="glacier.us-west-1.amazonaws.com">
+            glacier.us-west-1.amazonaws.com
+          </option>
+          <option value="glacier.us-west-2.amazonaws.com">
+            glacier.us-west-2.amazonaws.com
+          </option>
+          <option value="glacier.ca-central-1.amazonaws.com">
+            glacier.ca-central-1.amazonaws.com
+          </option>
+          <option value="glacier.ap-south-1.amazonaws.com">
+            glacier.ap-south-1.amazonaws.com
+          </option>
+          <option value="glacier.ap-northeast-2.amazonaws.com">
+            glacier.ap-northeast-2.amazonaws.com
+          </option>
+          <option value="glacier.ap-southeast-1.amazonaws.com">
+            glacier.ap-southeast-1.amazonaws.com
+          </option>
+          <option value="glacier.ap-southeast-2.amazonaws.com">
+            glacier.ap-southeast-2.amazonaws.com
+          </option>
+          <option value="glacier.ap-northeast-1.amazonaws.com">
+            glacier.ap-northeast-1.amazonaws.com
+          </option>
+          <option value="glacier.eu-central-1.amazonaws.com">
+            glacier.eu-central-1.amazonaws.com
+          </option>
+          <option value="glacier.eu-west-1.amazonaws.com">
+            glacier.eu-west-1.amazonaws.com
+          </option>
+          <option value="glacier.eu-west-2.amazonaws.com">
+            glacier.eu-west-2.amazonaws.com
+          </option>
+          <option value="glacier.sa-east-1.amazonaws.com">
+            glacier.sa-east-1.amazonaws.com
+          </option>
+        </select>
+      </td>
+    </tr>
+    <tr class="noFileOption smbOption noS3Options">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_host">Host:</label>
+      </td>
+      <td>
+        <span class="azureOptions">
+          <select
+            class="excludeXML ignoreBind"
+            id="remoteVFSItem_option_azureServerURL"
+          >
+            <option value="file.core.windows.net">File share</option>
+            <option value="blob.core.windows.net">Blob share</option>
+            <option value="blob.core.chinacloudapi.cn">China Blob share</option>
+          </select>
+        </span>
+        <input
+          class="bigInputBox"
+          type="text"
+          _name="host"
+          id="remoteVFSItem_option_host"
+        />
+      </td>
+    </tr>
+    <tr class="smbOnlyOption">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="dfs_enabled"
+          id="remoteVFSItem_option_dfs_enabled"
+        />
+        <label for="remoteVFSItem_option_dfs_enabled">DFS Enabled</label>
+      </td>
+    </tr>
+    <tr class="blockblob_option">
+        <td class="itemPropertyLabel">
+          <label for="remoteVFSItem_option_block_blob_upload_buffer_size">
+            Upload buffer size:
+          </label>
+        </td>
+        <td>
+          <input type="text" id="remoteVFSItem_option_block_blob_upload_buffer_size" _name="block_blob_upload_buffer_size" class="smallInputBox" />
+          <label for="remoteVFSItem_option_block_blob_upload_buffer_size">
+            MB
+          </label>
+        </td>
+      </tr>
+      <tr class="blockblob_option">
+        <td class="itemPropertyLabel">
+          <label for="remoteVFSItem_option_block_blob_upload_threads">
+            Max upload threads:
+          </label>
+        </td>
+        <td>
+          <input type="text" id="remoteVFSItem_option_block_blob_upload_threads" _name="block_blob_upload_threads" class="smallInputBox" />
+        </td>
+    </tr>
+    <tr class="clear nonFileOption">
+      <td class="itemPropertyLabel">
+        <label for="timeout" class="CrushTask">Connection Timeout:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          id="remoteVFSItem_option_timeout"
+          _name="timeout"
+          class="smallInputBox"
+        />
+        <label
+          style="display: inline-block"
+          for="remoteVFSItem_option_timeout"
+          class="CrushTask"
+        >
+          (in milliseconds)</label
+        >
+      </td>
+    </tr>
+    <tr class="clear nonFileOption">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_write_timeout" class="CrushTask"
+          >Write Timeout:</label
+        >
+      </td>
+      <td>
+        <input
+          type="text"
+          id="remoteVFSItem_option_write_timeout"
+          _name="write_timeout"
+          class="smallInputBox"
+        />
+        <label
+          style="display: inline-block"
+          for="remoteVFSItem_option_write_timeout"
+          class="CrushTask"
+        >
+          (in milliseconds)</label
+        >
+      </td>
+    </tr>
+    <tr class="clear nonFileOption">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_read_timeout" class="CrushTask"
+          >Read Timeout:</label
+        >
+      </td>
+      <td>
+        <input
+          type="text"
+          id="remoteVFSItem_option_read_timeout"
+          _name="read_timeout"
+          class="smallInputBox"
+        />
+        <label
+          style="display: inline-block"
+          for="remoteVFSItem_option_read_timeout"
+          class="CrushTask"
+        >
+          (in milliseconds)</label
+        >
+      </td>
+    </tr>
+    <tr class="smb3Option">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="smb3_required_signing"
+          id="remoteVFSItem_option_smb3_required_signing"
+        />
+        <label for="remoteVFSItem_option_smb3_required_signing"
+          >Required signing</label
+        >
+      </td>
+    </tr>
+    <tr class="glacierCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_vault_name">Vault Name:</label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox"
+          type="text"
+          id="remoteVFSItem_option_vault_name"
+        />
+        <div
+          style="
+            padding: 5px;
+            position: absolute;
+            z-index: 100;
+            margin-top: -5px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="top:1px"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="">Error: Special characters not allowed</span>
+        </div>
+      </td>
+    </tr>
+    <tr class="glacierCredentials">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="delete_xml_representation_files"
+          id="remoteVFSItem_option_delete_xml_representation_files"
+        />
+        <label for="remoteVFSItem_option_delete_xml_representation_files"
+          >Delete local representation after upload</label
+        >
+      </td>
+    </tr>
+    <tr class="azureOptions">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_sharename">Share Name:</label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox"
+          type="text"
+          _name="shareName"
+          id="remoteVFSItem_option_sharename"
+        />
+      </td>
+    </tr>
+    <tr class="noFileOption noS3Options noAzureOptions noCitrixOption">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_port">Port:</label>
+      </td>
+      <td>
+        <input
+          class="smallInputBox"
+          type="text"
+          _name="port"
+          id="remoteVFSItem_option_port"
+        />
+      </td>
+    </tr>
+    <tr class="s3Credentials nonS3API">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_s3_bucket">Bucket:</label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox"
+          type="text"
+          id="remoteVFSItem_option_s3_bucket"
+        />
+        <div
+          style="
+            padding: 5px;
+            position: absolute;
+            z-index: 100;
+            margin-top: -5px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="top:1px"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="">Error: Special characters not allowed</span>
+        </div>
+      </td>
+    </tr>
+    <tr class="gstorageCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_gstorage_bucket">Bucket:</label>
+      </td>
+      <td>
+        <input class="ignoreBind" type="text" id="remoteVFSItem_option_gstorage_bucket" />
+        <div
+          style="
+            padding: 5px;
+            position: absolute;
+            z-index: 100;
+            margin-top: -5px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="top:1px"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="errmessage"
+            >Error: Special characters not allowed</span
+          >
+        </div>
+      </td>
+    </tr>
+    <tr class="s3Credentials nonS3API">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_s3_path">Path:</label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox"
+          type="text"
+          id="remoteVFSItem_option_s3_path"
+        />
+      </td>
+    </tr>
+    <tr class="noS3Options">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_path">Path:</label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox"
+          type="text"
+          _name="path"
+          id="remoteVFSItem_option_path"
+        />
+        <span
+          style="
+            padding: 5px;
+            position: relative;
+            z-index: 100;
+            top: -3px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="margin-right: 0.3em;margin-top:0px;"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="errmessage"
+            >Error: Path is required</span
+          >
+        </span>
+      </td>
+    </tr>
+    <tr class="s3Credentials nonS3API">
+      <td></td>
+      <td style="padding-bottom: 10px">
+        <input
+          type="checkbox"
+          _name="s3_accelerate"
+          id="remoteVFSItem_option_s3_accelerate"
+        />
+        <label for="remoteVFSItem_option_s3_accelerate">Accelerate</label>
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td></td>
+      <td style="padding-bottom: 10px">
+        <input
+          type="checkbox"
+          _name="s3_stat_head_calls"
+          id="remoteVFSItem_option_s3_stat_head_calls"
+        />
+        <label for="remoteVFSItem_option_s3_stat_head_calls"
+          >Fast S3 item lookup</label
+        >
+        <span class="spacer"></span>
+        <div style="margin-top: 5px">
+          <input
+            type="checkbox"
+            _name="s3_sha256"
+            id="remoteVFSItem_option_s3_sha256"
+          />
+          <label for="remoteVFSItem_option_s3_sha256"
+            >SHA256 enabled on signing (Signing Version 4)</label
+          >
+        </div>
+        <div style="margin-top: 5px;">
+          <input type="checkbox" _name="s3_sha256_request_header" id="remoteVFSItem_option_s3_sha256_request_header" />
+          <label for="remoteVFSItem_option_s3_sha256_request_header">Include SHA256 to request headers (Signing Version 4 related)</label>
+        </div>
+        <div style="margin-top: 5px;">
+          <input
+            type="checkbox"
+            _name="s3_partial"
+            id="remoteVFSItem_option_s3_partial"
+          />
+          <label for="remoteVFSItem_option_s3_partial"
+            >Show partial uploads</label
+          >
+        </div>
+        <div style="margin-top: 5px">
+          <input
+            type="checkbox"
+            _name="s3_bucket_in_path"
+            id="remoteVFSItem_option_s3_bucket_in_path"
+          />
+          <label for="remoteVFSItem_option_s3_bucket_in_path"
+            >Use bucket in the path</label
+          >
+          <span class="spacer"></span>
+          <input
+            type="checkbox"
+            _name="no_bucket_check"
+            id="remoteVFSItem_option_no_bucket_check"
+          />
+          <label for="remoteVFSItem_option_no_bucket_check"
+            >Don't check bucket at login</label
+          >
+          <span class="spacer"></span>
+          <input
+            type="checkbox"
+            _name="s3_list_v2"
+            id="remoteVFSItem_option_s3_list_v2"
+          />
+          <label for="remoteVFSItem_option_s3_list_v2"
+            >List version 2</label
+          >
+        </div>
+        <div style="margin-top: 5px;">
+          <input type="checkbox" _name="s3_lookup_meta_modified" id="remoteVFSItem_option_s3_lookup_meta_modified" />
+          <label for="remoteVFSItem_option_s3_lookup_meta_modified">Lookup custom modified date (this is slow)</label>
+        </div>
+      </td>
+    </tr>
+    <tr class="s3Credentials nonS3API">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_secretKeyID">User name:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="secretKeyID"
+          name="s3KeyID"
+          class="excludeXML ignoreBind"
+          id="remoteVFSItem_option_secretKeyID"
+        />
+        &nbsp;
+        <label for="remoteVFSItem_option_secretKey">Password:</label>
+        <input
+          type="password"
+          _name="secretKey"
+          name="s3Key"
+          class="excludeXML ignoreBind"
+          id="remoteVFSItem_option_secretKey"
+        />
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td>
+        <label for="remoteVFSItem_option_s3_acl">Canned ACL: </label>
+      </td>
+      <td>
+          <select _name="s3_acl" id="remoteVFSItem_option_s3_acl">
+            <option value="private">private</option>
+            <option value="public-read">public-read</option>
+            <option value="public-read-write">public-read-write</option>
+            <option value="authenticated-read">authenticated-read</option>
+            <option value="bucket-owner-read">bucket-owner-read</option>
+            <option value="bucket-owner-full-control">bucket-owner-full-control</option>
+            <option value="aws-exec-read">aws-exec-read</option>
+            <option value="log-delivery-write">log-delivery-write</option>
+          </select>
+          <span class="spacer"></span>
+          <label for="remoteVFSItem_option_s3_storage_class">Storage class: </label>
+          <select _name="s3_storage_class" id="remoteVFSItem_option_s3_storage_class">
+            <option value="STANDARD">STANDARD</option>
+            <option value="REDUCED_REDUNDANCY">REDUCED_REDUNDANCY</option>
+            <option value="STANDARD_IA">STANDARD_IA</option>
+            <option value="ONEZONE_IA">ONEZONE_IA</option>
+            <option value="INTELLIGENT_TIERING">INTELLIGENT_TIERING</option>
+            <option value="GLACIER">GLACIER</option>
+            <option value="DEEP_ARCHIVE">DEEP_ARCHIVE</option>
+            <option value="OUTPOSTS">OUTPOSTS</option>
+            <option value="GLACIER_IR">GLACIER_IR</option>
+          </select>
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="server_side_encrypt"
+          name="server_side_encrypt"
+          class="excludeXML"
+          id="remoteVFSItem_option_server_side_encrypt"
+        />
+        <label for="remoteVFSItem_option_server_side_encrypt"
+          >Server Side Encrypt?</label
+        >
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_server_side_encrypt_kms"
+          >KMS Key Id:
+        </label>
+      </td>
+      <td>
+        <input
+          _name="server_side_encrypt_kms"
+          type="text"
+          class="excludeXML bigInputBox"
+          id="remoteVFSItem_option_server_side_encrypt_kms"
+          style="margin: 4px 0px"
+        />
+        <br />
+        <label for=""
+          ><em
+            >(Optional, formatted as:
+            arn:aws:kms:region:acct-id:key/key-id)</em
+          ></label
+        >
+      </td>
+    </tr>
+    <tr class="s3CrushCredentials">
+      <td></td>
+      <td>
+        <input
+          checked="checked"
+          type="checkbox"
+          _name="random_id"
+          name="random_id"
+          class="excludeXML"
+          id="remoteVFSItem_option_random_id"
+        />
+        <label for="remoteVFSItem_option_random_id">Use Random ID?</label>
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td></td>
+      <td>
+        <input
+          checked="checked"
+          type="checkbox"
+          _name="multithreaded_s3"
+          name="multithreaded_s3"
+          class="excludeXML"
+          id="remoteVFSItem_option_multithreaded_s3"
+        />
+        <label for="remoteVFSItem_option_multithreaded_s3"
+          >Multithreaded S3 Uploads?</label
+        >
+        <div class="subPanel ui-widget-content leftborder nobg multiThreadUploadOptions" style="display: none;">
+            <div style="display: block; height: 15px"></div>
+            <label style="display: inline-block; width: 130px; text-align: right" for="s3_threads_upload" >
+              Upload Threads:
+            </label>
+            <input type="text" id="remoteVFSItem_option_s3_threads_upload" name="s3_threads_upload" _name="s3_threads_upload" class="smallInputBox excludeXML" />
+            <div style="display: block; height: 15px"></div>
+            <label
+              style="display: inline-block; width: 130px; text-align: right"
+              for="s3_buffer">
+             Upload Buffer:
+            </label>
+            <input
+              type="text"
+              id="remoteVFSItem_option_s3_buffer"
+              name="s3_buffer"
+              _name="s3_buffer"
+              class="smallInputBox excludeXML"
+            />
+            <label style="display: inline-block;" for="s3_buffer">
+              MB
+            </label>
+            <div style="display: block; height: 15px"></div>
+        </div>
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td></td>
+      <td>
+        <input
+          checked="checked"
+          type="checkbox"
+          _name="multithreaded_s3_download"
+          name="multithreaded_s3_download"
+          class="excludeXML"
+          id="remoteVFSItem_option_multithreaded_s3_download"
+        />
+        <label for="remoteVFSItem_option_multithreaded_s3_download"
+          >Multithreaded S3 Downloads?</label
+        >
+        <div class="subPanel ui-widget-content leftborder nobg multiThreadDownloadOptions" style="display: none;">
+            <div style="display: block; height: 15px"></div>
+            <label style="display: inline-block; width: 130px; text-align: right" for="s3_threads_download">
+              Download Threads:
+            </label>
+            <input type="text" id="remoteVFSItem_option_s3_threads_download" name="s3_threads_download" _name="s3_threads_download" class="smallInputBox excludeXML" />
+            <div style="display: block; height: 15px"></div>
+            <label
+              style="display: inline-block; width: 130px; text-align: right"
+              for="s3_buffer_download">
+              Download Buffer:</label>
+            <input
+              type="text"
+              id="remoteVFSItem_option_s3_buffer_download"
+              name="s3_buffer_download"
+              _name="s3_buffer_download"
+              class="smallInputBox excludeXML"
+            />
+            <div style="display: block; height: 15px"></div>
+            <label style="display: inline-block; width: 130px; text-align: right" for="s3_max_buffer_download">
+              Max Download Buffer:
+            </label>
+            <input
+              type="text"
+              id="remoteVFSItem_option_s3_max_buffer_download"
+              name="s3_max_buffer_download"
+              _name="s3_max_buffer_download"
+              class="smallInputBox excludeXML"
+            />
+            <div style="display: block; height: 15px"></div>
+        </div>
+      </td>
+    </tr>
+    <tr class="s3Credentials">
+      <td></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="s3_meta_md5_and_upload_by"
+          name="s3_meta_md5_and_upload_by"
+          class="excludeXML"
+          id="remoteVFSItem_option_s3_meta_md5_and_upload_by"
+        />
+        <label for="remoteVFSItem_option_s3_meta_md5_and_upload_by"
+          >Add meta data : MD5 and uploaded by user</label
+        >
+      </td>
+    <tr class="s3CrushCredentials">
+      <td></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="segmented"
+          name="segmented"
+          class="excludeXML"
+          id="remoteVFSItem_option_segmented"
+        />
+        <label for="remoteVFSItem_option_segmented"
+          >Store files split into segments.</label
+        >
+      </td>
+    </tr>
+    <tr class="ftpCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_user_name">User name:</label>
+      </td>
+      <td>
+        <input type="text" id="remoteVFSItem_option_user_name" />
+        &nbsp;
+        <span class="passwordOption">
+          <label for="remoteVFSItem_option_password">Password:</label>
+          <input type="password" id="remoteVFSItem_option_password" />
+        </span>
+      </td>
+    </tr>
+    <tr class="boxOption">
+      <td class="itemPropertyLabel">
+      </td>
+      <td>
+        <input type="checkbox" _name="box_store_jwt_json" name="box_store_jwt_json" id="remoteVFSItem_option_box_store_jwt_json" />
+        <label for="remoteVFSItem_option_box_store_jwt_json">Store JWT JSON file</label>
+      </td>
+    </tr>
+    <tr class="boxOption JWT_JSON">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_box_jwt_config_content">JWT config: </label>
+      </td>
+      <td>
+        <textarea class="bigInputBox encryptPass" _name="box_jwt_config_content" id="remoteVFSItem_option_box_jwt_config_content" rows="10"></textarea>
+      </td>
+    </tr>
+    <tr class="rfileOption">
+      <td colspan="2" style="text-align: center">
+        <div
+          id="warningText"
+          style="padding: 5px; display: inline-block"
+          class="ui-corner-all ui-state-highlight"
+        >
+          <span
+            style="top:1px"
+            class="ui-icon ui-icon-alert"
+          ></span>
+          RFile:
+          <a
+            target="_blank"
+            href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=RFile"
+            >http://www.crushftp.com/crush9wiki/Wiki.jsp?page=RFile</a
+          >
+        </div>
+      </td>
+    </tr>
+    <tr class="HAOptions">
+      <td></td>
+      <td style="padding-bottom: 10px; display: none">
+        <input
+          type="checkbox"
+          _name="haDownload"
+          id="remoteVFSItem_option_haDownload"
+        />
+        <label for="remoteVFSItem_option_haDownload"
+          >HA Download Recovery</label
+        >
+        <span class="spacer"></span>
+        <input
+          type="checkbox"
+          _name="haUpload"
+          id="remoteVFSItem_option_haUpload"
+        />
+        <label for="remoteVFSItem_option_haUpload">HA Upload Recovery</label>
+      </td>
+    </tr>
+    <tr class="webdavOptions">
+      <td></td>
+      <td style="padding-bottom: 10px">
+        <input
+          type="checkbox"
+          _name="webdav_full_url_on_rename"
+          id="remoteVFSItem_option_webdav_full_url_on_rename"
+        />
+        <label for="remoteVFSItem_option_webdav_full_url_on_rename"
+          >Use full url for rename</label
+        >
+      </td>
+    </tr>
+    <tr class="ftpsOptions">
+      <td></td>
+      <td style="padding-bottom: 10px">
+        <input
+          checked="checked"
+          type="checkbox"
+          id="remoteVFSItem_option_pasv"
+          _name="pasv"
+        />
+        <label for="remoteVFSItem_option_pasv">Passive?</label>
+      </td>
+    </tr>
+    <tr class="commonFTPOptions">
+      <td></td>
+      <td style="padding-bottom: 10px">
+        <input
+          type="checkbox"
+          _name="simple"
+          id="remoteVFSItem_option_simple"
+        />
+        <label for="remoteVFSItem_option_simple">Simple</label>
+        <span class="ftpesOptions">
+          <span class="spacer"></span>
+          <input
+            type="checkbox"
+            id="remoteVFSItem_option_secure_data"
+            _name="secure_data"
+          />
+          <label for="remoteVFSItem_option_secure_data"
+            >Data channel secure</label
+          >
+        </span>
+      </td>
+    </tr>
+    <tr class="commonFTPOptions nonSftpOptions">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_proxyActivePorts">
+          Active Port Range:
+        </label>
+      </td>
+      <td>
+        <input
+          _name="proxyActivePorts"
+          type="text"
+          id="remoteVFSItem_option_proxyActivePorts"
+        />
+      </td>
+    </tr>
+    <tr class="ftpOptions">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_ftpEncryption"
+          >Encryption Mode:
+        </label>
+      </td>
+      <td>
+        <select id="remoteVFSItem_option_ftpEncryption" _name="secure">
+          <option value="false">Plain</option>
+          <option value="true">TLS</option>
+        </select>
+      </td>
+    </tr>
+    <tr class="SSLOptions">
+      <td colspan="2">
+        <span
+          class="ui-state-highlight ui-corner-all warning"
+          style="padding: 3px; display: block; margin: 5px 3px"
+        >
+          <span
+            style="top:1px"
+            class="ui-icon ui-icon-info"
+          ></span>
+          <span class="">
+            Use below options only when SSL client authentication is required.
+          </span>
+        </span>
+      </td>
+    </tr>
+    <tr class="SSLOptions">
+      <td class="itemPropertyLabel" colspan="2" style="text-align: left">
+        <label
+          for="remoteVFSItem_option_keystore"
+          style="width: 198px; display: inline-block; text-align: right"
+        >
+          Keystore:
+        </label>
+        <input
+          _name="keystore_path"
+          type="text"
+          class="excludeXML bigInputBox"
+          id="remoteVFSItem_option_keystore_path"
+        />
+        <a
+          href="#"
+          PickType="file"
+          class="button slim serverFilePickButton"
+          rel="remoteVFSItem_option_keystore_path"
+          style="top: 10px; padding: 3px 12px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-folder-open"
+          ></span>
+          Browse
+        </a>
+      </td>
+    </tr>
+    <tr class="SSLOptions">
+      <td class="itemPropertyLabel">
+        <label
+          for="remoteVFSItem_option_keystore_pass"
+          style="width: 160px; display: inline-block; text-align: right"
+        >
+          Keystore Password:
+        </label>
+      </td>
+      <td>
+        <input
+          _name="keystore_pass"
+          type="password"
+          class="encryptPass excludeXML"
+          id="remoteVFSItem_option_keystore_pass"
+        />
+      </td>
+    </tr>
+    <tr class="SSLOptions">
+      <td class="itemPropertyLabel">
+        <label
+          for="remoteVFSItem_option_key_pass"
+          style="width: 160px; display: inline-block; text-align: right"
+        >
+          Key Password:
+        </label>
+      </td>
+      <td>
+        <input
+          _name="key_pass"
+          type="password"
+          class="encryptPass excludeXML"
+          id="remoteVFSItem_option_key_pass"
+        />
+      </td>
+    </tr>
+    <tr class="SSLOptions hadoopOption2">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <input
+          _name="acceptAnyCert"
+          name="acceptAnyCert"
+          type="checkbox"
+          class="excludeXML"
+          id="remoteVFSItem_option_acceptAnyCert"
+        />
+        <label class="right" for="remoteVFSItem_option_acceptAnyCert"
+          >Accept any SSL certificate</label
+        >
+      </td>
+    </tr>
+    <tr class="citrixCredentials">
+      <td class="itemPropertyLabel">
+        <label class="username" for="remoteVFSItem_option_client_id"
+          >Client ID:
+        </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="client_id"
+          name="client_id"
+          class="excludeXML username"
+          id="remoteVFSItem_option_client_id"
+        />
+        <span class="username">&nbsp;</span>
+        <label for="remoteVFSItem_option_client_secret">Password:</label>
+        <input
+          type="password"
+          _name="client_secret"
+          name="client_secret"
+          class="excludeXML"
+          id="remoteVFSItem_option_client_secret"
+        />
+      </td>
+    </tr>
+    <tr class="citrixCredentials" style="margin-top: 10px">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <a
+          href="#"
+          class="button refreshCitrixToken"
+          style="top: 5px; margin-left: 0px; margin-top: 7px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-refresh"
+          ></span>
+          Get Refresh Token
+        </a>
+      </td>
+    </tr>
+    <tr class="dropBoxCredentials">
+      <td class="itemPropertyLabel">
+        <label class="username" for="remoteVFSItem_option_dropbox_client_id"
+          >Username:
+        </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="client_id"
+          name="client_id"
+          class="excludeXML username"
+          id="remoteVFSItem_option_dropbox_client_id"
+        />
+        <span class="username">&nbsp;</span>
+        <label for="remoteVFSItem_option_dropbox_client_secret"
+          >Password:
+        </label>
+        <input
+          type="password"
+          _name="client_secret"
+          name="client_secret"
+          class="excludeXML"
+          id="remoteVFSItem_option_dropbox_client_secret"
+        />
+      </td>
+    </tr>
+    <tr class="dropBoxCredentials" style="margin-top: 10px">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <a
+          href="#"
+          class="button refreshDropboxToken"
+          style="top: 5px; margin-left: 0px; margin-top: 7px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-refresh"
+          ></span>
+          Get Access Token
+        </a>
+      </td>
+    </tr>
+    <tr class="hadoopOption">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <input
+          _name="auth_security"
+          type="checkbox"
+          class="excludeXML"
+          id="remoteVFSItem_option_auth_security"
+        />
+        <label class="right" for="remoteVFSItem_option_auth_security"
+          >Authentication security</label
+        >
+      </td>
+    </tr>
+    <tr class="hadoopOption">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_user_realm">User realm: </label>
+      </td>
+      <td>
+        <input
+          _name="user_realm"
+          type="text"
+          class="excludeXML"
+          id="remoteVFSItem_option_user_realm"
+        />
+      </td>
+    </tr>
+    <tr class="hadoopOption">
+      <td class="itemPropertyLabel" colspan="2" style="text-align: left">
+        <label
+          for="kerberos_config"
+          style="width: 198px; display: inline-block; text-align: right"
+        >
+          Kerberos config file:
+        </label>
+        <input
+          _name="kerberos_config"
+          type="text"
+          class="excludeXML bigInputBox"
+          id="remoteVFSItem_option_kerberos_config"
+        />
+        <a
+          href="#"
+          PickType="file"
+          class="button slim serverFilePickButton"
+          rel="remoteVFSItem_option_kerberos_config"
+          style="top: 10px; padding: 3px 12px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-folder-open"
+          ></span>
+          Browse
+        </a>
+      </td>
+    </tr>
+    <tr class="hadoopOption">
+      <td class="itemPropertyLabel" colspan="2" style="text-align: left">
+        <label
+          for="login_config"
+          style="width: 198px; display: inline-block; text-align: right"
+        >
+          Login config file:
+        </label>
+        <input
+          _name="login_config"
+          type="text"
+          class="excludeXML bigInputBox"
+          id="remoteVFSItem_option_login_config"
+        />
+        <a
+          href="#"
+          PickType="file"
+          class="button slim serverFilePickButton"
+          rel="remoteVFSItem_option_login_config"
+          style="top: 10px; padding: 3px 12px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-folder-open"
+          ></span>
+          Browse
+        </a>
+      </td>
+    </tr>
+    <tr class="blobType">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_upload_blob_type"
+          >Upload blob type:
+        </label>
+      </td>
+      <td>
+        <select
+          id="remoteVFSItem_option_upload_blob_type"
+          _name="upload_blob_type"
+        >
+          <option value="blockblob">blockblob</option>
+          <option value="appendblob">appendblob</option>
+        </select>
+      </td>
+    </tr>
+    <tr class="azureOptions">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_sas_token"
+          >Shared access signature token:
+        </label>
+      </td>
+      <td>
+        <input
+          class="bigInputBox encryptPass"
+          _name="sas_token"
+          type="text"
+          id="remoteVFSItem_option_sas_token"
+        />
+      </td>
+    </tr>
+    <tr class="azureOptions">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <input
+          type="checkbox"
+          _name="data_lake_storagegen2"
+          name="data_lake_storagegen2"
+          id="remoteVFSItem_option_data_lake_storagegen2"
+        />
+        <label for="remoteVFSItem_option_data_lake_storagegen2"
+          >Data Lake Storage Gen2</label
+        >
+      </td>
+    </tr>
+    <tr class="onedriveCredentials">
+      <td class="itemPropertyLabel">
+        <label class="username" for="remoteVFSItem_option_onedrive_secretKeyID"
+          >User name:
+        </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="secretKeyID"
+          name="onedriveKeyID"
+          class="excludeXML username ignoreBind"
+          id="remoteVFSItem_option_onedrive_secretKeyID"
+        />
+        <span class="username">&nbsp;</span>
+        <label for="remoteVFSItem_option_onedrive_secretKey">Password:</label>
+        <input
+          type="password"
+          _name="secretKey"
+          name="onedriveKey"
+          class="excludeXML ignoreBind"
+          id="remoteVFSItem_option_onedrive_secretKey"
+        />
+      </td>
+    </tr>
+    <tr class="onedriveCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_onedrive_tenant">Tenant:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="onedriveTenant"
+          name="onedriveTenant"
+          class="excludeXML"
+          id="remoteVFSItem_option_onedrive_tenant"
+        />
+      </td>
+    </tr>
+    <tr class="onedriveCredentials onedriveCredentialsOnly">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_onedrive_user_id">User id or User principal name:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="onedrive_user_id"
+          name="onedrive_user_id"
+          class="excludeXML"
+          id="remoteVFSItem_option_onedrive_user_id"
+        />
+      </td>
+    </tr>
+    <tr class="onedriveCredentials onedriveCredentialsOnly">
+      <td></td>
+      <td>
+        <div>
+          <input
+            type="checkbox"
+            _name="onedrive_my_shares"
+            class="excludeXML"
+            id="remoteVFSItem_option_onedrive_my_shares"
+          />
+          <label for="remoteVFSItem_option_onedrive_my_shares"
+            >Shared files</label
+          >
+        </div>
+        <div
+          class="subPanel ui-widget-content leftborder nobg onDriveShared"
+          style="display: none; padding: 8px 10px"
+        >
+          <label for="remoteVFSItem_option_onedrive_share_name"
+            >Share file name:
+          </label>
+          <input
+            type="text"
+            _name="onedrive_share_name"
+            name="onedriveSharename"
+            class="excludeXML"
+            id="remoteVFSItem_option_onedrive_share_name"
+          />
+        </div>
+      </td>
+    </tr>
+    <tr class="sharepointCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_sharepoint_site_id">Site id:</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="sharepoint_site_id"
+          name="sharepointSiteID"
+          class="excludeXML"
+          id="remoteVFSItem_option_sharepoint_site_id"
+        />
+        <span
+          style="
+            padding: 5px;
+            position: relative;
+            z-index: 100;
+            top: -3px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="margin-right: 0.3em;margin-top:0px;"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="errmessage"
+            >Error: Site id is required</span
+          >
+        </span>
+      </td>
+    </tr>
+    <tr class="sharepointCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_sharepoint_site_path"
+          >Site Path:
+        </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="sharepoint_site_path"
+          name="sharepointSitePath"
+          class="excludeXML"
+          id="remoteVFSItem_option_sharepoint_site_path"
+        />
+        <span
+          style="
+            padding: 5px;
+            position: relative;
+            z-index: 100;
+            top: -3px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="margin-right: 0.3em;margin-top:0px;"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="errmessage"
+            >Error: Site Path is required</span
+          >
+        </span>
+      </td>
+    </tr>
+    <tr class="sharepointCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_sharepoint_site_drive_name"
+          >Drive name:
+        </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="sharepoint_site_drive_name"
+          name="sharepointDriveName"
+          class="excludeXML"
+          id="remoteVFSItem_option_sharepoint_site_drive_name"
+        />
+        <span
+          style="
+            padding: 5px;
+            position: relative;
+            z-index: 100;
+            top: -3px;
+            display: none;
+          "
+          class="error ui-corner-all ui-state-error"
+        >
+          <span
+            style="margin-right: 0.3em;margin-top:0px;"
+            class="ui-icon ui-icon-alert"
+          ></span
+          ><span class="errmessage"
+            >Error: Drime name is required</span
+          >
+        </span>
+      </td>
+    </tr>
+    <tr class="onedriveCredentials sharepointCredentials">
+      <td class="itemPropertyLabel">
+          <label for="remoteVFSItem_option_one_drive_conflict_behaviour">Conflict Behaviour: </label>
+      </td>
+      <td>
+        <div class="nobg">
+          <select _name="one_drive_conflict_behaviour" name="one_drive_conflict_behaviour" class="excludeXML" id="remoteVFSItem_option_one_drive_conflict_behaviour">
+            <option value="fail">Fail</option>
+            <option value="replace">Replace</option>
+            <option value="rename">Rename</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr class="onedriveCredentials" style="margin-top: 10px">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <a
+          href="#"
+          class="button refreshMSToken"
+          style="top: 5px; margin-left: 0px; margin-top: 7px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-refresh"
+          ></span>
+          Get Refresh Token
+        </a>
+        <span
+          class="ui-state-highlight ui-corner-all"
+          style="
+            padding: 3px;
+            display: inline-block;
+            margin: 0px 3px;
+            width: auto;
+            position: relative;
+            top: 2px;
+          "
+        >
+          <span
+            style="top:1px"
+            class="ui-icon ui-icon-info"
+          ></span>
+          <span>
+            <a
+              target="_blank"
+              href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=OneDriveSetup"
+              >Learn more: OneDrive/Sharepoint Setup</a
+            >
+          </span>
+        </span>
+      </td>
+    </tr>
+    <tr class="gdriveCredentials">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_gdrive_secretKeyID"
+          >User name:
+        </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          _name="secretKeyID"
+          name="gdriveKeyID"
+          class="excludeXML ignoreBind"
+          id="remoteVFSItem_option_gdrive_secretKeyID"
+        />
+        &nbsp;
+        <label for="remoteVFSItem_option_gdrive_secretKey">Password:</label>
+        <input
+          type="password"
+          _name="secretKey"
+          name="gdriveKey"
+          class="excludeXML ignoreBind"
+          id="remoteVFSItem_option_gdrive_secretKey"
+        />
+      </td>
+    </tr>
+    <tr class="gdriveCredentials noGstorage">
+      <td></td>
+      <td>
+        <div>
+          <input
+            type="checkbox"
+            _name="team_drive"
+            name="team_drive_gdrive"
+            class="excludeXML"
+            id="remoteVFSItem_option_gdrive_team_drive"
+          />
+          <label for="remoteVFSItem_option_gdrive_team_drive"
+            >Enable Team Drive</label
+          >
+        </div>
+      </td>
+    </tr>
+    <tr class="gdriveCredentials" style="margin-top: 10px">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <a
+          href="#"
+          class="button refreshGoogleToken"
+          style="top: 5px; margin-left: 0px; margin-top: 7px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-refresh"
+          ></span>
+          Get Refresh Token
+        </a>
+        <span
+          class="ui-state-highlight ui-corner-all"
+          style="
+            padding: 3px;
+            display: inline-block;
+            margin: 0px 3px;
+            width: auto;
+            position: relative;
+            top: 0px;
+          "
+        >
+          <span
+            style="top:1px;"
+            class="ui-icon ui-icon-info"
+          ></span>
+          <span>
+            <a class="noGdrive"
+              target="_blank"
+              href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Google%20Cloud%20Storage%20Integration"
+              >Learn more: GStorage Setup</a>
+
+            <a class="noGstorage"
+              target="_blank"
+              href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=GDriveSetup">Learn more: GDrive Setup</a>
+          </span>
+        </span>
+      </td>
+    </tr>
+    <tr class="gstorageCredentials">
+      <td></td>
+      <td>
+        <div>
+            <input type="checkbox" _name="gstorage_with_s3_api" name="gstorage_with_s3_api" id="remoteVFSItem_option_gdrive_gstorage_with_s3_api" />
+            <label for="remoteVFSItem_option_gdrive_gstorage_with_s3_api">S3 API</label>
+          </div>
+      </td>
+    </tr>
+    <tr class="gdriveCredentials noGstorage" style="margin-top: 10px">
+      <td class="itemPropertyLabel"></td>
+      <td>
+        <label for="gdrive_corpora">Corpora variable name:</label>
+        <span class="spacer"></span>
+        <select _name="gdrive_corpora" id="remoteVFSItem_option_gdrive_corpora">
+          <option value=""></option>
+          <option value="user">user</option>
+          <option value="drive">drive</option>
+          <option value="allDrives">allDrives</option>
+          <option value="domain">domain</option>
+        </select>
+      </td>
+    </tr>
+    <tr class="privateOptions">
+      <td colspan="2">
+        <label for="remoteVFSItem_option_private_key_file_path"
+          >Private key file path:
+        </label>
+        &nbsp;
+        <input
+          class="bigInputBox"
+          type="text"
+          _name="ssh_private_key"
+          id="remoteVFSItem_option_private_key_file_path"
+        />
+        <a
+          href="#"
+          PickType="file"
+          class="button slim serverFilePickButton"
+          rel="remoteVFSItem_option_private_key_file_path"
+          style="top: 10px; padding: 3px 12px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-folder-open"
+          ></span>
+          Browse
+        </a>
+      </td>
+    </tr>
+    <tr class="privateOptions">
+      <td colspan="2">
+        <label for="remoteVFSItem_option_private_key_file_pass"
+          >Private key file pass:
+        </label>
+        &nbsp;
+        <input
+          class="bigInputBox encryptPass"
+          type="password"
+          _name="ssh_private_key_pass"
+          id="remoteVFSItem_option_private_key_file_pass"
+        />
+      </td>
+    </tr>
+    <tr class="privateOptions">
+      <td colspan="2">
+        <input
+          type="checkbox"
+          _name="ssh_two_factor"
+          id="remoteVFSItem_option_two_factor_authentication"
+        />
+        <label for="remoteVFSItem_option_two_factor_authentication"
+          >Two factor authentication</label
+        >
+      </td>
+    </tr>
+    <tr class="privateOptions">
+      <td colspan="2">
+        <input
+          type="checkbox"
+          _name="verifyHost"
+          id="remoteVFSItem_option_verifyHost"
+        />
+        <label for="remoteVFSItem_option_verifyHost">Verify SSH key</label>
+        <div
+          class="subPanel ui-widget-content leftborder nobg onlyVerifyHost"
+          style="display: none; padding: 8px 10px"
+        >
+          <div>
+            <input
+              type="checkbox"
+              _name="addNewHost"
+              id="remoteVFSItem_option_addNewHost"
+            />
+            <label for="remoteVFSItem_option_addNewHost"
+              >Add new key on first occurrence</label
+            >
+          </div>
+          <div>
+            <label for="remoteVFSItem_option_knownHostFile"
+              >Known host file:
+            </label>
+            <input
+              _name="knownHostFile"
+              type="text"
+              id="remoteVFSItem_option_knownHostFile"
+              style="width: 295px"
+            />
+            <a
+              href="#"
+              PickType="file"
+              class="button serverFilePickButton"
+              rel="remoteVFSItem_option_knownHostFile"
+              style="top: 5px; margin-left: 0px"
+            >
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-folder-open"
+              ></span>
+              <span class="GeneralSettings btnBrowseText">Browse </span>
+            </a>
+          </div>
+        </div>
+      </td>
+    </tr>
+   <!--  <tr class="ui-helper-hidden">
+      <td class="itemPropertyLabel">
+        <label for="path">Path:</label>
+      </td>
+      <td>
+        <input
+          readonly="true"
+          class="bigInputBox"
+          type="text"
+          _name="path"
+          id="remoteVFSItem_option_path"
+        />
+      </td>
+    </tr> -->
+    <tr class="noFileOption smb3Option">
+      <td style="padding-top: 10px; padding-bottom: 10px" colspan="2">
+        <label for="remoteVFSItem_option_use_dmz"
+          >Route connection through DMZ when possible:
+        </label>
+        <select _name="use_dmz" id="remoteVFSItem_option_use_dmz"></select>
+      </td>
+    </tr>
+    <tr class="boxOption JWT_JSON_Reverse">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_box_client_id">Client Id: </label>
+      </td>
+      <td>
+          <input class="bigInputBox" _name="box_client_id" type="text" id="remoteVFSItem_option_box_client_id" />
+      </td>
+    </tr>
+    <tr class="boxOption JWT_JSON_Reverse">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_box_enterprise_id">Enterprise Id: </label>
+      </td>
+      <td>
+          <input class="bigInputBox" _name="box_enterprise_id" type="text" id="remoteVFSItem_option_box_enterprise_id" />
+      </td>
+    </tr>
+    <tr class="boxOption JWT_JSON_Reverse">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_box_public_key_id">Public Key Id: </label>
+      </td>
+      <td>
+          <input class="bigInputBox" _name="box_public_key_id" type="text" id="remoteVFSItem_option_box_public_key_id" />
+      </td>
+    </tr>
+    <tr class="boxOption JWT_JSON_Reverse">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_box_private_key">Private Key: </label>
+      </td>
+      <td>
+          <textarea class="bigInputBox encryptPass" _name="box_private_key" rows="10" id="remoteVFSItem_option_box_private_key"></textarea>
+      </td>
+    </tr>
+    <tr class="boxOption JWT_JSON_Reverse">
+      <td class="itemPropertyLabel">
+        <label for="remoteVFSItem_option_box_private_pass_phrase">Private Key password phrase: </label>
+      </td>
+      <td>
+          <input class="bigInputBox encryptPass" _name="box_private_pass_phrase" type="password" id="remoteVFSItem_option_box_private_pass_phrase" />
+      </td>
+    </tr>
+    <tr class="sftpOptions">
+      <td colspan="2">
+        <div style="display: block">
+          <div>
+            <div class="sftp-suggested-settings"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="dmzCustomOptionsFileBrowser" style="display: none; line-height: 30px">
+  <div>
+    <label for="customDMZType">Type:</label>
+    <select id="customDMZType">
+      <option value="socks5">Socks 5</option>
+      <option value="internal://">internal://</option>
+      <option value="variable">Variable</option>
+    </select>
+  </div>
+  <div class="socksOptions">
+    <div>
+      <label for="customDMZHost">Host:</label>
+      <input id="customDMZHost" class="bigInputBox" type="text" />
+    </div>
+    <div>
+      <label for="customDMZPort">Port:</label>
+      <input id="customDMZPort" class="smallInputBox" type="text" />
+    </div>
+  </div>
+  <div class="variableOptions">
+    <div>
+      <label for="customDMZHost">Variable:</label>
+      <input id="customDMZVariable" class="bigInputBox" type="text" />
+    </div>
+  </div>
+</div>

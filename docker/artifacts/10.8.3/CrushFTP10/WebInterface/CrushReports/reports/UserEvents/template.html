@@ -1,0 +1,85 @@
+<script type="text/template" id="html-content">
+    <div class="has-report-data">
+            <div class="text-center">
+                <button type="button" class="btn btn-lg btn-success" id="exportAsXLS"><i class="fa fa-file-excel-o"></i> Export as XLS</button>
+            </div>
+        <hr>
+        <div class="panel-group" role="tablist" aria-multiselectable="true">
+            <div class="tables"></div>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="template">
+    <div class="charts" style="width: 98%;white-space: nowrap;">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-12 graph-panel">
+                <h3 class="sub-title">
+                   <i class="fa fa-user-o"></i> User Events
+                </h3>
+                <div id="eventsDonut" class="graph"></div>
+                <div class="text-center no-data" style="display:none;">Nothing to display</div>
+            </div>
+            <div class="col-md-8 col-lg-8 col-sm-12">
+                <div class="panel panel-success text-left graph-stats">
+                    <div class="panel-heading">
+                        <strong><i class="fa fa-list-ul"></i> Quick Stats:</strong>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                There are total <span class="total-users stat"></span> user(s) and total <span class="total-events stat"></span> event(s).
+                            </li>
+                            <li class="list-group-item">
+                                User <span class="max-events-user stat"></span> has maximum events <span class="max-events-count stat"></span>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='panel panel-default'>
+        <a class='collapsed' role='button' data-toggle="collapse" href='#$type_table'>
+            <div class='panel-heading'>
+                <h4 class='panel-title'><i class="fa fa-table"></i> Records</h4>
+            </div>
+        </a>
+        <div id='$type_table' class="collapse in">
+            <div class='panel-body'>
+                <div class='panel panel-default no-border top-margin' id='$type_dataRecord'>
+                    <table id="$typeRecords" class="table table-striped table-bordered $type-table dataTable" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th width="25%">Username</th>
+                                <th>Events</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Username</th>
+                                <th>Events</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="template-popup">
+    <table id="folderRecords" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th width="15%">Status</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Status</th>
+                <th>Name</th>
+            </tr>
+        </tfoot>
+    </table>
+</script>

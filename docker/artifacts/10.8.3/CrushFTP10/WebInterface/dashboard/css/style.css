@@ -1,0 +1,351 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+html, html * {
+  font-family: Roboto;
+}
+body {
+    margin: 0 auto;
+    padding:20px 10px 20px 10px;
+}
+body.hide-connections ._jsPlumb_connector {
+    display: none;
+}
+div#mainContainer{
+  position: relative;
+  min-height: 800px;
+  min-width: 1200px;
+}
+
+div#mainContainer div.popover{
+    min-width: 450px;
+    max-width: 450px;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+div#mainContainer div.popover div.popover-content{
+    padding: 0px;
+}
+
+div#mainContainer div.popover .popover-title{
+    display: none;
+}
+
+div#bubble-tree {
+    position: absolute;
+    margin: 0 auto;
+    transition: all .3s ease-in-out;
+    margin-top: -310px;
+}
+
+div#bubble-tree svg{
+    z-index: 90;
+}
+
+div#bubble-tree div.root{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px 2px #e6f2ff;
+    background-color: #3299FF;
+    color: #fff;
+    z-index: 99;
+    cursor: pointer;
+}
+
+div#bubble-tree div.bubble {
+    background-color: #FFFBFB;
+    z-index: 99;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    border: 0px solid #eee;
+    box-shadow: 0px 0px 10px 2px #eee;
+    box-shadow: 0px 0px 10px 2px #999999;
+}
+
+div#bubble-tree.zoom-out {
+    transform: scale(0.6) translate(0%, 0%);
+    -webkit-transform: scale(0.6) translate(0%, 0%);
+    left:0px;
+    top:0px;
+    margin-top: 0px;
+    transform-origin: top left;
+}
+
+div.details-bubble {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 2px #999999;
+    display: none;
+    cursor: pointer;
+}
+
+div.details-bubble:hover::after{
+    content: "\f00e";
+    font-family: FontAwesome;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    margin-top: -140px;
+    margin-left: -70px;
+    line-height: 140px;
+    font-size: 30px;
+    opacity: 0.1;
+}
+
+div.details-bubble.running{
+    border: 2px dashed #12C28B;
+}
+
+div.details-bubble.stopped{
+    border: 2px dashed #F76A6A;
+}
+
+.bubble-container {
+    display: table;
+    height: 140px;
+    overflow: hidden;
+    width: 140px;
+}
+
+.bubble-container-text {
+    display: table-cell;
+    vertical-align: middle;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.progressLabel{
+  padding: 3px 5px;
+  border-radius: 7px;
+  opacity: 0.8;
+  background-color: #eee;
+}
+
+div#bubble-tree div.bubble.shake.active{
+  border: 2px dashed #03A9F4;
+}
+div#bubble-tree div.bubble.shake.inactive{
+  animation : none !important;
+  background-color: #f1f1f1;
+}
+
+div.bubble .count{
+    margin-left: 20px;
+    position: absolute;
+    top:30px;
+    left:50%;
+    font-size: 11px;
+    font-weight: bold;
+    border:1px solid #ddd;
+    border-radius: 50%;
+    width:20px;
+    height: 20px;
+    display: inline-block;
+    line-height: 19px;
+    text-align: center;
+}
+.details-bubble .buttons{
+    position: absolute;
+    top: 0px;
+    margin-top: -28px;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    margin-left: -15px;
+    /*display: none;*/
+}
+
+.bubble-panel{
+    margin : -30px;
+    padding : 30px;
+}
+
+.details-bubble .bubble-panel:hover .buttons{
+    display: block;
+}
+
+.details-bubble .buttons a{
+    position: relative;
+    margin: 0px 10px;
+    display: inline-block;
+    color: #3299FF;
+}
+
+.details-bubble .buttons a.disabled{
+    color: #d6d6d6;
+    cursor: not-allowed;
+}
+
+.details-bubble .buttons a i{
+    font-size: 17px;
+}
+
+.details-bubble .buttons a:first-child{
+    top: 18px;
+    right: 0px;
+}
+.details-bubble .buttons a:nth-child(4){
+    top: 18px;
+    right: 0px;
+}
+div.bubble div.server-name{
+    font-weight: bold;
+    font-size: 15px;
+}
+div.bubble div.status{
+    position: absolute;
+    padding: 0px;
+    line-height: 20px;
+    margin:0px;
+    margin-top: -45px;
+    margin-left: 30px;
+}
+div.bubble div.status div{
+    float: left;
+    margin-right: 10px;
+}
+div.status span:before{
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+div.status .running span:before{
+    background-color: #12C28B;
+}
+div.status .stopped span:before{
+    background-color: #F76A6A;
+}
+.busy {
+    position: absolute;
+    z-index: 1;
+    background: url(/WebInterface/Resources/images/inline_loading.gif) center 42% no-repeat;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.loadingIndicatorWindow{
+    z-index: 99999;
+}
+.telnet-frame, .telnet-frame .ui-dialog-content{
+    margin:0px;
+    padding:0px;
+}
+
+.telnet-frame .ui-dialog-content{
+    margin:0px 10px;
+}
+
+.status .status-header{
+    background: #eee;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.status .status-items ul {
+    padding: 0px 0px 0px 0px;
+    margin: 0px;
+    max-height: 170px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.status .status-items li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    height: 55px;
+    font-size: 13px;
+    position: relative;
+    line-height: 18px;
+    border-bottom: 1px solid #ddd;
+}
+.status .ellipsis div{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.status .progress {
+    height: 16px;
+    position: absolute;
+    width: 100%;
+    background-color: #a6b2bd;
+    margin-left: 4px;
+}
+.status .progress .progress-bar{
+    background-color: #3299ff;
+}
+
+.fade-in {
+    animation: FadeIn .4s ease-in-out !important;
+}
+
+.fade-out {
+    animation: FadeOut 0.3s ease-in-out !important;
+    opacity: 0;
+}
+
+.status .progress .progress-text {
+    position: absolute;
+    color: #fff;
+    font-size: 12px;
+    top: -2px;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.child-root {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #3299ff;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    border-radius: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    cursor: pointer;
+}
+
+.child-root span{
+    position: relative;
+    top:35px;
+    left:50px;
+    display: inline-block;
+    width: 1px;
+    height: 1px;
+}
+
+.child-root label.name {
+    line-height: 100px;
+    text-align: center;
+    display: block;
+    color: #fff;
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 100%;
+    cursor: pointer;
+}

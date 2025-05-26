@@ -1,0 +1,643 @@
+<!-- Panel HTML -->
+<div id="pnlAccounts" class="adminPanel">
+  <div style="float: left" class="sideBarTempAccounts">
+    <div
+      class="ui-widget-content nobg"
+      style="padding: 5px 5px 15px 5px; margin: -5px"
+    >
+      <div style="width: 230px; float: left; margin-top: 4px; margin-left: 5px">
+        <label for="filterAvailableAccounts">Filter:</label>
+        <input type="text" id="filterAvailableAccounts" />
+        <label>
+          <a href="javascript:void(0);" id="clearFilter">Clear</a>
+        </label>
+      </div>
+      <div style="width: 150px; float: right; margin-top: 3px">
+        <a href="#" id="addEvent" class="button">
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-circle-plus"
+          ></span>
+          <span class="">Add</span>
+        </a>
+        <a href="#" id="removeEvent" class="button">
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-circle-close"
+          ></span>
+          <span class="">Remove</span>
+        </a>
+      </div>
+      <div class="clear"></div>
+      <div style="margin: 10px 0px 0px 5px; text-align: right">
+        <a
+          href="#"
+          class="reloadLink"
+          style="float: left"
+          id="reloadAccountsLink"
+          >Reload account list</a
+        >
+        <span class="ui-priority-secondary"
+          >Total <span id="accountCountLabel">0</span> Temp accounts.</span
+        >
+      </div>
+      <div class="clear"></div>
+      <div style="margin: 5px 0px 5px 5px" class="ui-priority-secondary">
+        (Created By - Date Created - Username - Emailed to)
+      </div>
+      <div
+        class="LargeListBox itemList nobg sideScroll"
+        style="
+          margin: 0px 0px;
+          padding: 2px;
+          padding-top: 5px;
+          width: 420px;
+          height: 500px;
+          overflow-x: auto;
+        "
+      >
+        <select
+          id="lst_tempAccounts"
+          multiple="true"
+          class="nobg"
+          style="width: auto; min-width: 100%"
+        ></select>
+      </div>
+    </div>
+  </div>
+  <div
+    id="AccountsContent"
+    class="userInfoContent ui-widget-content nobg"
+    style="margin-top: -5px; margin-left: 15px"
+  >
+    <a
+      id="linkGeneralSettings"
+      href="#"
+      style="float: right; margin: 10px 10px 0px 0px"
+    >
+      <span
+        style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+        class="pointer ui-icon ui-icon-wrench"
+      ></span>
+      <span class="">General Settings</span>
+    </a>
+    <div class="clear"></div>
+    <fieldset
+      id="generalSettingsPanel"
+      class="nobg"
+      style="margin: 5px; padding: 10px; widht: 100%; display: none"
+    >
+      <legend style="padding: 2px 10px">General Settings</legend>
+      <div style="margin-top: 10px">
+        <label
+          for="temp_accounts_length"
+          style="width: 315px; display: inline-block; text-align: right"
+          >Length of auto generated username and password:
+        </label>
+        <input type="text" id="temp_accounts_length" class="smallInputBox" />
+      </div>
+      <div style="margin-top: 10px">
+        <label
+          for="temp_accounts_path"
+          style="width: 315px; display: inline-block; text-align: right"
+          >Location of temp account file system:
+        </label>
+        <input
+          type="text"
+          id="temp_accounts_path"
+          class="bigInputBox"
+          style="width: 305px"
+        />
+        <a
+          filemode="user"
+          PickType="dir"
+          rel="temp_accounts_path"
+          href="#"
+          class="button serverFilePickButton"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-folder-open"
+          ></span>
+          <span class="">Browse</span>
+        </a>
+      </div>
+      <div style="margin-top: 10px">
+        <label
+          for="temp_accounts_account_expire_task"
+          style="width: 315px; display: inline-block; text-align: right"
+          >When account expires, run Task/Job before deleting:</label
+        >
+        <select
+          id="temp_accounts_account_expire_task"
+          style="width: 313px"
+          name="account_expire_task"
+        >
+          <option value="">Please select</option>
+        </select>
+      </div>
+      <div style="margin-top: 10px">
+        <label
+          for="expire_share_notify_days"
+          style="width: 315px; display: inline-block; text-align: right"
+          >How many days in advance to notify share recipient of share
+          expiration?
+        </label>
+        <input
+          type="text"
+          id="expire_share_notify_days"
+          name="expire_share_notify_days"
+          class="smallInputBox"
+        />
+      </div>
+      <div style="margin-top: 10px">
+        <label
+          for="share_expire_notify_task"
+          style="width: 315px; display: inline-block; text-align: right"
+          >Execute CrushTask to notify about share expiration:</label
+        >
+        <select
+          id="share_expire_notify_task"
+          style="width: 313px"
+          name="share_expire_notify_task"
+        >
+          <option value="">Please select</option>
+        </select>
+      </div>
+      <div style="margin-top: 10px">
+        <strong>These settings override the TempAccount user's configuration and pass along the user's customizations of who is creating the share.</strong>
+      </div>
+      <hr class="ui-widget-content" />
+      <br>
+      <div style="margin-top: 10px;padding-left: 25px;">
+        <input
+              type="checkbox"
+              class="reportElement"
+              id="temp_account_share_web_javascript"
+            />
+            <label
+              for="temp_account_share_web_javascript"
+              style="position: relative; top: -5px; left: -3px"
+              >Use javascript from sharing user.</label
+            >
+      </div>
+      <div style="margin-top: 10px;padding-left: 25px;">
+          <input
+            type="checkbox"
+            class="reportElement"
+            id="temp_account_share_web_css"
+          />
+          <label
+            for="temp_account_share_web_css"
+            style="position: relative; top: -5px; left: -3px"
+            >Use CSS from sharing user.</label
+          >
+      </div>
+      <div style="margin-top: 10px;padding-left: 25px;">
+          <input
+            type="checkbox"
+            class="reportElement"
+            id="temp_account_share_web_customizations"
+          />
+          <label
+            for="temp_account_share_web_customizations"
+            style="position: relative; top: -5px; left: -3px"
+            >Use web customizations from sharing user.</label
+          >
+      </div>
+      <div style="margin-top: 10px;padding-left: 25px;">
+          <input
+            type="checkbox"
+            class="reportElement"
+            id="temp_account_share_web_buttons"
+          />
+          <label
+            for="temp_account_share_web_buttons"
+            style="position: relative; top: -5px; left: -3px"
+            >Use buttons from sharing user.</label
+          >
+      </div>
+      <div style="margin-top: 10px;padding-left: 25px;">
+          <input
+            type="checkbox"
+            class="reportElement"
+            id="temp_account_share_web_forms"
+          />
+          <label
+            for="temp_account_share_web_forms"
+            style="position: relative; top: -5px; left: -3px"
+            >Use web forms from sharing user.</label
+          >
+      </div>
+      <div style="margin-top: 10px;padding-left: 25px;">
+          <input
+            type="checkbox"
+            class="reportElement"
+            id="temp_account_pgp_settings"
+          />
+          <label
+            for="temp_account_pgp_settings"
+            style="position: relative; top: -5px; left: -3px"
+            >Use PGP settings from sharing user.</label
+          >
+      </div>
+      <div style="margin-top: 10px">
+        <a
+          id="saveGeneralSettings"
+          href="#"
+          class="button"
+          style="margin-left: 295px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-disk"
+          ></span>
+          <span class="">Save</span>
+        </a>
+        <a
+          id="cancelGeneralSettings"
+          href="#"
+          class="button"
+          style="margin-left: 0px"
+        >
+          <span
+            style="display: inline-block; margin: 0px 3px 0px -7px; float: left"
+            class="pointer ui-icon ui-icon-circle-close"
+          ></span>
+          <span class="">Cancel</span>
+        </a>
+      </div>
+    </fieldset>
+    <div class="clear"></div>
+    <div id="accountsContentTip">
+      <div
+        class="ui-state-highlight ui-corner-all warning"
+        style="padding: 3px; display: block; margin: 10px 3px"
+      >
+        <span
+          style="float: left; margin-right: 0.3em"
+          class="ui-icon ui-icon-info"
+        ></span>
+        <span class=""> Choose account from left menu for more details </span>
+      </div>
+    </div>
+    <fieldset
+      id="accountDetailsPanel"
+      style="margin: 5px; padding: 10px; widht: 100%; display: none"
+    >
+      <legend style="padding: 2px 10px">Settings</legend>
+      <div class="customForm">
+        <table width="100%" class="valignMiddle">
+          <tr>
+            <td width="70px;" style="text-align: right">
+              <label for="username">Username:</label>
+            </td>
+            <td width="150px;">
+              <input type="text" disabled readonly="readonly" id="username" />
+            </td>
+            <td width="70px" style="text-align: right">
+              <label for="password">Password:</label>
+            </td>
+            <td>
+              <input type="text" id="password" disabled readonly="readonly" />
+              <span class="spacer"></span>
+              <input type="checkbox" class="reportElement" id="allowUploads" />
+              <label for="allowUploads">Allow Uploads?</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right">
+              <label for="master">Master:</label>
+            </td>
+            <td>
+              <input type="text" id="master" disabled readonly="readonly" />
+            </td>
+            <td style="text-align: right">
+              <label for="expires">Expires:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="date excludeXML time"
+                valtype="date"
+                id="expire"
+              />
+              <input type="text" class="" style="display: none" id="expire2" />
+              <a
+                id="saveAccountSettings"
+                href="#"
+                class="button"
+                style="position: relative; margin-top: -10px; margin-left: 20px"
+              >
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px 3px 0px -7px;
+                    float: left;
+                  "
+                  class="pointer ui-icon ui-icon-disk"
+                ></span>
+                <span class="">Save</span>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <hr class="ui-widget-content" />
+      <br />
+      <table width="100%" class="valignMiddle">
+        <tr>
+          <td colspan="2" id="shareOptions">
+            <label class="ui-priority-primary"> Share Type:</label>
+            <label
+              style="text-transform: capitalize"
+              class="liveData"
+              id="publishType"
+            ></label>
+            <!--input type="radio" checked="checked" class="box" id="chkCopy" value="copy" name="publishType" /><label for="chkCopy">Copy</label>
+						<span class="spacer"></span>
+						<input type="radio" class="box" id="chkReference" value="reference" name="publishType" /><label for="chkReference">Reference</label>
+						<span class="spacer"></span>
+						<input type="radio" class="box" id="chkMove" value="move" name="publishType" /><label for="chkMove">Move</label-->
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <br />
+          </td>
+        </tr>
+        <tr>
+          <td width="650px;">
+            <label for="containedFiles" class="ui-priority-primary">
+              Contains these files:
+            </label>
+            <span style="float: right">
+              <input type="checkbox" class="ignoreBind" id="showUrl" />
+              <label
+                for="showUrl"
+                style="position: relative; top: -5px; left: -3px"
+                >Show full path</label
+              >
+            </span>
+            <div
+              class="LargeListBox itemList nobg sideScroll ui-corner-all ui-widget-content"
+              style="
+                margin: 5px 0px 0px 10px;
+                padding: 2px;
+                padding-top: 5px;
+                width: 650px;
+                height: 360px;
+              "
+            >
+              <!-- <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll"> -->
+              <ol id="containedFiles" class="nobg"></ol>
+              <!-- </div> -->
+              <!-- <select id="containedFiles" multiple="true" class="nobg">
+							</select> -->
+            </div>
+          </td>
+          <td style="vertical-align: top; padding-top: 22px">
+            <a
+              filemode="user"
+              id="addFiles"
+              PickType="any"
+              rel="containedFiles"
+              href="#"
+              class="button serverFilePickButton"
+            >
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-folder-open"
+              ></span>
+              <span class="">Add</span>
+            </a>
+            <br />
+            <a
+              href="#"
+              id="removeFiles"
+              class="button"
+              style="margin-top: 10px"
+            >
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-circle-close"
+              ></span>
+              <span class="">Remove</span>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label class="ui-priority-primary">
+              Direct URL for this account:</label
+            ><input
+              type="text"
+              readonly="readonly"
+              id="web_link"
+              class="bigInputBox"
+            />
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+    <div class="clear"></div>
+    <div id="createUserDialog" style="display: none">
+      <table class="customForm">
+        <tr>
+          <td
+            style="
+              width: 100px;
+              text-align: right;
+              vertical-align: middle;
+              padding-right: 10px;
+              padding-bottom: 7px;
+            "
+          >
+            <label for="username_prompt">Username:</label>
+          </td>
+          <td width="170px">
+            <input
+              type="text"
+              class="validate notForUserManager noMSG"
+              valtype="required"
+              style="width: 150px; height: 20px; padding: 2px"
+              id="username_prompt"
+            />
+          </td>
+          <td>
+            <a
+              id="user_generateUser"
+              href="#"
+              class="button"
+              style="top: 0px; padding: 0px"
+            >
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-gear"
+              ></span>
+              <span class="">Generate Username</span>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 100px;
+              text-align: right;
+              vertical-align: middle;
+              padding-right: 10px;
+              padding-bottom: 7px;
+            "
+          >
+            <label for="userpassword_prompt">Password:</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              class="validate notForUserManager noMSG"
+              valtype="required"
+              style="width: 150px; height: 20px; padding: 2px"
+              id="userpassword_prompt"
+            />
+          </td>
+          <td>
+            <a
+              id="user_generateRandomPass"
+              href="#"
+              class="button"
+              style="top: 0px; padding: 0px"
+            >
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-gear"
+              ></span>
+              <span class="">Generate Password</span>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 100px;
+              text-align: right;
+              vertical-align: middle;
+              padding-right: 10px;
+              padding-bottom: 7px;
+            "
+          >
+            <label for="expires_prompt">Expires:</label>
+          </td>
+          <td colspan="2">
+            <input
+              type="text"
+              valtype="required"
+              class="notForUserManager noMSG validate date time imgBtnTrigger"
+              style="width: 150px; height: 20px; padding: 2px"
+              valtype="date"
+              id="expires_prompt"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 100px;
+              text-align: right;
+              vertical-align: middle;
+              padding-right: 10px;
+              padding-bottom: 7px;
+            "
+          >
+            <label>Share Type:</label>
+          </td>
+          <td colspan="2">
+            <input
+              type="radio"
+              checked="checked"
+              class="box"
+              id="chkCopy_prompt"
+              value="copy"
+              name="publishType"
+            /><label
+              for="chkCopy_prompt"
+              style="position: relative; top: -5px; left: -1px"
+              >Copy</label
+            >
+            &nbsp;
+            <input
+              type="radio"
+              class="box"
+              id="chkReference_prompt"
+              value="reference"
+              name="publishType"
+            /><label
+              for="chkReference_prompt"
+              style="position: relative; top: -5px; left: -1px"
+              >Reference</label
+            >
+            &nbsp;
+            <input
+              type="radio"
+              class="box"
+              id="chkMove_prompt"
+              value="move"
+              name="publishType"
+            /><label
+              for="chkMove_prompt"
+              style="position: relative; top: -5px; left: -1px"
+              >Move</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <input
+              type="checkbox"
+              class="reportElement"
+              id="allowUploads_prompt"
+            />
+            <label
+              for="allowUploads_prompt"
+              style="position: relative; top: -5px; left: -3px"
+              >Allow Uploads?</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div
+              class="ui-state-highlight ui-corner-all warning"
+              style="padding: 3px; display: block; margin: 10px 3px"
+            >
+              <span
+                style="float: left; margin-right: 0.3em"
+                class="ui-icon ui-icon-info"
+              ></span>
+              <span class="">
+                After creating account you can add files you want to share.
+              </span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,223 @@
+<!-- Panel HTML -->
+<div id="pnlReportSchedule" class="adminPanel">
+	<div class="sideBar ui-widget-content">
+		<div class="customForm">
+			<p class="buttonBar center">
+				<span class="vtip" title="Create New Schedule (Take snapshot)">
+					<a href="#" class="button" id="newSchedule">
+						<i class="fa fa-plus"></i>
+						<span>New</span>
+					</a>
+				</span>
+				<a href="#" class="button" id="deleteSchedule">
+					<i class="fa fa-trash"></i>
+					<span class="btnDeleteText">Delete</span>
+				</a>
+			</p>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="ui-widget-content"></div>
+		<div id="scheduleListActions" class="right" style="margin:5px 0px;">
+			<!--a href="#" class="reload">Reload</a> | -->
+			<a href="#" class="selectAll">Select all</a> |
+			<a href="#" class="deSelect">Select none</a>
+		</div>
+		<ul class="links ui-state-default nobg sideBarList" id="scheduleList">
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="content" style="margin:5px 5px 5px 320px;">
+		<div class="ui-widget-content" style="padding:5px;">
+			<div class="ui-state-highlight ui-corner-all warning" style="padding:5px;display:block;margin:0px 3px;">
+				<i class="fa fa-info"></i>
+				To create a new schedule, first configure a report in the setup tab. It would be a good idea to run the report as well and make sure its returning the information you want.
+				<br />
+				<span style="margin-left:0px;margin-top:4px;display:inline-block;">Then come back to this tab, and click "New" button on left. This will take a snapshot of the current report setup. Then you can configure the setting for the scheduled report on the right.</span>
+			</div>
+			<div id="scheduleInfo" class="noForm" style="margin-top:12px;font-size: 0.9rem;">
+				<table width="100%" class="valignMiddle reportsTable">
+					<tr>
+						<td colspan="3">
+							<a href="#" class="button editSchedule" style="margin-bottom:10px;">
+								<i class="fa fa-pencil"></i>
+								<span class="btnEditText">Edit</span>
+							</a>
+							<a href="#" class="button testSchedule" style="margin-bottom:10px;">
+								<i class="fa fa-check-circle"></i>
+								<span>Test Schedule</span>
+							</a>
+							<a href="#" class="button saveSchedule" style="margin-bottom:10px;">
+								<i class="fa fa-save"></i>
+								<span>Save</span>
+							</a>
+							<a href="#" class="button updateSchedule" style="margin-bottom:10px;">
+								<i class="fa fa-copy"></i>
+								<span>Update Schedule With Report Config</span>
+							</a>
+							<input type="text" id="nextRun" class="ui-helper-hidden" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<label for="scheduleName">Schedule Name:</label>
+							<input type="text" id="scheduleName" />
+							<span class="spacer"></span>
+							<label for="report_enabled">
+								<input type="checkbox" name="report_enabled" id="report_enabled" />
+							Enabled?</label>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:100px;">
+							<input type="radio" name="reportType" id="minutely" />
+							<label for="minutely">Minutely</label>
+						</td>
+						<td style="width:250px;">
+							<label for="minutelyAmount">Every</label>
+							<input type="text" class="smallInputBox" id="minutelyAmount" />
+							<label for="minutelyAmount">minutes.</label>
+						</td>
+						<td rowspan="5" style="vertical-align:top;">
+							<div id="periodOptions">
+								<div class="option daily weekly monthly">
+									<label for="reportTime">Hour and Minute (hh:mm AM/PM)</label>
+									<br />
+									<input type="text" class="time" id="reportTime" />
+								</div>
+								<div class="option weekly">
+									<fieldset class="weekdays" style="display:inline-block;">
+										<div class="ui-state-default" _day="1">Sun</div>
+										<div  class="ui-state-default" _day="2">Mon</div>
+										<div  class="ui-state-default" _day="3">Tue</div>
+										<div  class="ui-state-default" _day="4">Wed</div>
+										<div  class="ui-state-default" _day="5">Thu</div>
+										<div  class="ui-state-default" _day="6">Fri</div>
+										<div  class="ui-state-default" _day="7">Sat</div>
+									</fieldset>
+								</div>
+								<div class="option monthly">
+									<fieldset class="monthdays" style="display:inline-block;width:280px;">
+									</fieldset>
+								</div>
+							</div>
+							<div>&nbsp;</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:80px;">
+							<input type="radio" name="reportType" id="daily" />
+							<label for="daily">Daily</label>
+						</td>
+						<td style="width:200px;">
+							<label for="dailyAmount">Every</label>
+							<input type="text" class="smallInputBox" id="dailyAmount" />
+							<label for="dailyAmount">days.</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="reportType" id="weekly" />
+							<label for="weekly">Weekly</label>
+						</td>
+						<td>
+							<label for="weeklyAmount">Every</label>
+							<input type="text" class="smallInputBox" id="weeklyAmount" />
+							<label for="weeklyAmount">week(s) on:</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="reportType" id="monthly" />
+							<label for="monthly">Monthly</label>
+						</td>
+						<td>
+							<label for="monthlyAmount">Every</label>
+							<input type="text" class="smallInputBox" id="monthlyAmount" />
+							<label for="monthlyAmount">month(s) on:</label>
+						</td>
+					</tr>
+				</table>
+				<p>
+					<label for="reportFilename">Report Filename:</label>
+					<input type="text" class="bigInputBox" id="reportFilename" />
+					<span class="spacer"></span>
+					<input type="checkbox" name="reportOverwrite" id="reportOverwrite" />
+					<label for="reportOverwrite">Overwrite?</label>
+				</p>
+				<p>
+					<span class="ui-state-highlight ui-corner-all warning" style="padding:5px;display:inline-block;margin:10px 3px;min-width:615px">
+						<i class="fa fa-info"></i>
+						{name} = Report name. {schedule} = Schedule's name. {MM} = Month. {dd} = Day. {yy}, {yyyy} = Year.
+					</span>
+				</p>
+				<p style="margin-bottom: 10px;">
+					<label for="reportFolder">Save Reports To:</label>
+					<input type="text" class="bigInputBox" id="reportFolder" />
+					<a FileMode="server" href="#"  style="margin-right: 5px;margin-top: -3px;" PickType="dir" class="button serverFilePickButton" rel="reportFolder">
+						<span style="display:inline-block;margin:-1px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+							Browse
+					</a>
+					<span id="report-path-error" style="padding:0px;display:inline-block;top:-3px;position:relative;color:#cd0a0a;">Please enter path to save reports to</span>
+				</p>
+				<p>
+					<input type="checkbox" name="emailReport" id="emailReport" />
+					<label for="emailReport">Email Report</label>
+					<span>
+						<span class="spacer"></span>
+						<input type="checkbox" name="export" id="export" />
+						<label for="export">CSV Format</label>
+					</span>
+				</p>
+				<div id="emailActionConfig" class="actionConfigPanel ui-helper-hidden">
+					<p class="myFormFloat boxPanel">
+						<label for="from">From:</label>
+						<input type="text" class="bigInputBox" id="from" />
+					</p>
+					<p class="myFormFloat boxPanel">
+						<label for="to">To:</label>
+						<input type="text" class="bigInputBox" id="to" />
+					</p>
+					<div class="clear"></div>
+					<p class="myFormFloat boxPanel">
+						<label for="cc">CC:</label>
+						<input type="text" class="bigInputBox" id="cc" />
+					</p>
+					<p class="myFormFloat boxPanel">
+						<label for="bcc">BCC:</label>
+						<input type="text" class="bigInputBox" id="bcc" />
+					</p>
+					<p class="myForm">
+						<label for="subject">Subject:</label>
+						<input type="text" class="bigInputBox" id="subject" />
+					</p>
+					<p class="myForm">
+						<label for="body">Body:</label>
+						<textarea id="body" class="formTextarea nobg"></textarea>
+					</p>
+				</div>
+				<div class="clear"></div>
+				<div style="margin-top:10px;">
+					<a href="#" class="button editSchedule" style="margin-bottom:5px;">
+						<i class="fa fa-pencil"></i>
+						<span class="btnEditText">Edit</span>
+					</a>
+					<a href="#" class="button testSchedule" style="margin-bottom:5px;">
+						<i class="fa fa-check-circle"></i>
+						<span>Test Schedule</span>
+					</a>
+					<a href="#" class="button saveSchedule" style="margin-bottom:5px;">
+						<i class="fa fa-save"></i>
+						<span>Save</span>
+					</a>
+					<a href="#" class="button updateSchedule" style="margin-bottom:5px;">
+						<i class="fa fa-copy"></i>
+						<span>Update Schedule With Report Config</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>

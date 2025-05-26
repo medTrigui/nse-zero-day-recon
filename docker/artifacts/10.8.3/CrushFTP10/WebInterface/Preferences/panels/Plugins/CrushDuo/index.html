@@ -1,0 +1,108 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginCrushDuo">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div id="pluginSection" class="customForm">
+                    <p>
+                        <div style="padding:5px;font-size:13px;font-weight:bolder;" class="ui-corner-all ui-state-error">
+                            <span style="float:left;cursor:pointer;margin-top:-2px;margin-right:2px;" class="ui-icon ui-icon-flag"></span>
+                        Enterprise only feature
+                        </div>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="enabled" id="enabled" />
+                        <label for="enabled" class="ui-priority-primary CrushDuo lblEnabledText">Enabled</label>
+
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+
+                        <input type="checkbox" name="debug" id="debug" />
+                        <label for="debug" class="ui-priority-primary CrushDuo lblDebugText" class="nonEmbed">Debug</label>
+
+                        <span style="float:right;" class="nonEmbed">
+                            <span class="CrushDuo lblVersionText">Version:</span>
+                            <span class="liveData" id="version"></span>
+                        </span>
+                    </p>
+                    <div class="tabs nobg">
+                        <ul>
+                            <li><a href="#Help" class="CrushDuo lblHelpTabText">Help</a>
+                            </li>
+                            <li><a href="#Setup" id="setupTabLink" class="CrushDuo lblSetupTabText">Setup</a>
+                            </li>
+                        </ul>
+                        <div class="pluginDetails CrushDuo pnlHelpInstructionsText" id="Help" style="line-height:20px;">
+                            <div style="width:600px;">
+                                <strong>CrushDuo Plugin Help</strong>
+                                <a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=CrushDuo" target="_blank">Learn more...</a>
+                            </div>
+                        </div>
+                        <div id="Setup" class="ui-corner-all ui-widget-content nobg" style="padding:5px 10px;">
+                            <p>
+                                <a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=CrushDuo" target="_blank">Learn more...</a>
+                            </p>
+                            <p>
+                                <label title="Allows you to specify the individual server that can use this plugin instance." for="server_item" class="HomeDirectory lblAllowedServerPortText">Allowed Server Port:</label>
+                                <div id="server_item_list"></div>
+                                <input style="display:none;" type="text" id="server_item" name="server_item" />
+                                <div class="clear"></div>
+                            </p>
+                            <p>
+                                <label for="username_filter" class="CrushDuo lblUsernameMatchingText">Username matching:</label>
+                                <input type="text" id="username_filter" name="username_filter" />
+                            </p>
+                            <p>
+                                <label for="crushduo_cache_time" class="CrushDuo">Cache Time:</label>
+                                <input type="number" id="crushduo_cache_time" name="crushduo_cache_time" class="smallInputBox" />
+                                <label for="crushduo_cache_time" class="CrushDuo">(In minutes)</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="event_only" id="event_only" />
+                                <label for="event_only" class="CrushDuo lblRunOnlyForLoginEventText">Only run if configured for a login event?</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="fail_only_on_duo_deny" id="fail_only_on_duo_deny" />
+                                <label for="fail_only_on_duo_deny" class="CrushDuo lblFailOnlyForDUODeny">Fail only for DUO Deny</label>
+                            </p>
+                            <p>
+                                <fieldset class="nobg" style="display:inline-block;">
+                                    <legend class="donotProcess">Auth API:</legend>
+                                    <p>
+                                        <label for="duo_host" class="CrushDuo">Hostname:</label>
+                                        <input type="text" class="bigInputBox" id="duo_host" name="duo_host" />
+                                    </p>
+                                    <p>
+                                        <label for="ikey" class="CrushDuo">Integration Key:</label>
+                                        <input type="text" id="ikey" name="ikey" />
+                                    </p>
+                                    <p>
+                                        <label for="skey" class="CrushDuo">Secret Key:</label>
+                                        <input type="password" class="encryptPass" id="skey" name="skey" />
+                                    </p>
+                                    <p>
+                                        <label for="factor" class="CrushDuo">Factor:</label>
+                                        <select id="factor" name="factor">
+                                            <option>Auto</option>
+                                            <option>Push</option>
+                                            <option>Passcode</option>
+                                            <option>SMS</option>
+                                            <option>Phone</option>
+                                        </select>
+                                    </p>
+                                </fieldset>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,45 @@
+<style>
+    #automate-user-creation .validationErrorMessage{
+        position: relative;
+        margin: 0px;
+    }
+    #automate-user-creation label{
+        display: block;
+    }
+    #automate-user-creation #team_name{
+        text-transform: lowercase;
+    }
+</style>
+<div>
+    <table width="100%" style="margin-top: 15px;">
+        <tr>
+            <td class="itemPropertyLabel" style="width: 150px;">
+                <label for="option_user_name">Team name:</label>
+            </td>
+            <td>
+                <label for="">
+                    <input class="validate ignore-user-validate notForUserManager" valtype="required,userName,nospace" style="width: 250px" type="text" autocomplete="off" id="team_name" />
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td style="margin:8px;"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;" id="create-user-note">
+            </td>
+        </tr>
+       <!--  <tr>
+            <td class="itemPropertyLabel">
+                <label for="option_password">Admin Username for this Team:</label>
+            </td>
+            <td>
+                <label for="">
+                    <input class="validate ignore-user-validate notForUserManager" valtype="required,userName" style="width: 250px" type="text" autocomplete="off" id="admin_username" />
+                </label>
+            </td>
+        </tr> -->
+
+    </table>
+</div>

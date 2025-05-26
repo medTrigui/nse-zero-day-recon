@@ -1,0 +1,267 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginMagicDirectory">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div id="pluginSection" class="customForm">
+                    <p>
+                        <input type="checkbox" name="enabled" id="enabled" />
+                        <label for="enabled" class="ui-priority-primary MagicDirectory lblEnabledText">Enabled</label>
+
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+
+                        <input type="checkbox" name="debug" id="debug" />
+                        <label for="debug" class="ui-priority-primary MagicDirectory lblDebugText" class="nonEmbed">Debug</label>
+
+                        <span style="float:right;" class="nonEmbed">
+                            <span class="MagicDirectory lblVersionText">Version:</span>
+                            <span class="liveData" id="version"></span>
+                        </span>
+                    </p>
+                    <div class="tabs nobg">
+                        <ul>
+                            <li><a href="#PathHelp" rel="help" class="MagicDirectory lblHelpTabText">Help</a>
+                            </li>
+                            <li><a href="#Setup" rel="setup" class="MagicDirectory lblSetupTabText">Setup</a>
+                            </li>
+                            <li><a href="#Advanced" rel="advanced" class="MagicDirectory lblAdvancedTabText">Advanced</a>
+                            </li>
+                        </ul>
+                        <div id="PathHelp">
+                            <b>MagicDirectory Plugin Help</b>
+                            <br>This plugin allows you to "create" a user just by making a directory for them. You set
+                            <br>the password by specifying a character or two that separates the username &amp; password.
+                            <br>This allows for easy user creation and management by even the most technically
+                            <br>challenged people. Basically, you create a folder in a certain location, and now
+                            <br>a user can login with that folders name. The plugin then verifies if a folder exists
+                            <br>for their username, and if it does, they are given rights to that particular folder.
+                            <br>If you want to accept any password for a username, simply leave the separator setting blank.
+                            <br>If you do specify a separator, you must make your folders properly. So for instance
+                            <br>with a separator of '_', and a folder named 'johndoe_mypassword', a user named 'johndoe'
+                            <br>could login with the password 'mypassword'.
+                            <br>There is also an advanced option of setting an expiration date on the folder.
+                            <br>You can configure your date format string for this. It is optional and is only
+                            <br>used if you tack it on to the end of the folder name. For example 'bob_pass_01012008'
+                            <br>would allow a user named 'bob' to login with the password 'pass' until Jan 1st 2008.
+                            <br> <b>How to use it:</b>
+                            <br>Configure this plugin by
+                            <br>setting the directory of where users will be checked against folder names. Pick what
+                            <br>permissions they will have when they login, and finally go and test it out.
+                            <br>
+                            <br>Now make a folder in your "magic directory" named something like \"bob_54GHJK\".
+                            <br>
+                            <br>Now login to your CrushFTP server with this username and password. You will have access to the folder
+                            <br>you just created.
+                            <br>
+                            <br>Now test logging in with another invalid username...you will be denied.
+                            <br>
+                            <br><b>Advanced</b>
+                            <br>There is additional advanced features for random passwords and email notifications.
+                            <br>If a user's password is 'random', it will be replaced with a true random password.
+                            <br>If a user's email starts with 'notify_' an email notification will be sent to them with
+                            <br>their login information. Here is an example showing both a random password and the notify:
+                            <br>(note the separator I have chosen is '--')
+                            <br>myuser--random--notify_support@crushftp.com
+                            <br>That would send me an email with the username and password so that I could then login.
+                            <br>
+                            <br>
+                            <br>Questions? Email us: support@crushftp.com
+                            <br>
+                            <br>--Support
+                        </div>
+                        <div class="pluginDetails" id="Setup">
+                            <p>
+                                <label for="path" class="MagicDirectory lblPathText">Path:</label>
+                                <input type="text" style="width:450px;" id="path" name="path" class="ignoreBind url" />
+                                <a FileMode="user" href="#" class="button serverFilePickButton" rel="path">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    <span class="MagicDirectory btnBrowseText">Browse</span>
+                                </a>
+                            </p>
+                            <p>
+                                <label for="templateUser" class="MagicDirectory lblTemplateUsernameText">Template Username:</label>
+                                <input type="text" id="templateUser" name="templateUser" class="ignoreBind" />
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="overwrite_vfs" name="overwrite_vfs" class="ignoreBind" />
+                                <label for="overwrite_vfs" class="MagicDirectory lblOverwriteVFSItemsText">Overwrite VFS items?</label>
+                            </p>
+                            <p>
+                                <div style="padding: 3px; display: inline-block;" class="ui-state-highlight ui-corner-all warning">
+                                    <span class="ui-icon ui-icon-info" style="float: left; margin-right: 0.3em;"></span>
+                                    <span class="MagicDirectory lblTemplateUsernameHelpText">
+                                        If you specify a template username, all settings from that user will be used including that users virtual file system.
+                                    </span>
+                                </div>
+                            </p>
+                            <p>
+                                <label for="separator" class="MagicDirectory lblSeparatorText">User / Pass Separator:</label>
+                                <input type="text" id="separator" name="separator" class="ignoreBind smallInputBox" />
+                            </p>
+                            <p>
+                                <fieldset class="nobg" style="display:inline-block;">
+                                    <legend class="donotProcess">Directory Permissions:</legend>
+                                    <input type="text" id="permissions" name="permissions" class="bigInputBox" style="display:none;" />
+                                    <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_read" rel="(read)" />
+                                        <label for="privs_read">Download</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_write" rel="(write)" />
+                                        <label for="privs_write">Upload</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_view" rel="(view)" />
+                                        <label for="privs_view">View</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_delete" rel="(delete)" />
+                                        <label for="privs_delete">Delete</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_deletedir" rel="(deletedir)" />
+                                        <label for="privs_deletedir">Delete Folder</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_makedir" rel="(makedir)" />
+                                        <label for="privs_makedir">Create Folder</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_rename" rel="(rename)" />
+                                        <label for="privs_rename">Rename</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_resume" rel="(resume)" />
+                                        <label for="privs_resume">Resume Transfers</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_share" rel="(share)" />
+                                        <label for="privs_share">Share/Publish</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_slideshow" rel="(slideshow)" />
+                                        <label for="privs_slideshow">Slideshow</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_invisible" rel="(invisible)" />
+                                        <label for="privs_invisible">Make Invisible</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_ratio" rel="(ratio)" />
+                                        <label for="privs_ratio">Free Ratio</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_replicate" rel="(replicate)" /><label for="privs_replicate">Replicate</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;" title="Blocks changes to this folder, while allowing changes in sub folders." class="vtip">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_locked" rel="(locked)" />
+                                        <label for="privs_locked">Locked</label>
+                                    </span>
+                                    <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <label for="privs_quota">Quota:(MB)</label>
+                                        <input type="text" id="privs_quota" valtype="float" class="ignoreBind validate excludeXML permissionItem"/>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_real_quota"  rel="(real_quota)" /><label for="privs_real_quota">RealFile Quota</label>
+                                    </span>
+                                    <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                    <span style="clear: both;">
+                                        <label for="privs_comment">
+                                        Comment: (HTML OK)</label>
+                                        <br/>
+                                        <textarea class="ignoreBind excludeXML permissionItem" id="privs_comment" cols="80" rows="3"></textarea>
+                                    </span>
+                                    <span style="clear: both;margin-top:10px;display:block;"></span>
+                                    <span style="">
+                                        <a href="#" class="button" id="advancedPrivsOptions" style="top:0px !important;"><span style='display: inline-block; margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-key'></span><span class="">Advanced</span></a>
+                                    </span>
+                                    <div style="clear: both;margin-top:0px;"></div>
+                                    <div style="clear:both;"></div>
+                                </fieldset>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="web_char" name="web_char" class="ignoreBind" />
+                                <label for="web_char" class="MagicDirectory lblRemoveUnsafeCharsText">Remove unsafe web characters?</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="quota_all" name="quota_all" class="ignoreBind" />
+                                <label for="quota_all" class="MagicDirectory lblQuotaIsForAllUsersText">Quota is for all users</label>
+                            </p>
+                            <p title="Separate multiple levels with commas.  Ex: 1,2  or 2,3">
+                                <label for="depths" class="MagicDirectory lblDirScanDepthText">Directory scan depth:</label>
+                                <input type="text" id="depths" name="depths" class="ignoreBind smallInputBox" />
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="padding-left: 17px;margin-top: 14px;" class="vtip" title="Keep this blank unless a specific name is needed.">
+                            <label for="home_name" class="MagicDirectory">Home location virtual name:</label>
+                            <input type="text" id="home_name" name="home_name" class="ignoreBind" />
+                        </div>
+                        <div id="Advanced">
+                            <div>
+                                <input type="checkbox" id="random_password" name="random_password" class="ignoreBind smallInputBox" />
+                                <label for="random_password" class="MagicDirectory lblConvertRandomPassText">Convert 'random' password to generated random password.</label>
+                            </div>
+                            <div class="subPanel ui-widget-content leftborder nobg">
+                                <p>
+                                    <input type="checkbox" id="md5_password" name="md5_password" class="ignoreBind smallInputBox" />
+                                    <label for="md5_password" class="MagicDirectory lblMD5HashText">MD5 hash passwords.</label>
+                                </p>
+                            </div>
+                            <p>
+                                <input type="checkbox" id="expiration" name="expiration" class="ignoreBind smallInputBox" />
+                                <label for="expiration" class="MagicDirectory lblUseExpirationDateText">Use Expiration Date.</label>
+                                <span class="spacer"></span>
+                                <label for="expireFormat" class="MagicDirectory lblExpirationDateFormatText">Expiration Date Format:</label>
+                                <input type="text" id="expireFormat" name="expireFormat" class="ignoreBind" />
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="deleteAccount" name="deleteAccount" class="ignoreBind smallInputBox" />
+                                <label for="deleteAccount" class="MagicDirectory lblDeleteText">Delete?</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="email" name="email" class="ignoreBind" />
+                                <label for="email" class="MagicDirectory lblUseEmailText">Use Email</label>
+                            </p>
+                            <div class="subPanel ui-widget-content leftborder nobg">
+                                <p>
+                                    <input type="checkbox" id="notify_email" name="notify_email" class="ignoreBind" />
+                                    <label for="notify_email" class="MagicDirectory lblTranslateNotifyEmailsText">Translate 'notify_' emails and send new account notification.</label>
+                                </p>
+                                <p>
+                                    <label for="email_subject" class="MagicDirectory lblEmailSubjectText">Email Subject:</label>
+                                    <input type="text" id="email_subject" name="email_subject" class="ignoreBind bigInputBox" />
+                                </p>
+                                <p>
+                                    <label for="email_from" class="MagicDirectory lblEmailFromAddressText">Email From Address:</label>
+                                    <input type="text" id="email_from" name="email_from" class="ignoreBind bigInputBox" />
+                                </p>
+                                <p>
+                                    <label for="email_cc" class="MagicDirectory lblEmailCCAddressText">Email CC Address:</label>
+                                    &nbsp;
+                                    <input type="text" id="email_cc" name="email_cc" class="ignoreBind bigInputBox" />
+                                </p>
+                                <p>
+                                    <label for="email_bcc" class="MagicDirectory lblEmailBCCAddressText">Email BCC Address:</label>
+                                    <input type="text" id="email_bcc" name="email_bcc" class="ignoreBind bigInputBox" />
+                                </p>
+                                <p>
+                                    <label for="email_body" class="MagicDirectory lblEmailBodyText">Email Body:</label>
+                                    <textarea id="email_body" name="email_body" class="formTextarea nobg"></textarea>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

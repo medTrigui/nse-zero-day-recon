@@ -1,0 +1,236 @@
+<!-- Panel HTML -->
+<div id="pnlUserInfo" class="adminPanel">
+  <table style="padding: 0px; margin: 0px; border: 0px" class="resizable">
+    <tbody>
+      <tr>
+        <td
+          class="sideBar nobg"
+          style="
+            margin: 0px;
+            width: 260px;
+            verticle-align: top;
+            padding-top: 10px;
+          "
+        >
+          <div style="margin: 3px; font-size: 0.8rem" class="noForm no-form">
+            <label for="filterSessions">Filter:</label>
+            <input
+              type="text"
+              class="filterSessions"
+              id="filterSessions"
+              style="padding: 2px 5px"
+            />
+            &nbsp;
+            <a
+              href="#"
+              class="clearSessionFilter"
+              style="top: -1px; margin-left: -5px; position: relative"
+              >Clear</a
+            >
+            <br />
+            <span class="ui-corner-all show-only-with-time">
+              <label for="hide-with-no-time">
+                <input type="checkbox" id="hide-with-no-time" />
+                Hide sessions without last activity info</label
+              >
+            </span>
+          </div>
+          <div class="splitter">
+            <div>
+              <div class="ui-priority-primary">Current Sessions</div>
+              <div
+                class="LargeListBox itemList nobg sideScroll session-list"
+                style="
+                  margin: 1px 0px;
+                  padding: 2px;
+                  padding-top: 5px;
+                  overflow: hidden;
+                "
+              >
+                <select id="lst_sessions" multiple="true" class="nobg"></select>
+              </div>
+            </div>
+            <div>
+              <div class="ui-priority-primary">Recent Sessions</div>
+              <div
+                class="LargeListBox itemList nobg sideScroll session-list"
+                style="
+                  margin: 1px 0px;
+                  padding: 2px;
+                  padding-top: 5px;
+                  overflow: hidden;
+                "
+              >
+                <select
+                  id="lst_recent_sessions"
+                  multiple="true"
+                  class="nobg"
+                ></select>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td
+          style="
+            margin: 0px;
+            width: 250px;
+            verticle-align: top;
+            padding-left: 10px;
+          "
+        >
+          <div id="userInfoContent" class="infoContent">
+            <div id="userInfoContentTip">
+              <div
+                class="ui-state-highlight ui-corner-all warning"
+                style="padding: 3px; display: block; margin: 0px 3px"
+              >
+                <span class="">
+                  <i class="fa fa-info"></i>
+                  Choose session from left menu for more details
+                </span>
+              </div>
+            </div>
+            <div id="userInfoContentPanel">
+              <input
+                type="text"
+                id="curSelection"
+                class="ignoreBind ui-helper-hidden"
+              />
+              <p id="actionButtons" class="buttonBar">
+                <a _action="kick" href="#" class="button sessionAction">
+                  <i class="fa fa-flag"></i>
+                  <span class="">Kick</span>
+                </a>
+                <a _action="ban" href="#" class="button sessionAction">
+                  <i class="fa fa-ban"></i>
+                  <span class="">Permanent Ban</span>
+                </a>
+                <a _action="temporaryBan" href="#" class="button sessionAction">
+                  <i class="fa fa-ban"></i>
+                  <span class="">Temporary Ban</span>
+                </a>
+                <a href="#" class="button sessionAction" id="broadCastMsg" _action="msgUser">
+                    <i class="fa fa-envelope"></i>
+                    <span class="">Send message</span>
+                 </a>
+              </p>
+              <span class="ui-priority-primary">Session Information:</span>
+              <div id="sessionInfoPanel">
+                <fieldset
+                  class="ui-widget-content nobg allignedForm dashboardPanel"
+                  style="margin: 5px; padding: 5px; height: 195px"
+                >
+                  <p>
+                    <label class="ui-priority-primary">Login Time:</label>
+                    <span class="liveData" id="login_date_formatted"></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary"
+                      >Working Directory:
+                    </label>
+                    <span class="liveData" id="current_dir"></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">IP:</label>
+                    <span class="liveData" id="user_ip"></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">Bytes Sent:</label>
+                    <span class="liveData formatData" id="bytes_sent"></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">Bytes Received:</label>
+                    <span
+                      class="liveData formatData"
+                      id="bytes_received"
+                    ></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">File:</label>
+                    <span class="liveData" id="current_file"></span>
+                  </p>
+                </fieldset>
+                <fieldset
+                  class="ui-widget-content nobg allignedForm dashboardPanel"
+                  style="margin: 5px; padding: 5px; height: 195px"
+                >
+                  <p>
+                    <label class="ui-priority-primary">Upload Count:</label>
+                    <span class="liveData" id="session_upload_count"></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">Download Count:</label>
+                    <span class="liveData" id="session_download_count"></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">Overall Speed:</label>
+                    <span
+                      class="liveData formatData inKBs speedInSecond hideZero"
+                      id="overall_transfer_speed"
+                    ></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">Current Speed:</label>
+                    <span
+                      class="liveData formatData inKBs speedInSecond hideZero"
+                      id="current_transfer_speed"
+                    ></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary"
+                      >Position in Transfer:
+                    </label>
+                    <span
+                      class="liveData formatData hideZero"
+                      id="current_loc"
+                    ></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">File Size:</label>
+                    <span
+                      class="liveData formatData hideZero"
+                      id="file_length"
+                    ></span>
+                  </p>
+                  <p>
+                    <label class="ui-priority-primary">Time Remaining:</label>
+                    <span
+                      class="liveData formatTime hideZero"
+                      id="seconds_remaining"
+                    ></span>
+                  </p>
+                </fieldset>
+                <div class="clear"></div>
+                <fieldset
+                  id="fileTreeStatus"
+                  class="ui-widget-content nobg allignedForm"
+                  style="margin: 5px; padding: 8px"
+                >
+                  <label class="ui-priority-primary" style="top: 0px"
+                    >Filetree Status:
+                  </label>
+                  <span
+                    class="liveData formatData"
+                    id="list_filetree_status"
+                  ></span>
+                </fieldset>
+                <div class="clear"></div>
+              </div>
+              <div class="" style="padding: 5px">
+                <div class="ui-priority-primary">Live log:</div>
+                <div class="clear"></div>
+                <div
+                  class="customForm"
+                  id="userSessionLog"
+                  style="margin-top: 7px"
+                ></div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="clear"></div>
+</div>

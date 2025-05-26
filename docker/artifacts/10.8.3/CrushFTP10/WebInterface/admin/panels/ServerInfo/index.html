@@ -1,0 +1,107 @@
+<!-- Panel HTML -->
+<div id="pnlServerInfo" class="adminPanel">
+  <ul id="serverItemContextMenu" class="contextMenu">
+    <li class="start">
+      <a href="#startServer">Start Server</a>
+    </li>
+    <li class="stop separator">
+      <a href="#stopServer">Stop Server</a>
+    </li>
+    <li class="restart separator">
+      <a href="#restartServer">Restart Server</a>
+    </li>
+    <!--li class="stopAllServers separator">
+			<a href="#stopAllServers">Stop All Servers</a>
+		</li-->
+    <li class="startAllServers separator">
+      <a href="#startAllServers">Start All Servers</a>
+    </li>
+  </ul>
+  <div>
+    <span class="ui-priority-primary">Servers:</span>
+    <div class="ui-corner-all ui-widget-content nobg clear" style="width: auto">
+      <ol
+        id="lstServers"
+        class="nobg selectable sideScroll single logItemList"
+      ></ol>
+    </div>
+  </div>
+  <div id="diagnoseDialog" class="smallLabels customForm">
+    <p>
+      <label for="diag_Protocol" class="bigLabel">Protocol:</label>
+      <input type="text" id="diag_Protocol" class="smallInputBox" />
+      <button
+        aria-disabled="false"
+        onclick="window.crushTelnet.show();"
+        role="button"
+        class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+        type="button"
+        style="float: right"
+      >
+        <span class="ui-button-text">Telnet</span>
+      </button>
+    </p>
+    <p>
+      <label for="diag_IP" class="bigLabel">Host:</label>
+      <input class="manualIP" type="text" id="diag_IP" />
+      <input type="checkbox" id="diag_HostAuto" /><label for="diag_HostAuto"
+        >Auto</label
+      >
+    </p>
+    <p class="manualIP">
+      <label for="usePublicIP" class="bigLabel">Your public IP is:</label>
+      <label id="diag_publicIPAddress">....</label>
+    </p>
+    <p>
+      <label for="diag_Port" class="bigLabel">Port:</label>
+      <input type="text" id="diag_Port" class="smallInputBox" />
+    </p>
+    <p class="ftpItems" style="display: none">
+      <label for="diag_user" class="bigLabel">Username:</label>
+      <input type="text" id="diag_UserName" />
+    </p>
+    <p class="ftpItems" style="display: none">
+      <label for="diag_pass" class="bigLabel">Pass:</label>
+      <input type="password" id="diag_pass" />
+    </p>
+  </div>
+  <!--div class="tabs">
+	   <ul class="mainTabs">
+	   		<li><a href="#ServerLogging">Server Log</a></li>
+	   		<li><a href="#PreviewLogging">Preview Log</a></li>
+	   </ul-->
+  <div id="ServerLogging" style="padding: 0px">
+    <div style="margin-top: 10px" id="serverLog">
+      <div id="logFrameOverlay" class="logFrameOverlay">
+        <div style="font-weight: bold">Server Log</div>
+        <div class="newWindow">Open in a separate window</div>
+        <hr style="margin: 10px 0px" />
+        <div class="msg">Click To Activate</div>
+      </div>
+      <iframe
+        id="serverLoggingFrame"
+        onload=""
+        width="100%"
+        height="560"
+        src="about:blank;"
+        style="margin: 0px; padding: 0px"
+        marginwidth="0"
+        marginheight="0"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
+    </div>
+  </div>
+  <!--div id="PreviewLogging" style="padding:0px;">
+	   		<div style="margin-top:10px;" id="previewLog">
+				<div id="logFrameOverlayPreview" class="logFrameOverlay">
+					<div style="font-weight: bold;">Preview Log</div>
+					<div class="newWindow">Open in a separate window</div>
+					<hr style="margin:10px 0px;">
+					<div class="msg">Click To Activate</div>
+				</div>
+				<iframe id="serverLoggingFramePreview" onload="" width="100%" height="560" src="about:blank;" style="margin:0px;padding:0px;"  marginWidth="0" marginHeight="0" frameBorder="0" scrolling="no" />
+			</div>
+	   </div>
+	</div-->
+</div>

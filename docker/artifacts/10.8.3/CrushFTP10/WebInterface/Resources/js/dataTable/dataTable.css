@@ -1,0 +1,19 @@
+.custom-data-table {
+    padding: 0px;
+    margin: 0px;
+    overflow: auto;
+}
+.custom-data-table-scroll {
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+.custom-data-row {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

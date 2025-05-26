@@ -1,0 +1,608 @@
+<!-- Panel HTML -->
+<div id="pnlDashboard" class="adminPanel">
+  <div class="report-top-content">
+    <div class="status">
+      <div class="time-host">
+        <span class="time-host-title">Last Restart:</span>
+        <span class="host liveData" _id="server_start_time"></span>
+      </div>
+      <div class="time-host">
+        <span class="time-host-title">Host Name:</span>
+        <span class="host liveData" _id="hostname"></span>
+      </div>
+    </div>
+    <div class="action">
+      <span id="dashboardStatus">
+        <span class="live">Live</span>
+        <span class="date">
+          <span class="ui-priority-primary">Loaded Snapshot:</span>
+          <span class="value"></span>
+        </span>
+        <a href="#" class="cancel">cancel</a>
+        <a href="#" class="prev ui-priority-primary">&laquo; Prev</a>
+        <a href="#" class="next ui-priority-primary disabled">Next &raquo;</a>
+      </span>
+      <label class="date-time-picker ui-priority-primary"
+        ><input type="text" id="changeSnapshotTime" /> Select date</label
+      >
+      <span class="ui-priority-secondary">Earliest snapshot:</span>
+      <span id="lastSnapshotTime" class="ui-priority-primary"></span>
+      <span class="ui-priority-secondary">Last updated:</span>
+      <span id="lastDashboardTimestamp" class="ui-priority-primary"></span>
+    </div>
+  </div>
+  <div class="chart-list">
+    <div class="card pie-chart-list">
+      <div class="card-body">
+        <h3 class="card-title expand" rel="serverStatus">
+          <span class="lstick"></span>
+          Server Status
+          <i class="fa fa-expand"></i>
+        </h3>
+        <div id="serverStatus">
+          <div class="chart-body">
+            <div class="chart-image-half">
+              <div class="sub">
+                <canvas
+                  id="liveServersGraph"
+                  style="width: 120px; height: 90px"
+                ></canvas>
+              </div>
+              <div class="sub">
+                <div id="liveServersGraphLegends" class="legend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="card-title expand" rel="jobSchedules">
+          <span class="lstick"></span>
+          Job Schedules
+          <i class="fa fa-expand"></i>
+        </h3>
+        <div id="jobSchedules">
+          <div class="chart-body">
+            <div class="chart-image-half">
+              <div class="sub">
+                <canvas
+                  id="jobSchedulesGraph"
+                  style="width: 120px; height: 90px"
+                ></canvas>
+              </div>
+              <div class="sub">
+                <div id="jobSchedulesGraphLegends" class="legend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list">
+      <div class="card-body with-sparkline">
+        <h3 class="card-title expand" rel="sessionInformation">
+          <span class="lstick"></span>
+          Session Information
+          <i class="fa fa-expand"></i>
+        </h3>
+        <div id="sessionInformation">
+          <div class="chart-body">
+            <div class="chart-image-half">
+              <div class="sub">
+                <canvas
+                  id="sessionGraph"
+                  style="width: 120px; height: 80px"
+                ></canvas>
+              </div>
+              <div class="sub">
+                <div id="sessionGraphLegends" class="legend"></div>
+              </div>
+            </div>
+            <div class="graphNotes noForm">
+              <div class="graph-meta-info">
+                <div class="sub">
+                  <div>
+                    Current:
+                    <span
+                      id="connectionCurrent"
+                      class="ui-priority-primary"
+                    ></span>
+                  </div>
+                  <div>
+                    Max:
+                    <span id="connectionMax" class="ui-priority-primary"></span>
+                  </div>
+                </div>
+                <div class="sub">
+                  <div>
+                    Unique:
+                    <span
+                      id="connectionUnique"
+                      class="ui-priority-primary"
+                    ></span>
+                  </div>
+                  <div>
+                    Unique Max:
+                    <span
+                      id="connectionUniqueMax"
+                      class="ui-priority-primary"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div style="text-align: left; margin-top: -2px">
+                <span class="options">
+                  <span>
+                    <label>
+                      <input
+                        class="no-form"
+                        checked="checked"
+                        type="radio"
+                        name="connection_type"
+                        val="all"
+                        id="connectionsAllCB"
+                      />
+                      All
+                    </label>
+                  </span>
+                  <span>
+                    <label>
+                      <input
+                        type="radio"
+                        class="no-form"
+                        name="connection_type"
+                        val="unique"
+                        id="connectionsUniqueCB"
+                      />
+                      Unique
+                    </label>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="sparkline">
+              <span id="connectionsGraph">...</span>
+            </div>
+          </div>
+        </div>
+        <div id="loginInfo" class="resetStat">
+          <h3 class="card-title expand" rel="loginInformation">
+            <span class="lstick"></span>
+            Login Information
+            <i class="fa fa-expand"></i>
+          </h3>
+          <div id="loginInformation">
+            <div class="chart-body">
+              <div class="chart-image-half">
+                <div class="sub">
+                  <canvas
+                    id="loginGraph"
+                    style="width: 120px; height: 80px"
+                  ></canvas>
+                </div>
+                <div class="sub">
+                  <div id="loginGraphLegends" class="legend"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list">
+      <div class="card-body with-sparkline">
+        <div id="downloadUploadInfo" class="resetStat">
+          <h3 class="card-title expand" rel="downloadUpload">
+            <span class="lstick"></span>
+            Download/Upload
+            <i class="fa fa-expand"></i>
+          </h3>
+          <div id="downloadUpload">
+            <div class="chart-body">
+              <div class="chart-image-half">
+                <div class="sub">
+                  <canvas
+                    id="downloadUploadGraph"
+                    style="width: 120px; height: 70px"
+                  ></canvas>
+                </div>
+                <div class="sub">
+                  <div id="downloadUploadGraphLegends" class="legend"></div>
+                </div>
+              </div>
+              <div class="graphNotes noForm">
+                <div class="graph-meta-info two">
+                  <div class="sub">
+                    <div class="center">Outgoing</div>
+                    <div>
+                      Current:
+                      <span
+                        id="outSpeedCurrent"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                    <div>
+                      Max:
+                      <span id="outSpeedMax" class="ui-priority-primary"></span>
+                    </div>
+                  </div>
+                  <div class="sub">
+                    <div class="center">Incoming</div>
+                    <div>
+                      Current:
+                      <span
+                        id="inSpeedCurrent"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                    <div>
+                      Max:
+                      <span id="inSpeedMax" class="ui-priority-primary"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sparkline">
+                <span id="speedGraph">...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="transferInfo" class="resetStat">
+          <h3 class="card-title expand" rel="bytesTransferred">
+            <span class="lstick"></span>
+            Bytes transferred
+            <i class="fa fa-expand"></i>
+          </h3>
+          <div id="bytesTransferred">
+            <div class="chart-body">
+              <div class="chart-image-half">
+                <div class="sub">
+                  <canvas
+                    id="byteTransferredGraph"
+                    style="width: 120px; height: 70px"
+                  ></canvas>
+                </div>
+                <div class="sub">
+                  <div id="byteTransferredGraphLegends" class="legend"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list">
+      <div class="card-body">
+        <h3 class="card-title expand" rel="threads">
+          <span class="lstick"></span>
+          Threads
+          <i class="fa fa-expand"></i>
+          <span class="sub-info"
+            >(Max:
+            <span class="value liveData hideZero" _id="max_threads"></span>,
+            Events:
+            <span class="value liveData" _id="running_event_threads"></span
+            >)</span
+          >
+        </h3>
+        <div id="threads">
+          <div class="chart-body with-sparkline">
+            <div class="chart-image-half" style="height: 70px; min-height: 70px">
+              <div class="sub">
+                <canvas
+                  id="processThreadsGraph"
+                  style="width: 120px; height: 70px"
+                ></canvas>
+              </div>
+              <div class="sub">
+                <div id="processThreadsGraphLegends" class="legend"></div>
+              </div>
+            </div>
+            <div class="graphNotes noForm">
+              <div class="graph-meta-info">
+                <div class="sub text-left">
+                  <div>
+                    Server Max:
+                    <span id="serverCPUMax" class="ui-priority-primary aw"></span
+                    >%
+                  </div>
+                </div>
+                <div class="sub text-left">
+                  <div>
+                    OS Max:
+                    <span id="osCPUMax" class="ui-priority-primary aw"></span>%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sparkline">
+              <span id="CPUGraph">...</span>
+            </div>
+          </div>
+        </div>
+        <div id="memoryGraphPanel">
+          <h3 class="card-title expand" rel="memory">
+            <span class="lstick"></span>
+            <span id="memoryRelease">
+              Memory
+              <i class="fa fa-expand"></i>
+            </span>
+            <span class="sub-info"
+              >(Max:
+              <span class="value liveData hideZero" _id="ram_max_f"></span
+              >)</span
+            >
+          </h3>
+          <div id="memory">
+            <div class="chart-body with-sparkline">
+              <div
+                class="chart-image-half"
+                style="height: 70px; min-height: 70px"
+              >
+                <div class="sub">
+                  <canvas
+                    id="memoryGraph"
+                    style="width: 120px; height: 70px"
+                  ></canvas>
+                </div>
+                <div class="sub">
+                  <div id="memoryGraphLegends" class="legend"></div>
+                </div>
+              </div>
+              <div class="graphNotes noForm">
+                <div class="graph-meta-info">
+                  <div class="sub">
+                    <div>
+                      Max: <span id="ram_max" class="ui-priority-primary"></span>
+                    </div>
+                    <div>
+                      Free:
+                      <span id="ram_free" class="ui-priority-primary"></span>
+                    </div>
+                    <div>
+                      Max Files:
+                      <span
+                        _id="max_open_files"
+                        class="ui-priority-primary liveData"
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="sub" style="margin-left: -15px;">
+                    <div>
+                      Web Buffer:
+                      <span
+                        id="ram_pending_bytes"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                    <div>
+                      S3 Up Bfr:
+                      <span
+                        id="ram_pending_bytes_s3_upload"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                    <div>
+                      S3 Down Bfr:
+                      <span
+                        id="ram_pending_bytes_s3_download"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                    <div>
+                      Multi Up Bfr:
+                      <span
+                        id="ram_pending_bytes_multisegment_upload"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                    <div>
+                      Multi Down Bfr:
+                      <span
+                        id="ram_pending_bytes_multisegment_download"
+                        class="ui-priority-primary"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sparkline">
+                <span id="memoryTimeline">...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list">
+      <div class="card-body">
+        <h3 class="card-title">
+          <span class="lstick"></span>
+          Alerts
+        </h3>
+        <div class="chart-body">
+          <div class="chart-image">
+            <div style="overflow-x: auto; height: 300px">
+              <span class="clear"></span>
+              <div
+                class="ui-priority-primary ui-state-highlight"
+                style="margin-bottom: 2px; padding: 1px; text-align: center"
+              >
+                Drive Space
+              </div>
+              <ul
+                class="dashboardAlerts"
+                id="drivespaceAlerts"
+                style="margin-bottom: 5px"
+              >
+                <li style="text-align: center">Nothing to show</li>
+              </ul>
+              <div
+                class="ui-priority-primary ui-state-highlight"
+                style="margin-bottom: 2px; padding: 1px; text-align: center"
+              >
+                Too many logins
+              </div>
+              <ul class="dashboardAlerts" id="hammeringAlerts">
+                <li style="text-align: center">Nothing to show</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list">
+      <div class="card-body">
+        <h3 class="card-title">
+          <span class="lstick"></span>
+          Recent Logins
+        </h3>
+        <div class="chart-body">
+          <div class="chart-image">
+            <div id="lastLogins" class="lastLogins">Nothing to show</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list replication-panel">
+      <div class="card-body">
+        <h3 class="card-title">
+          <span class="lstick"></span>
+          Replication Info
+        </h3>
+        <div class="chart-body">
+          <div class="chart-image">
+            <strong>Number of:</strong>
+            <div class="replication-info">
+              <div class="listItem">
+                <div class="label">Message passed:</div>
+                <div class="value">
+                  <span
+                    class="liveData"
+                    _id="replicated_received_message_count"
+                  ></span>
+                </div>
+              </div>
+              <div class="listItem">
+                <div class="label">Pref changes:</div>
+                <div class="value">
+                  <span
+                    class="liveData"
+                    _id="replicated_write_prefs_count"
+                  ></span>
+                </div>
+              </div>
+              <div class="listItem">
+                <div class="label">User changes:</div>
+                <div class="value">
+                  <span
+                    class="liveData"
+                    _id="replicated_user_changes_count"
+                  ></span>
+                </div>
+              </div>
+              <div class="listItem">
+                <div class="label">Job changes:</div>
+                <div class="value">
+                  <span
+                    class="liveData"
+                    _id="replicated_job_changes_count"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card pie-chart-list">
+        <div class="card-body">
+          <h3 class="card-title">
+            <span class="lstick"></span>
+            Server Information
+          </h3>
+          <div class="chart-body server-information">
+            <div class="chart-image">
+              <div class="listItem">
+                <label class="ui-priority-primary">Last Restart:</label>
+                <label class="liveData" _id="server_start_time"></label>
+              </div>
+              <div class="listItem">
+                <label class="ui-priority-primary">Registration Name:</label>
+                <label class="liveData" _id="registration_name"></label>
+              </div>
+              <div class="listItem">
+                <label class="ui-priority-primary">Enterprise Level:</label>
+                <label class="liveData" _id="enterprise_level"></label>
+              </div>
+              <div class="listItem">
+                <label
+                  class="liveData ui-priority-primary"
+                  _id="about_info_str"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  </div>
+  <div class="clear"></div>
+  <div style="margin: 5px">
+    <div id="serverGraphsTabDashboard"></div>
+  </div>
+  <div class="page-container chart-list sa">
+    <div class="card bar-chart-list-full">
+      <div class="card-body">
+        <h3 class="card-title">
+          <span class="lstick"></span>
+          Server Traffic:
+        </h3>
+        <div class="chart-body">
+          <div class="chart-image">
+            <div id="no-geo-access-key" style="display: none;">
+              Please configure Geo IP Access key to see the server traffic on a world map.
+              <a href="/WebInterface/Preferences/index.html">Go to: Preferences -> Misc</a>
+            </div>
+            <div id="geo-enabled" style="display: none;">
+              <div class="map-area">
+                <span style="float: right; margin-top: -25px">
+                  <a href="#" id="refreshDataFlow"
+                    ><i class="fa fa-refresh"></i> Refresh</a
+                  >
+                  <label for="refreshDataFlowOptions"> Refresh Data: </label>
+                  <select
+                    name="refreshDataFlowOptions"
+                    id="refreshDataFlowOptions"
+                  >
+                    <option value="0">Manually</option>
+                    <option value="1">Every second</option>
+                    <option value="5">Every 5 seconds</option>
+                    <option value="10">Every 10 seconds</option>
+                    <option value="30">Every 30 seconds</option>
+                  </select>
+                </span>
+                <div id="mapcontainer">
+                  <div class="map"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <ul id="serverResetStatsContextMenu" class="contextMenu">
+    <li class="allStats">
+      <a href="#allStats" msg="Reset All Stats">Reset All Below Listed Stats</a>
+    </li>
+    <li class="loginStats separator">
+      <a href="#loginStats">Reset Login Counts (total, successful, failed)</a>
+    </li>
+    <li class="transferStats separator">
+      <a href="#transferStats">Reset Server Bytes (in, out)</a>
+    </li>
+    <li class="uploadDownloadStats separator">
+      <a href="#uploadDownloadStats">Reset Upload/Download Counter</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,156 @@
+/*
+    Adding Icons
+
+    You can add icons to the context menu by adding
+    classes to the respective LI element(s)
+*/
+.menuItem {
+    background: none;
+}
+.menuItem A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/default.png);
+}
+.menuItem.admin A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/admin.png);
+}
+.menuItem.edit A, .menuItem.write A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/edit.png);
+}
+.menuItem.rename A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/rename.png);
+}
+.menuItem.cut A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/cut.png);
+}
+.menuItem.parentLocation A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/parentdir.png);
+}
+.menuItem.copy A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/copy.png);
+}
+.menuItem.paste A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/paste.png);
+}
+.menuItem.delete A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/delete.png);
+}
+.menuItem.share A, .quickview-share {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/share.png);
+}
+.menuItem.copylink A, .menuItem.copydirectlink A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/link.png);
+}
+.menuItem.quit A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/door.png);
+}
+.menuItem.zip A, .menuItem.zipdownload A, .menuItem.zipitems A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/zip.png);
+}
+.menuItem.unzip A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/unzip.png);
+}
+.menuItem.explorezip A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/zip.png);
+}
+.menuItem.createfolder A, .menuItem.mkdir A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/createfolder.png);
+}
+.menuItem.search A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/search.png);
+}
+.menuItem.useroptions A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/options.png);
+}
+.menuItem.slideshow A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/slideshow.png);
+}
+.menuItem.quickview A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/quickview.png);
+}
+.menuItem.showbasket A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/showbasket.png);
+}
+.menuItem.addtobasket A, .menuItem.addbasket A, .addToBasket {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/addbasket.png);
+}
+.menuItem.help A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/help.png);
+}
+.menuItem.login A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/login.png);
+}
+.menuItem.logout A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/logout.png);
+}
+.menuItem.download A, .quickview-download {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/download.png);
+}
+.menuItem.addToBasket A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/addbasket.png);
+}
+.menuItem.showDownloadBasket A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/showbasket.png);
+}
+.menuItem.makedir A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/createfolder.png);
+}
+.menuItem.browseruploader A, .menuItem.upload A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/upload.png);
+}
+.menuItem.manageshares A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/manageshares.png);
+}
+.menuItem.reportaproblem A {
+    background-image: url(/WebInterface/jQuery/images/application_form_add.png);
+}
+.menuItem.updatekeywords A, .menuItem.downloadkeywords A, .quickview-keywords {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/updateKeywords.png);
+}
+.menuItem.checkallFiles A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/copy.png);
+}
+.menuItem.checkallFolders A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/directory.png);
+}
+.menuItem.checkItemsWithDot A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/file.png);
+}
+.menuItem.checkToday A, .menuItem.checkWeek A, .menuItem.checkMonth A, .menuItem.checkLastTwoMonth A, .menuItem.checkLastThreeMonth A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/calendar.png);
+}
+.menuItem.options A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/options.png);
+}
+.menuItem.syncmanager A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/syncManager.png);
+}
+.menuItem.downloadsyncapp A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/downloadSyncApp.png);
+}
+.menuItem.changeicon A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/changeIcon.png);
+}
+.menuItem.groupRoot A, .menuItem.groupRootContext A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/group.png);
+}
+.contextMenu A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/default_context.png);
+}
+.contextMenu .toggle A{
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/toggle.png);
+}
+.contextMenu .checkall A{
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/check-box.png);
+}
+.contextMenu .uncheckall A{
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/uncheck.png);
+}
+.menuItem.setmetainfo A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/edit.png);
+}
+.menuItem.gethistory A {
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/time.png);
+}
+.menuItem.subscribetoevents A{
+    background-image: url(/WebInterface/jQuery/images/buttonIcons/tunnel.png);
+}

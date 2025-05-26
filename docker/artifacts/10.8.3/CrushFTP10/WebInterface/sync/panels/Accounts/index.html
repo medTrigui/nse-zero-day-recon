@@ -1,0 +1,700 @@
+<!-- Panel HTML -->
+<div id="pnlAccounts" class="adminPanel">
+  <div id="syncInstances">
+    <div class="ui-widget">
+      <div class="ui-widget-content">
+        <div>
+          <a
+            id="refreshAgents"
+            href="#"
+            class="button"
+            style="margin: 5px; float: left"
+          >
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 3px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-refresh"
+            ></span>
+            <span class="syncManagerRefreshButtonText">Refresh</span>
+          </a>
+          <div
+            class="waitLoading syncAgentsLoading syncManagerPleaseWaitText"
+            style="display: inline-block; margin: 12px 0px 0px 0px; float: left"
+          >
+            Please wait..
+          </div>
+          <a
+            id="changePassword"
+            href="#"
+            class="button"
+            style="margin: 5px; float: right"
+          >
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 3px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-key"
+            ></span>
+            <span class="syncManagerChangeAdminPasswordText"
+              >Change Agent(s) Admin Password</span
+            >
+          </a>
+          <div class="clear"></div>
+        </div>
+        <div
+          id="notification"
+          style="display: none"
+          class="ui-corner-all ui-state-error"
+        ></div>
+        <div id="syncInstancesHolder" class="customForm clear">
+          <div id="instancesPanel" style="padding-bottom: 25px">
+            <div id="inactiveMessage" style="margin: 10px; display: none">
+              <div
+                class="ui-state-highlight ui-corner-all warning"
+                style="padding: 10px; display: block; margin: 0px 3px"
+              >
+                <span
+                  style="float: left; margin-right: 0.3em"
+                  class="ui-icon ui-icon-info"
+                ></span>
+                <span class="syncManagerDataTakingLongTimeNoteText">
+                  If its taking too long to show sync agents, make sure
+                  <strong>CrushSync</strong> is running and configured properly.
+                  <!-- <a href="#" class="downloadLink">Download</a> a fresh copy of
+                  Sync Application. -->
+                </span>
+              </div>
+            </div>
+            <span
+              class="badPassMessage"
+              style="display: none; white-space: nowrap; margin-right: 10px"
+            >
+              <span
+                style="float: left; margin-right: 0.3em"
+                class="ui-icon ui-icon-info"
+              ></span>
+              <span class="syncManagerAdminPasswordNotCorrectText">
+                Admin password incorrect.
+                <a href="#" class="reloadPage">Click here</a> to re-enter
+                password.
+              </span>
+            </span>
+            <div class="accordion">
+              <div
+                class="waitLoading syncManagerWaitingForInformationText"
+                style="margin: 5px; display: block; width: 200px"
+              >
+                Waiting for sync information...
+              </div>
+            </div>
+          </div>
+          <a href="#" id="reloadPage" style="display: none"></a>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="syncPrefsPanelTemplate" style="display: none">
+    <div class="nobg tabs template" style="margin: 5px; clear: both">
+      <ul>
+        <li>
+          <a class="tab1a" href="#"
+            ><span
+              style="
+                display: inline-block;
+                margin: -1px 3px 0px -10px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-copy"
+            ></span
+            ><span class="syncManagerConfigTabText">Config</span></a
+          >
+        </li>
+        <li>
+          <a class="tab2a" href="#"
+            ><span
+              style="
+                display: inline-block;
+                margin: -1px 3px 0px -10px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-document"
+            ></span
+            ><span class="syncManagerLogTabText">Log</span></a
+          >
+        </li>
+      </ul>
+      <div class="tab1 prefsPanel">
+        <table>
+          <tr>
+            <td
+              class="labelArea ui-widget-content rightborder nobg"
+              style="vertical-align: top"
+            >
+              <label class="statusLabel syncManagerStatusLabelText">
+                Status:
+              </label>
+            </td>
+            <td class="ui-widget-content rightborder nobg">
+              <span class="syncStatus syncManagerSyncStatusNAText">N/A</span>
+              <div class="statusProgress" style="display: none">
+                <fieldset class="nobg ui-widget-content uploadStatus clear">
+                  <legend class="nobg syncManagerSyncUploadTitleText">
+                    Upload
+                  </legend>
+                  <div class="progressbar"></div>
+                </fieldset>
+                <fieldset class="nobg ui-widget-content downloadStatus clear">
+                  <legend class="nobg syncManagerSyncDownloadTitleText">
+                    Download
+                  </legend>
+                  <div class="progressbar"></div>
+                </fieldset>
+              </div>
+            </td>
+            <td rowspan="4" class="commonItemsArea">
+              <div class="fields">
+                <span style="display: none">
+                  <a
+                    href="#"
+                    class="button testSync action"
+                    style="top: 5px; margin-left: 0px; margin-bottom: 7px"
+                  >
+                    <span
+                      style="
+                        display: inline-block;
+                        margin: 0px 3px 0px -7px;
+                        float: left;
+                      "
+                      class="pointer ui-icon ui-icon-refresh"
+                    ></span>
+                    <span class="syncManagerTestButtonText"> Test </span>
+                  </a>
+                  <br />
+                </span>
+                <a
+                  href="#"
+                  class="button startSync action"
+                  style="top: 5px; margin-left: 0px; margin-bottom: 7px"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-play"
+                  ></span>
+                  <span class="syncManagerStartButtonText"> Start Sync </span>
+                </a>
+                <br />
+                <a
+                  href="#"
+                  class="button stopSync action"
+                  style="top: 5px; margin-left: 0px; margin-bottom: 7px"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-stop"
+                  ></span>
+                  <span class="syncManagerStopButtonText"> Stop Sync </span>
+                </a>
+                <br />
+                <a
+                  href="#"
+                  class="button deleteSync action"
+                  style="top: 5px; margin-left: 0px; margin-bottom: 7px"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-trash"
+                  ></span>
+                  <span class="syncManagerDeleteButtonText">
+                    Delete Configuration
+                  </span>
+                </a>
+                <br />
+                <a
+                  class="button advanceSettings action"
+                  href="#"
+                  style="top: 5px; margin-left: 0px; margin-bottom: 7px"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-wrench"
+                  ></span>
+                  <span class="syncManagerAdvancedSettingsButtonText">
+                    Advanced Settings
+                  </span>
+                </a>
+                <span style="display: none">
+                  <br />
+                  <a
+                    href="#"
+                    class="button action saveSync"
+                    style="top: 5px; margin-left: 0px; margin-bottom: 7px"
+                  >
+                    <span
+                      style="
+                        display: inline-block;
+                        margin: 0px 3px 0px -7px;
+                        float: left;
+                      "
+                      class="pointer ui-icon ui-icon-disk"
+                    ></span>
+                    <span class="syncManagerSaveSettingsButtonText">
+                      Save Settings
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="labelArea ui-widget-content rightborder nobg">
+              <label for="syncPath" class="syncManagerLocalFolderText">
+                Local Folder:
+              </label>
+            </td>
+            <td
+              class="settingsArea ui-widget-content rightborder nobg"
+              style="width: 535px"
+            >
+              <input
+                type="text"
+                _id="syncPath"
+                readonly="readonly"
+                style="width: 400px"
+              />
+              <a
+                href="#"
+                PickType="dir"
+                class="button smallButtons serverFilePickButton"
+                rel="syncPath"
+                style="top: 5px; margin-left: 0px"
+              >
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px 3px 0px -7px;
+                    float: left;
+                  "
+                  class="pointer ui-icon ui-icon-folder-open"
+                ></span>
+                <span class="syncManagerBrowseButtonText"> Browse </span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="labelArea ui-widget-content rightborder nobg">
+              <label for="syncServerPath" class="syncManagerServerPathText">
+                Server Path:
+              </label>
+            </td>
+            <td class="settingsArea ui-widget-content rightborder nobg">
+              <input type="text" _id="syncServerPath" style="width: 400px" />
+              <a
+                href="#"
+                PickType="dir"
+                class="button smallButtons serverFilePickButton"
+                serverBrowse="true"
+                rel="syncServerPath"
+                style="top: 5px; margin-left: 0px"
+              >
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px 3px 0px -7px;
+                    float: left;
+                  "
+                  class="pointer ui-icon ui-icon-folder-open"
+                ></span>
+                <span class="syncManagerBrowseButtonText"> Browse </span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="labelArea ui-widget-content rightborder nobg"></td>
+            <td class="settingsArea ui-widget-content rightborder nobg">
+              <span style="float: left; margin-right: 10px">
+                <input type="checkbox" _id="syncAutoStart" />
+                <label for="syncAutoStart" class="syncManagerAutoStartText">
+                  Autostart Sync</label
+                >
+              </span>
+              <span style="display: none">
+                <span style="float: left; margin-right: 10px">
+                  <input type="checkbox" _id="allowTunnel" />
+                  <label for="allowTunnel" class="syncManagerAllowTunnelText">
+                    Allow Tunnel?</label
+                  >
+                </span>
+                <span style="float: left; margin-right: 10px">
+                  <input type="checkbox" _id="allowCompression" />
+                  <label
+                    for="allowCompression"
+                    class="syncManagerAllowCompressionText"
+                  >
+                    Allow Compression?</label
+                  >
+                </span>
+              </span>
+              <span style="float: left; margin-right: 10px">
+                <input type="checkbox" _id="readOnly" />
+                <label for="readOnly" class="syncManagerReadOnlyText">
+                  Read Only?</label
+                >
+              </span>
+              <span style="float: left; margin-right: 10px">
+                <input type="checkbox" _id="allowUnstable" />
+                <label
+                  for="allowUnstable"
+                  class="syncManagerDontWaitForStabilizationText"
+                >
+                  Don't wait for file stabilization</label
+                >
+              </span>
+              <div class="clear" style="height: 10px"></div>
+            </td>
+          </tr>
+        </table>
+        <fieldset
+          class="advanceSettingsPanel ui-widget-content nobg"
+          style="margin: 5px; padding: 10px; widht: 100%; display: none"
+        >
+          <legend
+            class="ui-corner-all syncManagerAdvancedSettingsButtonText"
+            style="padding: 2px 10px"
+          >
+            Advanced Settings
+          </legend>
+          <div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="move_after_sync" />
+              <label for="move_after_sync" class="syncManagerMoveAfterSyncText"
+                >After Sync, move to here:</label
+              >
+              <input
+                type="text"
+                _id="move_after_sync_path"
+                readonly="readonly"
+                style="width: 400px"
+              />
+              <a
+                href="#"
+                PickType="dir"
+                class="button serverFilePickButton"
+                rel="move_after_sync_path"
+                style="top: 5px; margin-left: 0px"
+              >
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px 3px 0px -7px;
+                    float: left;
+                  "
+                  class="pointer ui-icon ui-icon-folder-open"
+                ></span>
+                <span class="syncManagerBrowseButtonText"> Browse </span>
+              </a>
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="upload_delete" />
+              <label for="upload_delete" class="syncManagerAutoStartText"
+                >Upload and delete</label
+              >
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="send_compressed" />
+              <label
+                for="send_compressed"
+                class="syncManagerUploadUsingCompressionText"
+                >Upload using compression</label
+              >
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="multi" />
+              <label
+                for="multi"
+                class="syncManagerUploadUsingMultiSegmentsText"
+                >Upload using multi segments</label
+              >
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="receive_compressed" />
+              <label
+                for="receive_compressed"
+                class="syncManagerDownloadUsingCompressionText"
+                >Download using compression</label
+              >
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="multi_segmented_download" />
+              <label
+                for="multi_segmented_download"
+                class="syncManagerDownloadUsingMultiSegmentsText"
+                >Download using multi segments</label
+              >
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="size_only" />
+              <label for="size_only" class="syncManagerSizeOnlyText"
+                >Compares sizes only</label
+              >
+            </div>
+            <div style="margin: 5px 10px">
+              <input type="checkbox" _id="honor_deletes" />
+              <label for="honor_deletes" class="syncManagerHonorDeletesText"
+                >Honor deletes</label
+              >
+            </div>
+            <div style="margin: 8px 10px">
+              <label
+                for="download_threads"
+                class="syncManagerDownloadThreadsText"
+                >Download Threads:
+              </label>
+              <select _id="download_threads">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </div>
+            <div style="margin: 8px 10px">
+              <label for="upload_threads" class="syncManagerUploadThreadsText"
+                >Upload Threads:
+              </label>
+              <select _id="upload_threads">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </div>
+            <table>
+              <tr>
+                <td>
+                  <div>
+                    <label
+                      for="scheduled_times"
+                      class="syncManagerScheduledTimesText"
+                      >Scheduled times:</label
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 300px">
+                  <textarea
+                    class="scheduled_times"
+                    _id="scheduled_times"
+                    style="width: 300px; height: 50px"
+                  ></textarea>
+                </td>
+                <td valign="top">
+                  <a href="#" class="addScheduleTime button" style="top: auto">
+                    <span
+                      style="
+                        display: inline-block;
+                        margin: 0px 3px 0px -7px;
+                        float: left;
+                      "
+                      class="pointer ui-icon ui-icon-circle-plus"
+                    ></span>
+                    <span class="syncManagerAddButtonText"> Add </span>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </fieldset>
+      </div>
+      <div class="tab2">
+        <div class="syncLogPanel customForm">
+          <div class="info">
+            <a href="#" class="button action refreshLog" style="top: 5px">
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -10px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-refresh"
+              ></span>
+              <span class="syncManagerRefreshLogButtonText">Refresh Log</span>
+            </a>
+
+            <input type="checkbox" class="liveUpdate" id="log_live_update" />
+            <label for="log_live_update" class="syncManagerLiveUpdateText">
+              Live Update</label
+            >
+
+            <input
+              type="checkbox"
+              class="scrollWithActivity"
+              id="scroll_with_activity"
+            />
+            <label
+              for="scroll_with_activity"
+              class="syncManagerScrollWithActivityText"
+            >
+              Scroll with activity</label
+            >
+            <span style="float: right; margin-top: 9px">
+              <label for="searchField" class="syncManagerFindText"
+                >Find:
+              </label>
+              <input
+                type="text"
+                class="filterInput bigInputBox"
+                id="searchField"
+              />
+              &nbsp;
+              <input type="checkbox" class="regex" id="regexSearch" /><label
+                for="regexSearch"
+                class="syncManagerRegexSearchText"
+                >Regex Search?</label
+              >
+              <a
+                href="#"
+                class="clearFilter syncManagerClearFilterText"
+                style="margin-top: 3px; float: right; margin-left: 9px"
+                >Clear</a
+              >
+            </span>
+          </div>
+          <div
+            class="clear logArea syncLog ui-widget-content ui-state-default nobg"
+          ></div>
+          <div>
+            <a href="#" class="button action emailLog" style="top: 5px">
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -10px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-mail-closed"
+              ></span>
+              <span class="syncManagerEmailLogButtonText"> Email Log </span>
+            </a>
+            <span
+              style="
+                margin-top: 10px;
+                margin-left: 5px;
+                display: block;
+                float: right;
+              "
+            >
+              <span class="ui-priority-secondary syncManagerLogLastUpdatedText"
+                >Log last updated:<span class="logUpdatedTimestamp"></span
+              ></span>
+            </span>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="changePasswordDialog" style="display: none">
+    <table>
+      <tr>
+        <td
+          style="
+            width: 100px;
+            text-align: right;
+            vertical-align: middle;
+            padding-right: 10px;
+            padding-bottom: 7px;
+          "
+        >
+          <label for="existingPassword" class="syncManagerExistingPasswordText"
+            >Existing Password:</label
+          >
+        </td>
+        <td width="170px">
+          <input
+            type="password"
+            style="width: 150px; height: 20px; padding: 2px"
+            id="existingPassword"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 100px;
+            text-align: right;
+            vertical-align: middle;
+            padding-right: 10px;
+            padding-bottom: 7px;
+          "
+        >
+          <label for="newPassword" class="syncManagerNewPasswordText"
+            >New Password:</label
+          >
+        </td>
+        <td>
+          <input
+            type="password"
+            style="width: 150px; height: 20px; padding: 2px"
+            id="newPassword"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            width: 100px;
+            text-align: right;
+            vertical-align: middle;
+            padding-right: 10px;
+            padding-bottom: 7px;
+          "
+        >
+          <label for="confirmPassword" class="syncManagerConfirmPasswordText"
+            >Confirm Password:</label
+          >
+        </td>
+        <td>
+          <input
+            type="password"
+            style="width: 150px; height: 20px; padding: 2px"
+            id="confirmPassword"
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>CrushFTP WebInterface :: Login</title>
+        <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/login.css" />
+        <!--GSIGNIN_SCRIPT-->
+        <!--MSSIGNIN_SCRIPT-->
+        <!--AZURE_B2C_SINGIN_SCRIPT-->
+        <!--AMAZON_COGNITO_SINGIN_SCRIPT-->
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery.Electron.Inject.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/acceptCookies.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/login.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+        <script type="text/javascript">
+            function showRecaptcha(element, callback) {
+                var recaptchaVersion = 0 + (/*RECAPTCHA_VERSION*/ + 0);
+                if(recaptchaVersion == 3){
+                    $.getScript("https://www.recaptcha.net/recaptcha/api.js?render=/*RECAPTCHA_PUBLIC_KEY*/")
+                    .done(function(){
+                        grecaptcha.ready(function() {
+                        // do request for recaptcha token
+                        // response is promise with passed token
+                        window.hasCaptcha = true;
+                        grecaptcha.execute('/*RECAPTCHA_PUBLIC_KEY*/', {action:'validate_captcha'})
+                            .then(function(token) {
+                                // add token value to form
+                                window.captchaToken = token;
+                            });
+                        });
+                    });
+                }
+                else if(recaptchaVersion){
+                    $.getScript("https://www.recaptcha.net/recaptcha/api.js")
+                    .done(function(){
+                        if(window.grecaptcha)
+                        {
+                            grecaptcha.ready(function() {
+                                callback = callback || function(){};
+                                window.grecaptcha.render(element, {
+                                    'sitekey' : "/*RECAPTCHA_PUBLIC_KEY*/",
+                                    'callback' : callback
+                                });
+                            });
+                            window.hasCaptcha = true;
+                        }
+                    });
+                }
+            }
+            window.onload = function() {
+                /*RECAPTCHA*/
+            };
+            var passwordRule = {
+                random_password_length: 8,
+                min_password_numbers: 0,
+                min_password_lowers: 0,
+                min_password_uppers: 0,
+                min_password_specials: 0
+            };
+        </script>
+        <!--##CUSTOMSCRIPT##-->
+    </head>
+    <body style="overflow-x: hidden; overflow-y: auto;" class="login">
+        <!--##HEADER##-->
+        <div id="login">
+            <div id="languageSelector" style="display:none;">
+                <select>
+                    <option value="en" rel="English">English</option>
+                    <option value="br" rel="Brazilian">Brazilian</option>
+                    <option value="bg" rel="Bulgarian">Bulgarian</option>
+                    <option value="cn" rel="Chinese">Chinese</option>
+                    <option value="cs" rel="Czech">Czech</option>
+                    <option value="da" rel="Danish">Danish</option>
+                    <option value="nl" rel="Dutch">Dutch</option>
+                    <option value="fr" rel="French">French</option>
+                    <option value="de" rel="German">German</option>
+                    <option value="hu" rel="Hungarian">Hungarian</option>
+                    <option value="it" rel="Italian">Italian</option>
+                    <option value="ja" rel="Japanese">Japanese</option>
+                    <option value="ko" rel="Korean">Korean</option>
+                    <option value="pl" rel="Polish">Polish</option>
+                    <option value="ro" rel="Romanian">Romanian</option>
+                    <option value="ru" rel="Russian">Russian</option>
+                    <option value="sk" rel="Slovak">Slovak</option>
+                    <option value="es" rel="Spanish">Spanish</option>
+                    <option value="se" rel="Swedish">Swedish</option>
+                </select>
+            </div>
+            <form id="loginForm" name="loginForm" method="post" action="/" onSubmit="return doLogin2();">
+                <div id="panelbody">
+                    <div id="branding" class="clearfix branding">
+                        <img id="loginWheel" src="/WebInterface/Resources/images/wheel.gif" />
+                        <a id="defaultLogoLink" href="http://www.crushftp.com/">
+                            <img id="imgLogo" src="/WebInterface/images/logo.png" style="border-width:0px;float:left;" />
+                        </a>
+                    </div>
+                    <div id="panelLogin">
+                        <div>
+                            <label id="UserNameText">Username</label>
+                            <input tabindex="1" autocomplete="off" type="text" class="textbox" name="username" id="username" value="" />
+                        </div>
+                        <div>
+                            <label id="PasswordText">Password</label>
+                            <input tabindex="2" autocomplete="off" type="password" class="textbox" name="password" id="password" value="" />
+                        </div>
+                        <!-- <div class="path-wrapper">
+                            <label id="pathText">Enter direct path to use for the uploads</label>
+                            <input tabindex="3" autocomplete="off" type="text" class="textbox" name="path" id="path" value="" />
+                        </div> -->
+                        <div id="rememberMePanel">
+                            <label><input tabindex="3" type="checkbox" name="remember" id="remember" /> <span id="RememberMeText">Remember Me</span></label>
+                        </div>
+                        <div id="acceptTC" style="display: none">
+                            <label><input tabindex="4" type="checkbox" name="tandc" id="tandc" /> <span id="TnCText"></span></label>
+                        </div>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <div id="recaptcha_div"></div>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <div class="submit clearfix">
+                            <input type="submit" value="login" style='display:none;' />
+                            <input type="hidden" name="command" value="login" />
+                            <input type="hidden" name="skip_login" value="true" />
+                            <input type="hidden" name="encoded" value="false" />
+                            <input type="submit" value="login now" style="position:absolute;left:-1000px;top:-1000px;" />
+                            <a class="button" id="btnLogin" href="javascript:void(0);">
+                                <span id="LoginButtonText">Login</span>
+                            </a>
+                        </div>
+                        <p class="lostpassword">
+                            <a href="#" class="showResetPanel" id="ForgotPasswordLinkText">I forgot my password.</a>
+                        </p>
+                        <div class="bsk-container">
+                            <span id="amazonCognitoLoginPanel" style="display:none;">
+                            </span>
+                            <span id="msLoginPanel" style="display:none;">
+                                <button class="bsk-btn bsk-btn-default" id="SignIn" onclick="return signIn();">
+                                      <img src="/WebInterface/Resources/images/ms-pictogram.png" class="x-icon" />
+                                      Sign in with Microsoft
+                                </button>
+                            </span>
+                            <span id="msLoginPanelB2C" style="display:none;">
+                            </span>
+                        </div>
+                    </div>
+                    <div id="panelResetPass" style="display:none;">
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <h3 class="resetTitle" id="RequestPasswordHeaderText">Request Password</h3>
+                        <div>
+                            <label id="ResetUserNameText">Username</label>
+                            <input autocomplete="off" type="text" class="textbox" name="resetUserName" id="resetUserName" value="" />
+                        </div>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <p></p>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <div class="submit clearfix">
+                            <a class="button" id="btnResetPassword" href="javascript:void(0);">
+                                <span id="ResetPasswordButtonText">Reset Password</span>
+                            </a>
+                            <a class="button" id="btnBackToLogin" href="javascript:void(0);">
+                                <span id="BackToLoginButtonText">Back to Login</span>
+                            </a>
+                        </div>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <p></p>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                        <p></p>
+                        <div style="clear:both;height:1px;padding:0px;margin:0px;"></div>
+                    </div>
+                </div>
+            </form>
+            <form id="changePassForm" method="post" target="dummyIframe" action="/WebInterface/function/" onSubmit="doLogin();">
+                <div id="changepasswordPanel" style="display:none;margin-bottom:10px;">
+                    <div class="clearfix branding" style="clear:both;">
+                        <a id="defaultLogoLink" href="http://www.crushftp.com/">
+                            <img id="imgLogo" src="/WebInterface/images/logo.png" style="border-width:0px;float:left;margin:3px 0px 10px 0px;" />
+                        </a>
+                    </div>
+                    <h2 class="popupHeader" style="clear:both;margin-top:15px;" id="ChangePasswordHeaderText">
+                    Change your password
+                    </h2>
+                    <div class="passwordChangeNote" id="ChangePasswordNoteText">
+                        You must change your password to continue
+                    </div>
+                    <div class="buttonPanel">
+                        <label for="current_password" id="CurrentPasswordText">Current Password:</label>
+                        <input id="current_password" autocomplete="off" class="textbox" type="password" />
+                        <br />
+                        <br />
+                        <label for="new_password1" id="NewPasswordText">New Password:</label>
+                        <input id="new_password1" autocomplete="off" class="textbox" type="password" />
+                        <br />
+                        <br />
+                        <label for="new_password2" id="ConfirmPasswordText">Confirm Password:</label>
+                        <input id="new_password2" autocomplete="off" class="textbox" type="password" />
+                        <div style="text-align:right;margin-top:10px;">
+                            <a id="btnChangePasswordCancel" class="button" href="javascript:void(0);">
+                                <span id="CancelButtonText">Cancel</span>
+                            </a>
+                            <a id="btnChangePassword" class="button" href="javascript:void(0);">
+                                <span id="ChanngePasswordButtonText">Change Password</span>
+                            </a>
+                        </div>
+                        <div style="clear:both"></div>
+                        <div class="spacing">
+                            <br />
+                            <hr />
+                            <br />
+                        </div>
+                        <div id="generatePasswordPanel">
+                            <a id="btnGeneratePassword" class="button" href="javascript:void(0);" style="float:left">
+                                <span id="GeneratePasswordButtonText">Generate password</span>
+                            </a>
+                            <div id="passwordGeneratePanel" style="display:none;">
+                                <br />
+                                <br />
+                                <input id="generated_password" autocomplete="off" type="text" class="textboxSmall" style="float:left;" />
+                                <a id="usePassword" class="button" href="javascript:void(0);" style="float:left">
+                                    <span id="GeneratePasswordUseButtonText">Use this</span>
+                                </a>
+                                <a id="cancelPassword" class="button" href="javascript:void(0);" style="float:left">
+                                    <span id="GeneratePasswordCancelButtonText">Cancel</span>
+                                </a>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="OTPBox" style="display:none;">
+            <img class="closeButton" alt="close" src="/WebInterface/jQuery/images/cancel.png"
+            onclick="$.unblockUI();"/>
+            <h2 class="popupHeader" id="OTPDialogHeaderText">
+            Enter your OTP here
+            </h2>
+            <div class="buttonPanel">
+                <div style="width:100%;">
+                    <input id="otp" autocomplete="off" type="password" style="width:95%;padding:5px;" />
+                </div>
+                <br />
+                <div id="OTPDialogDescText"></div>
+                <br />
+                <div style="text-align: right; margin-top: 10px;">
+                    <button id="btnSubmitOTP">
+                    <span id="OTPSubmitButtonText">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="msAuthPanel"></div>
+        <div id="loginPageFooterText">
+            <!--##FOOTER##-->
+        </div>
+        <iframe id="dummyIframe" name="dummyIframe" src="javascript:false;" style="display:none;"></iframe>
+    </body>
+</html>

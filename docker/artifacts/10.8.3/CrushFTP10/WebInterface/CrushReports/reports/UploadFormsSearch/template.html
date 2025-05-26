@@ -1,0 +1,44 @@
+<script type="text/template" id="html-content">
+    <div class="has-report-data">
+        <div class="text-center">
+            <button type="button" class="btn btn-lg btn-success" id="exportAsXLS"><i class="fa fa-file-excel-o"></i> Export as XLS</button>
+        </div>
+        <hr>
+        <div class="panel-group" role="tablist" aria-multiselectable="true">
+            <div class="tables"></div>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="template">
+    <div class='panel panel-default'>
+        <a class='collapsed' role='button' data-toggle="collapse" href='#$type_table'>
+            <div class='panel-heading'>
+                <h4 class='panel-title'><i class="fa fa-table"></i> Records</h4>
+            </div>
+        </a>
+        <div id='$type_table' class="collapse in">
+            <div class='panel-body'>
+                <div class='panel panel-default no-border top-margin' id='$type_dataRecord'>
+                    <table id="$typeRecords" class="table table-striped table-bordered $type-table dataTable" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Date</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Username</th>
+                                <th>Date</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

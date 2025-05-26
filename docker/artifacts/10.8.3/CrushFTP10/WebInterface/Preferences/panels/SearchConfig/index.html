@@ -1,0 +1,111 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlSearchConfig">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td>
+				<div class="ui-priority-primary SearchConfig headerText">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="tabs nobg">
+					<ul>
+						<li><a href="#SCSearchDB" class="SearchConfig lblSearchDatabaseTabText">Search Database</a></li>
+						<li><a href="#SCScriptMySQL" class="SearchConfig lblScriptMySQLTabText">Script MySQL</a></li>
+						<li><a href="#SQLQuery" class="StatsConfig lblScriptMSSQLTabText">SQL Query</a></li>
+					</ul>
+					<div id="SCSearchDB" class="customForm">
+						<p>
+							<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+								<ol class="nobg selectable multiple sideScroll ui-selectable" id="SCsqlItems" name="SCsqlItems">
+								</ol>
+							</div>
+						</p>
+						<p id="formDetailsPanel">
+							<a href="#" id="browsePopupBtn" class="button serverFilePickButton" rel="txtSCDBAction">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+								<span class="SearchConfig btnBrowseText">Browse
+								</span>
+							</a>
+							<textarea id="txtSCDBAction" name="txtSCDBAction" style="width:100%;" class="formTextareaComment nobg"></textarea>
+							<input type="password" id="search_db_pass" name="search_db_pass" class="encryptPass bigInputBox ui-helper-hidden ignoreBind" />
+						</p>
+						<br>
+						<p class="buttonBar left buttonBarNoBottom">
+							<a href="#" class="button" id="testDBSearch">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh' ></span>
+								<span class="SearchConfig btnTestDBText">Test DB</span>
+							</a>
+
+							<!--a href="#" class="button" id="restoreValueToDefault">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-arrowrefresh-1-n' ></span>
+								<span class="SearchConfig btnRestoreToDefaultText">Restore to default</span>
+							</a-->
+						</p>
+					</div>
+					<p class="buttonBar right">
+						<a href="#" class="button">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+							<span class="submitActionRestore SearchConfig btnResetText">Reset To Default</span>
+						</a>
+						<a href="#" class="button" id="cancel">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+							<span class="submitActionCancel SearchConfig btnCancelText">Cancel</span>
+						</a>
+						<a href="#" class="button" id="saveContent">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+							<span class="submitActionOk SearchConfig btnOKText">OK</span>
+						</a>
+					</p>
+					<div id="SCScriptMySQL">
+						<p>
+							<textarea id="txtScriptMySQL" name="txtDBAction" style="width:100%;height:500px;" class="formTextareaComment nobg ignoreBind">
+# Script for MySQL to make the DB table needed for the search index.
+CREATE TABLE `SEARCH_INFO` (
+	`ITEM_PATH` varchar(1000) default NULL,
+	`ITEM_TYPE` varchar(10) default NULL,
+	`ITEM_SIZE` varchar(20) default NULL,
+	`ITEM_MODIFIED` varchar(20) default NULL,
+	`ITEM_KEYWORDS` varchar(2000) default NULL
+);
+</textarea>
+						</p>
+					</div>
+					<div id="SQLQuery">
+						<p>
+							<label for="sql_query" class="StatsConfig txtQueryTitle" style="font-weight: bold">SQL Query:</label>
+							<textarea id="sql_query" style="width:100%;height:300px;" class="formTextareaComment nobg ignoreBind"></textarea>
+						</p>
+						<p>
+							<label for="sql_limit" class="StatsConfig txtReturnTitle" style="font-weight: bold">Return Limit:</label>
+							<input id="sql_limit" class="nobg ignoreBind" value="1000" type="number" style="width: 80px; text-align: center" />
+						</p>
+						<p class="buttonBar left buttonBarNoBottom">
+							<a href="#" class="button" id="execute_query">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-play' ></span>
+								<span class="StatsConfig btnExecuteQuery">Execute Query</span>
+							</a>
+
+							<a href="#" class="button" id="clear_querys">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+								<span class="StatsConfig btnClearQuerys">Clear</span>
+							</a>
+						</p>
+						<p>
+							<label for="sql_response" class="StatsConfig txtQueryResponseTitle" style="font-weight: bold">SQL Response:</label>
+							<p id="sql_response"></p>
+						</p>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

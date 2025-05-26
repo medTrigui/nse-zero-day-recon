@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>CrushFTP WebInterface :: User Registration</title>
+	<link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/login.css" />
+	<link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+	<script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+	<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.xml2json.js">
+    </script>
+    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.cssRule.js">
+    </script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+    <script type="text/javascript" src="/WebInterface/jQuery/js/WIInitVars.js"></script>
+    <script type="text/javascript" src="/WebInterface/jQuery/js/WICustomizations.js"></script>
+    <script type="text/javascript" src="/WebInterface/jQuery/js/WICommonMethods.js"></script>
+    <script type="text/javascript" src="/WebInterface/jQuery/js/jqueryFileTree.js">
+    </script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/localizations/en.js"
+    ></script>
+    <script type="text/javascript" src="/WebInterface/custom.js">
+    </script>
+	<script type="text/javascript" src="/WebInterface/jQuery/js/jquery.idle-timer.js">
+    </script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            $('#signup').fileTree({
+                signupPage : true
+            });
+        });
+    </script>
+    <style type="text/css">
+        .formLabel
+        {
+            min-width: 100px;
+            text-align: right;
+        }
+        input[type="text"], input[type="password"]
+        {
+            min-width: 200px;
+        }
+    </style>
+</head>
+<body style="overflow-x: hidden; overflow-y: auto;" class="login">
+	<div id="signup">
+		<div id="panelbody">
+			<div id="header" style="left:5px;position:relative;z-index:2;">
+    			<a href="http://www.crushftp.com/" style="position:relative;top:5px;right:5px;float:left;">
+                    <div class="logo">
+    					<img src="/WebInterface/Resources/images/crushftp_gray_logo_resized.png" alt="" border="0" width="200" />
+                    </div>
+   				</a>
+				<div  class="clear"></div>
+			</div>
+            <div id="topSwitchButtons" style="margin:17px -20px 0px 0px;float:right;background:none;border-top:0px;border-right:0px;border-left:0px;">
+               <ul style="background:none;border:none;">
+                  <li class="ui-state-default ui-corner-all" style="padding:5px 10px 5px 14px; margin:0px 0 0 -10px;"><a href="/WebInterface/login.html"><span style="display: inline-block;margin: 0px 0px 0px -10px; float: left;" class="pointer ui-icon ui-icon-locked">
+                    </span>Login</a></li>
+                  <li class="clear"></li>
+               </ul>
+            </div>
+			<div style="clear:both;margin-top:60px;">
+				<div id="panelSignup">
+				</div>
+			</div>
+		</div>
+	</div>
+	<iframe id="dummyIframe" name="dummyIframe" src="javascript:false;" style="display:none;"></iframe>
+</body>
+</html>

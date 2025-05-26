@@ -1,0 +1,355 @@
+<script id="mainTreeTpl" type="x-tmpl-mustache">
+    <div id="bubble-tree">
+        <div class="root" id="server-root">
+            <i class="fa fa-sitemap"></i> {{title}}
+        </div>
+    </div>
+</script>
+
+<script id="bubbleTpl" type="x-tmpl-mustache">
+    <div class="bubble" id="item-{{nameLower}}">
+        <div class="server-name">{{name}}</div>
+        <div class="status">
+            <div class="running" data-placement="bottom" data-toggle="tooltip" title="Running">
+                <span class="legend">0</span>
+            </div>
+            <div class="stopped" data-placement="bottom" data-toggle="tooltip" title="Stopped">
+                <span class="legend">0</span>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="subItemsTpl" type="x-tmpl-mustache">
+    <div id="sub-items" style="position: absolute;"></div>
+</script>
+
+<script id="countsBadgeTpl" type="x-tmpl-mustache">
+    <span class="count" data-placement="right" data-toggle="tooltip" title="Total instances ">{{count}}</span>
+</script>
+
+<script id="detailsBubbleTpl" type="x-tmpl-mustache">
+    <div rel="item-{{type}}" item-index="{{itemIndex}}" id="detailsBubble-{{type}}-{{index}}" class="details-bubble {{running}}">
+        <div class="bubble-panel">
+            <div class="bubble-container">
+                <div class="bubble-container-text">
+                    <div class="status">
+                        <div class="{{running}}">
+                            <span class="legend"></span>
+                        </div>
+                    </div>
+                    <span class="name">{{name}}</span>
+                    <br>
+                    <small>
+                        <span class="display-text">
+                            {{displayText}}
+                        </span>
+                    </small>
+                    <div class="{{#usersChanged}}highlight-users{{/usersChanged}} {{#connectionsChanged}}highlight-connections{{/connectionsChanged}}">
+                        <span class="users"><i class="fa fa-user"></i> <span class="user-count">{{users}}</span></span>,
+                        <span class="connections"><i class="fa fa-exchange"></i> <span class="connections-count">{{connections}}</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <a type="start" data-toggle="tooltip" title="Start Server" href="javascript:void(0);" class="start {{#running-status}}disabled{{/running-status}}"><i class="fa fa-play"></i></a>
+                <a type="stop" data-toggle="tooltip" title="Stop Server" href="javascript:void(0);" class="stop {{^running-status}}disabled{{/running-status}}"><i class="fa fa-stop"></i></a>
+                <a type="restart" data-toggle="tooltip" title="Restart Server" href="javascript:void(0);" class="restart"><i class="fa fa-refresh"></i></a>
+                <a type="diagnose" data-toggle="tooltip" title="Diagnose" href="javascript:void(0);" class="diag"><i class="fa fa-stethoscope"></i></a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="diagnoseDialogTpl" type="x-tmpl-mustache">
+    <div id="diagnoseDialog" class="form-group">
+        <button aria-disabled="false" class="btn btn-default telnet-btn" type="button" style="position: absolute;right: 45px;top: -40px;"><span class="ui-button-text"><i class="fa fa-terminal"></i> Telnet</span></button>
+        <div class="row">
+            <div class="col-xs-3">
+                <label for="diag_Protocol">Protocol : </label>
+                <input type="text" id="diag_Protocol" class="form-control" />
+            </div>
+            <div class="col-xs-6">
+                <label for="diag_IP" style="display:block;">
+                    Host :
+                    <span class="checkbox pull-right" style="margin:0px;line-height:17px;">
+                        <label for="diag_HostAuto">
+                            <input checked type="checkbox" id="diag_HostAuto" />
+                            Auto
+                        </label>
+                    </span>
+                </label>
+                <input class="form-control" type="text" id="diag_IP" />
+            </div>
+            <div class="col-xs-3">
+                <label for="diag_Port">Port : </label>
+                <input type="text" id="diag_Port" class="form-control" />
+            </div>
+        </div>
+        <div class="manualIP row" style="display:none;">
+            <div class="col-xs-12" style="padding:20px 15px 0px 15px;">
+                <label for="usePublicIP">Your public IP is :</label>
+                <label id="diag_publicIPAddress">....</label>
+            </div>
+        </div>
+        <div class="ftpItems row" style="display:none;">
+            <div class="col-xs-6">
+                <label for="diag_user">Username : </label>
+                <input type="text" id="diag_UserName" class="form-control" />
+            </div>
+            <div class="col-xs-6">
+                <label for="diag_pass">Pass : </label>
+                <input type="password" id="diag_pass" class="form-control" />
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="serverStatusTpl" type="x-tmpl-mustache">
+    <div class="status incoming">
+        <div class="status-header">
+             <i class="fa fa-download"></i> Incoming Transfers
+        </div>
+        <div class="status-items">
+            <ul>
+                <li>
+                    <div class="item">
+                        <div class="ellipsis">
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                                 User
+                            </span>
+                            <span class="server">
+                                <i class="fa fa-desktop"></i>
+                                HTTP : 92.168.2.1
+                            </span>
+                            <span class="time pull-right">
+                                <i class="fa fa-clock-o"></i>
+                                6:44:23 PM
+                            </span>
+                        </div>
+                        <div class="ellipsis">
+                            <span class="file">
+                                <i class="fa fa-file-o"></i>
+                                GB1.txt
+                            </span>
+                            <span class="size pull-right">
+                                1.0 GB
+                            </span>
+                        </div>
+                        <div>
+                            <div style="display: block;" class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 92.53%">
+                                    <span class="progress-text">
+                                        <span class="uploaded">0.8 GB</span>
+                                        <span loc="of">of</span>
+                                        <span class="total">1.0 GB</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="ellipsis">
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                                 User
+                            </span>
+                            <span class="server">
+                                <i class="fa fa-desktop"></i>
+                                HTTP : 92.168.2.1
+                            </span>
+                            <span class="time pull-right">
+                                <i class="fa fa-clock-o"></i>
+                                6:44:23 PM
+                            </span>
+                        </div>
+                        <div class="ellipsis">
+                            <span class="file">
+                                <i class="fa fa-file-o"></i>
+                                GB1.txt
+                            </span>
+                            <span class="size pull-right">
+                                1.0 GB
+                            </span>
+                        </div>
+                        <div>
+                            <div style="display: block;" class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 92.53%">
+                                    <span class="progress-text">
+                                        <span class="uploaded">0.8 GB</span>
+                                        <span loc="of">of</span>
+                                        <span class="total">1.0 GB</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="ellipsis">
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                                 User
+                            </span>
+                            <span class="server">
+                                <i class="fa fa-desktop"></i>
+                                HTTP : 92.168.2.1
+                            </span>
+                            <span class="time pull-right">
+                                <i class="fa fa-clock-o"></i>
+                                6:44:23 PM
+                            </span>
+                        </div>
+                        <div class="ellipsis">
+                            <span class="file">
+                                <i class="fa fa-file-o"></i>
+                                GB1.txt
+                            </span>
+                            <span class="size pull-right">
+                                1.0 GB
+                            </span>
+                        </div>
+                        <div>
+                            <div style="display: block;" class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 92.53%">
+                                    <span class="progress-text">
+                                        <span class="uploaded">0.8 GB</span>
+                                        <span loc="of">of</span>
+                                        <span class="total">1.0 GB</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="status outgoing">
+        <div class="status-header">
+            <i class="fa fa-upload"></i> Outgoing Transfers
+        </div>
+        <div class="status-items">
+            <ul>
+                <li>
+                    <div class="item">
+                        <div class="ellipsis">
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                                 User
+                            </span>
+                            <span class="server">
+                                <i class="fa fa-desktop"></i>
+                                HTTP : 92.168.2.1
+                            </span>
+                            <span class="time pull-right">
+                                <i class="fa fa-clock-o"></i>
+                                6:44:23 PM
+                            </span>
+                        </div>
+                        <div class="ellipsis">
+                            <span class="file">
+                                <i class="fa fa-file-o"></i>
+                                GB1.txt
+                            </span>
+                            <span class="size pull-right">
+                                1.0 GB
+                            </span>
+                        </div>
+                        <div>
+                            <div style="display: block;" class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 92.53%">
+                                    <span class="progress-text">
+                                        <span class="uploaded">0.8 GB</span>
+                                        <span loc="of">of</span>
+                                        <span class="total">1.0 GB</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="ellipsis">
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                                 User
+                            </span>
+                            <span class="server">
+                                <i class="fa fa-desktop"></i>
+                                HTTP : 92.168.2.1
+                            </span>
+                            <span class="time pull-right">
+                                <i class="fa fa-clock-o"></i>
+                                6:44:23 PM
+                            </span>
+                        </div>
+                        <div class="ellipsis">
+                            <span class="file">
+                                <i class="fa fa-file-o"></i>
+                                GB1.txt
+                            </span>
+                            <span class="size pull-right">
+                                1.0 GB
+                            </span>
+                        </div>
+                        <div>
+                            <div style="display: block;" class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 92.53%">
+                                    <span class="progress-text">
+                                        <span class="uploaded">0.8 GB</span>
+                                        <span loc="of">of</span>
+                                        <span class="total">1.0 GB</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="ellipsis">
+                            <span class="user">
+                                <i class="fa fa-user"></i>
+                                 User
+                            </span>
+                            <span class="server">
+                                <i class="fa fa-desktop"></i>
+                                HTTP : 92.168.2.1
+                            </span>
+                            <span class="time pull-right">
+                                <i class="fa fa-clock-o"></i>
+                                6:44:23 PM
+                            </span>
+                        </div>
+                        <div class="ellipsis">
+                            <span class="file">
+                                <i class="fa fa-file-o"></i>
+                                GB1.txt
+                            </span>
+                            <span class="size pull-right">
+                                1.0 GB
+                            </span>
+                        </div>
+                        <div>
+                            <div style="display: block;" class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 92.53%">
+                                    <span class="progress-text">
+                                        <span class="uploaded">0.8 GB</span>
+                                        <span loc="of">of</span>
+                                        <span class="total">1.0 GB</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>

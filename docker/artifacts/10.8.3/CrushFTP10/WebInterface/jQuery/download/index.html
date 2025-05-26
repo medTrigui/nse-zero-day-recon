@@ -1,0 +1,111 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>|| CrushFTP File Download ||</title>
+        <link rel="stylesheet" href="/WebInterface/jQuery/upload/css/style.css">
+        <link href="/WebInterface/jQuery/upload/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/WebInterface/jQuery/upload/js/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/WebInterface/jQuery/upload/js/font-awesome/css/font-awesome-animation.min.css" rel="stylesheet" type="text/css">
+    </head>
+    <body style="padding:15px;" class="upload-panel-body">
+        <div class="mainContentHolder" style="padding:10px;">
+            <div id="fileselector">
+                <div id="container" style="width:50%;">
+                    <!-- <div class="row">
+                        <div class="col-md-3 text-right">
+                            File Path:
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" value="/MB512.txt" id="filePath" placeholder="Enter file path here" />
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-3 text-right">
+                            Chunks to download:
+                        </div>
+                        <div class="col-md-9">
+                            <input type="number" value="500" id="firstChunks" placeholder="chunks" />
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button id="btnDownload">Start Download</button>
+                            <button id="btnCancel" disabled="">Cancel</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                        </div>
+                    </div> -->
+                    <div class="row">&nbsp;</div>
+                    <div id="stats">
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                <strong>Started:</strong>
+                            </div>
+                            <div class="col-md-9">
+                                <span id="started"></span>
+                            </div>
+                        </div>
+                        <div class="row">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                <strong>Time Elapsed:</strong>
+                            </div>
+                            <div class="col-md-9">
+                                <span id="elapsed">*</span> seconds
+                            </div>
+                        </div>
+                        <div class="row">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                <strong>Completed Chunks:</strong>
+                            </div>
+                            <div class="col-md-9">
+                                <span id="chunks">0</span>
+                            </div>
+                        </div>
+                        <div class="row">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                <strong>Completed Bytes:</strong>
+                            </div>
+                            <div class="col-md-9">
+                                <span id="bytes">0</span>
+                            </div>
+                        </div>
+                        <div class="row">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                <strong>Avg Speed:</strong>
+                            </div>
+                            <div class="col-md-9">
+                                <span id="speed">* Kb</span>/s
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <link rel="stylesheet" type="text/css" href="/WebInterface/custom.css" />
+
+        <!-- /*Stream Saver*/ -->
+        <script src="js/StreamSaver/StreamSaver.js"></script>
+        <script src="js/StreamSaver/permissions.js"></script>
+        <script src="js/StreamSaver/web-streams-polyfill/polyfill.min.js"></script>
+
+        <script type="text/javascript" src="/WebInterface/jQuery/upload/js/jquery.1.11.3.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/upload/js/jquery-ui1.11.4.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/moment.min.js"></script>
+        <script src="/WebInterface/jQuery/upload/js/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/upload/js/common.js"></script>
+        <script src="/WebInterface/jQuery/upload/js/mustache.min.js"></script>
+        <script src="/WebInterface/Resources/js/dataTable/dataTable.js"></script>
+        <link rel="stylesheet" type="text/css" href="/WebInterface/Resources/js/dataTable/dataTable.css" />
+        <script src="/WebInterface/jQuery/upload/js/bootbox.min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/browserSelector.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/download/js/download.js"></script>
+    </body>
+</html>

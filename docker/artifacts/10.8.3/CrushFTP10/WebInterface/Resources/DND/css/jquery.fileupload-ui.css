@@ -1,0 +1,761 @@
+@charset 'UTF-8';
+/*
+ * jQuery File Upload UI Plugin CSS 5.0.6
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://creativecommons.org/licenses/MIT/
+ * Modified by Vipul Limbachiya for CrushFTP on 17th April 2012 - Tuesday
+ */
+/* added by carlos */
+.waveplay {
+  background: url("/WebInterface/jQuery/images/resume.png") no-repeat scroll 0 4px transparent;
+  display: none;
+  text-indent: -5000px;
+  width:  16px;
+  height:  20px;
+}
+.wavestop {
+  background: url("/WebInterface/jQuery/images/pause.png") no-repeat scroll 0 4px transparent;
+  display: none;
+  text-indent: -5000px;
+  width:  16px;
+  height:  20px;
+}
+.wavefileDownload {
+  background: url("/WebInterface/jQuery/images/download.png") no-repeat scroll 0 4px transparent;
+  display: none;
+  text-indent: -5000px;
+  width:  16px;
+  height:  20px;
+}
+.advancedoptions {
+	margin: 10px 0px 0px;
+	font-size: 11px;
+	text-align: left;
+	padding: 5px 5px 5px 25px;
+    background: url("/WebInterface/jQuery/images/gear.png") no-repeat scroll 5px 4px transparent;
+}
+.no-close .ui-dialog-titlebar-close {display: none }
+#advanceduploadOptions {
+    background: url("/WebInterface/jQuery/images/gear.png") no-repeat scroll left 0px transparent;
+    text-indent: -5000px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-left: 7px;
+    cursor: pointer;
+    top: 5px;
+    height: 16px;
+    width: 16px;
+}
+#javaLogButton {
+    background: url("/WebInterface/jQuery/images/file.png") no-repeat scroll left 0px transparent;
+    text-indent: -5000px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-left: 7px;
+    cursor: pointer;
+    top: 5px;
+    height: 16px;
+    width: 16px;
+}
+/* end   */
+.fileupload-buttonbar .ui-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0 0 0 10px;
+  border: solid transparent;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -o-transform: translate(100px, -50px) scale(1);
+  -moz-transform: translate(-100px, 0) scale(2);
+  direction: ltr;
+  cursor: pointer;
+}
+
+.opera .fileupload-buttonbar .ui-button input {
+  top:50px;
+}
+
+.fileinput-button {
+  overflow: hidden;
+}
+
+/* Fix for IE 6: */
+*html .fileinput-button {
+  padding: 2px 0;
+}
+
+/* Fix for IE 7: */
+*+html .fileinput-button {
+  padding: 2px 0;
+}
+
+.fileupload-buttonbar {
+  padding: 0px;
+  margin: 4px;
+}
+
+.fileupload-buttonbar .ui-button {
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-right: 4px;
+}
+
+.ie #browseFileButton
+{
+  max-width: 90px !important;
+  overflow: hidden;
+  color: red;
+  display: inline-block;
+  height: 15px;
+  float: left;
+  position: relative;
+  margin: -7px 5px 0px 5px !important;
+  background-position: 0px 7px !important;
+}
+
+.ui-button-custom
+{
+  background-image: -webkit-linear-gradient(top, #62C462, #51A351);
+  background-image: -o-linear-gradient(top, #62C462, #51A351);
+  background-image: -moz-linear-gradient(top, #62C462, #51A351);
+  background-image: linear-gradient(top, #62C462, #51A351);
+  background-repeat: repeat-x;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  *display: inline;
+    zoom: 1;
+  padding: 4px 10px 4px 0px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: whiteSmoke;
+  background-image: -ms-linear-gradient(top, white, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+  background-image: -o-linear-gradient(top, white, #E6E6E6);
+  background-image: linear-gradient(top, white, #E6E6E6);
+  background-image: -moz-linear-gradient(top, white, #E6E6E6);
+  background-repeat: repeat-x;
+  border: 1px solid #CCC;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-color: #E6E6E6 #E6E6E6 #BFBFBF;
+  border-bottom-color: #B3B3B3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ie8 .fileupload-buttonbar .ui-button, .ie7 .fileupload-buttonbar .ui-button
+{
+  height: 18px;
+  margin-top: 0px !important;
+}
+
+.ie8 .filter-content, .ie7 .filter-content
+{
+  max-height: 40px !important;
+  height: 40px !important;
+}
+
+.fileupload-buttonbar .ui-button #browseFileButton{
+    margin: 10px 0px 0px 8px;
+    font-size: 11px;
+    text-align: left;
+    padding: 5px 5px 5px 19px;
+    background: url(/WebInterface/jQuery/images/file.png) no-repeat -1px 4px;
+    color: black !important;
+}
+
+.fileupload-content {
+  padding: 0.2em 0.4em;
+  border-top-width: 0;
+}
+
+.fileupload-content .ui-progressbar {
+  width: 200px;
+  height: 20px;
+}
+
+.fileupload-content .ui-progressbar-value {
+  background: url(../images/pbar-ani.gif);
+}
+
+.fileupload-content .fileupload-progressbar {
+  width: 400px;
+  margin: 10px 0;
+}
+
+.fileListHeader {
+	padding: 5px;
+	cursor:move;
+  border-radius: 0px;
+}
+
+.files {
+  margin: 0px;
+  padding:0px;
+  border-collapse: collapse;
+}
+
+.files li {
+  padding: 0px;
+  list-style:none;
+  vertical-align:middle;
+  clear:both;
+}
+
+.files li .unzipping-progress, #globalProgressBar .unzipping-progress
+{
+  display: none;
+}
+
+.files li.unzipping .unzipping-progress, #globalProgressBar.unzipping .unzipping-progress
+{
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 200px;
+  text-align: center;
+  padding: 8px 0px 3px 0px;
+  background: #000 url('/WebInterface/Resources/images/loadingAnimationB.gif') no-repeat 36px 5px;
+  opacity: 0.5;
+  left: 50%;
+  margin-left: -100px;
+  top: 20%;
+  border-radius: 10px;
+  color: #fff;
+  background-size: 20px;
+}
+
+.files li div.block{
+	display:inline-block;
+	*display: inline;
+    zoom: 1;
+	vertical-align:middle;
+	margin:0px;
+}
+
+.files img {
+  border: none;
+}
+
+.files canvas
+{
+	position:relative;
+	z-index:2;
+}
+.files .name {
+  padding: 0 10px;
+  max-width: 300px;
+}
+
+.ui-state-disabled .ui-state-disabled {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.ui-state-disabled input {
+  cursor: default;
+}
+
+.template-upload div.wrap
+{
+	white-space: pre;           /* CSS 2.0 */
+	white-space: pre-wrap;      /* CSS 2.1 */
+	white-space: pre-line;      /* CSS 3.0 */
+	white-space: -pre-wrap;     /* Opera 4-6 */
+	white-space: -o-pre-wrap;   /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	white-space: -hp-pre-wrap;  /* HP Printers */
+	white-space: -moz-pre-wrap !important;   /* Mozilla*/
+	word-wrap: break-word;      /* IE 5+ */
+	word-break: break-all;
+}
+
+.template-upload .progressInfo
+{
+	padding: 5px;
+}
+
+.template-upload.uploaded
+{
+    background-image: url(/WebInterface/jQuery/images/bullet_green.png);
+    background-position: right -2px;
+    background-repeat: no-repeat;
+}
+
+.template-upload.hasError, .template-upload.skipped
+{
+    background-image: url(/WebInterface/jQuery/images/bullet_red.png);
+    background-position: right -2px;
+    background-repeat: no-repeat;
+}
+
+.template-upload .queuedNote
+{
+    font-size: 10px;
+    position: absolute;
+    display: inline-block;
+	*display: inline;
+    zoom: 1;
+    right: 0px;
+    margin-top: 0px;
+    margin-right: 5px;
+	*display: inline;
+    zoom: 1;
+}
+
+.time, .speed, .uploadPath
+{
+    font-size: 10px;
+    margin: 3px 0px;
+}
+
+.template-upload .progressInfo .uploadStatusLabel
+{
+    font-size: 11px;
+    position:relative;
+    top:-14px;
+    margin: -2px 4px 0px 0px;
+}
+
+.ie7 .template-upload .progressInfo .uploadStatusLabel
+{
+	position:inherit !important;
+	min-height: 0;
+	text-align:right;
+	margin-top:0px;
+	display: inline-block;
+	*display: inline;
+    zoom: 1;
+}
+
+.ie7 .template-upload
+{
+	overflow:hidden !important;
+}
+
+li.appletItem .previewIconUpload
+{
+	background: url(/WebInterface/jQuery/images/lightning.png) no-repeat 3px 13px;
+}
+
+.template-upload .previewIconUpload
+{
+	text-align :center;
+	width: 80px;
+	height:45px;
+}
+
+.template-upload .name
+{
+	width: 300px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.template-upload .progressbar{
+  height: 1.5em;
+}
+
+.template-upload .size
+{
+	width: 100px;
+	margin:2px;
+	text-align:center;
+}
+
+.template-upload .details
+{
+	width: 100px
+	margin:2px;
+}
+
+.template-upload .cancel
+{
+	width: 70px;
+	margin:0;
+}
+
+.template-upload .start, .template-upload .share
+{
+	min-width: 60px;
+	margin:0;
+}
+
+.template-upload .share
+{
+  margin-top: 17px !important;
+  float: right;
+}
+
+.template-upload .reupload
+ {
+	min-width: 90px;
+	margin:0;
+}
+
+.template-upload .progressInfo
+{
+    display:block;
+}
+
+.error
+{
+	color:white;
+	position: absolute;
+  right: 13px;
+}
+
+.template-upload.hasError .error, .template-upload.skipped .error
+{
+  right: 22px;
+  top:0px;
+}
+
+.ui-state-highlight .error
+{
+	color:red;
+}
+
+.uploadStatus
+{
+	color:green;
+	float:right;
+	margin-top:-15px;
+	margin-right:2px;
+}
+
+.editForm
+{
+	font-size: 11px;
+	padding: 5px 5px 5px 23px;
+	background: url(/WebInterface/Resources/images/page_edit.png) no-repeat 5px 4px;
+	color: black !important;
+	/*float:left;
+	margin-top:-7px;
+	margin-left:2px;
+	position:relative;*/
+	z-index:2;
+}
+
+.uploadProgress
+{
+	background: url(../images/loading.gif) no-repeat top right;
+	background-position-y:1px;
+	background-position-x:100%;
+}
+
+.uploadProgress.paused
+{
+  background: none;
+}
+
+#dropItemsPanel
+{
+  display:none;
+  height:60px;
+  width:100%;
+  margin: 3px 0 0 0;
+  text-align:center;
+  position:absolute;
+  z-index:1002;
+  background: #FFFFCC;
+  border: 2px dashed #000;
+  border-radius: 10px;
+}
+
+.dropzone.hover {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
+#fileRepo
+{
+	position:absolute;
+	z-index:1001;
+	min-width:820px;
+  max-width: 920px;
+	display:none;
+	margin-top:2px;
+	margin-left:0px;
+  padding: 7px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-border-radius:10px;
+  box-shadow: 0px 1px 10px 4px #bdbdbd;
+}
+
+.blockUI #fileRepo{
+  text-align: left !important;
+}
+
+#fileRepo ul
+{
+	 overflow:hidden;
+	 overflow-y:auto;
+	 max-height:400px;
+}
+
+#fileRepo li
+{
+	vertical-align:middle;
+  position: relative;
+}
+
+.ie7 #fileRepo li a
+{
+	margin-top:-60px;
+}
+
+.fileRepoHeader
+{
+  padding: 5px 5px 5px 20px;
+  background: url(/WebInterface/jQuery/images/page_white_copy.png) no-repeat 0px 4px;
+}
+
+.ie7 #fileQueueInfo form
+{
+	padding:0px;
+	margin:0px;
+}
+
+.ui-dialog-buttonpane
+{
+	border:0px;
+	margin:0px !important;
+}
+
+.formOption
+{
+	padding:5px 0px;
+	margin:0px;
+}
+
+.formOption label
+{
+	position:relative;
+	top:-1px;
+	left:3px;
+}
+
+.browseTypeselectionLink, .viewFileQueueLink
+{
+	display: inline-block;
+	*display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-right: 4px;
+    padding: 5px 10px 8px 8px;
+    cursor: pointer;
+    top:4px;
+    height:16px;
+}
+
+.viewFileQueueLink.open
+{
+    background: url(/WebInterface/jQuery/images/arrow_down.png) no-repeat left 2px;
+}
+
+.viewFileQueueLink.close
+{
+    background: url(/WebInterface/jQuery/images/arrow_up.png) no-repeat left 2px;
+}
+
+.browseTypeselectionLink.advanced
+{
+	background: url(/WebInterface/jQuery/images/lightning.png) no-repeat left 2px;
+}
+
+.browseTypeselectionLink.normal
+{
+	background: url(/WebInterface/jQuery/images/lightning_disabled.png) no-repeat left 2px;
+}
+
+#fileQueueInfoText
+{
+	margin-left:10px;
+}
+
+/*Main Progressbar styles*/
+.uploadProgressInfoMain
+{
+    display:block;
+    zoom: 1;
+    position:relative;
+    min-width:500px;
+    margin: 1px 3px 5px 0px;
+    padding:7px 5px 7px 5px;
+    min-height: 60px;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.uploadProgressInfoMain .progressbarMain
+{
+    margin: -3px 0px 7px 0px;
+    height: 1.5em;
+    width: 100%;
+}
+
+.uploadProgressInfoMain .progressInfoText
+{
+    margin: 0px;
+    font-size:10px;
+    position:relative;
+    top:-5px;
+    line-height:15px;
+}
+
+.uploadProgressInfoMain .progressBarText
+{
+    font-size: 11px;
+    right: 10px;
+    margin-right: 2px;
+    position: absolute;
+    margin-top: 3px;
+}
+
+.uploadProgressInfoMain .uploadProgressBarMainButtons
+{
+    display:inline-block;
+	*display: inline;
+    zoom: 1;
+    float: right;
+    position: absolute;
+    z-index: 9;
+    top:56px;
+    right:0px;
+}
+
+.fileListPanelInfoText
+{
+  padding: 10px 5px 10px 0px;
+  margin: 1px 0px;
+}
+
+/*.fileListPanelInfoText .stats
+{
+    float:right;
+	display:inline-block;
+}*/
+
+.fileListPanelInfoText .stats label
+{
+    font-weight:bold;
+}
+
+.ui-progressbar .ui-progressbar-value
+{
+    background-image: url(/WebInterface/jQuery/images/pbar-ani.gif);
+}
+
+.ie7 .start, .ie7 .startUpload, .ie7 .overwriteLink, .ie7 .editForm, .ie7 .pause, .ie7 .cancelUpload, .ie7 .ui-state-highlight .error, .ie7 .share
+{
+	/*float:none !important;*/
+	min-height: 0;
+	text-align:right;
+	margin-top:0px;
+	display: inline-block;
+  *display: inline;
+    zoom: 1;
+}
+
+.ie7 .ui-state-highlight .error
+{
+	margin-top:-30px !important;
+}
+
+.ie7 .start:after, .ie7 .startUpload:after, .ie7 .overwriteLink:after, .ie7 .editForm:after, .ie7 .pause:after, .ie7 .cancelUpload:after, .ie7 .ui-state-highlight .error:after, .ie7 .template-upload .progressInfo .uploadStatusLabel:after, .ie7 .share:after
+ {
+content: ".";
+height: 0;
+display: block;
+visibility: hidden;
+overflow: hidden;
+clear: both;
+}
+
+.uploadNote
+{
+  font-size: 10px;
+  color: green;
+  margin-top: 5px;
+}
+
+.groupCount {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    text-align: center;
+    font: 10px Arial, sans-serif
+}
+
+.uploadedMark
+{
+  display: none;
+  background-image: url(/WebInterface/Resources/images/checkmark.png);
+  width: 16px;
+  height: 16px;
+}
+
+.template-upload.uploaded .uploadedMark
+{
+  display: inline-block;
+}
+
+
+.template-upload .upload-buttons
+{
+    display: inline-block;
+    float: right;
+}
+
+.aborting{
+  opacity: 0.5;
+  filter: alpha(opacity=0.5);
+  cursor: wait;
+}

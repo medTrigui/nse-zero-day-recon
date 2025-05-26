@@ -1,0 +1,231 @@
+.nobg {
+    background-image: none !important;
+}
+.sideScroll {
+    overflow:hidden;
+    overflow-y:auto;
+}
+.safari7Help {
+    position: absolute;
+    height: 620px;
+    width: 820px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    opacity: 9;
+    overflow: hidden;
+    overflow-y: auto;
+    background: #fff;
+    margin-top: -5px;
+    margin-left: -5px;
+    z-index: 100;
+    display: none;
+}
+.safari7Help .imgDiv {
+    text-align: center;
+}
+.safari7Help img {
+    margin: 10px;
+}
+.loadingFS {
+    position: absolute;
+    height: 560px;
+    width: 820px;
+    border: 1px solid #eee;
+    opacity: 0.4;
+    background: #000 url(/WebInterface/Resources/images/loadingAnimationB.gif) no-repeat 400px 250px;
+    z-index: 10;
+}
+table.localFileBrowser {
+    width: 800px;
+    padding: 0px;
+    margin: 0px;
+}
+.localFileBrowser .dropdown {
+    width: 330px;
+}
+.localFileBrowser .refreshImg {
+    top: 3px;
+    position: relative;
+    left: 5px;
+}
+.localFileBrowser .systemFilesPanel {
+    margin-left: 20px;
+    display: inline-block;
+}
+.localFileBrowser .filterPanelPopup {
+    float: right;
+}
+.localFileBrowser .filter {
+    width: 250px;
+}
+.localFileBrowser .clearFilter {
+    border: 0px;
+    position: absolute;
+    right: 21px;
+    margin-top: 3px;
+    opacity: 0.3;
+}
+.localFileBrowser .clearFilter:hover {
+    opacity: 0.9;
+}
+table.localFileBrowser .firstColumn {
+    width:200px;
+    vertical-align: top;
+}
+table.localFileBrowser .firstColumn .sideScroll {
+    width:200px;
+    height:475px;
+}
+table.localFileBrowser .firstColumn ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+table.localFileBrowser .firstColumn ul li {
+    list-style: none;
+    padding: 3px 0px 3px 18px;
+    margin: 3px 0px 2px 10px;
+    background: url(/WebInterface/Resources/images/bullet_green.png) no-repeat 0px 2px;
+    cursor: pointer;
+}
+.quickLinkHover {
+    background-color: #eee !important;
+}
+.quickLinkActive {
+    background-color: #ccc !important;
+}
+table.localFileBrowser .firstColumn ul.devices li {
+    background: url(/WebInterface/Resources/images/drive.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .firstColumn ul li._home {
+    background: url(/WebInterface/Resources/images/application_home.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .firstColumn ul li._documents {
+    background: url(/WebInterface/Resources/images/page_white_copy.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .firstColumn ul li._desktop {
+    background: url(/WebInterface/Resources/images/application_view_tile.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .firstColumn ul li._downloads {
+    background: url(/WebInterface/Resources/images/application_put.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .firstColumn ul li._pictures {
+    background: url(/WebInterface/Resources/images/photos.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .firstColumn ul li._videos {
+    background: url(/WebInterface/Resources/images/pictures.png) no-repeat 0px 2px;
+}
+table.localFileBrowser .secondColumn {
+    width:600px;
+    vertical-align: top;
+}
+table.localFileBrowser .secondColumn .sideScroll {
+    width:600px;
+    max-height:480px;
+}
+table.localFileBrowser .secondColumn .listing {
+    padding: 0px;
+    margin: 0px;
+    border-spacing:0;
+    border-collapse:collapse;
+    position: relative;
+}
+table.localFileBrowser .secondColumn .listing td {
+    padding: 3px;
+}
+table.localFileBrowser .secondColumn .listing td {
+    text-align: center;
+}
+table.localFileBrowser .secondColumn .listing td.lft {
+    text-align: left;
+    vertical-align: middle;
+}
+table.localFileBrowser .secondColumn .listing td._dir {
+    background: url(/WebInterface/jQuery/images/directory.png) left top no-repeat;
+    background-position: 0 3px;
+    padding-left: 19px;
+    cursor: pointer;
+    position: relative;
+}
+table.localFileBrowser .secondColumn .listing td._file {
+    background: url(/WebInterface/jQuery/images/file.png) left top no-repeat;
+    background-position: 0 3px;
+    padding-left: 19px;
+    cursor: pointer;
+}
+table.localFileBrowser .secondColumn .listing td._parent {
+    background: url(/WebInterface/jQuery/images/arrow_turn_up.png) left top no-repeat;
+    background-position: 5px 3px;
+    padding-left: 25px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    width: 801px;
+    background-color: #eee;
+}
+table.localFileBrowser .secondColumn .listing thead tr {
+    border-right:0px !important;
+    border-left:0px !important;
+    border-top:0px !important;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    font-weight: bolder;
+}
+table.localFileBrowser .secondColumn .listing thead tr td{
+    vertical-align: middle;
+}
+table.localFileBrowser .secondColumn .listing tbody tr:hover td {
+    background-color: #eee;
+}
+table.localFileBrowser .secondColumn .listing tbody tr.selected td {
+    background-color: #C2E0FF;
+}
+table.localFileBrowser .secondColumn .listing .chekbox {
+    width: 10px;
+}
+table.localFileBrowser .secondColumn .listing .name {
+    width: 400px;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+table.localFileBrowser .secondColumn .listing .size {
+    width: 150px;
+}
+table.localFileBrowser .secondColumn .listing .date {
+    width: 150px;
+}
+table.localFileBrowser .secondColumn .listing.NoHiddenFiles .sysFile {
+    display: none !important;
+}
+table.localFileBrowser .secondColumn .listing .sysFile {
+    opacity: 0.6;
+}
+table.localFileBrowser .secondColumn .listing .sysFile:hover {
+    opacity: 1;
+}
+.localFileBrowser .contentDiv {
+    height:510px;
+}
+.localFileBrowser .panelHeader {
+    padding:4px 8px;
+    margin:2px;
+}
+.localFileBrowserPopup .ui-dialog-buttonpane {
+    top: -5px;
+    position: relative !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    background: none !important;
+}
+.localFileBrowserPopup .ui-dialog-buttonpane button {
+    /* padding: 0px !important; */
+}
+.footerNote{
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+}

@@ -1,0 +1,76 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlTunnels" class="userMgrPanel">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Tunnels headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg noBtnTop">
+                <fieldset class="ui-widget-content nobg" config="tunnels">
+                    <legend class="collapseHandle pointer"></legend>
+                    <div class="dataDiv">
+                        <fieldset class="ui-widget-content nobg" filterKeywords="ssh forward tunnel http tunnels" pnlId="tunnels1" config="tunnels">
+                            <table>
+                                <tr>
+                                    <td id="tunnelsCheck" propertyType="panelTunnels:Tunnels" class="checkboxArea ui-widget-content rightborder nobg extraFields">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <div class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;margin:5px;">
+                                                <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                                <span class="msgText">
+                                                    Tunnels shown on left side can be managed from Preferences -&gt; Tunnels
+                                                </span>
+                                            </div>
+                                            <table style="margin-top:15px;">
+                                                <tr>
+                                                    <td style="text-align: center;">
+                                                        <strong>Available Tunnels</strong>
+                                                        <a href="#" style="width: 60px;top:0;float:right;" id="removeTunnel" class="button noSpacing"><span class="">&lt;-</span></a>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <strong>Allowed Tunnels</strong>
+                                                        <a href="#" style="width: 60px;top:0;float:left;" id="addTunnel" class="button noSpacing"><span class="">-&gt;</span></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 47%">
+                                                        <div style="margin: 5px 2px;">
+                                                            <div class="MediumListBox ConnectionListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                                                <ol class="nobg selectable single" id="tunnelsInSystem">
+                                                                </ol>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="margin: 5px 2px;">
+                                                            <div class="MediumListBox ConnectionListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                                                <ol class="nobg selectable single" id="tunnelsSelected">
+                                                                </ol>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</div>

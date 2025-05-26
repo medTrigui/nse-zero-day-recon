@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mosaic Print</title>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+  <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+  <script type="text/javascript">
+  //Get file extension from file name
+  function getFileExtension(filename) {
+      var ext = /^.+\.([^.]+)$/.exec(filename);
+      return ext == null ? "" : ext[1].toLowerCase();
+  }
+  var itemsInSelection = window.opener.selectedItems;
+  var crushFTPTools = window.opener.crushFTPTools;
+  if (itemsInSelection && itemsInSelection.length > 0) {
+      var mosaicPrint = $('<div id="mosaicPrint"></div>');
+      var html = '<ul <ul style="margin: 0; padding: 0;">';
+      for (var i = 0; i < itemsInSelection.length; i++) {
+          var curItem = itemsInSelection[i];
+          if (curItem.preview && curItem.preview != "0") {
+              html += '<li style="display: inline-block; width: 80mm; height: 120mm; margin: 3mm; text-align: center; vertical-align: top; overflow: hidden;">' +
+                  '<img src="/function/?command=getPreview&size=3&path=/' + curItem.name + '&frame=1&c2f=' + crushFTPTools.getCrushAuth() + '" />' + '</li>';
+          }
+          else if(curItem.name.indexOf(".jpg")>0)
+          {
+              var ext = getFileExtension(curItem.name);
+              html += '<li style="display: inline-block; width: 80mm; height: 120mm; margin: 3mm; text-align: center; vertical-align: top; overflow: hidden;">' +
+                  '<img src="/function/?command=download&mimeType=image%2F'+ext+'&path='+crushFTPTools.encodeURILocal(curItem.name)+'&c2f='+crushFTPTools.getCrushAuth() + '" />' + '</li>';
+          }
+      }
+      html += '</ul>';
+      mosaicPrint.append(html);
+      $('body').append(mosaicPrint)
+      var totalImages = $('#mosaicPrint ul li img').length;
+      var imageCounter = 0;
+      $('#mosaicPrint ul li img').load(function() {
+          var w = $(this).width();
+          var h = $(this).height();
+          var nw = 530;
+          var nh = (nw * h) / w;
+          if (w > h) {
+              $(this).css({
+                  'transform': 'rotate(90deg)',
+                  'width': nw,
+                  'height': nh,
+                  'padding-top': (nw - nh)
+              })
+          } else {
+              $(this).css({
+                  'width': '100%',
+                  'max-height': '100%',
+                  'padding-top': (nw - nh)
+              })
+          }
+          imageCounter++
+          if (imageCounter == totalImages) {
+              imageCounter = 0;
+              var containerNo = "";
+              var date = "";
+              var locs = window.opener.location.toString().split("/");
+              if(locs.length>6)
+              {
+                if(locs[locs.length-1]==""){
+                  containerNo = locs[locs.length-3];
+                  date = locs[locs.length-2];
+                }
+                else{
+                  containerNo = locs[locs.length-3];
+                  date = locs[locs.length-1];
+                }
+              }
+              if(containerNo)
+              {
+                containerNo = unescape(containerNo);
+                if(containerNo.indexOf(" ") == 4 && containerNo.indexOf("-") == 11)
+                {
+                  $("#mosaicPrint").prepend('<div style="text-align:center;font-weight:bold;">'+containerNo+' ('+date+')</div>');
+                  document.title = containerNo + ' ('+date+')';
+                }
+              }
+              window.print();
+              window.opener.selectedItems = '';
+          }
+      })
+  }
+  </script>
+</html>

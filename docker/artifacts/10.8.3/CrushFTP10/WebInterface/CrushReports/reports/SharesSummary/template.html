@@ -1,0 +1,106 @@
+<script type="text/template" id="html-content">
+  <div class="charts" style="width: 98%;white-space: nowrap;">
+      <div class="row">
+          <div class="col-md-6 col-lg-4 col-sm-12 graph-panel">
+              <h3 class="sub-title">
+                 <i class="fa fa-pie-chart"></i> Shares by Users
+              </h3>
+              <div id="usersDonut" class="graph"></div>
+              <div class="text-center no-data" style="display:none;">Nothing to display</div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-sm-12 graph-panel">
+              <h3 class="sub-title">
+                 <i class="fa fa-pie-chart"></i> Shares by Types
+              </h3>
+              <div id="typesDonut" class="graph"></div>
+              <div class="text-center no-data" style="display:none;">Nothing to display</div>
+          </div>
+          <div class="col-md-12 col-lg-4 col-sm-12">
+              <div class="panel panel-success text-left graph-stats">
+                  <div class="panel-heading">
+                      <strong><i class="fa fa-list-ul"></i> Quick Stats:</strong>
+                  </div>
+                  <div class="panel-body">
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                              Between <span class="start-date stat"></span> to <span class="end-date stat"></span> total <span class="total-shares stat"></span> share(s) were made
+                          </li>
+                          <li class="list-group-item">
+                              The user which made most shares is <span class="most-shares-user stat"></span> (<span class="most-shares-count stat"></span>)
+                          </li>
+                          <li class="list-group-item">
+                              The largest item shared is <span class="largest-file-name stat"></span> (<span class="largest-file-size stat"></span>)
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="has-report-data">
+      <hr>
+          <div class="text-center">
+              <button type="button" class="btn btn-lg btn-success" id="exportAsXLS"><i class="fa fa-file-excel-o"></i> Export as XLS</button>
+          </div>
+      <hr>
+      <div class="panel-group" role="tablist" aria-multiselectable="true">
+          <div class="tables"></div>
+      </div>
+  </div>
+</script>
+<script type="text/template" id="template">
+  <div class='panel panel-default'>
+      <a role='button' data-toggle="collapse" href='#$type_timeLine'>
+          <div class='panel-heading'>
+              <h4 class='panel-title'><i class="fa fa-bar-chart-o"></i> Timeline:</h4>
+          </div>
+      </a>
+      <div class='panel-body collapse in timeline' id='$type_timeLine'>
+      </div>
+  </div>
+  <div class='panel panel-default'>
+      <a class='collapsed' role='button' data-toggle="collapse" href='#$type_table'>
+          <div class='panel-heading'>
+              <h4 class='panel-title'><i class="fa fa-table"></i> Records</h4>
+          </div>
+      </a>
+      <div id='$type_table' class="collapse in">
+          <div class='panel-body'>
+              <div class='panel panel-default no-border top-margin' id='$type_dataRecord'>
+                  <table id="$typeRecords" class="table table-striped table-bordered $type-table dataTable" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>
+                              <th>Shared by</th>
+                              <th>To</th>
+                              <th>Username</th>
+                              <th>Name</th>
+                              <th>Size</th>
+                              <th>Type</th>
+                              <th>Shared On</th>
+                              <th>Expires On</th>
+                              <th>Path</th>
+                              <th>URL</th>
+                              <th>Info</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                              <th>Shared by</th>
+                              <th>To</th>
+                              <th>Username</th>
+                              <th>Name</th>
+                              <th>Size</th>
+                              <th>Type</th>
+                              <th>Shared On</th>
+                              <th>Expires On</th>
+                              <th>Path</th>
+                              <th>URL</th>
+                              <th>Info</th>
+                          </tr>
+                      </tfoot>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</script>

@@ -1,0 +1,892 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlSettings" class="userMgrPanel">
+	<div class="ui-helper-hidden" id="CrushStaticVars">
+		<input type="text" id="version" />
+		<!--input type="text" id="real_path_to_user" /-->
+		<input type="text" id="root_dir" />
+		<input type="text" id="userVersion" />
+	</div>
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Settings headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg">
+                <fieldset class="ui-widget-content nobg" filterKeywords="settings max maximum login time max login time">
+                    <legend class="collapseHandle pointer"></legend>
+                    <div class="dataDiv">
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum login time max login time" pnlId="settings1" config="max_login_time">
+                            <table quickLocate="Max Login Time">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_login_time">
+                                                Max Login Time:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_login_time" />
+                                            <label for="max_login_time">
+                                                (in minutes, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum idle time max idle time" pnlId="settings2" config="max_idle_time">
+                            <table quickLocate="Max Idle Time">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_idle_time">
+                                                Max Idle Time:
+                                            </label>
+                                            <input class="validate" valtype="onlyNumber" type="text" id="max_idle_time" />
+                                            <label for="max_idle_time">
+                                                (in minutes, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload speed bandwidth max" pnlId="settings3" config="speed_limit_upload">
+                            <table quickLocate="Max Upload Speed">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="speed_limit_upload">
+                                                Max Upload Speed:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="speed_limit_upload" />
+                                            <label for="speed_limit_upload">
+                                                (K/sec, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="minimum upload speed bandwidth" pnlId="settings18" config="min_upload_speed">
+                            <table quickLocate="Minimum Upload Speed">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_upload_speed">
+                                                Minimum Upload Speed:
+                                            </label>
+                                            <input class="validate" valtype="onlyNumber" type="text" id="min_upload_speed" />
+                                            <label for="min_upload_speed">
+                                                (K/sec, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="speed limit download bandwidth" pnlId="settings4" config="speed_limit_download">
+                            <table quickLocate="Max Download Speed">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="speed_limit_download">
+                                                Max Download Speed:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="speed_limit_download" />
+                                            <label for="speed_limit_download">
+                                                (K/sec, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+						 <fieldset class="ui-widget-content nobg" filterKeywords="minimum download speed" pnlId="settings5" config="min_download_speed">
+                            <table quickLocate="Minimum Download Speed">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="min_download_speed">
+                                                Minimum Download Speed:
+                                            </label>
+                                            <input class="validate" valtype="onlyNumber" type="text" id="min_download_speed" />
+                                            <label for="min_download_speed">
+                                                (K/sec, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="download upload ratio credits" pnlId="settings6" config="ratio">
+                            <table quickLocate="Download to Upload Ratio">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" class="ratio_checkBox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields safari-notop">
+                                            <label for="ratio">
+                                                Download to Upload Ratio:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="ratio" style="width: 60px;" />
+											 <label>
+												to 1 (0=no limit)
+											 </label>
+                                            <input type="checkbox" id="ratio_field_permanent" />
+                                            <label for="ratio_field_permanent">
+                                                Permanent Ratio</label>
+                                            <div class="clear">
+                                            </div>
+                                            <div id="creditsData" style="text-align: center; float: left;">
+												<a href="#" id="editCredits" class="button" style="margin-top:8px;">
+													<span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+													<span class="">Edit Credits</span>
+												</a>
+												Upload:<span class="liveData" style="display:none;" id="user_bytes_received"></span><span id="user_bytes_received_value"></span> / Download:
+												<span class="liveData" style="display:none;" id="user_bytes_sent"></span><span id="user_bytes_sent_value"></span>
+                                            </div>
+                                            <div class="clear">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload individual size" pnlId="settings7" config="max_upload_size">
+                            <table quickLocate="Max Upload Individual File Size">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_size">
+                                                Max Upload Individual File Size:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_size" />
+                                            <label for="max_upload_size">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload amount session" pnlId="settings8" config="max_upload_amount">
+                            <table quickLocate="Max Upload Amount Per Session">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_amount">
+                                                Max Upload Amount Per Session:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_amount" />
+                                            <label for="max_upload_amount">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload amount day" pnlId="settings9" config="max_upload_amount_day">
+                            <table quickLocate="Max Upload Amount Per Day">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_amount_day">
+                                                Max Upload Amount Per Day:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_amount_day" />
+                                            <label for="max_upload_amount_day">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferAmtUpload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Upload Transfer Amount</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload amount month" pnlId="settings10" config="max_upload_amount_month">
+                            <table quickLocate="Max Upload Amount Per Month">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_amount_month">
+                                                Max Upload Amount Per Month:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_amount_month" />
+                                            <label for="max_upload_amount_month">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferAmtUpload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Upload Transfer Amount</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum download amount session" pnlId="settings11" config="max_download_amount">
+                            <table quickLocate="Max Download Amount Per Session">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_download_amount">
+                                                Max Download Amount Per Session:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_download_amount" />
+                                            <label for="max_download_amount">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum download amount day" pnlId="settings12" config="max_download_amount_day">
+                            <table quickLocate="Max Download Amount Per Day">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_download_amount_day">
+                                                Max Download Amount Per Day:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_download_amount_day" />
+                                            <label for="max_download_amount_day">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferAmtDownload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Download Transfer Amount</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum download amount month" pnlId="settings13" config="max_download_amount_month">
+                            <table quickLocate="Max Download Amount Per Month">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_download_amount_month">
+                                                Max Download Amount Per Month:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_download_amount_month" />
+                                            <label for="max_download_amount_month">
+                                                (in K, 0=no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferAmtDownload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Download Transfer Amount</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload count session" pnlId="settings19" config="max_upload_count">
+                            <table quickLocate="Max Upload Count Per Session">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_count">
+                                                Max Upload Count Per Session:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_count" />
+                                            <label for="max_upload_count">
+                                                (0 = no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload count day" pnlId="settings20" config="max_upload_count_day">
+                            <table quickLocate="Max Upload Count Per Day">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_count_day">
+                                                Max Upload Count Per Day:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_count_day" />
+                                            <label for="max_upload_count_day">
+                                                (0 = no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferCountUpload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Upload Transfer Count</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum upload count month" pnlId="settings21" config="max_upload_count_month">
+                            <table quickLocate="Max Upload Count Per Month">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_upload_count_month">
+                                                Max Upload Count Per Month:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_upload_count_month" />
+                                            <label for="max_upload_count_month">
+                                                (0 = no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferCountUpload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Upload Transfer Count</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum download count session" pnlId="settings22" config="max_download_count">
+                            <table quickLocate="Max Download Count Per Session">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_download_count">
+                                                Max Download Count Per Session:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_download_count" />
+                                            <label for="max_download_count">
+                                                (0 = no limit)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum download count day" pnlId="settings23" config="max_download_count_day">
+                            <table quickLocate="Max Download Count Per Day">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_download_count_day">
+                                                Max Download Count Per Day:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_download_count_day" />
+                                            <label for="max_download_count_day">
+                                                (0 = no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferCountDownload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Download Transfer Count</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="maximum download count month" pnlId="settings24" config="max_download_count_month">
+                            <table quickLocate="Max Download Count Per Month">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="max_download_count_month">
+                                                Max Download Count Per Month:
+                                            </label>
+                                            <input class="validate" valtype="numeric" type="text" id="max_download_count_month" />
+                                            <label for="max_download_count_month">
+                                                (0 = no limit)
+                                            </label>
+                                        </div>
+                                        <a href="#" class="clearMaxTransferCountDownload button" style="margin-top:15px;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                            <span class="">Clear Download Transfer Count</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="disable partial downloads" pnlId="settings14" config="partial_download">
+                            <table quickLocate="Disable Partial Download">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="partial_download" />
+                                            <label for="partial_download">
+                                                Disable Partial Download</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="enable directory size calculation" pnlId="settings19" config="dir_calc">
+                            <table quickLocate="Directory Size Calculation">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="dir_calc" />
+                                            <label for="dir_calc">Enable Directory Size Calculation</label>
+                                            <span class="spacer"></span>
+                                            <span class="spacer"></span>
+                                            <label for="dir_depth">
+                                                Depth:
+                                            </label>
+                                            <input type="text" id="dir_depth" class="smallInputBox" />
+                                            <!-- <span class="spacer"></span><span class="spacer"></span>
+                                            <label for="dir_max_size">
+                                                Max Size:
+                                            </label>
+                                            <input type="text" id="dir_max_size" class="inputBox" />
+                                            <label for="dir_max_size">
+                                                (in bytes)
+                                            </label> -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="enable directory count calculation" pnlId="settings20" config="dir_calc_count">
+                            <table quickLocate="Directory Count Calculation">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="dir_calc_count" />
+                                            <label for="dir_calc_count">
+                                                Enable Directory Count Calculation</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="as2 encryption keystore alias as3" pnlId="settings15" config="as2EncryptKeystorePath">
+                            <table quickLocate="AS2/3 Decryption Key">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields safari-notop">
+                                            <table style="width:650px;">
+                                                <tr>
+                                                    <td colspan="2">
+                                                        AS2/3 Decryption Key
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 150px;text-align: right;">
+                                                        <label for="as2EncryptKeystorePath">
+                                                            Keystore Path:
+                                                        </label>
+                                                    </td>
+                                                    <td style="width:500px;">
+                                                        <input type="text" id="as2EncryptKeystorePath" class="bigInputBox path" />
+
+														<a href="#" PickType="file" class="button noSpacing serverFilePickButton" rel="as2EncryptKeystorePath">
+															<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+															<span class="">
+																Browse
+															</span>
+														</a>
+													</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2EncryptKeystoreFormat">
+                                                            Keystore format:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <select id="as2EncryptKeystoreFormat">
+                                                            <option>JKS</option>
+                                                            <option>PKCS12</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2EncryptKeystorePassword">
+                                                            Keystore Password:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="password" id="as2EncryptKeystorePassword" class="encryptPass storePass" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2EncryptKeyAlias">
+                                                            Key name(alias):
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="as2EncryptKeyAlias" class="alias" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2EncryptKeyPassword">
+                                                            Key Password:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="password" id="as2EncryptKeyPassword" class="encryptPass keyPass" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="button testCertificate encryption" style="top:4px;">
+                                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon  ui-icon-transferthick-e-w'></span>
+                                                            Test Certificate
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="sign encryption keystore alias as3 as2" pnlId="settings18" config="as2SignKeystorePath">
+                            <table quickLocate="AS2/3 Signature Verification Key">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields safari-notop">
+                                            <table style="width:650px;">
+                                                <tr>
+                                                    <td colspan="2">
+                                                        AS2/3 Signature Verification Key
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 150px;text-align: right;">
+                                                        <label for="as2SignKeystorePath">
+                                                            Keystore Path:
+                                                        </label>
+                                                    </td>
+                                                    <td style="width:500px;">
+                                                        <input type="text" id="as2SignKeystorePath" class="bigInputBox path" />
+
+                                                        <a href="#" PickType="file" class="button noSpacing serverFilePickButton" rel="as2SignKeystorePath">
+                                                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+                                                            <span class="">
+                                                                Browse
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2SignKeystoreFormat">
+                                                            Keystore format:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <select id="as2SignKeystoreFormat">
+                                                            <option>JKS</option>
+                                                            <option>PKCS12</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2SignKeystorePassword">
+                                                            Keystore Password:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="password" id="as2SignKeystorePassword" class="encryptPass storePass" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        <label for="as2SignKeyAlias">
+                                                            Key name(alias):
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="as2SignKeyAlias" class="alias" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="button testCertificate decryption" style="top:4px;">
+                                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon  ui-icon-transferthick-e-w'></span>
+                                                            Test Certificate
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="as3 as2 unique filenames" pnlId="settings24" config="as2_append_guid">
+                            <table quickLocate="Unique AS2 filenames">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="as2_append_guid" />
+                                            <label for="as2_append_guid">
+                                                Unique AS2 filenames</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="as3 as2 allowed" pnlId="settings16" config="as3_allowed">
+                            <table quickLocate="Process As3 Files">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="as3_allowed" />
+                                            <label for="as3_allowed">
+                                                Process As3 Files</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+						<fieldset class="ui-widget-content nobg" filterKeywords="quota dir" pnlId="settings17" config="parent_quota_dir">
+                            <table quickLocate="Dir to use for Quota">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="parent_quota_dir">
+                                                Dir to use for Quota:
+                                            </label>
+                                            <input type="text" id="parent_quota_dir" />
+                                            <label for="parent_quota_dir">
+                                                (Leave blank, or user '../', be cautious..)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="user level quota" pnlId="settings25" config="quota_mb">
+                            <table quickLocate="User level quota">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="quota_mb">
+                                                User level quota MB:
+                                            </label>
+                                            <input type="text" id="quota_mb" />
+                                            <label for="quota_mb">
+                                                (Leave blank for no quota.  Individual VFS configured quotas override this value.)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="zipstream expansion" pnlId="settings18" config="allow_zipstream">
+                            <table quickLocate="Allow '.zipstream' Expansion">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="allow_zipstream" />
+                                            <label for="allow_zipstream">
+                                                Allow '.zipstream' Expansion</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="zipstream expansion DMZ" pnlId="settings19" config="zip_stream_decompress_at_dmz">
+                            <table quickLocate="Zipstream expansion on DMZ">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="zip_stream_decompress_at_dmz" />
+                                            <label for="zip_stream_decompress_at_dmz">
+                                                Allow '.zipstream' Expansion on DMZ</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="lsla" pnlId="settings20" config="lsla2">
+                            <table quickLocate="Use 'ls-la' for directory listings (OSX, Unix, Linux)">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="lsla2" />
+                                            <label for="lsla2">
+                                                Use 'ls-la' for directory listings (OSX, Unix, Linux)</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="rename overwrite" pnlId="settings21" config="rnto_overwrite">
+                            <table quickLocate="Rename overwrite">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="rnto_overwrite" />
+                                            <label for="rnto_overwrite">
+                                                Rename overwrite</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="track deleted sub items" pnlId="settings22" config="track_delete_sub_items">
+                            <table quickLocate="Track deleted sub items">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="track_delete_sub_items" />
+                                            <label for="track_delete_sub_items">
+                                                Track deleted sub items</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-widget-content nobg" filterKeywords="Subscribe reverse notification event template" pnlId="settings26" config="subscribe_reverse_notification_event">
+                            <table quickLocate="Subscribe reverse notification event template">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields" id="rneventDataBindPanel">
+                                            <input type="checkbox" id="subscribe_reverse_notification_event" />
+                                            <label for="subscribe_reverse_notification_event">
+                                                Enable subscribe reverse notification event</label>
+                                            <div>
+                                                <div id="rntemplateNotAvailable" style="display: none;margin:10px;">
+                                                    <span style="padding:3px;display:inline-block;margin:0px 3px;" class="ui-corner-all ui-state-error">There is no subscribe reverse notification event template available, please create one in the <a href="javascript:void(0);" style="text-decoration: underline;" class="eventPanelLink">Events section</a></span>
+                                                </div>
+                                            </div>
+                                            <div style="margin:10px;">
+                                                <div class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;">
+                                                    <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                                    <span class="msgText">
+                                                        You can add subscribe reverse notification event template in the <a href="javascript:void(0);" style="text-decoration: underline;" class="eventPanelLink">Events section</a>, just create a new event and select its action as subscribe reverse notification event template
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</div>

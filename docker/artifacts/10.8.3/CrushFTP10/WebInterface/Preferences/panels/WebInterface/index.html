@@ -1,0 +1,1150 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<div id="pnlWebInterface">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary WebInterface headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="tabs nobg">
+                    <ul>
+                        <li><a href="#WICustomForms" class="WebInterface lblCustomFormsTabText">Custom Forms</a></li>
+                        <li><a href="#WIMiniURLs" class="WebInterface lblMiniURLsTabText">Mini URLs</a></li>
+                        <li><a href="#WIOptions" class="WebInterface lblOptionsTabText">Options</a></li>
+                        <li><a href="#WIText" class="WebInterface lblTextTabText">Text</a></li>
+                        <!-- <li><a href="#WIMisc" class="WebInterface enterpriseFeature no-alert crush7Feature">Misc</a></li> -->
+                        <li><a href="#WILoginPage" class="WebInterface enterpriseFeature no-alert crush7Feature">Login Page</a></li>
+                        <li><a href="#WICSP" class="WebInterface enterpriseFeature no-alert">CSP</a></li>
+                    </ul>
+                    <div id="WICustomForms" class="customForm noBtnTop sense-change" rel="forms">
+                        <div style="margin-top:10px;">
+                            <select id="CustomForms" name="CustomForms">
+                            </select>
+                            <a href="#" class="button" id="createNewForm"><span class=" WebInterface btnCreateNewFormText">New</span></a>
+                            <a href="#" class="button" id="duplicateForm"><span class="  WebInterface btnCreateDuplicateOfFormText">Duplicate</span></a>
+                            <a href="#" class="button" id="deleteForm"><span class=" WebInterface btnDeleteFormText">Delete</span></a>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td width="25%" class="ui-widget-content rightborder nobg">
+                                        <ul id="sortableWebInterfaceForm" class="custom-list">
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewLabel" style='display:inline-block;margin-right:10px;float:left;margin-top: -1px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <label class="ui-priority-primary WebInterface lblFormBuilderLabelText">Label</label>
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewTextbox" style='display:inline-block;margin-right:10px;float:left;margin-top: 0px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <input disabled="disabled" type="text" class="excludeXML WebInterface lblFormBuilderTextFieldInputText" value="Text Field" />
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewTextarea" style='display:inline-block;margin-right:10px;float:left;margin-top: 2px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <textarea disabled="disabled" rows="2" cols="20" class="excludeXML WebInterface lblFormBuilderBigTextFieldText">Big Text Field (Textarea)</textarea>
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewDropdown" style='display:inline-block;margin-right:10px;float:left;margin-top: 2px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <select disabled="disabled" class="excludeXML WebInterface FormBuilderDropdownText">
+                                                        <option class="WebInterface lblFormBuilderDropdownText">Dropdown</option>
+                                                    </select>
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewCheckbox" style='display:inline-block;margin-right:10px;float:left;margin-top: 2px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <input disabled="disabled" type="checkbox" class="excludeXML" />
+                                                    <label class="WebInterface lblFormBuilderCheckboxText">
+                                                        Checkbox
+                                                    </label>
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewRadio" style='display:inline-block;margin-right:10px;float:left;margin-top: 2px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <input disabled="disabled" type="radio" class="excludeXML" />
+                                                    <label class="WebInterface lblFormBuilderRadioText">
+                                                        Radio
+                                                    </label>
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                            <li class="ui-widget-content nobg addControlTrigger">
+                                                <p>
+                                                    <span id="addNewTagsInput" style='display:inline-block;margin-right:10px;float:left;margin-top: 0px;' class='pointer ui-icon ui-icon-circle-plus'></span>
+                                                    <label class="WebInterface" style="top:0px;">
+                                                        Tags Input (Multiple selection)
+                                                    </label>
+                                                </p>
+                                                <span class='drag ui-icon ui-icon-arrow-4'></span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td width="50%" class="ui-widget-content rightborder nobg">
+                                        <div style="margin:0px 10px;max-width: 800px;">
+                                            <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="height:445px;">
+                                                <ol class="nobg custom-list sideScroll" id="custom_form_controls" name="custom_form_controls">
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td width="25%">
+                                        <div style="margin:0px 10px;">
+                                            <p>
+                                                <a href="#" class="button" id="editFormControl">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document'></span>
+                                                    <span class="WebInterface btnFormBuilderEditEntryText">
+                                            Edit Entry</span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="moveControlUp">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-n'></span>
+                                                    <span class="WebInterface btnFormBuilderMoveEntryUpText">
+                                            Move Entry Up
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="moveControlDown">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-s'></span>
+                                                    <span class="WebInterface btnFormBuilderMoveEntryDownText">
+                                            Move Entry Down
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="deleteFormControl">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>
+                                                    <span class="WebInterface btnFormBuilderDeleteEntryText">
+                                            Delete Entry
+                                            </span></a>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div>
+                                            <div class="ui-priority-primary" style="margin-top: 5px;">
+                                                <span class="WebInterface lblFormBuilderPreviewText">
+                                                    Preview:
+                                                </span>
+                                            </div>
+                                            <div id="formPreview" class="preview LargeListBox nobg ui-widget-content ui-corner-all ui-state-default sideScroll" style="padding-top:10px;overflow: auto;max-width: 1200px;">
+                                                <table width="100%" cellpadding="0" cellspacing="0" border="0" class="customformtbl">
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="WIMiniURLs" class="sense-change" rel="miniurl">
+                        <p class="WebInterface pnlMiniUrlsHeaderNoteText">
+                            A mini URL is a secure URL you can send to clients. It allows an end user to accsss a specific file, or folder without needing to login. It does not include the username or password as part of the URL. When a user uses the URL, it allows them to be logged in to an account, to retrieve the file specified. You may also set an expiration of when the URL will automatically be deleted and no longer valid.
+                        </p>
+                        <p>
+                            <a href="#" id="addMiniURL" class="button">
+                                <span style='display:inline-block;margin:-2px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus'></span>
+                                <span class="WebInterface btnMiniUrlsAddMiniURLText">Add Mini URL</span></a>
+                            <a href="#" id="removeMiniURL" class="button">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-minus'></span>
+                                <span class="WebInterface btnMiniUrlsRemoveURLText">Remove Mini URL</span>
+                            </a>
+                            <a href="#" id="copyMiniURL" class="button">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-copy'></span>
+                                <span class="WebInterface btnMiniUrlsCopyURLText">Duplicate Selected</span>
+                            </a>
+                            <span style="float:right;" id="miniURLSortLinks">
+                                <strong>Sort By:</strong>
+                                <a href="#" class="sortby asc" rel="user" id="miniMapSortByUser">User Name</a> |
+                                <a href="#" class="sortby" rel="key" id="miniMapSortByKey">Key</a> |
+                                <a href="#" class="sortby" rel="redirect" id="miniMapSortByPath">Path</a> |
+                                <a href="#" class="sortby" rel="expire" id="miniMapSortByDate">Expiration Date</a>
+                            </span>
+                        </p>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="">
+                            <tr>
+                                <td style="text-align:right;width: 175px;padding-right: 5px;">
+                                    <label class="WebInterface lblMiniUrlsFormURLText">Server URL:</label>
+                                </td>
+                                <td class="sense-change" rel="options">
+                                    <input style="width:340px;margin-top: -2px;margin-bottom: 10px;" type="text" id="miniURLHost" name="miniURLHost" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right;width: 175px;padding-right: 5px;">
+                                    <label class="WebInterface" for="allowed_http_hosts_reset_link">Allowed HTTP Hosts for Reset:</label>
+                                </td>
+                                <td class="sense-change" rel="options">
+                                    <input type="text" id="allowed_http_hosts_reset_link" name="allowed_http_hosts_reset_link" class="bigInputBox" />
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+                            <ol class="nobg selectable single sideScroll" id="miniURLs" name="miniURLs">
+                            </ol>
+                        </div>
+                        <p>
+                            <div style="padding:5px 0px;" class="nobg ui-widget-content ui-corner-all ui-state-default" id="miniURLDetails">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0" class="customformtbl">
+                                    <tr>
+                                        <td style="width:120px;">
+                                            <label class="WebInterface lblMiniUrlsFormURLKeyText">MiniURL Key:</label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="key" name="key" class="excludeXML miniURLField ignoreBind" />
+                                            <a id="copyToClipboardMiniURLKey" href="#" class="button slim" style="padding:2px 10px;">
+                                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-clipboard'></span>
+                                                <span class="WebInterface btnMiniUrlsFormCopyToClipboardText">Copy To Clipboard</span></a>
+                                            <div class="error-text">
+                                                Please enter valid Key only "*" is not allowed as a key
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="WebInterface lblMiniUrlsFormURLPointsToText" for="redirect">MiniURL Points To:</label>
+                                        </td>
+                                        <td>
+                                            <input style="width:340px;" type="text" id="redirect" name="redirect" class="excludeXML miniURLField ignoreBind" />
+                                            <div class="error-text">
+                                                Please enter valid Key only "*" is not allowed as a redirect point
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="WebInterface lblMiniUrlsExpirationDateText" for="expire">Expiration Date:</label>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="date time" id="expire" name="expire" class="excludeXML miniURLField ignoreBind" />
+                                            <a href="#" id="quickSet" class="button slim" style="padding:2px 10px;">
+                                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-calendar'></span>
+                                                <span class="WebInterface lblMiniUrlsFormSetDaysText">Set Days</span></a>
+                                            <span class="WebInterface lblMiniUrlsFormSetDaysDescText">Example 01/01/2008 08:00 AM</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="WebInterface lblMiniUrlsLoginUsernameText" for="user">Login Username:</label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="user" name="user" class="excludeXML miniURLField ignoreBind" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="WebInterface lblMiniUrlsLoginPasswordText" for="pass">Login Password:</label>
+                                        </td>
+                                        <td>
+                                            <input type="password" id="pass" name="pass" class="excludeXML miniURLField encryptPass ignoreBind" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="WIOptions" class="customForm sense-change" rel="options">
+                        <p class="WebInterface pnlOptionsHeaderNoteText">
+                            You may set a default logo file to be used. The file will be used as the default unless you override it with a custom setting on a per user basis. This includes the logo that is displayed for the login page.
+                            <br/>
+                            <br/> Its important to set this here as just replacing the logo.png file will get overwritten the next time you update. Your logo file must be in the WebInterface/images/ directory for it to work. Enter the name of your logo file below. The default is 'logo.png', but you should use a different name to prevent your logo from being overwritten
+                        </p>
+                        <p>
+                            <input type="text" id="default_logo" name="default_logo" />
+                        </p>
+                        <p class="WebInterface pnlOptionsHeaderNotePart2Text">
+                            Multiple domains pointed at this one machine? Make specific login pages styled to fit each domain so your customers get the styled page you want them to see. You may also use this to alter the default login page users will see. Dont use the default "login.html" as its a file CrushFTP owns and will update it with each new release. So make your own file and point the login at it.
+                        </p>
+                        <p>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td width="50%" class="ui-widget-content rightborder nobg">
+                                        <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                            <ol class="nobg selectable single sideScroll custom-list" id="loginPageList" name="loginPageList">
+                                            </ol>
+                                        </div>
+                                    </td>
+                                    <td width="50%">
+                                        <div style="margin:0px 10px;">
+                                            <p>
+                                                <a id="addNewLoginPage" href="#" class="button">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus'></span>
+                                                    <span class="WebInterface btnOptionsAddNewLoginPageText">
+                                            Add New Login Page</span></a>
+                                            </p>
+                                            <p>
+                                                <a id="editNewLoginPage" href="#" class="button">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document'></span>
+                                                    <span class="WebInterface btnOptionsEditLoginPageText">
+                                            Edit Selected Login Page
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a id="removeLoginPage" href="#" class="button">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>
+                                                    <span class="WebInterface btnOptionsDeleteLoginPageText">
+                                            Remove Selected Login Page
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a id="moveLoginPageUp" href="#" class="button">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-n'></span>
+                                                    <span class="WebInterface btnOptionsLoginPageMoveUpText">
+                                            Move Up
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a id="moveLoginPageDown" href="#" class="button">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-s'></span>
+                                                    <span class="WebInterface btnOptionsLoginPageMoveDownText">
+                                            Move Down
+                                            </span></a>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                        <p>
+                            <div style="padding:5px 0px;" class="nobg ui-widget-content ui-corner-all">
+                                <table width="100%" cellpadding="5" cellspacing="3" border="0" class="">
+                                    <tr>
+                                        <td>
+                                            <div style="display:inline-block">
+                                                <input type="checkbox" id="allow_gzip" name="allow_gzip" />
+                                                <label for="allow_gzip" class="WebInterface lblBoxAllowGZipText">Allow GZIP Encoding</label>
+                                            </div>
+                                            <span class="spacer"></span>
+                                            <span class="spacer"></span>
+                                            <div style="display:inline-block">
+                                                <input type="checkbox" id="display_alt_logo" name="display_alt_logo" />
+                                                <label for="display_alt_logo" class="WebInterface lblBoxDisplayAlternateLogoText">Display alternate '.logo.png' in folders</label>
+                                            </div>
+                                            <span class="spacer"></span>
+                                            <span class="spacer"></span>
+                                            <div style="display:inline-block">
+                                                <input type="checkbox" id="hide_email_password" name="hide_email_password" />
+                                                <label for="hide_email_password" class="WebInterface lblHideEmailForgottehPaswdLinkText">Hide email forgotten password link</label>
+                                            </div>
+                                            <span class="spacer"></span>
+                                            <span class="spacer"></span>
+                                            <div style="display:inline-block">
+                                                <input type="checkbox" id="email_reset_token" name="email_reset_token" />
+                                                <label for="email_reset_token">Email reset token instead of password.</label>
+                                            </div>
+                                            <div style="margin: 10px 0px;">
+                                                <label for="reset_url" class="WebInterface">Reset URL:</label>
+                                                <input class="bigInputBox" type="text" id="reset_url" name="reset_url" />
+                                                <label for="reset_url" class="WebInterface">(default: https://domain.com/WebInterface/jQuery/reset.html)</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" id="direct_link_access" name="direct_link_access" />
+                                                <label for="direct_link_access" class="WebInterface">Allow direct link access without redirect</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" id="direct_link_to_webinterface" name="direct_link_to_webinterface" />
+                                                <label for="direct_link_to_webinterface" class="WebInterface">Load WebInterface before file redirect?</label>
+                                            </div>
+                                             <div>
+                                                <input type="checkbox" id="login_autocomplete_off" name="login_autocomplete_off" />
+                                                <label for="login_autocomplete_off" class="WebInterface">Turn off autocomplete of username and password on login page.</label>
+                                            </div>
+                                            <!--span class="spacer"></span>
+                                        <span class="spacer"></span>
+
+                                        <div style="display:inline-block">
+                                            <input type="checkbox" id="exif_listings" name="exif_listings" />
+                                            <label for="exif_listings" class="WebInterface">Show EXIF information in listing</label>
+                                        </div-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="default_title" class="WebInterface lblDefaultWindowTitleText">Login screen window Title</label>
+                                            <input class="bigInputBox" type="text" id="default_title" name="default_title" />
+                                        </td>
+                                    </tr>
+                                    <tr class="crush7Feature">
+                                        <td>
+                                            <label for="http_session_timeout">HTTP Session Timeout</label>
+                                            <input class="smallInputBox" type="text" id="http_session_timeout" name="http_session_timeout" />
+                                            <span class="spacer"></span>
+                                            <label for="domain_cookie">Domain Cookie</label>
+                                            <input class="bigInputBox" type="text" id="domain_cookie" name="domain_cookie" />
+                                            <span id="domain_cookie_warning" style="padding:5px;display:none;" class="ui-corner-all ui-state-error"><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span><span class="Preview lblCautionText">Caution:This field should be left blank 99% of the time, a bad value will make the server impossible to login to it using a browser and change settings.</span></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="crush7Feature">
+                                        <td>
+                                            <input type="checkbox" id="ignore_web_anonymous" name="ignore_web_anonymous" />
+                                            <label for="ignore_web_anonymous">Ignore Web Anonymous?</label>
+                                            <span class="spacer"></span>
+                                            <input type="checkbox" id="ignore_web_anonymous_proxy" name="ignore_web_anonymous_proxy" />
+                                            <label for="ignore_web_anonymous_proxy">Ignore Web Anonymous Proxy?</label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="WIText" class="customForm sense-change" rel="options">
+                        <p class="WebInterface lblOptionsHeaderNoteText">
+                            Enter a footer message that will be added to all user's WebInterface pages. This is a global footer, and is different than the footer text that can be applied on a per user basis.
+                        </p>
+                        <p>
+                            <textarea class="formTextareaComment" id="webFooterText" name="webFooterText"></textarea>
+                        </p>
+                        <p class="WebInterface lblOptions404ErrorHeaderText ui-priority-primary">
+                            404 Error Response Text:
+                        </p>
+                        <p class="WebInterface lblOptions404ErrorDescText">
+                            In rare cases a 404 error may be returned, and this text will be included.
+                        </p>
+                        <p>
+                            <textarea class="formTextareaComment" id="web404Text" name="web404Text">The selected resource was not found.</textarea>
+                        </p>
+                    </div>
+                    <div id="WIProxy" class="customForm sense-change" rel="proxy" style="display: none;">
+                        <p>
+                            <input type="checkbox" id="proxyKeepUploads" name="proxyKeepUploads" />
+                            <label for="proxyKeepUploads" class="WebInterface lblProxyOptionsKeepCopyOfUploadedFilesText ui-priority-primary">Keep copy of uploaded files passing through server.</label>
+                        </p>
+                        <p class="subPanel ui-widget-content leftborder nobg">
+                            <label for="proxyUploadRepository" class="WebInterface lblProxyOptionsUploadedFileRepoText">Uploaded file repository:</label>
+                            <input type="text" id="proxyUploadRepository" name="proxyUploadRepository" style="width:400px" />
+                            <a href="#" class="button serverFilePickButton" rel="proxyUploadRepository" style="top:4px;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                <span class="WebInterface btnBrowseText">Browse
+                            </span>
+                            </a>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="proxyKeepDownloads" name="proxyKeepDownloads" />
+                            <label for="proxyKeepDownloads" class="WebInterface lblProxyOptionsKeepCopyOfDownloadedFilesText ui-priority-primary">Keep copy of downloaded files passing through server.</label>
+                        </p>
+                        <p class="subPanel ui-widget-content leftborder nobg">
+                            <label for="proxyDownloadRepository" class="WebInterface lblProxyOptionsDownloadedFileRepoText">Downloaded file repository:</label>
+                            <input type="text" id="proxyDownloadRepository" name="proxyDownloadRepository" style="width:400px" />
+                            <a href="#" class="button serverFilePickButton" rel="proxyDownloadRepository" style="top:4px;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                <span class="WebInterface btnBrowseText">Browse
+                            </span>
+                            </a>
+                        </p>
+                        <p class=" crush7Feature">
+                            <input type="checkbox" id="jailproxy" name="jailproxy" />
+                            <label for="jailproxy">
+                                Jail Proxy?</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input type="checkbox" id="change_remote_password" name="change_remote_password" />
+                            <label for="change_remote_password">
+                                Change Remote Password?</label>
+                        </p>
+                        <p class=" crush7Feature">
+                            <label for="proxy_socket_mode">
+                                Socket Mode:</label>
+                            <input type="text" id="proxy_socket_mode" name="proxy_socket_mode" class="inputBox" />
+                            <span class="spacer"></span>
+                            <label for="proxyActivePorts">
+                                Active Ports:</label>
+                            <input type="text" id="proxyActivePorts" name="proxyActivePorts" class="inputBox" />
+                        </p>
+                        <p class="WebInterface lblProxyHostRulesHeaderText ui-priority-primary">
+                            Proxy Host Rules
+                        </p>
+                        <p>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td width="50%" class="ui-widget-content rightborder nobg">
+                                        <div style="margin:0px 10px;">
+                                            <div>
+                                                <label for="filterProxy">Filter:</label>
+                                                <input type="text" class="ignoreBind bigInputBox excludeXML" id="filterProxy" />
+                                                <label>
+                                                    <a href="javascript:void(0);" id="clearProxyFilter">Clear</a>
+                                                </label>
+                                            </div>
+                                            <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                                <ol class="nobg selectable single sideScroll custom-list" id="proxyRules" name="proxyRules">
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td width="50%">
+                                        <div style="margin:0px 10px;">
+                                            <p>
+                                                <a href="#" class="button" id="addNewProxyRule">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus'></span>
+                                                    <span class="WebInterface btnProxyAddNewRuleText">
+                                            Add New</span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="editProxyRule">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document'></span>
+                                                    <span class="WebInterface btnProxyEditRuleText">
+                                            Edit Selected
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="removeProxyRule">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>
+                                                    <span class="WebInterface btnProxyRemoveRuleText">
+                                            Remove Selected
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="moveProxyRuleUp">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-n'></span>
+                                                    <span class="WebInterface btnProxyRuleMoveUpText">
+                                            Move Up
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="moveProxyRuleDown">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-s'></span>
+                                                    <span class="WebInterface btnProxyRuleMoveDownText">
+                                            Move Down
+                                            </span></a>
+                                            </p>
+                                            <p>
+                                                <a href="#" class="button" id="sortProxyList">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-arrowthickstop-1-n'></span>
+                                                    <span class="text">
+                                            Sort Alphabetically (ascending)</span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p>
+                        <!--p>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" class="customformtbl">
+                            <tr>
+                                <td style="width:30%;">
+                                    <input type="checkbox" id="change_remote_password" name="change_remote_password" />
+                                    <label for="change_remote_password" class="WebInterface">Allow GZIP Encoding</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="force_ipv4" name="force_ipv4" />
+                                    <label for="force_ipv4" class="WebInterface">Allow GZIP Encoding</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:30%;">
+                                    <input type="checkbox" id="change_remote_password" name="change_remote_password" />
+                                    <label for="change_remote_password" class="WebInterface">Allow GZIP Encoding</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="force_ipv4" name="force_ipv4" />
+                                    <label for="force_ipv4" class="WebInterface">Allow GZIP Encoding</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </p-->
+                    </div>
+                   <!--  <div id="WIMisc" class="customForm">
+                        <p class="enterpriseFeature">
+                            <span class="wrap">
+
+                            </span>
+                            <span class="infoPH" rel=".wrap"></span>
+                        </p>
+                    </div> -->
+                    <div id="WILoginPage" class="customForm sense-change" rel="options">
+                        <div>
+                            <label class="ui-priority-primary" for="login_custom_script">Custom JavaScript:</label>
+                            <div style="background-color: white;width:820px;padding:0px 5px 3px 10px;" class="ui-corner-all noForm">
+                                <br>
+                                <textarea class="formTextareaComment" id="login_custom_script" name="login_custom_script" style="width:800px;height:200px;"></textarea>
+                            </div>
+                        </div>
+                        <div style="height:15px;"></div>
+                        <a href="#" class="button" id="addThemeCss">
+                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-image"></span>
+                            <span class="">
+                                Add Login Page Theme
+                            </span>
+                        </a>
+                        <a href="#" class="button" id="addResponsiveCss">
+                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-arrow-4-diag"></span>
+                            <span class="">
+                                Add Login Page Responsive CSS
+                            </span>
+                        </a>
+                        <a href="#" class="button" id="showLogoInCenter">
+                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-bullet"></span>
+                            <span class="">
+                                Align logo to center
+                            </span>
+                        </a>
+                        <a href="#" class="button" id="showLogoToRight">
+                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-bullet"></span>
+                            <span class="">
+                                Align logo to right
+                            </span>
+                        </a>
+                        <a href="#" class="button" id="addPrivacyPolicyLink">
+                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-note"></span>
+                            <span class="">
+                                Add Privacy Policy Link
+                            </span>
+                        </a>
+                        <div style="margin-top: 10px;">
+                            <label class="ui-priority-primary" for="login_header">Header:</label>
+                            <div style="background-color: white;width:820px;padding:0px 15px 3px 10px;position: relative;" class="ui-corner-all noForm">
+                                <br>
+                                <span style="position: absolute;right:10px;top:3px;">
+                                    <input type="checkbox" id="htmlswitch" class=" htmlswitch ignoreBind excludeXML">
+                                    <label style="top:-2px" for="htmlswitch">HTML</label>
+                                </span>
+                                <br>
+                                <textarea class="htmlarea formTextareaComment" id="login_header" name="login_header" style="width:800px;height:200px;"></textarea>
+                            </div>
+                        </div>
+                        <div style="margin-top:15px;">
+                            <label class="ui-priority-primary" for="login_footer">Footer:</label>
+                            <div style="background-color: white;width:820px;padding:0px 15px 3px 10px;position: relative;" class="ui-corner-all noForm">
+                                <br>
+                                <span style="position: absolute;right:10px;top:3px;">
+                                    <input type="checkbox" id="htmlswitch2" class=" htmlswitch ignoreBind excludeXML">
+                                    <label style="top:-2px" for="htmlswitch2">HTML</label>
+                                </span>
+                                <br>
+                                <textarea class="htmlarea formTextareaComment" id="login_footer" name="login_footer" style="width:800px;height:200px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="WICSP" class="customForm sense-change" rel="csp">
+                        <p>
+                            <label for="Access-Control-Allow-Origin" class="WebInterface">Access Control Allow Origin:</label>
+                            <input type="text" id="Access-Control-Allow-Origin" name="Access-Control-Allow-Origin" />
+                        </p>
+                        <fieldset style="margin-bottom:10px;">
+                            <div class="">
+                                <div style="padding:5px 20px; border:0px" class="content nobg ui-widget-content ui-corner-all">
+                                    <div style="margin: 5px 0px;">
+                                        <label for="strictTransportSecurity"><strong> Strict-Transport-Security:</strong> </label>
+                                        <input class="ignoreBind excludeXML notFormElem bigInputBox" type="text" id="strictTransportSecurity" />
+                                        <label for="lbName">(Default: max-age=31536000; preload)</label>
+                                    </div>
+
+                                    <fieldset style="margin-bottom:10px;">
+                                        <legend class="share-title">Content-Security-Policy Generator:</legend>
+                                        <div class="domains">
+                                            <label class="ui-priority-primary">Domains allowed:</label>
+                                        </div>
+                                        <div class="domains-form">
+                                        </div>
+                                        <div style="margin: 5px 0px;">
+                                            <label for="contentSecurityPolicy"> <strong>CSP Header Value:</strong> </label>
+                                            <br>
+                                            <span style="padding:5px;margin:10px 0px;display: inline-block;" class="ui-corner-all ui-state-error"><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span><span class="">Caution: Modify this only if you know how CSP works, it could completely break your WebInterface access.</span></span>
+                                            <br>
+                                            <textarea class="ignoreBind excludeXML notFormElem" style="margin-top: 10px; width: 800px;height: 100px;" type="text" id="contentSecurityPolicy"></textarea>
+                                        </div>
+                                        <a href="#" class="button" id="addMissingCSP">
+                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-link'></span>
+                                            <span class="">Add missing policies</span>
+                                        </a>
+                                        <label>
+                                        <span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;white-space: nowrap;position: relative;top:0px;line-height: 16px;">
+                                            <span style="float: left; margin-right: 0.3em;margin-top: 0px;" class="ui-icon ui-icon-info"></span>
+                                            <span class="msgText">
+                                                Use this after you enable/disable any OAuth options or Recaptcha. It will add all required CSPs automatically.
+                                            </span>
+                                        </span>
+                                    </label>
+                                    </fieldset>
+                                    <fieldset class="headers" style="margin-bottom:10px;max-width: 800px;">
+                                        <legend class="share-title">Other Headers:</legend>
+                                        <a href="#" class="button" id="resetHeaders" style="float: right;margin-top: -10px;margin-right: -5px;">
+                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+                                            <span class="">Add suggested headers</span>
+                                        </a>
+                                        <div class="headers-form clear">
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <a href="#" class="button" id="resetCSP">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+                                <span class="">Reset CSP to Default</span>
+                            </a>
+                        </fieldset>
+                    </div>
+                </div>
+                <p class="buttonBar right">
+                    <a href="#" class="button">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+                        <span class="submitActionRestore WebInterface btnResetText">Reset To Default</span>
+                    </a>
+                    <a href="#" class="button" id="cancel">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel'></span>
+                        <span class="submitActionCancel WebInterface btnCancelText">Cancel</span>
+                    </a>
+                    <a href="#" class="button" id="saveContent">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk'></span>
+                        <span class="submitActionOk WebInterface btnOKText">Save</span>
+                    </a>
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div id="themeSelector" style="display: none;">
+        <ul>
+            <li>
+                <a _rel="base" href="#"><img src="/WebInterface/Resources/images/themes/Login/default.png" />
+                    <div>Default</div>
+                    <div class="details">Default CrushFTP theme</div>
+                </a>
+            </li>
+            <li>
+                <a _rel="dark" href="#"><img src="/WebInterface/Resources/images/themes/Login/dark.png" />
+                    <div>Dark</div>
+                    <div class="details">Pure black theme</div>
+                </a>
+            </li>
+            <li>
+                <a _rel="blue" href="#"><img src="/WebInterface/Resources/images/themes/Login/blue.png" />
+                    <div>Blue</div>
+                    <div class="details">Blue theme</div>
+                </a>
+            </li>
+            <li>
+                <a _rel="bluewhite" href="#"><img src="/WebInterface/Resources/images/themes/Login/bluewhite.png" />
+                    <div>Blue &amp; White</div>
+                    <div class="details">Blue theme with White background</div>
+                </a>
+            </li>
+            <li>
+                <a _rel="green" href="#"><img src="/WebInterface/Resources/images/themes/Login/green.png" />
+                    <div>Green</div>
+                    <div class="details">Green theme</div>
+                </a>
+            </li>
+            <li>
+                <a _rel="greenwhite" href="#"><img src="/WebInterface/Resources/images/themes/Login/greenwhite.png" />
+                    <div>Green &amp; White</div>
+                    <div class="details">Green theme with White background</div>
+                </a>
+            </li>
+            <li>
+                <a _rel="red" href="#"><img src="/WebInterface/Resources/images/themes/Login/red.png" />
+                    <div>Red &amp; White</div>
+                    <div class="details">Red theme with White background</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="WICustomFormsLabel" class="customDialogFrom customForm" title="Add/Edit label" style="display: none;">
+    <form action="" name="WICustomFormsLabel">
+        <div>
+            <label for="lbName">Name</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="lbName" name="lbName">
+            <label for="lbName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters)
+            </label>
+        </div>
+        <div>
+            <label for="lbLeftText">Label left text</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="lbLeftText" name="lbLeftText">
+            <label for="lbLeftText" class="metaInfo">
+                Enter left text label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="lbRightText">Label right text</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="lbRightText" name="lbRightText">
+            <label for="lbRightText" class="metaInfo">
+                Enter right text label for this field.
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WICustomFormsTextField" class="customDialogFrom customForm" title="Add/Edit text field" style="display: none;">
+    <form action="" name="WICustomFormsTextField">
+        <div>
+            <label for="TFLabel">Label</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="TFLabel" name="TFLabel">
+            <label for="TFLabel" class="metaInfo">
+                Enter label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="TFName">Name</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="TFName" name="TFName">
+            <label for="TFName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters):
+            </label>
+        </div>
+        <div style="display: none;">
+            <label for="TFType">Type</label>
+            <select class="ignoreBind excludeXML notFormElem" id="TFType" style="width: 312px;">
+                <option value="text">Text</option>
+                <option value="task">Task</option>
+            </select>
+            <label for="TFType" class="metaInfo">
+                Select type of the lookup.
+            </label>
+        </div>
+        <div>
+            <label for="TFMaxChars">Max characters to allow</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="TFMaxChars" name="TFMaxChars" value="">
+            <label for="TFMaxChars" class="metaInfo">
+                Enter how many input characters allowed for this field.
+            </label>
+        </div>
+        <div>
+            <label for="TFSize">Width of input field (in pixels)</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="TFSize" name="TFSize" value="15">
+            <label for="TFSize" class="metaInfo">
+                Enter width for this field in pixels.
+            </label>
+        </div>
+        <div>
+            <label for="TFValue">Value</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="TFValue" name="TFValue">
+            <label for="TFValue" class="metaInfo">
+                Enter default value for this field.
+            </label>
+        </div>
+        <div class="ui-icon-radio-off">
+            <label for="TFRequire">Required</label>
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="TFRequire" value="true" id="TFRequireYes">Yes
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="TFRequire" value="false" id="TFRequireNo">No
+            <label for="TFRequire" class="metaInfo">
+                Is this entry required?
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WICustomFormsTextarea" class="customDialogFrom customForm" title="Add/Edit big text field(Textarea)" style="display: none;">
+    <form action="" name="WICustomFormsTextarea">
+        <div>
+            <label for="BTFLabel">Label</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="BTFLabel" name="BTFLabel">
+            <label for="BTFLabel" class="metaInfo">
+                Enter label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="BTFName">Name</label>
+            <input type="text" id="BTFName" name="BTFName">
+            <label for="BTFName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters):
+            </label>
+        </div>
+        <div>
+            <label for="BTFCol">Col</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="BTFCol" name="BTFCol" value="30">
+            <label for="BTFCol" class="metaInfo">
+                Enter width for this field.
+            </label>
+        </div>
+        <div>
+            <label for="BTFRow">Row</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="BTFRow" name="BTFRow" value="5">
+            <label for="BTFRow" class="metaInfo">
+                Enter height for this field.
+            </label>
+        </div>
+        <div>
+            <label for="BTFValue">Value</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="BTFValue" name="BTFValue">
+            <label for="BTFValue" class="metaInfo">
+                Enter default value for this field.
+            </label>
+        </div>
+        <div>
+            <label for="BTFRequire">Required</label>
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="BTFRequire" value="true" id="BTFRequireYES">Yes
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="BTFRequire" value="false" id="BTFRequireNo">No
+            <label for="BTFRequire" class="metaInfo">
+                Is this entry required?
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WICustomFormsDropdown" class="customDialogFrom customForm" title="Add/Edit Dropdown" style="display: none;">
+    <form action="" name="WICustomFormsDropdown">
+        <div>
+            <label for="DLabel">Label</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="DLabel" name="DLabel">
+            <label for="DLabel" class="metaInfo">
+                Enter label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="DName">Name</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="DName" name="DName">
+            <label for="DName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters):
+            </label>
+        </div>
+        <div style="display: none;">
+            <label for="DType">Type</label>
+            <select class="ignoreBind excludeXML notFormElem" id="DType" style="width: 312px;">
+                <option value="text">Text</option>
+                <option value="task">Task</option>
+            </select>
+            <label for="DType" class="metaInfo">
+                Select type of the lookup.
+            </label>
+        </div>
+        <div class="addMultiItems clearfix">
+            <label for="DItems">Options</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="DItems" name="DItems" recName="name">
+            <label for="DItems" class="metaInfo">
+                Format "Display Text:Value", or simply "Value" (To set default item use Text:Value:Value)
+            </label>
+        </div>
+        <div>
+            <label for="DRequire">Required</label>
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="DRequire" value="true" id="DRequireYES">Yes
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="DRequire" value="false" id="DRequireNo">No
+            <label for="DRequire" class="metaInfo">
+                Is this entry required?
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WICustomFormsCheckbox" class="customDialogFrom customForm" title="Add/Edit Checkbox" style="display: none;">
+    <form action="" name="WICustomFormsCheckbox">
+        <div>
+            <label for="CLabel">Label</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="CLabel" name="CLabel">
+            <label for="CLabel" class="metaInfo">
+                Enter label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="CName">Name</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="CName" name="CName">
+            <label for="CName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters):
+            </label>
+        </div>
+        <div style="display: none;">
+            <label for="CType">Type</label>
+            <select class="ignoreBind excludeXML notFormElem" id="CType" style="width: 312px;">
+                <option value="text">Text</option>
+                <option value="task">Task</option>
+            </select>
+            <label for="CType" class="metaInfo">
+                Select type of the lookup.
+            </label>
+        </div>
+        <div class="addMultiItems clearfix">
+            <label for="CItems">Options</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="CItems" recName="name" name="CItems" recName="name">
+            <label for="CItems" class="metaInfo">
+                Format "Display Text:Value", or simply "Value" (To set default item use Text:Value:Value)
+            </label>
+        </div>
+        <div>
+            <label for="CRequire">Required</label>
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="CRequire" value="true" id="CRequireYES">Yes
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="CRequire" value="false" id="CRequireNo">No
+            <label for="CRequire" class="metaInfo">
+                Is this entry required?
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WICustomFormsTags" class="customDialogFrom customForm" title="Multiple Selection Tags" style="display: none;">
+    <form action="" name="WICustomFormsTags">
+        <div>
+            <label for="CLabel">Label</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="CLabel" name="CLabel">
+            <label for="CLabel" class="metaInfo">
+                Enter label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="CName">Name</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="CName" name="CName">
+            <label for="CName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters):
+            </label>
+        </div>
+        <div style="display: none;">
+            <label for="CType">Type</label>
+            <select class="ignoreBind excludeXML notFormElem" id="CType" style="width: 312px;">
+                <option value="text">Text</option>
+                <option value="task">Task</option>
+            </select>
+            <label for="CType" class="metaInfo">
+                Select type of the lookup.
+            </label>
+        </div>
+        <div class="addMultiItems clearfix">
+            <label for="CItems">Options</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="CItems" recName="name" name="CItems" recName="name">
+            <label for="CItems" class="metaInfo">
+                Format "Display Text:Value", or simply "Value" (To set default item use Text:Value:Value)
+            </label>
+        </div>
+        <div>
+            <label for="CRequire">Required</label>
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="CRequire" value="true" id="CRequireYES">Yes
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="CRequire" value="false" id="CRequireNo">No
+            <label for="CRequire" class="metaInfo">
+                Is this entry required?
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WICustomFormsRadio" class="customDialogFrom customForm" title="Add/Edit Radio" style="display: none;">
+    <form action="" name="WICustomFormsRadio">
+        <div>
+            <label for="RLabel">Label</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="RLabel" name="RLabel">
+            <label for="RLabel" class="metaInfo">
+                Enter label for this field.
+            </label>
+        </div>
+        <div>
+            <label for="RName">Name</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="RName" name="RName">
+            <label for="RName" class="metaInfo">
+                Enter name for this field (no spaces, or special characters):
+            </label>
+        </div>
+        <div style="display: none;">
+            <label for="RType">Type</label>
+            <select class="ignoreBind excludeXML notFormElem" id="RType" style="width: 312px;">
+                <option value="text">Text</option>
+                <option value="task">Task</option>
+            </select>
+            <label for="RType" class="metaInfo">
+                Select type of the lookup.
+            </label>
+        </div>
+        <div class="addMultiItems clearfix">
+            <label for="RItems">Options</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="RItems" name="RItems"  recName="name">
+            <label for="RItems" class="metaInfo">
+                Format "Display Text:Value", or simply "Value" (To set default item use Text:Value:Value)
+            </label>
+        </div>
+        <div>
+            <label for="RRequire">Required</label>
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="RRequire" value="true" id="RRequireYES">Yes
+            <input class="ignoreBind excludeXML notFormElem" type="radio" name="RRequire" value="false" id="RRequireNo">No
+            <label for="RRequire" class="metaInfo">
+                Is this entry required?
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WILoginPageDialog" class="customDialogFrom customForm" title="Login Page" style="display: none;">
+    <form action="" name="WILoginPageDialog">
+        <div>
+            <label for="loginPageDomain">Domain:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="loginPageDomain" name="loginPageDomain">
+            <label for="loginPageDomain" class="metaInfo">
+                Pattern matching is allowed such as *.domain.com
+            </label>
+        </div>
+        <div>
+            <label for="loginPageFileName">File name:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="loginPageFileName" name="loginPageFileName">
+            <label for="loginPageFileName" class="metaInfo">
+                The file must be in the WebInterface folder
+            </label>
+        </div>
+        <div>
+            <label for="loginPageFaviconName">Favicon name:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="loginPageFaviconName" name="loginPageFaviconName">
+            <label for="loginPageFaviconName" class="metaInfo">
+                The file must be in the WebInterface folder
+            </label>
+        </div>
+    </form>
+</div>
+<div id="WIProxyDialog" class="customDialogFrom customForm" title="Proxy Host Rule" style="display: none;">
+    <form action="" name="WIProxyDialog">
+        <div>
+            <label for="proxyName">Name:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="proxyName" name="proxyName">
+            <label for="proxyName" class="metaInfo">
+                Enter name for this item
+            </label>
+        </div>
+        <div>
+            <label for="proxyHostname">Host name or IP:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="proxyHostname" name="proxyHostname">
+            <label for="proxyHostname" class="metaInfo">
+                Wildcards accepted
+            </label>
+        </div>
+        <div>
+            <label for="proxyProtocol">Protocol:</label>
+            <select class="ignoreBind excludeXML notFormElem" id="proxyProtocol" style="width: 100px !important;">
+                <option value="FTP">FTP</option>
+                <option value="FTPS">FTPS</option>
+                <option value="SFTP">SFTP</option>
+            </select>
+            <label for="proxyProtocol" class="metaInfo">
+                Select type of the lookup.
+            </label>
+        </div>
+        <div>
+            <label for="proxyPort">Port:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="proxyPort" name="proxyPort">
+            <label for="proxyPort" class="metaInfo">
+                Enter port number
+            </label>
+        </div>
+        <div>
+            <label for="proxyRule">Type:</label>
+            <select class="ignoreBind excludeXML notFormElem" id="proxyRule" style="width: 100px !important;">
+                <option value="Whitelist">Whitelist</option>
+                <option value="Blacklist">Blacklist</option>
+                <option value="Custom">Custom</option>
+            </select>
+            <label for="proxyRule" class="metaInfo">
+                Choose the type of rule for the host.
+            </label>
+        </div>
+        <div class="customProxyRuleOption" style="display:none;">
+            <br>
+            <label for="proxyRuleCriteria1">Enter criteria 1:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="proxyRuleCriteria1" name="proxyRuleCriteria1"  style="width: 150px !important;">
+        </div>
+        <div class="customProxyRuleOption" style="display:none;">
+            <br>
+            <label for="proxyRuleCondition">Condition:</label>
+            <select class="ignoreBind excludeXML notFormElem" id="proxyRuleCondition" style="width: 100px !important;">
+                <option value="=">=</option>
+                <option value="!=">!=</option>
+            </select>
+        </div>
+        <div class="customProxyRuleOption" style="display:none;">
+            <br>
+            <label for="proxyRuleCriteria2">Enter criteria 2:</label>
+            <input class="ignoreBind excludeXML notFormElem" type="text" id="proxyRuleCriteria2" name="proxyRuleCriteria2"  style="width: 150px !important;">
+        </div>
+    </form>
+</div>

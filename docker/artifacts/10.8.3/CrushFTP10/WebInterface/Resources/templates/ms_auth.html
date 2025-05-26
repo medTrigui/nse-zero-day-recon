@@ -1,0 +1,60 @@
+<script>
+    const msalConfig = {
+      auth: {
+        clientId: window.MSSignClientID,
+        authority: "https://login.microsoftonline.com/"+window.MSTenantID,
+        redirectUri: window.location.href.split("#")[0],
+      },
+      cache: {
+        cacheLocation: "sessionStorage",
+        storeAuthStateInCookie: false,
+      }
+    };
+    const loginRequest = {
+     scopes: ["openid", "profile", "User.Read"]
+    };
+    const tokenRequest = {
+     scopes: ["User.Read"]
+    };
+    const myMSALObj = new msal.PublicClientApplication(msalConfig);
+    let accessToken;
+    let username = "";
+    myMSALObj.handleRedirectPromise().then(handleResponse).catch(err => {
+        console.error(err);
+        $("#loginWheel").hide();
+        $("#login").show();
+        $("#btnLogin").removeClass('disabled');
+    });
+
+    function handleResponse(resp) {
+        $("#loginWheel").hide();
+        $("#login").show();
+        $("#btnLogin").removeClass('disabled');
+        if (resp !== null) {
+            username = resp.account.username;
+            accessToken = resp.accessToken;
+        }
+        if(accessToken){
+            $("#username").val("crush_oauth2_ms");
+            $("#password").val(accessToken);
+            $("#loginForm").submit();
+            setTimeout(function(){
+                $("#password").val("");
+                $("#username").val("");
+            }, 100);
+        }
+    }
+    function signIn() {
+        $("#loginWheel").show();
+        $("#btnLogin").addClass('disabled');
+        myMSALObj.loginRedirect(loginRequest);
+        return false;
+    }
+    function signOut() {
+        const logoutRequest = {
+            account: myMSALObj.getAccountByUsername(username)
+        };
+
+        myMSALObj.logout(logoutRequest);
+    }
+</script>

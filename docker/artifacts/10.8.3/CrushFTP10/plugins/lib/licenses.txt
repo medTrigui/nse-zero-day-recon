@@ -1,0 +1,1049 @@
+Updated on 5/29/2011
+
+CrushFTP and CrushSync include the following open-source software:
+
+----------------------------------------------------------------------------------------
+Covered by MIT style license:
+This software consists of voluntary contributions made by many
+individuals (AUTHORS.txt, http://jqueryui.com/about) For exact
+contribution history, see the revision history and logs, available
+at http://jquery-ui.googlecode.com/svn/
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+----------------------------------------------------------------------------------------
+jQuery Theme Switcher	http://jqueryui.com/themeroller/
+Copyright (c) 2011 Paul Bakaus, http://jqueryui.com/
+
+jQuery UI Authors (http://jqueryui.com/about)
+
+This software consists of voluntary contributions made by many
+individuals. For exact contribution history, see the revision history
+and logs, available at http://github.com/jquery/jquery-ui
+
+Brandon Aaron
+Paul Bakaus (paulbakaus.com)
+David Bolter
+Rich Caloggero
+Chi Cheng (cloudream@gmail.com)
+Colin Clark (http://colin.atrc.utoronto.ca/)
+Michelle D'Souza
+Aaron Eisenberger (aaronchi@gmail.com)
+Ariel Flesler
+Bohdan Ganicky
+Scott González
+Marc Grabanski (m@marcgrabanski.com)
+Klaus Hartl (stilbuero.de)
+Scott Jehl
+Cody Lindley
+Eduardo Lundgren (eduardolundgren@gmail.com)
+Todd Parker
+John Resig
+Patty Toland
+Ca-Phun Ung (yelotofu.com)
+Keith Wood (kbwood@virginbroadband.com.au)
+Maggie Costello Wachs
+Richard D. Worth (rdworth.org)
+Jörn Zaefferer (bassistance.de)
+
+
+jQuery Alert Dialogs Plugin v1.1	http://abeautifulsite.net/blog/2008/12/jquery-alert-dialogs/
+// jQuery Alert Dialogs Plugin
+//
+// Version 1.1
+//
+// Cory S.N. LaViska
+// A Beautiful Site (http://abeautifulsite.net/)
+// 14 May 2009
+//
+// Visit http://abeautifulsite.net/notebook/87 for more information
+//
+// Usage:
+//		jAlert( message, [title, callback] )
+//		jConfirm( message, [title, callback] )
+//		jPrompt( message, [value, title, callback] )
+// 
+// History:
+//
+//		1.00 - Released (29 December 2008)
+//
+//		1.01 - Fixed bug where unbinding would destroy all resize events
+//
+// License:
+// 
+// This plugin is dual-licensed under the GNU General Public License and the MIT License and
+// is copyright 2008 A Beautiful Site, LLC. 
+//
+jQuery blockUI plugin v2.37	http://malsup.com/jquery/block/
+/*!
+ * jQuery blockUI plugin
+ * Version 2.39 (23-MAY-2011)
+ * @requires jQuery v1.2.3 or later
+ *
+ * Examples at: http://malsup.com/jquery/block/
+ * Copyright (c) 2007-2010 M. Alsup
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * Thanks to Amir-Hossein Sobhi for some excellent contributions!
+ */
+jQuery clueTip plugin v1.0.7	http://plugins.learningjquery.com/cluetip
+/*
+ * jQuery clueTip plugin
+ * Version 1.0.7  (January 28, 2010)
+ * @requires jQuery v1.3+
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ */
+ 
+/*
+ *
+ * Full list of options/settings can be found at the bottom of this file and at http://plugins.learningjquery.com/cluetip/
+ *
+ * Examples can be found at http://plugins.learningjquery.com/cluetip/demo/
+ *
+*/
+
+jQuery Context Menu Plugin v1.01	http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/
+// jQuery Context Menu Plugin
+// Customized by  Vipul Limbachiya http://vipullimbachiya.com for CrushFTP
+//
+// Version 1.01
+//
+// Cory S.N. LaViska
+// A Beautiful Site (http://abeautifulsite.net/)
+//
+// More info: http://abeautifulsite.net/2008/09/jquery-context-menu-plugin/
+//
+// Terms of Use
+//
+// This plugin is dual-licensed under the GNU General Public License
+//   and the MIT License and is copyright A Beautiful Site, LLC.
+//
+
+jQuery Cookie plugin	http://plugins.jquery.com/project/Cookie
+/**
+ * jQuery Cookie plugin
+ *
+ * Copyright (c) 2010 Klaus Hartl (stilbuero.de) Dual licensed under the MIT and
+ * GPL licenses: http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ */
+
+jQuery CssRule Plugin v2008.0.1.9	http://plugins.jquery.com/project/jquerycssrule
+/* Copyright (c) 2008 Gilberto Saraiva (saraivagilberto@gmail.com || http://gsaraiva.projects.pro.br)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version: 2008.0.1.9 -
+ * Under development and testing
+ *
+ * Requires: jQuery 1.2+
+ *
+ * Support/Site: http://gsaraiva.projects.pro.br/openprj/?page=jquerycssrule
+ */
+
+jQuery File Tree Plugin v1.01	http://abeautifulsite.net/blog/2008/03/jquery-file-tree/
+// jQuery File Tree Plugin - Customized version for CrushFTP
+// Customized by  Vipul Limbachiya http://vipullimbachiya.com for CrushFTP
+//
+// Version 1.01
+//
+// Cory S.N. LaViska
+// A Beautiful Site (http://abeautifulsite.net/)
+// 24 March 2008
+//
+// Visit http://abeautifulsite.net/notebook.php?article=58 for more information
+//
+// Usage: $('.fileTreeDemo').fileTree( options, callback )
+//
+// History:
+//
+// 1.01 - updated to work with foreign characters in directory/file names (12
+// April 2008)
+// 1.00 - released (24 March 2008)
+//
+// TERMS OF USE
+// 
+// This plugin is dual-licensed under the GNU General Public License and the MIT
+// License and
+// is copyright 2008 A Beautiful Site, LLC.
+//
+// Customized by Vipul Limbachiya(http://vipullimbachiya.com) for CrushFTP
+
+jQuery JavaScript Library v1.4.4	http://jquery.com/
+/*!
+ * jQuery JavaScript Library v1.4.3
+ * http://jquery.com/
+ *
+ * Copyright 2010, John Resig
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * Includes Sizzle.js
+ * http://sizzlejs.com/
+ * Copyright 2010, The Dojo Foundation
+ * Released under the MIT, BSD, and GPL Licenses.
+ *
+ * Date: Thu Oct 14 23:10:06 2010 -0400
+ */
+
+jQuery Notify UI Widget v1.4	http://www.erichynds.com/jquery/a-jquery-ui-growl-ubuntu-notification-widget/
+/*
+ * jQuery Notify UI Widget 1.4
+ * Copyright (c) 2010 Eric Hynds
+ *
+ * http://www.erichynds.com/jquery/a-jquery-ui-growl-ubuntu-notification-widget/
+ *
+ * Depends:
+ *   - jQuery 1.4
+ *   - jQuery UI 1.8 widget factory
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ *
+*/
+jQuery UI	http://jqueryui.com/
+/*!
+ * jQuery UI 1.8.2
+ *
+ * Copyright (c) 2010 AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT (MIT-LICENSE.txt)
+ * and GPL (GPL-LICENSE.txt) licenses.
+ *
+ * http://docs.jquery.com/UI
+ */
+
+jQuery XML to JSON Plugin v1.0	http://www.fyneworks.com/jquery/xml-to-json
+/*
+ ### jQuery XML to JSON Plugin v1.0 - 2008-07-01 ###
+ * http://www.fyneworks.com/ - diego@fyneworks.com
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ ###
+ Website: http://www.fyneworks.com/jquery/xml-to-json/
+*//*
+ # INSPIRED BY: http://www.terracoder.com/
+           AND: http://www.thomasfrank.se/xml_to_json.html
+											AND: http://www.kawa.net/works/js/xml/objtree-e.html
+*//*
+
+jQuery Galleriffic plugin	http://www.twospy.com/galleriffic/
+/**
+ * jQuery Galleriffic plugin
+ *
+ * Copyright (c) 2008 Trent Foley (http://trentacular.com)
+ * Licensed under the MIT License:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Much thanks to primary contributer Ponticlaro (http://www.ponticlaro.com)
+ */
+
+jQuery history plugin	http://www.mikage.to/jquery/jquery_history.html
+/*
+ * jQuery history plugin
+ * 
+ * sample page: http://www.mikage.to/jquery/jquery_history.html
+ *
+ * Copyright (c) 2006-2009 Taku Sano (Mikage Sawatari)
+ * Licensed under the MIT License:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Modified by Lincoln Cooper to add Safari support and only call the callback once during initialization
+ * for msie when no initial hash supplied.
+ */
+
+jQuery idleTimer plugin	http://paulirish.com/2009/jquery-idletimer-plugin/
+/*!
+ * jQuery idleTimer plugin
+ * version 0.9.100511
+ * by Paul Irish. 
+ *   http://github.com/paulirish/yui-misc/tree/
+ * MIT license
+ 
+ * adapted from YUI idle timer by nzakas:
+ *   http://github.com/nzakas/yui-misc/
+*/ 
+/*
+ * Copyright (c) 2009 Nicholas C. Zakas
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+jQuery Opacity Rollover plugin	http://code.google.com/p/galleriffic/source/browse/trunk/example/js/jquery.opacityrollover.js?r=18
+/**
+ * jQuery Opacity Rollover plugin
+ *
+ * Copyright (c) 2009 Trent Foley (http://trentacular.com)
+ * Licensed under the MIT License:
+ *   http://www.opensource.org/licenses/mit-license.php
+ */
+
+jQuery TextChange Plugin	http://www.zurb.com/playground/jquery-text-change-custom-event
+/*!
+ * jQuery TextChange Plugin
+ * http://www.zurb.com/playground/jquery-text-change-custom-event
+ *
+ * Copyright 2010, ZURB
+ * Released under the MIT License
+ */
+
+jQuery Tipsy Plugin	http://plugins.jquery.com/project/tipsy
+The MIT License
+
+Copyright (c) 2008 Jason Frame (jason@onehackoranother.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+ColorBox v1.3.15	http://colorpowered.com/colorbox/
+// ColorBox v1.3.15 - a full featured, light-weight, customizable lightbox based on jQuery 1.3+
+// Copyright (c) 2010 Jack Moore - jack@colorpowered.com
+// Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+
+Bouncy Castle	http://www.bouncycastle.org/
+Copyright (c) 2000 - 2011 The Legion Of The Bouncy Castle (http://www.bouncycastle.org)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+HTML5 enabling script	http://code.google.com/p/html5shim/
+// html5shiv MIT @rem remysharp.com/html5-enabling-script
+// iepp v1.6.2 MIT @jon_neal iecss.com/print-protector
+meioMask v1.1.3	http://www.meiocodigo.com/projects/meiomask/
+/**
+ * @version: 1.1.3
+ * Created by Fabio M. Costa on 2008-09-16. Please report any bug at http://www.meiocodigo.com
+ * Copyright (c) 2008 Fabio M. Costa http://www.meiocodigo.com
+ * The MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+
+reflection.js for jQuery	http://www.digitalia.be/software/reflectionjs-for-jquery
+/**
+ * reflection.js v1.6 for jquery
+ *
+ * Contributors: Cow http://cow.neondragon.net
+ *               Gfx http://www.jroller.com/page/gfx/
+ *               Sitharus http://www.sitharus.com
+ *               Andreas Linde http://www.andreaslinde.de
+ *               Tralala, coder @ http://www.vbulletin.org
+ *				 Danny Ferguson, jquery plugin http://www.brendoman.com/dbc
+ *
+ * Freely distributable under MIT-style license.
+ */
+
+Sizzle	http://sizzlejs.com/
+/*!
+ * Sizzle CSS Selector Engine
+ *  Copyright 2011, The Dojo Foundation
+ *  Released under the MIT, BSD, and GPL Licenses.
+ *  More information: http://sizzlejs.com/
+ */
+
+SLF4J	http://www.slf4j.org/
+Copyright (c) 2004-2008 QOS.ch
+ All rights reserved.
+
+ Permission is hereby granted, free  of charge, to any person obtaining
+ a  copy  of this  software  and  associated  documentation files  (the
+ "Software"), to  deal in  the Software without  restriction, including
+ without limitation  the rights to  use, copy, modify,  merge, publish,
+ distribute,  sublicense, and/or sell  copies of  the Software,  and to
+ permit persons to whom the Software  is furnished to do so, subject to
+ the following conditions:
+ 
+ The  above  copyright  notice  and  this permission  notice  shall  be
+ included in all copies or substantial portions of the Software.
+ 
+ THE  SOFTWARE IS  PROVIDED  "AS  IS", WITHOUT  WARRANTY  OF ANY  KIND,
+ EXPRESS OR  IMPLIED, INCLUDING  BUT NOT LIMITED  TO THE  WARRANTIES OF
+ MERCHANTABILITY,    FITNESS    FOR    A   PARTICULAR    PURPOSE    AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ OF CONTRACT, TORT OR OTHERWISE,  ARISING FROM, OUT OF OR IN CONNECTION
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+----------------------------------------------------------------------------------------
+BSD Style License:
+----------------------------------------------------------------------------------------
+Crypt3	http://www.cacas.org/java/gnu/tools/Crypt.java
+/****************************************************************************
+ * Java-based implementation of the unix crypt(3) command
+ *
+ * Based upon C source code written by Eric Young, eay@psych.uq.oz.au
+ * Java conversion by John F. Dumas, jdumas@zgs.com
+ *
+ * Found at http://locutus.kingwoodcable.com/jfd/crypt.html
+ * Minor optimizations by Wes Biggs, wes@cacas.org
+ *
+ * Eric's original code is licensed under the BSD license.  As this is
+ * derivative, the same license applies.
+ *
+ * Note: Crypt.class is much smaller when compiled with javac -O
+ ****************************************************************************/
+HSQLDB	http://hsqldb.org/
+COPYRIGHTS AND LICENSES (based on BSD License)
+For work developed by the HSQL Development Group:
+Copyright (c) 2001-2010, The HSQL Development Group
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+Neither the name of the HSQL Development Group nor the names of its
+contributors may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL HSQL DEVELOPMENT GROUP, HSQLDB.ORG, 
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+For work originally developed by the Hypersonic SQL Group:
+
+Copyright (c) 1995-2000 by the Hypersonic SQL Group.
+All rights reserved. 
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+Neither the name of the Hypersonic SQL Group nor the names of its
+contributors may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE HYPERSONIC SQL GROUP, 
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+This software consists of voluntary contributions made by many individuals on behalf of the
+Hypersonic SQL Group.
+
+----------------------------------------------------------------------------------------
+Covered by LGPL style license:
+----------------------------------------------------------------------------------------
+jrexx v1.1.1	http://sourceforge.net/projects/jrexx/
+SysTray4J	http://systray.sourceforge.net/
+YAJSW	http://yajsw.sourceforge.net/
+alfresco-jlan	http://svn.alfresco.com/repos/alfresco-open-mirror/alfresco/HEAD/root/projects/alfresco-jlan/source/java/org/alfresco/jlan/app/
+
+----------------------------------------------------------------------------------------
+Creative Commons Attribution License:
+----------------------------------------------------------------------------------------
+FamFamFam Silk Icons	http://www.famfamfam.com/lab/icons/silk/
+Fugue Icons	http://p.yusukekamiyamane.com/
+joe001 Images	http://joe001.sourceforge.net/
+
+----------------------------------------------------------------------------------------
+Apache Software License License:
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+----------------------------------------------------------------------------------------
+Netty	http://www.jboss.org/netty/
+
+
+
+                            The Netty Project
+                            =================
+
+Please visit the Netty web site for more information:
+
+  * http://www.jboss.org/netty/
+
+Copyright 2009 Red Hat, Inc.
+
+Red Hat licenses this product to you under the Apache License, version 2.0 (the
+"License"); you may not use this product except in compliance with the License.
+You may obtain a copy of the License at:
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations under the License.
+
+Also, please refer to each LICENSE.<component>.txt file, which is located in
+the 'license' directory of the distribution file, for the license terms of the
+components that this product depends on.
+
+-------------------------------------------------------------------------------
+This product contains the extensions to Java Collections Framework which has
+been derived from the works by JSR-166 EG, Doug Lea, and Jason T. Greene:
+
+  * LICENSE:
+    * license/LICENSE.jsr166y.txt (Public Domain)
+  * HOMEPAGE:
+    * http://gee.cs.oswego.edu/cgi-bin/viewcvs.cgi/jsr166/
+    * http://viewvc.jboss.org/cgi-bin/viewvc.cgi/jbosscache/experimental/jsr166/
+
+This product contains a modified version of Robert Harder's Public Domain
+Base64 Encoder and Decoder, which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.base64.txt (Public Domain)
+  * HOMEPAGE:
+    * http://iharder.sourceforge.net/current/java/base64/
+
+This product contains a modified version of 'JZlib', a re-implementation of
+zlib in pure Java, which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.jzlib.txt (BSD Style License)
+  * HOMEPAGE:
+    * http://www.jcraft.com/jzlib/
+
+This product optionally depends on 'Protocol Buffers', Google's data
+interchange format, which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.protobuf.txt (New BSD License)
+  * HOMEPAGE:
+    * http://code.google.com/p/protobuf/
+
+This product optionally depends on 'SLF4J', a simple logging facade for Java,
+which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.slf4j.txt (MIT License)
+  * HOMEPAGE:
+    * http://www.slf4j.org/
+
+This product optionally depends on 'Apache Commons Logging', a logging
+framework, which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.commons-logging.txt (Apache License 2.0)
+  * HOMEPAGE:
+    * http://commons.apache.org/logging/
+
+This product optionally depends on 'Apache Log4J', a logging framework,
+which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.log4j.txt (Apache License 2.0)
+  * HOMEPAGE:
+    * http://logging.apache.org/log4j/
+
+This product optionally depends on 'JBoss Logging', a logging framework,
+which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.jboss-logging.txt (GNU LGPL 2.1)
+  * HOMEPAGE:
+    * http://anonsvn.jboss.org/repos/common/common-logging-spi/
+
+This product optionally depends on 'Apache Felix', an open source OSGi
+framework implementation, which can be obtained at:
+
+  * LICENSE:
+    * license/LICENSE.felix.txt (Apache License 2.0)
+  * HOMEPAGE:
+    * http://felix.apache.org/
+
+
+Commons Libraries	http://commons.apache.org/
+Groovy	http://groovy.codehaus.org/
+The following notice applies to the files:
+
+src/main/org/codehaus/groovy/jsr223/GroovyCompiledScript.java
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineFactory.java
+src/main/org/codehaus/groovy/jsr223/GroovyScriptEngineImpl.java
+
+
+/*
+ * Copyright 2006 Sun Microsystems, Inc. All rights reserved.  
+ * Use is subject to license terms.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are 
+ * permitted provided that the following conditions are met: Redistributions of source code 
+ * must retain the above copyright notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list of 
+ * conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution. Neither the name of the Sun Microsystems nor the names of 
+ * is contributors may be used to endorse or promote products derived from this software 
+ * without specific prior written permission. 
+
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY 
+ * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER 
+ * OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+/***
+ * http://asm.objectweb.org/
+ *
+ * ASM: a very small and fast Java bytecode manipulation framework
+ * Copyright (c) 2000-2005 INRIA, France Telecom
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holders nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+ * THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+SOFTWARE RIGHTS
+
+ANTLR 1989-2006 Developed by Terence Parr
+Partially supported by University of San Francisco & jGuru.com
+
+We reserve no legal rights to the ANTLR--it is fully in the
+public domain. An individual or company may do whatever
+they wish with source code distributed with ANTLR or the
+code generated by ANTLR, including the incorporation of
+ANTLR, or its output, into commerical software.
+
+We encourage users to develop software with ANTLR. However,
+we do ask that credit is given to us for developing
+ANTLR. By "credit", we mean that if you use ANTLR or
+incorporate any source code into one of your programs
+(commercial product, research project, or otherwise) that
+you acknowledge this fact somewhere in the documentation,
+research report, etc... If you like ANTLR and have
+developed a nice tool with the output, please mention that
+you developed it using ANTLR. In addition, we ask that the
+headers remain intact in our source code. As long as these
+guidelines are kept, we expect to continue enhancing this
+system and expect to make other tools available as they are
+completed.
+
+The primary ANTLR guy:
+
+Terence Parr
+parrt@cs.usfca.edu
+parrt@antlr.org
+
+Log4J	http://jakarta.apache.org/log4j/
+
+----------------------------------------------------------------------------------------
+CDDL License:
+----------------------------------------------------------------------------------------
+Java Mail	http://www.oracle.com/technetwork/java/javamail/index.html
+Q: Is the JavaMail API implementation completely free? Can I ship it along with my product?
+A: Yes. The current release of the JavaMail API implementation, is completely free and you can include it in your product. This release includes IMAP, POP3, and SMTP providers as well. Please do read the license and ensure that you understand it. (The license is available after clicking the Download button on the download page.) The JavaBeans Activation Framework is also free for use under a similar license.
+
+----------------------------------------------------------------------------------------
+JDOM License:
+----------------------------------------------------------------------------------------
+JDOM	http://www.jdom.org/
+/*-- 
+
+ $Id: LICENSE.txt,v 1.11 2004/02/06 09:32:57 jhunter Exp $
+
+ Copyright (C) 2000-2004 Jason Hunter & Brett McLaughlin.
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions, and the following disclaimer.
+ 
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions, and the disclaimer that follows 
+    these conditions in the documentation and/or other materials 
+    provided with the distribution.
+
+ 3. The name "JDOM" must not be used to endorse or promote products
+    derived from this software without prior written permission.  For
+    written permission, please contact <request_AT_jdom_DOT_org>.
+ 
+ 4. Products derived from this software may not be called "JDOM", nor
+    may "JDOM" appear in their name, without prior written permission
+    from the JDOM Project Management <request_AT_jdom_DOT_org>.
+ 
+ In addition, we request (but do not require) that you include in the 
+ end-user documentation provided with the redistribution and/or in the 
+ software itself an acknowledgement equivalent to the following:
+     "This product includes software developed by the
+      JDOM Project (http://www.jdom.org/)."
+ Alternatively, the acknowledgment may be graphical using the logos 
+ available at http://www.jdom.org/images/logos.
+
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED.  IN NO EVENT SHALL THE JDOM AUTHORS OR THE PROJECT
+ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+
+ This software consists of voluntary contributions made by many 
+ individuals on behalf of the JDOM Project and was originally 
+ created by Jason Hunter <jhunter_AT_jdom_DOT_org> and
+ Brett McLaughlin <brett_AT_jdom_DOT_org>.  For more information
+ on the JDOM Project, please see <http://www.jdom.org/>. 
+
+ */
+
+The following people are committers on the "jdom" core module, listed
+alphabetically by last name.
+
+DO NOT WRITE THESE PEOPLE FOR TECH SUPPORT.  THEY WILL NOT ANSWER.
+WRITE THE jdom-interest MAILING LIST AT http://jdom.org.
+
+Jason Hunter is code captains for this module.
+
+Jason Hunter <jhunter_AT_jdom_DOT_org>
+
+
+
+----------------------------------------------------------------------------------------
+Promatter License:
+----------------------------------------------------------------------------------------
+Protomatter	http://protomatter.sourceforge.net/
+The Protomatter Software License, Version 1.0
+ derived from The Apache Software License, Version 1.1
+
+ Copyright (c) 1998-2003 Nate Sammons.  All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+
+ 3. The end-user documentation included with the redistribution,
+    if any, must include the following acknowledgment:
+       "This product includes software developed for the
+        Protomatter Software Project
+        (http://protomatter.sourceforge.net/)."
+    Alternately, this acknowledgment may appear in the software itself, 
+    if and wherever such third-party acknowledgments normally appear.
+
+ 4. The names "Protomatter" and "Protomatter Software Project" must
+    not be used to endorse or promote products derived from this
+    software without prior written permission. For written
+    permission, please contact support@protomatter.com.
+
+ 5. Products derived from this software may not be called "Protomatter", 
+    nor may "Protomatter" appear in their name, without prior written
+    permission of the Protomatter Software Project
+    (support@protomatter.com).
+
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED.  IN NO EVENT SHALL THE PROTOMATTER SOFTWARE PROJECT OR
+ ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.

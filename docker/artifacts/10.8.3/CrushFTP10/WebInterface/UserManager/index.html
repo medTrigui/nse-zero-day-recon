@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>CrushFTP - User Manager</title>
+    <link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/style.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/vtip.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/jHtmlArea/jHtmlArea.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/js/ColorPicker/colorPicker.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/js/ContextMenu/context.css" rel="stylesheet" />
+    <link type="text/css" href="css/userManagerStyle.css" rel="stylesheet" />
+    <link type="text/css" href="css/jqueryslidemenu.css" rel="stylesheet" />
+    <!-- tour css -->
+    <link type="text/css" href="/WebInterface/admin/css/jquerytour.css" rel="stylesheet" />
+    <!--[if lte IE 7]>
+    <style type="text/css">
+    html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
+    </style>
+    <![endif]-->
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.ui.selectableAdvanced.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.xml2json.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.json2xml.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.alerts.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.textChange.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.notify.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/vtip.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jHtmlArea-0.7.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/browserSelector.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.cookie.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/ColorPicker/jquery.colorPicker.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/ContextMenu/context.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.contextMenu.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/url.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.browseVFSPopup.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.encryptPassword.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.validator.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/configSuggestions.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.suggestedSettings.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.passwordValidator.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/seekAttention.jquery.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.highlight.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/moment.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.replicationSave.js"></script>
+    <script type="text/javascript" src="js/crushftp.localizations.js"></script>
+    <script type="text/javascript" src="js/crushftp.userManager.js"></script>
+    <script type="text/javascript" src="js/userManagerRoles.js"></script>
+    <script type="text/javascript" src="js/crushftp.init.js"></script>
+    <script type="text/javascript" src="team-setup/js/interface.js"></script>
+    <script type="text/javascript" src="/WebInterface/admin/js/crushftp.telnet.inject.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/testPGPButton.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+
+    <link type="text/css" href="/WebInterface/Resources/js/dropdown-menu/jquery.dropdown.css" rel="stylesheet" />
+    <script type="text/javascript" src="/WebInterface/Resources/js/dropdown-menu/jquery.dropdown.min.js"></script>
+
+    <!-- tour js -->
+    <script type="text/javascript" src = "/WebInterface/admin/js/tour.js"></script>
+
+    <!-- Personalization stuff  -->
+    <script type="text/javascript" src="/WebInterface/Resources/js/json2.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jstorage.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.Personalizations.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jquery.hotkeys.js"></script>
+
+    <!-- File Browser stuff -->
+    <link rel="stylesheet" href="/WebInterface/Resources/css/localFileBrowser.css" />
+    <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"></script>
+
+    <!-- HTML Editor -->
+    <link rel="stylesheet" href="/WebInterface/Resources/js/SCEditor/themes/default.min.css" type="text/css" media="all" />
+    <script type="text/javascript" src="/WebInterface/Resources/js/SCEditor/jquery.sceditor.bbcode.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#switcher').themeswitcher({
+            onSelect: function(item) {}
+        });
+    });
+    </script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/themeswitcher.js">
+    </script>
+</head>
+
+<body id="GUIInterface" class="user-management">
+    <div id="autocompleteFix" style="position:absolute;top:-200px;">
+        <input type="text" name="email" value="" style="display: none" />
+        <input type="text" name="email" value=""/>
+        <input type="text" name="not-an-email" value="" style="display: none" />
+        <input type="password" name="password" value="" style="display: none" />
+        <input type="password" name="password" value=""/>
+    </div>
+    <div class="navigation ui-widget-content" id="header" style="z-index:100;min-height:85px;">
+        <div id="topSwitchButtons" style="margin:5px;float:left;background:none;border-top:0px;border-right:0px;border-left:0px;display:none;">
+            <ul style="background:none;border:none;">
+                <li class="ui-state-default ui-corner-top">
+                    <a href="/WebInterface/../">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-folder-open">
+                        </span>Files</a>
+                </li>
+                <li privs="connect,server_edit,server_view,update_run,report_edit,report_view" class="ui-state-default ui-corner-top">
+                    <a href="/WebInterface/admin/index.html">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-gear">
+                        </span>Server Admin</a>
+                </li>
+                <li privs="connect,job_edit,job_view,job_list,job_list_history" class="ui-state-default ui-corner-top">
+                    <a href="/WebInterface/Jobs/index.html">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-copy">
+                        </span>Jobs</a>
+                </li>
+                <li privs="connect,user_admin,user_edit,user_view" class="ui-state-default ui-corner-top ui-state-active">
+                    <a href="/WebInterface/UserManager/index.html">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-person">
+                        </span>User Manager</a>
+                </li>
+                <li privs="connect,pref_edit,pref_view" class="ui-state-default ui-corner-top">
+                    <a href="/WebInterface/Preferences/index.html">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-copy">
+                        </span>Preferences</a>
+                </li>
+                <li privs="connect,share_edit,share_view" class="ui-state-default ui-corner-top">
+                    <a href="/WebInterface/TempAccounts/index.html">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-bookmark">
+                        </span>Shares</a>
+                </li>
+                <li privs="connect" class="ui-state-default ui-corner-top vtip" title="Telnet">
+                    <a href="/WebInterface/admin/log.html" id="telnetButton">
+                        <span style="display: inline-block;margin: -1px -4px 0px -10px;float: left;width: 16px;height: 16px;" class="pointer terminal-icon">
+                        </span></a>
+                </li>
+                <li class="ui-state-default ui-corner-top vtip" title="Logout">
+                    <a href="#tabs-5" onclick="return doLogout();">
+                        <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-locked">
+                        </span>
+                    </a>
+                </li>
+                <li class="clear"></li>
+            </ul>
+        </div>
+        <div style="position:absolute; top:38px; left:5px;">
+            <span class="note" id="loggedInAs"></span>
+            <span style="margin-left:5px;" class="note" id="SessionSeconds"></span>
+            <span style="margin-left:6px;" class="liveData ui-priority-primary note" id="crushVersionInfo"></span>
+        </div>
+        <div>
+            <span id="switcher"></span>
+        </div>
+        <div class="enterpriseFeature" style="position:relative;left:40px;top:8px;display:inline-block;">
+            <label for="mainServerInstance">Server Instance:</label>
+            <select id="mainServerInstance" class="inputBox">
+                <option value=""></option>
+                <option value="">Main</option>
+            </select>
+        </div>
+        <div class="logoContainer">
+            <a id="logo" style="border:0px;padding:0px;" href="javascript:void(0);">
+                <img src="/WebInterface/Resources/images/crushftp_gray_logo_resized.png" alt="" border="0" width="200" />
+            </a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div id="quickJump" class="fields floatRight ui-helper-hidden" style="margin-top:-5px;margin-bottom:5px;">
+            <div class="quick">
+                Quick Jump:
+                <select id="quick_jump">
+                    <option></option>
+                    <option value="Setup">Setup</option>
+                    <option value="Settings">Settings</option>
+                    <option value="Restrictions">Restrictions</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Events">Events</option>
+                    <option value="WebInterface">WebInterface</option>
+                    <option value="Tunnels">Tunnels</option>
+                    <option value="Misc">Misc</option>
+                </select>
+                Quick Filter
+                <input type="text" id="quick_filter" style="padding:4px;" />
+                <a href="#" class="button" id="showAllPanels">
+                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-circlesmall-plus'></span>
+                    <span class="showHideText">Show All</span>
+                </a>
+                <div class="clear" style="height:15px;">
+                    <span class="notes" id="hiddenPanelsNote" style="margin-right:3px;margin-top:3px;">(Total
+                        <span id="hiddenPanelsCount"></span>sections are not being shown)</span>
+                </div>
+            </div>
+        </div>
+        <div id="migrateUsersPopup" class="customForm ui-helper-hidden">
+            <table class="tblMiddleAlign" width="100%">
+                <tr>
+                    <td width="120px;">
+                        <label for="findPath">Find Path:</label>
+                    </td>
+                    <td>
+                        <input class="bigInputBox" type="text" id="findPath" />
+                        <a href="#" class="button serverFilePickButton" PickType="dir" rel="findPath" style="top:4px;">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                            Browse
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="replacePath">Replace Path:</label>
+                    </td>
+                    <td>
+                        <input class="bigInputBox" type="text" id="replacePath" />
+                        <a href="#" class="button serverFilePickButton" PickType="dir" rel="replacePath" style="top:4px;">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                            Browse
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="rollbackUsersDialog" class="customForm ui-helper-hidden" title="Rollback User:">
+            <label style="top: 10px;"><strong>Select version to rollback to:</strong></label>
+            <ul id="rollbackVersions" class="sideScroll LargeListBox popup-list">
+            </ul>
+        </div>
+        <div id="undeleteUsersDialog" class="customForm ui-helper-hidden" title="Restore Deleted User:">
+            <label style="top: 10px;"><strong>Select user to restore:</strong></label>
+            <ul id="undeleteUserList" class="sideScroll LargeListBox popup-list">
+            </ul>
+        </div>
+        <div id="importUsersDialog" class="customForm ui-helper-hidden" title="Import Users">
+            <table class="tblMiddleAlign" width="100%" style="margin-top:10px;" cellspacing="3" cellpadding="3">
+                <tr>
+                    <td style="text-align: right; width: 25%; padding-right: 30px;">
+                        <label for="the_dir" id="importUserLabel">Choose file/folder to import:</label>
+                    </td>
+                    <td>
+                        <input style="width: 60%" type="text" id="the_dir" />
+                        <a href="#" class="button serverFilePickButton" PickType="any" rel="the_dir" style="top:16px !important;position:absolute;margin-left:7px;">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                            Browse
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right; padding-right: 30px;">
+                        <label for="user_type">Type:</label>
+                    </td>
+                    <td>
+                        <select name="user_type" id="user_type" style="width: 61%">
+                            <option value="Import CSV..." selected="selected">Import CSV...</option>
+                            <option value="Import CrushFTP3 Users...">Import CrushFTP3 Users...</option>
+                            <option value="Import Folders As Users...">Import Folders As Users...</option>
+                            <option value="Import Mac OS X Users...">Import Mac OS X Users...</option>
+                            <option value="Import Serv-U Users...">Import Serv-U Users...</option>
+                            <option value="Import BulletProof Users...">Import BulletProof Users...</option>
+                            <option value="Import Rumpus Users...">Import Rumpus Users...</option>
+                            <option value="Import VSFTPD MD5Crypt Users...">Import VSFTPD MD5Crypt Users...</option>
+                            <option value="Import VSFTPD SHA512Crypt Users...">Import VSFTPD SHA512Crypt Users...</option>
+                            <option value="Import ProFTPD Users...">Import ProFTPD Users...</option>
+                            <option value="Import ProFTPD Groups...">Import ProFTPD Groups...</option>
+                            <option value="Import FileZilla Users...">Import FileZilla Users...</option>
+                            <option value="Import Tab Delimited Text...">Import Tab Delimited Text...</option>
+                            <option value="Import WingFTP Users...">Import WingFTP Users...</option>
+                            <option value="Import Gene6 Users...">Import Gene6 Users...</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <table id="csv_options" class="tblMiddleAlign csv_options" width="100%" style="margin-top:10px; display: none" cellspacing="3" cellpadding="3">
+                    <tr>
+                        <td style="text-align: right; width: 25%; padding-right: 30px;">
+                            <label for="csv_separator">Colum Separator:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="csv_separator" id="csv_separator" value="," style="width: 60%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; padding-right: 30px;">
+                            <label for="values_quoted">First line has column names?</label>
+                        </td>
+                        <td>
+                            <select name="first_header" id="first_header" style="width: 61%">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; padding-right: 30px;">
+                            <label for="password_type">Password Type:</label>
+                        </td>
+                        <td>
+                            <select name="password_type" id="password_type" style="width: 61%">
+                                <option value="plain">Plain Text</option>
+                                <option value="md5hash">MD5 Hash</option>
+                                <option value="sha256">SHA256</option>
+                                <option value="sha512">SHA512</option>
+                                <option value="sha512crypt">SHA512CRYPT</option>
+                                <option value="sha512cryptsaltedhash">SHA512CRYPT Salted hash</option>
+                                <option value="md5saltedhash">MD5 Salted Hash</option>
+                                <option value="md5crypt">MD5 Crypt</option>
+                                <option value="pbkdf2sha256">PBKDF2-SHA256</option>
+                                <option value="BCrypt">BCrypt</option>
+                            </select>
+                            <input type="number" name="salted_x_char" id="salted_x_char" value="2" style="display: none">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; padding-right: 30px;">
+                            <label for="password_type">Default Group:</label>
+                        </td>
+                        <td>
+                            <select name="default_group" id="default_group" style="width: 61%">
+
+                            </select><br>
+                            <small>If your file doesn&apos;t have a column for a group you can set here the group what will be use for all imported users.</small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="width:100%;overflow:scroll;">
+                <table class="tblMiddleAlign csv_options" width="100%" style="margin-top:10px; display: none" cellspacing="3" cellpadding="3">
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                                <legend><a href="javascript:void(0)" id="refresh_csv" style="float: left; margin: 2px 0px 0px 0px;"><img src="../jQuery/images/refresh.png" alt="Refresh Preview" /></a><div style="float: left; margin: 3px 0 0 5px">File Map</div><div style="clear:both"></div></legend>
+                                <div id="map_container"><div id="map_html"></div></div>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div>
+            <div id="myslidemenu" class="jqueryslidemenu" style="width:510px;">
+                <ul style="float:left;top:50px;margin-top:5px;width:510px;overflow:hidden;">
+                    <li id="menuHelper" data-dropdown="#dropdown-1">
+                        <a href="javascript:void(0);" id="menuIcon" style="position:relative;top:2px;left:5px;">
+                            <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-wrench'></span>
+                            <span>Menu</span>
+                            <span style='display: inline-block;margin: 0px;background: url("/WebInterface/Resources/images/down.gif") no-repeat 0px 3px;width: 11px;height: 11px;'></span>
+                        </a>
+                        <ul id="topNavigationContext">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-person'></span>
+                                    <span>Users</span>
+                                </a>
+                                <ul>
+                                    <li config="create_user"><a href="#" class="createNewUser">Create New User</a>
+                                    </li>
+                                    <li class="adminOnly"><a href="#" class="rollbackSelectedUser">Rollback Selected User</a>
+                                    </li>
+                                    <li config="create_user"><a href="#" class="duplicateSelectedUser">Duplicate Selected User</a>
+                                    </li>
+                                    <li config="delete_user"><a href="#" class="deleteSelectedUsers">Delete Selected Users</a>
+                                    </li>
+                                    <li><a href="#" class="importUsers adminOnly">Import Users</a>
+                                    </li>
+                                    <li class="adminOnly"><a href="#" class="undeleteUser">Restore Deleted User</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-calculator'></span>
+                                    <span>Groups</span>
+                                </a>
+                                <ul>
+                                    <li><a href="#" class="addNewGroup">Add New Group</a>
+                                    </li>
+                                    <li><a href="#" class="renameCurrentGroup">Rename Current Group</a>
+                                    </li>
+                                    <li><a href="#" class="deleteSelectedGroup">Delete Current Group</a>
+                                    </li>
+                                    <li><a href="#" class="addSelectedUsersToGroup">Add Selected Users to Group</a>
+                                    </li>
+                                    <li><a href="#" class="removeSelectedUsersFromGroup">Remove Selected Users from Group</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--li><a href="javascript:void(0);">
+                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-refresh'></span>
+                                    <span>Restore</span>
+                                </a>
+                                <ul>
+                                    <li config=""><a href="#">Restore a user from backup</a></li>
+                                    <li config=""><a href="#">Restore all users from backup</a></li>
+                                </ul>
+                            </li-->
+                            <li class="adminOnly">
+                                <a href="javascript:void(0);">
+                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-shuffle'></span>
+                                    <span>Convert</span>
+                                </a>
+                                <ul>
+                                    <li><a href="#" class="migrateUsersData">Migrate user's data folders from one HD to another</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="adminOnly">
+                                <a href="javascript:void(0);">
+                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-document'></span>
+                                    <span>Reports</span>
+                                </a>
+                                <ul>
+                                    <li><a href="#" class="accountActivity">Account Activity Summary</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <div id="switcher" style="position:relative;top:2px;left:10px;"></div>
+                    </li> -->
+                    <li style="top: 3px;">
+                        <div class="connectionSwitch" style="margin-top:8px;margin-left:5px;left:15px;display:block;">
+                            <span style='display: inline-block; margin: 1px 3px 0px -5px;float: left;top:-3px;position: relative;' class='ui-icon ui-icon-link'></span>
+                            <label for="userConnectionGroups">User connection group:</label>
+                            <select id="userConnectionGroups" style="max-width:140px;">
+                            </select>
+                        </div>
+                    </li>
+                    <li class="crush7Feature" style="top: 3px;">
+                        <a href="#" id="quickLocateButton" style="margin-left: 5px;">
+                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-circle-zoomout'></span>
+                            <span>Quick Find (<em>Alt + F</em>)</span>
+                        </a>
+                    </li>
+                </ul>
+                <span class="clear"></span>
+            </div>
+            <div id="mostVisitedUsers" style="display:none;">
+                <div style="padding-top:9px;">
+                    <ul class="mostVisitedLinks" style="margin-top:-4px;float:left;"></ul>
+                </div>
+            </div>
+        </div>
+        <div id="dropdown-1" class="dropdown dropdown-tip dropdown-relative">
+            <ul id="topNavigation" class="dropdown-menu">
+                <li class="ui-widget-content" style="padding: 3px;margin: 2px 5px 0px 5px;">
+                    <a href="javascript:void(0);">
+                        <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-person'></span>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <ul>
+                        <li config="create_user"><a href="#" class="createNewUser">Create New User</a>
+                        </li>
+                        <li class="adminOnly"><a href="#" class="rollbackSelectedUser">Rollback Selected User</a>
+                        </li>
+                        <li config="create_user"><a href="#" class="duplicateSelectedUser">Duplicate Selected User</a>
+                        </li>
+                        <li config="delete_user"><a href="#" class="deleteSelectedUsers">Delete Selected Users</a>
+                        </li>
+                        <li><a href="#" class="importUsers adminOnly">Import Users</a>
+                        </li>
+                        <li class="adminOnly"><a href="#" class="undeleteUser">Restore Deleted User</a>
+                        </li>
+                        <li config="create_user"><a href="#" class="setupTeam">Setup Team</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ui-widget-content" style="padding: 3px;margin: 2px 5px 0px 5px;">
+                    <a href="javascript:void(0);">
+                        <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-calculator'></span>
+                        <span>Groups</span>
+                    </a>
+                </li>
+                <li>
+                    <ul>
+                        <li><a href="#" class="addNewGroup">Add New Group</a>
+                        </li>
+                        <li><a href="#" class="renameCurrentGroup">Rename Current Group</a>
+                        </li>
+                        <li><a href="#" class="deleteSelectedGroup">Delete Current Group</a>
+                        </li>
+                        <li><a href="#" class="addSelectedUsersToGroup">Add Selected Users to Group</a>
+                        </li>
+                        <li><a href="#" class="removeSelectedUsersFromGroup">Remove Selected Users from Group</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="adminOnly ui-widget-content" style="padding: 3px;margin: 2px 5px 0px 5px;">
+                    <a href="javascript:void(0);">
+                        <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-shuffle'></span>
+                        <span>Convert</span>
+                    </a>
+                </li>
+                <li class="adminOnly">
+                    <ul>
+                        <li config="migrate_users"><a href="#" class="migrateUsersData">Migrate user's data folders from one HD to another</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <table width="100%" style="padding:0px;margin:0px;border:0px"  class="ui-widget-content">
+        <tr>
+            <td style="width:250px;vertical-align:top;">
+                <div id="sideBar" class="ui-widget-content" style="z-index:99;">
+                    <div>
+                        <div class="center" style="margin:0px 0px 0px 0px;height:30px;position:relative;">
+                            <a config="create_user" href="#" class="button" id="addUser">
+                                <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                <span class="btnAddText">Add</span>
+                            </a>
+                            <a config="create_user" href="#" class="button" id="copyUser">
+                                <span style='display: inline-block;margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-copy'></span>
+                                <span class="btnCopyText">Copy</span>
+                            </a>
+                            <a config="delete_user" href="#" class="button" id="deleteUser">
+                                <span style='display: inline-block; margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-trash'></span>
+                                <span class="btnRemoveText">Delete</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="customForm">
+                        <div class="ui-widget-content"></div>
+                        <div class="right lineHeight" id="userListFilters" style="margin-top:5px;">
+                            <div>
+                                Filter:
+                                <input type="text" id="filterUserInList" />
+                            </div>
+                            <div>
+                                Inheritance:
+                                <input type="text" id="filterUserByInheritance" />
+                            </div>
+                            <div style="margin-top: -3px;">
+                                Group:
+                                <select style="width: 140px;position: relative;top: 3px;" id="groupSelectList">
+                                    <option>All Users</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-widget-content"></div>
+                    <div class="crush7Feature" id="personalizedUsersPanel">
+                        <div class="viewed" style="margin:3px 0px;">
+                            <label style="width:105px;display: inline-block;text-align: right;" for="recentlyViewedUsers">Recently viewed:</label>
+                            <select style="width:120px;" id="recentlyViewedUsers">
+                            </select>
+                        </div>
+                        <div class="edited" style="margin:3px 0px;">
+                            <label style="width:105px;display: inline-block;text-align: right;" for="recentlyEditedUsers">Recently edited:</label>
+                            <select style="width:120px;" id="recentlyEditedUsers">
+                            </select>
+                        </div>
+                        <div class="ui-widget-content"></div>
+                    </div>
+                    <div id="reloadLinks">
+                        <a href="#" style="float:left;text-decoration: none;" class="reloadUsersLinkMain">Reload</a>
+
+                        <span style="float:right;text-decoration: none;display:inline-block;margin-top:3px;">
+                            Select
+                            <a href="#" class="selectAllUsers">all</a> |
+                            <a href="#" class="pasteToSelectUser">paste</a> |
+                            <a href="#" class="deSelectUsers">none</a>
+                        </span>
+                        <div class="reloadUsersLinkPnl" style="height: 25px;display: block;position: relative;z-index: 1;clear: both;top: -3px;">
+                            <a class='reloadUsersLink' style='cursor:pointer;float:right;display:none;margin-top: 5px;' title='Refresh user data'>Reload User</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="overflow-y:hidden;overflow-x: auto;">
+                        <div id="userListWrapper">
+                            <select multiple class="links ui-state-default nobg ui-widget-content" id="userList">
+                            </select>
+                            <span class="clear"></span>
+                        </div>
+                    </div>
+                    <span class="clear"></span>
+                    <div class="right" style="margin:5px 0px;">
+                        <span style="float:left;margin-top:1px;" class="notes">Showing:
+                            <span id="userListedCount"></span>
+                        </span>
+                        <a href="#" class="showAllUsers">Show All Users</a>
+                        <!-- <strong>Select:</strong><a href="#" class="selectAllUsers">All</a> |
+                        <a href="#" class="deSelectUsers">None</a> -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div style="width:250px;height: 1px;"></div>
+            </td>
+            <td style="vertical-align:top;">
+                <div id="content">
+                    <div id="UserManagerPanel">
+                        <div class="rollback-preview-warning" id="rollbackMessage" style="display: none;">
+                            <div>
+                                This is preview of user <span class="user"></span>'s version:<span class="version"></span>
+                            </div>
+                            <div>
+                                Just hit <a href="#" id="savePreviewVersion">Save</a> to rollback user to shown version or <a href="#" id="cancelRollback">Cancel</a> rollback.
+                            </div>
+                        </div>
+                         <div class="rollback-preview-warning" id="undeleteMessage" style="display: none;">
+                            <div>
+                                This is preview of deleted user <span class="user"></span> as on <span class="version"></span>
+                            </div>
+                            <div>
+                                Just hit <a href="#" id="savePreviewVersion">Save</a> to restore this user or <a href="#" id="cancelRollback">Cancel</a>.
+                            </div>
+                        </div>
+                        <div id="loadingIndicator"></div>
+                        <div class="ui-widget">
+                            <div class="ui-widget-content">
+                                <div id="notification" style="display:none;" class="ui-corner-all ui-state-error"></div>
+                                <div id="welcomeNote" style="margin:10px;">
+                                    <div class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;margin:0px 3px;">
+                                        <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                        <span class="msgText">
+                                            Choose user from left menu to change settings. More options available in top menu.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="placeHolder" class="customForm userManagerPH">
+                                    <span id="userInfoTopLevel"></span>
+                                    <fieldset id="userInfoInheritance" class="ui-widget-content nobg noForm">
+                                        <legend config="modify_inheritance" class="ui-priority-primary">Inheritance / Templates</legend>
+                                        <select config="modify_inheritance" id="groupListToSelectForInheritance" style="width:150px;">
+                                        </select>
+                                        <span style="margin:0px 5px;">
+                                            <span rel="defaults">
+                                                <input type="checkbox" checked id="defaults" disabled />
+                                                <label for="defaults">Defaults</label>
+                                            </span>
+                                            <span id="selectedInheritance"></span>
+                                        </span>
+                                        <span config="modify_inheritance" class="separator"></span>
+                                        <span config="modify_inheritance" class="spacer"></span>
+                                        <a config="modify_inheritance" href="javascript:void(0);" id="applyInheritanceTrigger" style="margin-top:-20px;" class="button batchUserSelector">
+                                            <span class="pointer current" style="float:left;"></span>
+                                            <span class="text">Apply</span>
+                                        </a>
+                                        <a config="modify_inheritance" style="display: none;" href="javascript:void(0);" class="button" id="applyInheritance">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-check'></span>
+                                            <span class="">Apply</span>
+                                        </a>
+                                        <a config="modify_inheritance" style="display: none;" href="javascript:void(0);" class="button" id="applyInheritanceToAllListedUsers">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-check'></span>
+                                            <span class="">Apply</span>
+                                        </a>
+                                    </fieldset>
+                                    <div class="settings_panel">
+                                        <h1 class="ui-widget-header" id="userManagerHeader">
+                                            User Settings
+                                        </h1>
+                                        <div class="settingsPlaceHolder mainContentPanel" id="panels">
+                                        </div>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="growlContainer" style="display: none;">
+                            <div id="growl">
+                                <a class="ui-notify-close" href="#">
+                                    <span class="ui-icon ui-icon-close" style="float: right">
+                                    </span>
+                                </a>
+                                <span style="float: left; margin: 2px 5px 0 0;" class="ui-icon ui-icon-alert">
+                                </span>
+                                <h2>
+                                    #{title}</h2>
+                                <p>
+                                    #{text}</p>
+                            </div>
+                        </div>
+                        <div id="quickLocate" class="crush7Feature ui-widget-content ui-corner-all nobg ui-state-default" style="display:none;">
+                            <div class="fields customForm" style="text-align: center;height:28px;margin-top: -5px;margin-bottom:10px;padding-left: 0px;margin-left: -5px;">
+                                <span class="ui-widget-content ui-state-default" style="padding:10px 10px 1px 10px;">
+                                    <span style="cursor: pointer;margin-right: 10px;">
+                                        <input type="radio" checked name="quickLocateOption" id="quickLocateAll" />
+                                        <label for="quickLocateAll" style="margin-left: -5px;">
+                                            <span style='display: inline-block; margin: -7px 2px -3px -2px' class='pointer ui-icon ui-icon-calculator'></span>Everything</label>
+                                    </span>
+                                    <span style="display: inline-block;top: 4px;position: relative;background: #D8D4D4;width: 1px;height: 26px;margin-right: 5px;"></span>
+                                    <span style="cursor: pointer;margin-right: 10px;">
+                                        <input type="radio" name="quickLocateOption" id="quickLocateUser" />
+                                        <label for="quickLocateUser" style="margin-left: -5px;">
+                                            <span style='display: inline-block; margin: -7px 2px -3px -2px' class='pointer ui-icon ui-icon-person'></span>Users</label>
+                                    </span>
+                                    <span style="display: inline-block;top: 4px;position: relative;background: #D8D4D4;width: 1px;height: 26px;margin-right: 5px;"></span>
+                                    <span style="cursor: pointer;margin-right: 10px;">
+                                        <input type="radio" name="quickLocateOption" id="quickLocateUserSettings" />
+                                        <label for="quickLocateUserSettings" style="margin-left: -5px;">
+                                            <span style='display: inline-block; margin: -7px 2px -3px -2px' class='pointer ui-icon ui-icon-gear'></span>User settings</label>
+                                    </span>
+                                    <span style="display: inline-block;top: 4px;position: relative;background: #D8D4D4;width: 1px;height: 26px;margin-right: 5px;"></span>
+                                    <span style="cursor: pointer;margin-right: 10px;">
+                                        <input type="radio" name="quickLocateOption" id="quickLocateGroups" />
+                                        <label for="quickLocateGroups" style="margin-left: -5px;">
+                                            <span style='display: inline-block; margin: -7px 2px -3px -2px' class='pointer ui-icon ui-icon-copy'></span>Groups</label>
+                                    </span>
+                                    <span style="display: inline-block;top: 4px;position: relative;background: #D8D4D4;width: 1px;height: 26px;margin-right: 5px;"></span>
+                                    <span style="cursor: pointer;">
+                                        <input type="radio" name="quickLocateOption" id="quickLocateSettings" />
+                                        <label for="quickLocateSettings" style="margin-left: -5px;">
+                                            <span style='display: inline-block; margin: -7px 2px -3px -2px' class='pointer ui-icon ui-icon-wrench'></span>Settings Panel</label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div>
+                                <input name="quickFilter" autocomplete="false" type="text" style="display: none;" />
+                                <input id="quickLocateFilter" name="quickFilter" autocomplete="false" type="text" />
+                                <div id="settingSearchAction" style="text-align: center;margin-bottom: 20px;">
+                                    <a href="#" class="button" id="submitBtnForUserSettings">
+                                        <span style='display: inline-block; margin: 0px 3px 0px -7px;
+                                        float: left;' class='pointer ui-icon ui-icon-circle-zoomin'></span>
+                                        <span class="">Search</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="quickLocateResult" class="ui-widget-content ui-corner-all shadow nobg">
+                            </div>
+                            <div id="selectFilteredUsersDiv">
+                                <a href="#" class="button" id="selectFilteredUsers">
+                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;
+                                    float: left;' class='pointer ui-icon ui-icon-check'></span>
+                                    <span class="">Select all filtered users</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="footer" class="ui-widget-content">
+        <div style="margin: 5px 0px; padding: 5px; height: 25px">
+            <div class="fields" style="float:right">
+                <span id="userSpecificButtons">
+                    <span class="admin-note" style="display: none;">
+                        You are editing an admin user
+                    </span>
+                    <a href="#" class="button" id="saveUserData">
+                        <span style='display: inline-block; margin: 0px 3px 0px -7px;
+                        float: left;' class='pointer ui-icon ui-icon-check'></span>
+                        <span class="">Save</span>
+                    </a>
+                    <a href="#" class="button" id="cancelChanges">
+                        <span style='display: inline-block; margin: 0px 3px 0px -7px;
+                        float: left;' class='pointer ui-icon ui-icon-circle-close'></span>
+                        <span class="">Cancel</span>
+                    </a>
+                </span>
+                <a href="#" class="button backToTop" id="" style="padding-left: 25px;">
+                    <span style='display: inline-block;margin: 0px 3px 0px 0px; float: left;position:relative;left:5px;' class='pointer ui-icon ui-icon-arrowreturnthick-1-n'>
+                    </span>
+                    <span>Back to top</span>
+                </a>
+            </div>
+            <div style="float:left;margin-top:10px;">
+                <span id="PoweredByText" class="poweredby">Powered by
+                    <a href="http://www.crushftp.com/" target="_blank">CrushFTP</a>
+                </span>
+                <span id="CopyrightText" class="copyright">&copy; 2025
+                    <a href="http://www.CrushFTP.com/" target="_blank">CrushFTP</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <ul id="batchUploadSelector" class="contextMenu" style="display:none;width:220px;">
+        <li class="current">
+            <a href="#current">This User</a>
+        </li>
+        <li class="batchSelected separator">
+            <a href="#selectedBatch">All Selected users in the List</a>
+        </li>
+        <li class="batch separator">
+            <a href="#batch">All Users in the List</a>
+        </li>
+    </ul>
+    <div id="emailTemplatesDialog" class="customForm" title="Email Templates" style="display:none;">
+        <div>
+            <span>Template:<select id="emailTemplatesList" style="width:350px;margin-top:5px;position: relative;top: 4px;"></select></span>
+        </div>
+        <table id="templateDetails" width="100%" cellpadding="0" cellspacing="0" border="0" style="display:none;margin:5px;">
+            <tr class="template-viewmode">
+                <td style="text-align: right;">
+                    <a id="editEmailTemplate" href="#" class="button" style="top: 0px;">
+                        <span style='display: inline-block;margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                        <span class="">Edit</span>
+                    </a>
+                </td>
+            </tr>
+            <tr class="template-viewmode">
+                <td class="customForm view">
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>From:</label>
+                    </div>
+                    <div>
+                        <div id="emailTemplateEmailFrom" class="ui-widget" style="padding:3px 10px;"></div>
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>CC:</label>
+                    </div>
+                    <div>
+                        <div id="emailTemplateEmailCC" class="ui-widget" style="padding:3px 10px;"></div>
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>BCC:</label>
+                    </div>
+                    <div>
+                        <div id="emailTemplateEmailBCC" class="ui-widget" style="padding:3px 10px;"></div>
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>Reply To:</label>
+                    </div>
+                    <div>
+                        <div id="emailTemplateEmailReplyTo" class="ui-widget" style="padding:3px 10px;"></div>
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>Subject:</label>
+                    </div>
+                    <div>
+                        <div id="emailTemplateSubject" class="ui-widget" style="padding:3px 10px;"></div>
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>Body:</label>
+                    </div>
+                    <div>
+                        <div id="emailTemplateBody" class="ui-widget" style="padding:3px 10px;max-height:300px;overflow-y: auto;"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="template-editmode">
+                <td class="customForm edit">
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>From:</label>
+                    </div>
+                    <div>
+                        <input type="text" class="bigInputBox" id="emailTemplateEmailFromEdit" />
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>CC:</label>
+                    </div>
+                    <div>
+                        <input type="text" class="bigInputBox" id="emailTemplateEmailCCEdit" />
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>BCC:</label>
+                    </div>
+                    <div>
+                        <input type="text" class="bigInputBox" id="emailTemplateEmailBCCEdit" />
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>Subject:</label>
+                    </div>
+                    <div>
+                        <input type="text" class="bigInputBox" id="emailTemplateSubjectEdit" />
+                    </div>
+                    <div class="ui-priority-primary" style="margin-top:10px;">
+                        <label>Body:</label>
+                    </div>
+                    <div style="position: relative;">
+                        <br>
+                        <span style="position: absolute;right:10px;top:3px;">
+                            <input type="checkbox" id="htmlswitch" class="htmlswitch ignoreBind excludeXML">
+                            <label for="htmlswitch">HTML</label>
+                        </span>
+                        <br>
+                        <textarea id="emailTemplateBodyEdit" style="width: 99%;height:250px;"></textarea>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="dialog-message"></div>
+    <div id="userPasswordDialog" style="display:none;">
+        <table>
+            <tr>
+                <td>
+                    <input type="password" style="width: 350px;height:20px;" id="user_password_prompt">
+                    <br>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 1px;border-width:1px 0px 0px 0px;border-color: #ddd;border-style: solid;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <a id="user_generateRandomPass" href="#" class="button" style="top: 0px;">
+                        <span style='display: inline-block;
+                        margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-locked'></span>
+                        <span class="">Generate Random Password</span>
+                    </a>
+                    <div style="margin-top:10px;display:none;" id="userPasswordGeneratePanel">
+                        <input style="width: 250px;height:20px;" id="user_generated_password" type="text" />
+                        <a class="button" style="top:-4px" href="javascript:void(0);" id="user_usePassword">Use this</a>&nbsp;
+                        <a class="button" style="top:-4px" href="javascript:void(0);" id="user_cancelPassword">Cancel</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="access-denied" style="display: none;">
+        <i class="fa fa-info-circle"></i> Your IP is not allowed to do administration or your username does not have permission.
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="cache-control" content="no-cache">
+        <title>CrushFTP - Jobs :: Designer</title>
+        <link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+        <link type="text/css" href="/WebInterface/Resources/css/style.css" rel="stylesheet" />
+        <link type="text/css" href="/WebInterface/Resources/css/vtip.css" rel="stylesheet" />
+        <link type="text/css" href="/WebInterface/Resources/css/simpleMinimap.css" rel="stylesheet" />
+        <link type="text/css" href="/WebInterface/admin/css/adminStyle.css" rel="stylesheet" />
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <!--[if lte IE 7]>
+        <style type="text/css">
+        html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
+        </style>
+        <![endif]-->
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery-ui-1.9.2/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.xml2json.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.json2xml.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.alerts.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.textChange.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.notify.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/date.format.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/vtip.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/browserSelector.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.cookie.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.contextMenu.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/url.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/configSuggestions.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.suggestedSettings.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.ui.selectableAdvanced.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.browseVFSPopup.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.PickUserPopup.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/infoPopup.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.validator.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.passwordValidator.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.encryptPassword.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.highlight.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/lodash.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.jsPlumb-1.3.16-all-min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.animate-shadow.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jquery.autoSuggest.js"></script>
+        <script type="text/javascript" src="/WebInterface/admin/js/crushftp.adminPanel.js"></script>
+        <!-- HTML Editor -->
+        <link rel="stylesheet" href="/WebInterface/Resources/js/SCEditor/themes/default.min.css" type="text/css" media="all" />
+        <script type="text/javascript" src="/WebInterface/Resources/js/SCEditor/jquery.sceditor.bbcode.min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.replicationSave.js"></script>
+        <script type="text/javascript" src="js/crushftp.audit.js"></script>
+        <script type="text/javascript" src="js/crushftp.taskDesigner.js"></script>
+        <script type="text/javascript" src="js/crushTask.defaults.js"></script>
+        <script type="text/javascript" src="/WebInterface/admin/js/crushftp.telnet.inject.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/moment.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/testPGPButton.js"></script>
+        <!-- File Browser stuff -->
+        <link rel="stylesheet" href="/WebInterface/Resources/css/localFileBrowser.css" />
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#switcher').themeswitcher({
+                    onSelect: function(item) {}
+                });
+            });
+        </script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/themeswitcher.js">
+        </script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+        <style type="text/css">
+        div.sceditor-dropdown{
+            z-index: 9999999 !important;
+        }
+        .time-list
+        {
+            width: 60px;
+            display: inline;
+            padding-right: 15px;
+            border: 1px solid #CCCCCC;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 4px;
+            background-color: white;
+            margin-right: 2px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .removefromtimelist
+        {
+            margin-top: 8px;
+        }
+        </style>
+    </head>
+    <body id="GUIAdmin">
+        <div id="autocompleteFix" style="position:absolute;top:-200px;">
+            <input type="text" name="email" value="" style="display: none" />
+            <input type="text" name="email" value=""/>
+            <input type="text" name="not-an-email" value="" style="display: none" />
+            <input type="password" name="password" value="" style="display: none" />
+            <input type="password" name="password" value=""/>
+        </div>
+        <div class="navigation ui-widget-content" id="header" style="background:none;background-color:white;height:55px;">
+            <div id="topSwitchButtons" style="margin:5px;float:left;background:none;border-top:0px;border-right:0px;border-left:0px;display:none;">
+                <ul style="background:none;border:none;">
+                    <li class="ui-state-default ui-corner-top"><a href="/WebInterface/../"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-folder-open">
+                    </span>Files</a></li>
+                    <li privs="connect,server_edit,server_view,update_run,report_edit,report_view" class="ui-state-default ui-corner-top"><a href="/WebInterface/admin/index.html"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-gear">
+                    </span>Server Admin</a></li>
+                    <li privs="connect,job_edit,job_view,job_list,job_list_history" class="ui-state-default ui-corner-top ui-state-active"><a href="/WebInterface/Jobs/index.html"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-copy">
+                    </span>Jobs</a></li>
+                    <li privs="connect,user_admin,user_edit,user_view" class="ui-state-default ui-corner-top"><a href="/WebInterface/UserManager/index.html"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-person">
+                    </span>User Manager</a></li>
+                    <li privs="connect,pref_edit,pref_view" class="ui-state-default ui-corner-top"><a href="/WebInterface/Preferences/index.html"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-copy">
+                    </span>Preferences</a></li>
+                    <li privs="connect,share_edit,share_view" class="ui-state-default ui-corner-top"><a href="/WebInterface/TempAccounts/index.html"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-bookmark">
+                    </span>Shares</a></li>
+                    <li privs="connect" class="ui-state-default ui-corner-top vtip" title="Telnet">
+                        <a href="/WebInterface/admin/log.html" id="telnetButton">
+                            <span style="display: inline-block;margin: -1px -4px 0px -10px;float: left;width: 16px;height: 16px;" class="pointer terminal-icon">
+                            </span></a>
+                    </li>
+                    <li class="ui-state-default ui-corner-top vtip" title="Logout"><a href="#tabs-5" onclick="return doLogout();"><span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-locked">
+                    </span></a></li>
+                    <li class="clear"></li>
+                </ul>
+            </div>
+            <div class="logoContainer">
+                <a id="logo" style="border:0px;padding:0px;" href="javascript:void(0);">
+                    <img src="/WebInterface/Resources/images/crushftp_gray_logo_resized.png" alt="" border="0" width="200" />
+                </a>
+                <div class="clear"></div>
+            </div>
+            <div style="position:absolute; top:38px; left:5px;">
+                <span class="note" id="loggedInAs"></span>
+                <span style="margin-left:5px;" class="note" id="SessionSeconds"></span>
+                <span style="margin-left:6px;" class="liveData ui-priority-primary note" id="crushVersionInfo"></span>
+            </div>
+            <div>
+                <span id="switcher"></span>
+            </div>
+            <div class="enterpriseFeature" style="position:relative;left:160px;top:8px;display:inline-block;">
+                <label for="mainServerInstance">Server Instance:</label>
+                <select id="mainServerInstance" class="inputBox">
+                    <option value=""></option>
+                    <option value="">Main</option>
+                </select>
+            </div>
+        </div>
+        <div class="clear" style="margin-right: 5px;">
+            <div class="mainContentPanel" id="taskDesignerPanel">
+                <div id="loadingIndicator"></div>
+                <div id="notification" style="display:none;" class="ui-corner-all ui-state-error"></div>
+                <div id="activejobTabs" class="activeJobItem" style="display:none;z-index:550;">
+                    <div class="ui-priority-primary ui-widget-header" style="float: left;z-index: 101;position: fixed;padding: 4px;margin: 0px 6px;border:0px;">Monitoring active job:
+                        <span id="editingJobName2" style="font-weight: bolder;">Untitled</span>
+                    </div>
+                    <ul style="margin-right: 0px;margin-left: 2px;padding: 0px;margin-top: -5px;position:fixed;width:99%;z-index:100;">
+                        <li>
+                            <a href="#activejobTabsDesign">
+                                <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>Designer</a>
+                            </li>
+                            <li>
+                                <a href="#activejobTabsLog">
+                                    <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-document'></span>Log</a>
+                                </li>
+                                <li id="activejobTabsUserLogButton">
+                                    <a href="#activejobTabsUserLog">
+                                        <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-transfer-e-w'></span>User Transfer Log</a>
+                                    </li>
+                            </ul>
+                            <div id="activejobTabsDesign"></div>
+                            <div id="activejobTabsLog"></div>
+                            <div id="activejobTabsUserLog"></div>
+                        </div>
+                        <div style="position:fixed;z-index: 550;top:57px;width: 99%;margin-left: 3px;height: 33px;" class="jobButtons  ui-widget-content">
+                            <a href="javascript:void(0);" id="existingJobsBtn" class="button jobsMenu customShadow" style="width: 41px;margin-top: 2px;float: left;margin-left: 8px;">
+                                <span style="float:left;right:5px;position: relative;padding: 3px;top:2px;">Jobs</span>
+                                <span style='display: inline-block;margin: 0px;position:absolute;right:6px;top:6px;' class='ui-icon ui-icon-carat-1-s'></span>
+                            </a>
+                            <div style="padding: 5px 15px 5px 13px;margin: 3px 5px;;display: inline-block;float:left;line-height: 15px;" class="ui-widget-content ui-state-highlight ui-corner-all customShadow vtip editingJobName" title="Currently editing Job">
+                                <span id="editingJobName" style="font-weight: bolder;">Untitled</span>
+                                <span id="showChangesNote" style="display:none;font-weight: bolder;position:relative;top:-3px;">*</span>
+                            </div>
+                            <a href="#" class="jobDetails no-link" id="jobDetails">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-gear'>
+                                </span>
+                                <span class="">Setup</span>
+                            </a>
+                            <a href="#" class=" no-link" id="jobAuditTrail">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-calendar'></span>
+                                <span>Change Log</span>
+                            </a>
+                            <a href="#" class=" no-link" id="addBreakpointsAll">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-flag'></span>
+                                <span>Add breakpoint to each step</span>
+                            </a>
+                            <a href="#" class=" no-link" id="removeBreakpoints">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-trash'></span>
+                                <span>Remove all Breakpoints</span>
+                            </a>
+                            <a href="#" class="no-link" id="copyTasks" style="display: none;">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-copy'></span>
+                                <span>Copy Selected <span class="total"></span> Task(s)</span>
+                            </a>
+                            <a href="#" class="no-link" id="removeTasks" style="display: none;">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-trash'></span>
+                                <span>Remove Selected <span class="total"></span> Task(s)</span>
+                            </a>
+                            <a href="#" class="no-link" id="pasteTasks" style="display: none;">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-clipboard'></span>
+                                <span>Paste <span class="total"></span> Task(s)</span>
+                            </a>
+                            <a href="#" class="no-link" id="undoPasteTasks" style="display: none;">
+                                <span style='display: inline-block;margin: 0px -1px 1px -9px;' class='pointer ui-icon ui-icon-arrowrefresh-1-w'></span>
+                                <span>Undo Paste <span class="secs"></span></span>
+                            </a>
+                            <a href="#" class="button top-save-button saveJobsButton" id="saveChanges" style="float:right;margin:3px 5px 2px 0px;">
+                                <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-disk'></span>
+                                <span>Save Changes</span>
+                            </a>
+                            <a href="#" class="button" id="runJob" style="float:right;margin:3px 5px 2px 0px;">
+                                <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-circle-check'></span>
+                                <span>Test &amp; Run Job</span>
+                            </a>
+                            <div id="designerLogSwitchPnl" style="float:right;display:none;margin:3px 5px 2px 0px;">
+                                <div id="designerLogSwitch">
+                                    <input type="radio" id="rdbDesigner" name="designerLogSwitch" checked />
+                                    <label for="rdbDesigner">
+                                        <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>Designer</label>
+                                        <input type="radio" id="rdbLog" name="designerLogSwitch" />
+                                        <label for="rdbLog">
+                                            <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-document'></span>Log</label>
+                                        <input type="radio" id="rdbUserLog" name="designerLogSwitch" />
+                                            <label for="rdbUserLog">
+                                                <span style='display: inline-block; margin: -1px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-transfer-e-w'></span>User Transfer Log</label>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="button activeJobItem" id="editJobTemplate" style="float:right;margin:3px 5px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                        <span>Edit Job Template</span>
+                                    </a>
+                                    <a href="#" class="button activeJobItem" id="cancelJob" style="float:right;margin:3px 5px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-power'></span>
+                                        <span>Stop</span>
+                                    </a>
+                                    <a href="#" class="button activeJobItem" id="pauseResumeJob" style="float:right;margin:3px 5px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-play'></span>
+                                        <span>Pause / Resume</span>
+                                    </a>
+                                    <a href="#" class="button activeJobItem" id="refreshJobInfo" style="float:right;margin:3px 5px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-refresh'></span>
+                                        <span>Refresh</span>
+                                    </a>
+                                    <a href="#" class="button activeJobItem" id="retryJob" style="float:right;margin:3px 5px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-arrowrefresh-1-e'></span>
+                                        <span>Retry from Last Failure</span>
+                                    </a>
+                                    <a href="#" class="button activeJobItem" id="rerunJob" style="float:right;margin:3px 5px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-arrowrefresh-1-s'></span>
+                                        <span>Re-Run</span>
+                                    </a>
+                                    <span class="activeJobItem" style="float:right;margin:10px 10px 2px 0px;display:none;">
+                                        <span style='display: inline-block;margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-clock'></span>
+                                        Last Updated:
+                                        <span id="lastUpdatedActiveJobStamp"></span>
+                                    </span>
+                                    <span id="activeJobNote" class="activeJobItem" style="float:right;margin:10px 15px 2px 0px;display:none;">
+                                        <span class="loader" style='display: inline-block;margin: -1px -11px 0px -5px;float:left;'>
+                                            <img src="/WebInterface/Resources/images/loading.gif" />
+                                        </span>
+                                        <span style='display: inline-block;margin: -1px 5px 0px -5px;float:left;' class='pointer ui-icon ui-icon-transferthick-e-w'></span>
+                                        Status:
+                                        <span class="ui-priority-primary" id="activeJobStatus" style="text-transform:capitalize;"></span>
+                                    </span>
+                                </div>
+                                <div id="jobDetailsDialog" style="display:none;">
+                                    <table width="100%" class="valignMiddle customForm">
+                                        <tr>
+                                            <td colspan="3">
+                                                <label for="scheduleName_jobs">Schedule Name:</label>
+                                                <input type="text" id="scheduleName_jobs" _id="scheduleName" style="margin-bottom:5px;width:350px;" />
+                                                <input type="text" _id="plugin" class="ui-helper-hidden" />
+                                                <input type="text" _id="pluginName" class="ui-helper-hidden" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <div>
+                                                    <div class="batch">
+                                                        <span class="batch-action">
+                                                            <span class="button batchJobSelector" rel="enabled"><span class="current"></span></span>
+                                                        </span>
+                                                        <span class="batch-field">
+                                                            <input type="checkbox" name="enabled" id="enabled" class="job_enabled_flag" _id="enabled" />
+                                                            <label for="enabled" class="ui-priority-primary">Enabled</label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div id="jobEnabledByPluginMsg" class="ui-state-highlight ui-corner-all warning" style="padding: 3px; margin: 5px 0px; width: 365px;display:none;">
+                                                    <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                                    <span class="msgText">
+                                                        This job's status is managed by the plugin being referenced
+                                                    </span>
+                                                </div>
+                                                    <!--span class="spacer"></span>
+                                                    <span class="spacer"></span>
+                                                    <input type="checkbox" name="debug" id="debug" />
+                                                <label for="debug" class="ui-priority-primarys">Debug</label-->
+                                            </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="schedule_notes"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <label for="schedule_notes" style="vertical-align:top;margin-left:10px;">Note:</label>
+                                                <textarea id="schedule_notes" _id="scheduleNote" style="margin-bottom:5px;width:350px;height:40px;">
+                                                </textarea>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="save_state"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <input type="checkbox" id="save_state" _id="save_state" />
+                                                <label for="save_state">Save state between steps</label>
+                                            </span>
+                                        </div>
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="log_enabled"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <input type="checkbox" id="log_enabled" _id="log_enabled" />
+                                                <label for="log_enabled">Logging enabled</label>
+                                            </span>
+                                        </div>
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="save_history"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <input type="checkbox" id="save_history" _id="save_history" />
+                                                <label for="save_history">Save results of job at end</label>
+                                            </span>
+                                        </div>
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="single"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <input type="checkbox" id="single" _id="single" />
+                                                <label for="single">Only one instance running at a time</label>
+                                            </span>
+                                        </div>
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="singleServer"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <input type="checkbox" id="singleServer" _id="singleServer" />
+                                                <label for="singleServer">Only one instance running at a time in cluster</label>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="allowed_usernames"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <label for="allowed_usernames">Users allowed to monitor:</label>
+                                                <input type="text" id="schedule_allowed_usernames" _id="allowed_usernames" style="margin-bottom:5px;width:350px;" />
+                                                <a href="#" class="button slim" id="pickUsers" style="padding: 3px 10px;position: absolute;top: inherit !important;margin: 0px 0px 0px 10px;">
+                                                    <span style="display:inline-block;margin:0px 3px 0px -5px;float:left;" class="pointer ui-icon ui-icon-person"></span>
+                                                    <span class="">
+                                                        Pick
+                                                    </span>
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="batch">
+                                            <span class="batch-action">
+                                                <span class="button batchJobSelector" rel="schedule_job_log_name"><span class="current"></span></span>
+                                            </span>
+                                            <span class="batch-field">
+                                                <label for="job_log_name">Job log file name:</label>
+                                                <input type="text" id="schedule_job_log_name" _id="job_log_name" style="margin-bottom:5px;width:200px;" />
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <table width="100%" class="valignMiddle customForm" id="scheduleType">
+                                            <tr>
+                                                <td>
+                                                    <span class="batch-action">
+                                                        <span class="button batchJobSelector" rel="scheduleType"><span class="current"></span></span>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <table width="100%" class="valignMiddle customForm">
+                                                        <tr>
+                                                            <td colspan="3">
+                                                                <input type="radio" name="scheduleType" id="manually_jobs" _id="manually" />
+                                                                <label for="manually_jobs">Manually</label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:80px;">
+                                                                <input type="radio" id="minutely_jobs" name="scheduleType" _id="minutely" />
+                                                                <label for="minutely_jobs">Minutely</label>
+                                                            </td>
+                                                            <td style="width:200px;padding-top:8px;">
+                                                                <label for="minutelyAmount_jobs">Every</label>
+                                                                <input type="text" class="smallInputBox" id="minutelyAmount_jobs" _id="minutelyAmount" />
+                                                                <label for="minutelyAmount_jobs">minutes.</label>
+                                                            </td>
+                                                            <td rowspan="5" style="vertical-align:top;">
+                                                                <div _id="periodOptions" style="position:relative;">
+                                                                    <div class="option manually minutely daily weekly monthly">
+                                                                        <label for="max_runtime_hours"><strong>Max Runtime: </strong></label>
+                                                                        <label for="max_runtime_hours" style="position: absolute;margin-top: -15px;font-size: 11px;margin-left: 3px;">Hours</label>
+                                                                        <input type="text" placeholder="00" class="smallInputBox" id="max_runtime_hours" _id="max_runtime_hours" />
+                                                                        <label>:</label>
+                                                                        <label for="max_runtime_minutes" style="position: absolute;margin-top: -15px;font-size: 11px;margin-left: 3px;">Minutes</label>
+                                                                        <input type="text" placeholder="00" class="smallInputBox" id="max_runtime_minutes" _id="max_runtime_minutes" />
+                                                                        <br>
+                                                                        <i>
+                                                                        (00:00 indicates no maximum runtime)
+                                                                        </i>
+                                                                        <br>
+                                                                        <br>
+                                                                    </div>
+                                                                    <div class="option daily weekly monthly">
+                                                                        <label for="scheduleTime_jobs"><strong>Time to run the Job:</strong></label>
+                                                                        <a id="repeatEveryMinutesOn" href="#" style="display: inline-block;float: right;margin-top: -5px;"><span style='display:inline-block;margin:0px 0px 0px 2px;float:left;' class='pointer ui-icon ui-icon-refresh' ></span>
+                                                                            Repeat Every X Minutes
+                                                                        </a>
+                                                                        <div id="repeatEveryMinutesOnPanel" style="display: none;">
+                                                                            Repeat Every <input type="number" name="toTimeValue" id="repeatEveryMinutesOnTxtbox" style="width:50px;" maxlength="3"> Minutes
+                                                                            <br>
+                                                                            <br>
+                                                                            From:
+                                                                            <input type="text" name="fromTimeValue" id="fromTimeOnEveryMinutes" style="width:60px;margin-right:15px;">
+                                                                            <input type="hidden" name="fromTimeValue" id="fromTimeOnEveryMinutesHdn" style="width:60px;margin-right:15px;">
+                                                                            To:
+                                                                            <input type="text" name="toTimeValue" id="toTimeOnEveryMinutes" style="width:60px;">
+                                                                            (Optional)
+                                                                            <br>
+                                                                            <br>
+                                                                            <div style=" margin-top: 5px;">
+                                                                                <input type="checkbox" id="save_pastRepeatOnEvertMinutes" _id="save_history" />
+                                                                                <label style="top:-5px;position:relative;" for="save_history">Remove existing time entries</label>
+                                                                            </div>
+                                                                            <br/>
+                                                                        </div>
+                                                                        <a id="pasteTimeList" href="#" style="display: inline-block;float: right;margin-top: -5px;">
+                                                                            <span style='display:inline-block;margin:0px 0px 0px 2px;float:left;' class='pointer ui-icon ui-icon-pencil' ></span>
+                                                                            Quick Edit Time
+                                                                        </a>
+                                                                        <br />
+                                                                        <div class="time-list-fieldset" style="display:block;position:relative;margin-top: 0px;margin-bottom: 15px;max-height: 115px;overflow-x: auto;height: auto;min-height: 35px;">
+                                                                            <span class="pointer ui-icon ui-icon-close" style="display: inline; float: left;"></span>
+                                                                            <input type="text" class="time-list" _index='1' value="08:00 pm" style="width:60px;display: inline; float: left;" disabled >
+                                                                        </div>
+                                                                        <div style="clear:both;">
+                                                                            <input type="text" name="timeValue" id="timeValueadd" style="width:60px;">
+                                                                            <a id="addinTimeList" href="#" class="button">
+                                                                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+                                                                                Add Time
+                                                                            </a>
+                                                                        </div>
+                                                                        <input style="display:none;" type="text" class="bigInputBox" id="scheduleTime_jobs" _id="scheduleTime">
+                                                                        <div class="option weekly" style="position:absolute;">
+                                                                            <fieldset class="weekdays" style="display:block;position:relative;width:275px;">
+                                                                                <div class="ui-state-default" _day="1">Sun</div>
+                                                                                <div class="ui-state-default" _day="2">Mon</div>
+                                                                                <div class="ui-state-default" _day="3">Tue</div>
+                                                                                <div class="ui-state-default" _day="4">Wed</div>
+                                                                                <div class="ui-state-default" _day="5">Thu</div>
+                                                                                <div class="ui-state-default" _day="6">Fri</div>
+                                                                                <div class="ui-state-default" _day="7">Sat</div>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="option monthly" style="position:absolute;">
+                                                                            <fieldset class="monthdays" style="display:block;width:280px;position:relative;">
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="clear"></div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="radio" name="scheduleType" id="daily_jobs" _id="daily" />
+                                                                    <label for="daily_jobs">Daily</label>
+                                                                </td>
+                                                                <td style="padding-top:8px;">
+                                                                    <label for="dailyAmount_jobs">Every</label>
+                                                                    <input type="text" class="smallInputBox" id="dailyAmount_jobs" _id="dailyAmount" />
+                                                                    <label for="dailyAmount_jobs">days.</label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="radio" name="scheduleType" id="weekly_jobs" _id="weekly" />
+                                                                    <label for="weekly_jobs">Weekly</label>
+                                                                </td>
+                                                                <td style="padding-top:8px;">
+                                                                    <label for="weeklyAmount_jobs">Every</label>
+                                                                    <input type="text" class="smallInputBox" id="weeklyAmount_jobs" _id="weeklyAmount" />
+                                                                    <label for="weeklyAmount_jobs">week(s) on:</label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="radio" name="scheduleType" id="monthly_jobs" _id="monthly" />
+                                                                    <label for="monthly_jobs">Monthly</label>
+                                                                </td>
+                                                                <td style="padding-top:8px;">
+                                                                    <label for="monthlyAmount_jobs">Every</label>
+                                                                    <input type="text" class="smallInputBox" id="monthlyAmount_jobs" _id="monthlyAmount" />
+                                                                    <label for="monthlyAmount_jobs">month(s) on:</label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                    <label for="job_nextRun">Starting from:</label>
+                                                                    <input type="text" class="excludeXML" id="nextRun" _id="job_nextRun" />
+                                                                </td>
+                                                            </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                    <tr><td colspan="3" style="height:10px;"></td></tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="batch">
+                                                <span class="batch-action">
+                                                    <span class="button batchJobSelector" rel="schedule_link_after_start"><span class="current"></span></span>
+                                                </span>
+                                                <span class="batch-field">
+                                                    <label for="link_after_start">Link after start:</label>
+                                                    <select id="schedule_link_after_start" _id="link_after_start" style="margin-bottom:5px;width:200px;">
+                                                        <option value="">Please select</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="batch">
+                                                <span class="batch-action">
+                                                    <span class="button batchJobSelector" rel="schedule_link_before_end"><span class="current"></span></span>
+                                                </span>
+                                                <span class="batch-field">
+                                                    <label for="link_before_end">Link before end:</label>
+                                                    <select id="schedule_link_before_end" _id="link_before_end" style="margin-bottom:5px;width:200px;">
+                                                        <option value="">Please select</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="text-align:right;"><a style="z-index: 999;clear: both;position: relative;" href="javascript:void(0);" class="showXML">Show XML</a></td>
+                                    </tr>
+                                </table>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="nobg taskDesignerButtons" style="margin:8px;position: absolute;z-index: 600;">
+                                <span>
+                                    <a href="javascript:void(0);" id="newTaskDragButton" class="button task sideDragable customShadow" style="position: fixed;margin-top: 0px;">
+                                        <span style='display: inline-block;margin: 0px;position:absolute;left:-11px;top:5px;' class='ui-icon ui-icon-grip-dotted-vertical'></span>
+                                        <span style='display: inline-block; margin: 5px 2px -2px 0px;float: left;' class='pointer newTaskIcon'></span>
+                                        <span class="showHideText" style="display: none;width:60px;float:left;top:6px;">New Task</span>
+                                        <span style='display: inline-block;margin: 0px;position:absolute;right:-11px;top:5px;' class='ui-icon ui-icon-grip-dotted-vertical'></span>
+                                    </a>
+                                </span>
+                                <div id="existingJobsPanel" class="jobsMenuOverlay customShadow2 ui-widget ui-widget-content ui-corner-all nobg" style="width:390px;height:530px;margin:-15px 5px 0px;background-color: #fff;display: none;position:fixed;z-index:550;">
+                                    <div id="availableJobsTabs" class="tabs">
+                                        <span style="cursor:pointer;top:10px;right:5px;" class="closeBtn ui-button-icon-primary ui-icon ui-icon-closethick ui-dialog-titlebar-close"></span>
+                                        <span style="cursor:pointer;top:10px;right:15px;" title="Pin job list panel" class="pinBtn off ui-button-icon-primary ui-icon  ui-icon-pin-s ui-dialog-titlebar-close"></span>
+                                        <span style="cursor:pointer;top:10px;right:15px;" title="Unpin job list panel" class="pinBtn on ui-button-icon-primary ui-icon  ui-icon-pin-w ui-dialog-titlebar-close"></span>
+                                        <ul>
+                                            <li>
+                                                <a href="#existingJobs">
+                                                    <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-disk">
+                                                    </span>Available Jobs
+                                                </a>
+                                                <span id="loadingJobsList" style="display:none;">
+                                                    <img src="/WebInterface/Resources/images/loading.gif" style="width:16px;height:16px;display:inline-block;z-index:9999;top:5px;left:2px;position:absolute;" />
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <a href="#activeJobs">
+                                                    <span style="display: inline-block;margin: -1px 3px 0px -10px; float: left;" class="pointer ui-icon ui-icon-calendar"></span>
+                                                    Active Jobs
+                                                </a>
+                                                <span id="loadingActiveJobs" style="display:none;">
+                                                    <img src="/WebInterface/Resources/images/loading.gif" style="width:16px;height:16px;display:inline-block;z-index:9999;top:5px;left:2px;position:absolute;" />
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <div id="existingJobs">
+                                            <div class="jobsData" style="padding:0px;">
+                                                <span class="jobsPanelButtons">
+                                                    <a href="#" class="button" id="newJobsSchedule" style="display: none;">
+                                                        <span style='display: inline-block; margin: -1px 3px 0px -8px;float: left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                                        <span>New</span>
+                                                    </a>
+                                                    <a href="#" class="button" id="newFolder" style="display: none;">
+                                                        <span style='display: inline-block; margin: -1px 3px 0px -8px;float: left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                                        <span>New</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);" id="newJobButton" class="button" style="padding-right: 19px;line-height: 16px;">
+                                                        <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                                        <span class="">New </span>
+                                                        <span class="ui-icon ui-icon-triangle-1-s" style="position: absolute;right: 3px;top: 7px;"></span>
+                                                    </a>
+                                                    <a href="#" class="button" id="importJob">
+                                                        <span style='display: inline-block; margin: -1px 3px 0px -8px;float: left;' class='pointer ui-icon ui-icon-arrowreturn-1-e'></span>
+                                                        <span>Import</span>
+                                                    </a>
+                                                    <a href="#" class="button" id="copyJobsSchedule" style="padding-right: 19px;line-height: 16px;">
+                                                        <span style='display: inline-block; margin: -1px 3px 0px -8px;float: left;' class='pointer ui-icon ui-icon-copy'></span>
+                                                        <span>Copy</span>
+                                                        <span class="ui-icon ui-icon-triangle-1-s" style="position: absolute;right: 3px;top: 7px;"></span>
+                                                    </a>
+                                                    <a href="#" class="button" id="pasteJobsSchedule">
+                                                        <span style='display: inline-block; margin: -1px 3px 0px -8px;float: left;' class='pointer ui-icon ui-icon-clipboard'></span>
+                                                        <span>Paste</span>
+                                                    </a>
+                                                    <a href="#" class="button" id="deleteJobsSchedule">
+                                                        <span style='display: inline-block; margin: -1px 3px 0px -8px; float: left;' class='pointer ui-icon ui-icon-trash'></span>
+                                                        <span class="btnDeleteText">Delete</span>
+                                                    </a>
+                                                    <a id="jobsSetup" href="javascript:void(0);" class="button">
+                                                        <span style='display: inline-block; margin: -1px -10px 0px -7px; float: left;' class='pointer ui-icon ui-icon-wrench'></span>&nbsp;
+                                                    </a>
+                                                    <a id="reloadJobsList" href="javascript:void(0);" class="button">
+                                                        <span style='display: inline-block; margin: -1px -10px 0px -7px; float: left;' class='pointer ui-icon ui-icon-refresh'></span>&nbsp;
+                                                    </a>
+                                                </span>
+                                                <div style="margin:10px 3px 6px 3px;">
+                                                    <label for="filterSchedules">Filter:</label>
+                                                    <input type="text" class="filterSchedules" style="width:175px;" id="filterSchedules" />&nbsp;
+                                                    <a href="#" class="clearSchedulesFilter" style="top: 0px;margin-left: 0px;position: relative;">Clear</a>
+                                                    <div id="jobsScheduleListActions" class="right">
+                                                        Select:
+                                                        <a href="#" class="selectAll">All</a> |
+                                                        <a href="#" class="deSelect">None</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div>
+                                                    <label for="sortJobs">Sort by:</label>
+                                                    <select name="sort-jobs" id="sortJobs" style="width: 180px">
+                                                        <option default value="name_ascending">Name ascending</option>
+                                                        <option value="name_descending">Name descending</option>
+                                                        <option value="created_ascending">Created ascending</option>
+                                                        <option value="created_descending">Created descending</option>
+                                                        <option value="modified_ascending">Modified ascending</option>
+                                                        <option value="modified_descending">Modified descending</option>
+                                                    </select>
+                                                    <input type="checkbox" checked id="sortFoldersFirst" />
+                                                    <label for="sortFoldersFirst">Folders on top?</label>
+                                                </div>
+                                                <div class="ui-widget path-selector">
+                                                    <select name="path-selector" id="jobFolders" _width="100">
+                                                        <option>/</option>
+                                                    </select>
+                                                </div>
+                                                <div class="joblistInfo">Total: <span id="totalJobCount"></span> Jobs, Total: <span id="totalJobCountCurDir"></span> Jobs in current folder</div>
+                                                <div class="back-button">
+                                                </div>
+                                                <ol class="nobg sideBarList noBorder ui-widget-content" id="jobsScheduleList" style="margin-top:3px;height:430px;overflow-x: hidden;overflow-y: auto;">
+                                                </ol>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div id="activeJobs" style="padding:0px;">
+                                            <div class="clear"></div>
+                                            <div style="margin:3px;">
+                                                <label for="filterActiveSchedules">Filter: </label>
+                                                <input type="text" class="filterActiveSchedules" style="width:250px;" id="filterActiveSchedules" />&nbsp;&nbsp;
+                                                <a href="#" class="clearActiveSchedulesFilter" style="top: 0px;margin-left: -5px;position: relative;">Clear</a>
+                                            </div>
+                                            <div style="margin:3px;">
+                                                <label for="jobStatusFilter">Show:</label>
+                                                <select id="jobStatusFilter">
+                                                    <option value="">All</option>
+                                                    <option value="running">Running</option>
+                                                    <option value="paused">Paused</option>
+                                                    <option value="completed">Completed</option>
+                                                    <option value="completed-errors">Completed-Errors</option>
+                                                    <option value="cancelled">Cancelled</option>
+                                                </select>
+                                                <span class="spacer"></span>
+                                                <label for="rangeSelector">Range:</label>
+                                                <select id="rangeSelector">
+                                                    <option value="10mins">Last 10 Minutes</option>
+                                                    <option value="hour" selected>Last Hour</option>
+                                                    <option value="24hour">Last 24 Hours</option>
+                                                    <option value="today">Today</option>
+                                                    <option value="yesterday">Yesterday</option>
+                                                    <option value="last3days">Last 3 Days</option>
+                                                    <option value="week">Last 7 Days</option>
+                                                    <option value="month">Last 30 Days</option>
+                                                    <option value="custom">Custom</option>
+                                                    <option value="all">All</option>
+                                                </select>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div>
+                                                <input type="checkbox" checked id="hideUserActiveSchedules" />&nbsp;
+                                                <label for="hideUserActiveSchedules">Hide user event jobs?</label>
+                                                <a id="reloadActiveJobs" href="javascript:void(0);" style="float:right;">
+                                                    <span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-refresh'></span>
+                                                    <span>Refresh</span>
+                                                </a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="ui-priority-secondary" style="margin:3px 0px 3px 5px;text-align:right;font-size:11px;">
+                                                <span style="float:left;">Updated at: <span id="lastJobListUpdatedTimestamp"></span></span>
+                                                <span id="lastJobListUpdatedRange"></span>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div id="jobsActiveScheduleListActions" style="font-size: 11px;margin: 6px 0px 0px 5px;right: 10px;">
+                                                <a href="#" class="selectAll">All</a> |
+                                                <a href="#" class="selectRunning">Running</a> |
+                                                <a href="#" class="selectPaused">Paused</a> |
+                                                <a href="#" class="selectCompleted">Completed</a> |
+                                                <a href="#" class="selectWithError">With Error</a> |
+                                                <a href="#" class="selectCancelled">Cancelled</a> |
+                                                <a href="#" class="deSelect">None</a> |
+                                                <span style="float:right;margin-right:3px;" class="pointer" id="batchActions">
+                                                    <span style="display: inline-block;margin-top: -2px;float: left;" class='pointer ui-icon ui-icon-gear'></span> Action
+                                                </span>
+                                            </div>
+                                            <div class="joblistInfo">Total: <span id="totalActiveJobCount"></span> Jobs</div>
+                                            <div class="clear"></div>
+                                            <ol class="nobg sideBarList noBorder ui-widget-content" id="activeScheduleList" style="margin-top:3px;height:430px;overflow-x: hidden;overflow-y: auto;">
+                                            </ol>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div id="pluginSelector" class="ui-widget-content">
+                                Choose the plugin to schedule: <select id="plugin"></select>
+                            </div>
+                            <div id="placeHolder" class="customForm designerPanel" style="margin:34px 0px 0px 0px;">
+                                <div class="content" style="margin:0px 0px 5px 5px;overflow: auto;">
+                                    <div id="jobsCanvas" class="canvas">
+                                        <div class="bottomTrigger resizer ui-corner-all" title="Expand height"></div>
+                                        <div class="rightTrigger resizer ui-corner-all" title="Expand width"></div>
+                                    </div>
+                                    <div class="zoomSlider hidden ui-widget-content">
+                                        <div id="zoomCollapse">
+                                            <span class="ui-icon ui-icon-close" style="display: inline-block;top: 0px;position: relative;"></span>
+                                        </div>
+                                        <div id="canvasZoomSlider"></div>
+                                        <div style="margin-top:7px;">
+                                            <div style="float:left;">Zoom: <span id="zoomValue">100%</span></div>
+                                            <div style="float:right;"><a href="#" id="resetZoom">Reset</a></div>
+                                        </div>
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                    <div id="logPlaceHolder" style="display:none;">
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div id="itemTemplates">
+                                <div class="ui-state-highlight customShadow breakPoint canvasPortlet">
+                                    <span style="cursor:pointer;top:2px;right:-2px;" class="closeBtn ui-button-icon-primary ui-icon ui-icon-closethick ui-dialog-titlebar-close"></span>
+                                    <span class="icon"></span>
+                                    <span class="taskSuccessActionPoint taskAction" _type="success"></span>
+                                </div>
+                                <div class="ui-widget ui-widget-content customShadow ui-helper-clearfix ui-corner-all crushTaskItem canvasPortlet">
+                                    <div class="crushTask-header ui-widget-header ui-corner-all">
+                                        <a class="crushTaskOptionsLink" href="#"><span class="ui-icon ui-icon-circle-triangle-s" style="display: inline-block;top: 1px;position: relative;"></span></a>
+                                        <span class="taskHeaderLabel" style="display: inline-block;top: 0px;position: relative;">
+                                            New Task
+                                        </span>
+                                        <span class="task-notes-icon vtip">
+                                            <span class="ui-icon ui-icon-script" style="display: inline-block;top: 0px;position: relative;"></span>
+                                        </span>
+                                        <a class="crushTaskDetailsLink" href="#">
+                                            <span class="ui-icon ui-icon-info" style="display: inline-block;top: 2px;position: relative;"></span>Show details</a>
+                                            <span style="cursor:pointer;top:0px;right:-2px;" class="closeBtn ui-button-icon-primary ui-icon ui-icon-closethick ui-dialog-titlebar-close"></span>
+                                        </div>
+                                        <div class="crushTask-content">
+                                            <span class="processFirst">1</span>
+                                            <fieldset class="ui-corner-all nobg">
+                                                <legend class="ui-corner-all ui-state-highlight" style="padding:6px;">
+                                                    <a title="Change Task Name" class="editTaskNameLink vtip" href="#">
+                                                        <span class="ui-icon ui-icon-pencil" style="display: inline-block;top: 4px;position: relative;"></span>
+                                                    </a>
+                                                    <span class="taskName ui-priority-primary">Task Details</span>
+                                                </legend>
+                                                <div class="clear"></div>
+                                                <div class="taskDetails" style="margin-top: -10px;">
+                                                </div>
+                                                <div class="clear"></div>
+                                            </fieldset>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="taskActionsPanel">
+                                            <span class="trueJumpPanel">
+                                                <span class="taskJumpTrueActionPoint taskAction" _type="true"></span>
+                                                <div class="ui-widget-content tooltip ui-corner-all customShadow" style="margin: -30px 10px -2px 30px; padding: 5px;display:none;position: absolute;width:40px;">
+                                                    True
+                                                </div>
+                                            </span>
+                                            <span class="falseJumpPanel">
+                                                <span class="taskJumpFalseActionPoint taskAction" _type="jumpfail"></span>
+                                                <div class="ui-widget-content tooltip ui-corner-all customShadow" style="margin: -10px 10px -2px 30px; padding: 5px;display:none;position: absolute;width:40px;">
+                                                    False
+                                                </div>
+                                            </span>
+                                            <span class="failurePanel">
+                                                <span class="taskFailureActionPoint taskAction" _type="failure"></span>
+                                                <div class="ui-widget-content tooltip ui-corner-all customShadow" style="margin: -2px 10px -2px -90px; padding: 5px;display:none;position: absolute;width:40px;">
+                                                    Failure
+                                                </div>
+                                            </span>
+                                            <span class="successPanel">
+                                                <div class="ui-widget-content tooltip ui-corner-all customShadow" style="margin: -2px 10px -2px 40px; padding: 5px;display:none;position: absolute;width:40px;">
+                                                    Success
+                                                </div>
+                                                <span class="taskSuccessActionPoint taskAction" _type="success"></span>
+                                            </span>
+                                            <span class="clear:both;"></span>
+                                        </div>
+                                        <a class="crushTaskItemInfo vtip" style="display:none;" href="#" title="Task Items">
+                                        </a>
+                                        <span class="clear:both;"></span>
+                                    </div>
+                                    <div class="ui-widget ui-widget-content redBorder customShadow ui-helper-clearfix ui-corner-all crushEndActionItem canvasPortlet">
+                                        <div class="crushTask-header ui-widget-header ui-corner-all">
+                                            <span class="endHeaderLabel">
+                                                End Point
+                                            </span>
+                                            <!--span style="cursor:pointer;top:-2px;right:-2px;" class="closeBtn ui-button-icon-primary ui-icon ui-icon-closethick ui-dialog-titlebar-close"></span-->
+                                        </div>
+                                        <div class="ui-widget-content ui-state-highlight ui-corner-all" style="margin: 4px 10px; padding: 5px;">
+                                            <div>
+                                                <span class="ui-icon ui-icon-power" style="float: left; margin-right: .3em;"></span>
+                                                End Point
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-widget ui-widget-content greenBorder customShadow ui-helper-clearfix ui-corner-all crushStartActionItem canvasPortlet">
+                                        <div class="crushTask-header ui-widget-header ui-corner-all">
+                                            <span class="startHeaderLabel">
+                                                Start Point
+                                            </span>
+                                            <!--span style="cursor:pointer;top:-2px;right:-2px;" class="closeBtn ui-button-icon-primary ui-icon ui-icon-closethick ui-dialog-titlebar-close"></span-->
+                                        </div>
+                                        <div class="ui-widget-content ui-state-highlight ui-corner-all" style="margin: 4px 10px; padding: 5px;">
+                                            <div>
+                                                <span class="ui-icon ui-icon-power" style="float: left; margin-right: .3em;"></span>
+                                                Start Point
+                                                <span class="taskSuccessActionPoint taskAction" _type="start" style="margin-top:-3px;margin-right: -4px;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="activeTaskItemsInfoPanel">
+                                        <div class="ui-priority-primary" style="margin:10px 0px;">Items:
+                                            <span class="itemCount"></span>
+                                            <div style="float:right;margin-right:10px;margin-top:-5px;position: relative;">
+                                                <input type="text" placeholder="Quick Filter" id="filterJobItems" style="width:200px;padding:3px;" tabindex="-1" />
+                                                <span class="clearFilter" style="margin-top: 3px;position: absolute;top: 0px;right: 5px;"></span>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="itemRow ui-widget-header"><div class="key">Type</div><div class="val">URL</div></div>
+                                        <div class="itemsTable" class="ui-widget">
+                                        </div>
+                                        <div class="ui-priority-primary" style="margin:10px 0px;position: relative;">New Items:
+                                            <span class="newItemCount"></span>
+                                            <div style="float:right;margin-right:10px;margin-top:-5px;">
+                                                <input type="text" placeholder="Quick Filter" id="filterJobItemsNew" style="width:200px;padding:3px;"  tabindex="-1" />
+                                                <span class="clearFilter" style="margin-top: 3px;position: absolute;top: -5px;right: 15px;"></span>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="itemRow ui-widget-header"><div class="key">Type</div><div class="val">URL</div></div>
+                                        <div class="newItemsTable" class="ui-widget">
+                                        </div>
+                                    </div>
+                                    <div id="activeTaskItemsDetailsPanel">
+                                    </div>
+                                </div>
+                                <div id="growlContainer" style="display: none;top:5px;">
+                                    <div id="growl">
+                                        <a class="ui-notify-close" href="#">
+                                            <span class="ui-icon ui-icon-close" style="float: right">
+                                            </span>
+                                        </a>
+                                        <span style="float: left; margin: 2px 5px 0 0;" class="ui-icon ui-icon-alert">
+                                        </span>
+                                        <h2>
+                                        #{title}</h2>
+                                        <p>
+                                        #{text}</p>
+                                    </div>
+                                </div>
+                                <div id="crushTaskTemplatesHolder" style="display: none;"></div>
+                                <div id="taskFormDialog" style="display: none;">
+                                    <div class="tabs nobg" id="actionDetailsPopup">
+                                        <ul>
+                                            <li><a href="#TaskConfig">Config</a>
+                                        </li>
+                                        <li><a href="#TaskNotes">Notes</a>
+                                        </li>
+                                        <li><a href="#TaskVariables">Variables</a>
+                                    </li>
+                                    <li><a href="#TaskLogging">Logging</a>
+                                </li>
+                                <li><a href="#TaskHelp">Help</a>
+                            </li>
+                        </ul>
+                        <div id="TaskConfig">
+                        </div>
+                        <div id="TaskNotes">
+                            <textarea id="task_notes" style="width: 100%;height: 350px;margin:20px 0px;" placeholder="Add notes for this tasks here..."></textarea>
+                        </div>
+                        <div id="TaskVariables">
+                            <div style="margin:10px;">
+                                Variables can be used for filenames, as part of an email address, email body, subject, or event as part of the command for the Execute task.
+                            </div>
+                            <div style="margin:10px;">
+                                Please refer: <a href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=CrushTaskVariables" target="_blank">https://www.crushftp.com/crush10wiki/Wiki.jsp?page=CrushTaskVariables</a>
+                            </div>
+                        </div>
+                        <div id="TaskLogging">
+                            <p>
+                                <input type="checkbox" id="success_log" name="success_log" class="ignoreBind" />
+                                <label style="top:-4px;position: relative;" for="success_log" class="CrushTask lblLogSuccessText">Log Success?</label>
+                            </p>
+                            <!-- <p class="subPanel ui-widget-content leftborder nobg">
+                                <label for="success_log_file" class="CrushTask lblFileText">File:</label>
+                                <input type="text" id="success_log_file" name="success_log_file" class="ignoreBind" style="width:450px;" />
+                            </p> -->
+                            <p class="subPanel ui-widget-content leftborder nobg">
+                                <label for="success_log_line" class="CrushTask lblLineText">Line:</label>
+                                <input type="text" id="success_log_line" name="success_log_line" class="ignoreBind" style="width:450px;" />
+                            </p>
+                            <p>
+                                <input type="checkbox" id="failure_log" name="failure_log" class="ignoreBind" />
+                                <label style="top:-4px;position: relative;" for="failure_log" class="CrushTask lblLogFailureText">Log Failure?</label>
+                            </p>
+                            <!-- <p class="subPanel ui-widget-content leftborder nobg">
+                                <label for="failure_log_file" class="CrushTask lblFileText">File:</label>
+                                <input type="text" id="failure_log_file" name="failure_log_file" class="ignoreBind" style="width:450px;" />
+                            </p> -->
+                            <p class="subPanel ui-widget-content leftborder nobg">
+                                <label for="failure_log_line" class="CrushTask lblLineText">Line:</label>
+                                <input type="text" id="failure_log_line" name="failure_log_line" class="ignoreBind" style="width:450px;" />
+                            </p>
+                        </div>
+                        <div id="TaskHelp" style="line-height:22px;">
+                            Here is an example of what you might use this plugin for.
+                            <br>
+                            <br>When files are uploaded to your server, you want them backed up to another server, and an email notification sent out letting someone know about the files on the alternate server. So here are the tasks:
+                            <br>MakeDirectory: filter=* /archived_{MM}{dd}{yy}/
+                            <br>Copy: filter=* destination:ftp://myuser:pass@192.168.1.65/newFiles/
+                            <br>Move: filter=* destination: /archived_{MM}{dd}{yy}/
+                            <br>Email: filter=*192.168.1.65*
+                        </div>
+                    </div>
+                </div>
+                <div id="taskSearchDialog" style="display: none;">
+                    <div style="text-align: center;">
+                        <input type="text" id="findInTasks" style="padding:5px;width:260px;" />
+                    </div>
+                    <div class="ui-state-secondary" style="text-align: center;margin:10px;">(Search tasks in a Job, Press Esc to exit)</div>
+                </div>
+                <div id="dmzCustomOptions" style="display: none;line-height:30px;">
+                    <div>
+                        <label for="customDMZType">Type: </label>
+                        <select id="customDMZType">
+                            <option value="socks5">Socks 5</option>
+                            <option value="internal://">internal://</option>
+                            <option value="variable">Variable</option>
+                        </select>
+                    </div>
+                    <div class="socksOptions">
+                        <div>
+                            <label for="customDMZHost">Host: </label>
+                            <input id="customDMZHost" class="bigInputBox" type="text" />
+                        </div>
+                        <div>
+                            <label for="customDMZPort">Port:</label>
+                            <input id="customDMZPort" class="smallInputBox" type="text" />
+                        </div>
+                    </div>
+                    <div class="variableOptions">
+                        <div>
+                            <label for="customDMZHost">Variable: </label>
+                            <input id="customDMZVariable" class="bigInputBox" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div title="Time Range Selector:" id="rangeSelectorDialog" style="display:none;" class="customForm">
+                <p>
+                    <label for="jobstartDate" style="width:40px;display:inline-block;text-align:right;">Start: </label>
+                    <input id="jobstartDate" class="date imgBtnTrigger time" type="text" />
+                </p>
+                <p>
+                    <label for="jobendDate" style="width:40px;display:inline-block;text-align:right;">End: </label>
+                    <input id="jobendDate" class="date imgBtnTrigger time" type="text" />
+                </p>
+            </div>
+            <div id="jobsSetupDialog" class="customForm" style="display: none;">
+                <p>
+                    <label for="">
+                        <input type="checkbox" name="job_scheduler_enabled" id="job_scheduler_enabled" _id="job_scheduler_enabled" />
+                        <label for="job_scheduler_enabled" class="ui-priority-primary">Enable jobs scheduler</label>
+                    </label>
+                </p>
+                <p>
+                    <label for="">
+                        <input type="checkbox" name="single_job_scheduler_serverbeat" id="single_job_scheduler_serverbeat" _id="single_job_scheduler_serverbeat" />
+                        <label for="single_job_scheduler_serverbeat" class="ui-priority-primary">Serverbeat. Job run only on the master.</label>
+                    </label>
+                </p>
+                <p>
+                    <label for="">
+                        <input type="checkbox" name="store_job_items" id="store_job_items" _id="store_job_items" />
+                        <label for="store_job_items" class="ui-priority-primary">Store job items</label>
+                    </label>
+                </p>
+                <p>
+                    <label for="">
+                        <input type="checkbox" name="job_statistics_enabled" id="job_statistics_enabled" _id="job_statistics_enabled" />
+                        <label for="job_statistics_enabled" class="ui-priority-primary">Job statictis</label>
+                    </label>
+                </p>
+                <p>
+                    <label for="">
+                        <input type="checkbox" name="audit_job_logs" id="audit_job_logs" _id="audit_job_logs" />
+                        <label for="audit_job_logs" class="ui-priority-primary">Audit job logs</label>
+                    </label>
+                </p>
+                <p>
+                    <label for="">
+                        <label for="job_log_name" class="ui-priority-primary">Job logs file name:</label>
+                        <input type="text" id="job_log_name" _id="job_log_name" style="margin-bottom:5px;width:350px;" />
+                    </label>
+                </p>
+            </div>
+        </div>
+        <div id="footer" class="ui-widget-content" style="height:34px;">
+            <div style="margin: 0px 0px; padding: 5px;">
+                <a href="#" class="button saveJobsButton" id="saveChanges2" style="float:right;margin:-2px 2px 2px 0px;">
+                    <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-disk'></span>
+                    <span>Save Changes</span>
+                </a>
+                <a href="#" class="button" id="runJob2" style="float:right;margin:-2px 2px 2px 0px;">
+                    <span style='display: inline-block;margin: 0px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-circle-check'></span>
+                    <span>Test &amp; Run Job</span>
+                </a>
+                <div style="float:left;margin-top:3px;">
+                    <span id="PoweredByText" class="poweredby">Powered by
+                        <a href="http://www.crushftp.com/" target="_blank">CrushFTP</a>
+                    </span>
+                    <span id="CopyrightText" class="copyright">&copy; 2025
+                        <a href="http://www.CrushFTP.com/" target="_blank">CrushFTP</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="jobLiveLogViewer"></div>
+        <ul id="connectionContextMenu" class="contextMenu" style="display:none;width:220px;">
+            <li class="addTaskHere">
+                <a href="#addTaskHere">Add Task here</a>
+            </li>
+            <li class="addBreakPoint">
+                <a href="#addBreakpoint">Add Breakpoint here</a>
+            </li>
+            <!--li class="removeBreakPoint">
+                        <a href="#removeBreakpoint">Remove Breakpoint</a>
+        </li-->
+        <li class="delete">
+            <a href="#delete">Remove Connection</a>
+        </li>
+    </ul>
+    <ul id="taskItemContextMenu" class="contextMenu" style="display:none;width:220px;">
+        <li class="copy">
+            <a href="#copy">Copy Task</a>
+        </li>
+        <li class="details">
+            <a href="#details">Show Details</a>
+        </li>
+        <li class="delete">
+            <a href="#delete">Remove Task</a>
+        </li>
+    </ul>
+    <ul id="activeJobsContext" class="contextMenu" style="display:none;">
+        <li class="monitorJob single">
+            <a href="#monitor">Monitor Job</a>
+        </li>
+        <li class="resumeJob single">
+            <a href="#resume">Resume</a>
+        </li>
+        <li class="pauseJob single">
+            <a href="#pause">Pause</a>
+        </li>
+        <li class="stopJob single">
+            <a href="#stop">Stop</a>
+        </li>
+        <li class="retryJob single">
+            <a href="#retry">Retry from Last Failure</a>
+        </li>
+        <li class="restartJob single">
+            <a href="#restart">Re-Run</a>
+        </li>
+        <li class="viewlogJob single">
+            <a href="#viewlog">View log</a>
+        </li>
+        <li class="separator single">
+        </li>
+        <li class="resumeJob">
+            <a href="#resumeSelected">Resume Selected</a>
+        </li>
+        <li class="retryJob">
+            <a href="#retrySelected">Retry Selected from Last Failure</a>
+        </li>
+        <li class="pauseJob">
+            <a href="#pauseSelected">Pause Selected</a>
+        </li>
+        <li class="stopJob">
+            <a href="#stopSelected">Stop Selected</a>
+        </li>
+        <li class="restartJob">
+            <a href="#restartSelected">Re-Run Selected</a>
+        </li>
+    </ul>
+    <ul id="jobsContext" class="contextMenu" style="display:none;">
+        <li class="runJobContext job-items">
+            <a href="#runJob">Run Job</a>
+        </li>
+        <li class="runJobContext job-items">
+            <a href="#runJobs">Run All Selected Jobs</a>
+        </li>
+        <li class="runJobAndMonitorContext job-items">
+            <a href="#runJobAndMonitor">Run &amp; Monitor Job</a>
+        </li>
+        <li class="editJobContext job-items">
+            <a href="#editJob">Edit job template</a>
+        </li>
+        <li class="openDir dir-items">
+            <a href="#openDir">Open Folder</a>
+        </li>
+        <li class="addDirHere dir-items">
+            <a href="#addDirHere">Add a folder inside</a>
+        </li>
+        <li class="renameDir dir-items">
+            <a href="#renameDir">Rename Folder</a>
+        </li>
+        <li class="deleteDir dir-items">
+            <a href="#deleteDir">Delete Folder</a>
+        </li>
+    </ul>
+    <ul id="newJobContext" class="contextMenu" style="display:none;width:220px;">
+        <li class="addJob job">
+            <a href="#job">Job</a>
+        </li>
+        <li class="addFolder folder separator">
+            <a href="#folder">Folder</a>
+        </li>
+    </ul>
+    <ul id="copyJobContext" class="contextMenu" style="display:none;width:220px;">
+        <li class="copyJob copy">
+            <a href="#copy">Copy</a>
+        </li>
+        <li class="moveJob move separator">
+            <a href="#move">Move</a>
+        </li>
+    </ul>
+    <ul id="batchJobSelector" class="contextMenu" style="display:none;width:220px;">
+        <li class="current">
+            <a href="#current">Current Job</a>
+        </li>
+        <li class="batchSelected separator">
+            <a href="#selectedBatch">All Selected Jobs in the List</a>
+        </li>
+        <li class="batch separator">
+            <a href="#batch">All available Jobs</a>
+        </li>
+    </ul>
+    <div id="dialog-message"></div>
+</div>
+<div id="linkedPopupPlaceholder"></div>
+<style type="text/css">
+    input.time-list
+    {
+        margin-bottom: 10px;
+        padding-right: 3px;
+        margin-right: 3px;
+    }
+    .ui-timepicker-div dl
+    {
+        padding:8px;
+        margin-bottom: -6px;
+    }
+    .ui-datepicker-buttonpane.ui-widget-content
+    {
+        margin: 0px !important;
+    }
+    .ui-timepicker-div dl dd
+    {
+        margin-top:-25px !important;
+    }
+    .ui-datepicker .ui-datepicker-buttonpane {
+        background-image: none;
+        margin: 2.7em 0 0 0 !important;
+        padding: 0 .2em;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    .ui-timepicker-div dl dd {
+        margin: -21px 0 10px 59px !important;
+    }
+    .time-list-remove-icon
+    {
+        display: inline-block !important;
+        position: relative;
+        margin-left: -19px;
+        top: -6px;
+        margin-right: 4px;
+    }
+</style>
+</body>
+</html>

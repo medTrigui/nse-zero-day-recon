@@ -1,0 +1,405 @@
+<div id="autocompleteFix" style="position: absolute; top: -200px">
+  <input type="text" name="email" value="" style="display: none" />
+  <input type="text" name="email" value="" />
+  <input type="text" name="not-an-email" value="" style="display: none" />
+  <input type="password" name="password" value="" style="display: none" />
+  <input type="password" name="password" value="" />
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginLetsEncrypt">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <div id="pluginSection" class="customForm">
+          <div
+            class="ui-state-highlight ui-corner-all warning"
+            style="padding: 3px 10px; display: inline-block; margin: 0px 3px"
+          >
+            <span
+              style="float: left; margin-right: 0.3em"
+              class="ui-icon ui-icon-info"
+            ></span>
+            <span class="CrushTask lblFeatureNoteText">
+              <h3 style="margin: 0px; padding: 0px">Please note:</h3>
+              <ul>
+                <li>
+                  <strong
+                    >Your DNS host name must be reachable from the outside world
+                    or the Let's Encrypt validation will fail.</strong
+                  >
+                </li>
+                <li>
+                  <strong
+                    >Java 8 is supported, but Java 9 and Java 10 are not. Java
+                    11 and above are supported.</strong
+                  >
+                </li>
+              </ul>
+            </span>
+          </div>
+          <p>
+            <input type="checkbox" name="enabled" id="enabled" />
+            <label
+              for="enabled"
+              class="ui-priority-primary LetsEncrypt lblEnabledText"
+              >Enabled</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input type="checkbox" name="debug" id="debug" />
+            <label
+              for="debug"
+              class="ui-priority-primary LetsEncrypt lblDebugText"
+              class="nonEmbed"
+              >Debug</label
+            >
+
+            <span style="float: right" class="nonEmbed"
+              ><span class="LetsEncrypt lblVersionText">Version:</span
+              ><span class="liveData" id="version"></span
+            ></span>
+          </p>
+          <div
+            class="ui-corner-all ui-widget-content nobg"
+            style="padding: 5px 10px"
+          >
+            <div>
+              <p class="fixedWidthLabels">
+                <label class="right" for="locality">Server Instance:</label>
+                <select
+                  name="plugin_instance"
+                  id="plugin_instance"
+                ></select>
+              </p>
+              <p class="fixedWidthLabels" style="display:none;">
+                <label class="right" for="request_version"
+                  >Request version:</label
+                >
+                <select name="request_version" id="request_version">
+                  <option value="V01">V01</option>
+                  <option value="V02" selected="selected">V02</option>
+                </select>
+              </p>
+              <p
+                id="LetsEncryptV2Option"
+                class="fixedWidthLabels"
+              >
+                <label class="right" for="challenge_type">Challenge type:</label>
+                <select name="challenge_type" id="challenge_type">
+                  <option value="http-01">http-01</option>
+                  <option value="tls-alpn-01">tls-alpn-01</option>
+                </select>
+                <span class="spacer"></span>
+                <span id="tlsOption" style="display: none">
+                  <label for="tls_alpn_https_port" style="width:280px;">Related CrushFTP Server port (only https allowed):</label>
+                  <select name="tls_alpn_https_port" id="tls_alpn_https_port"></select>
+                  <!-- <input
+                    name="tls_alpn_https_port"
+                    type="text"
+                    id="tls_alpn_https_port"
+                    class="smallInputBox"
+                  /> -->
+                </span>
+                <span id="httpOption" style="display: none">
+                  <label for="challenge_http_port" style="width:280px;">Related CrushFTP Server port (only http allowed):</label>
+                  <select name="challenge_http_port" id="challenge_http_port"></select>
+                  <!-- <input
+                    name="tls_alpn_https_port"
+                    type="text"
+                    id="tls_alpn_https_port"
+                    class="smallInputBox"
+                  /> -->
+                </span>
+              </p>
+             <!--  <p>
+                <label style="margin-left:50px;" class="right" for="temporarily_close_port_forward">Temporarily close CrushFTP Server PortForward(s) IP:</label>
+                <select name="temporarily_close_port_forward" id="temporarily_close_port_forward">
+                </select>
+              </p> -->
+              <p class="fixedWidthLabels">
+                <label for="domains" class="right LetsEncrypt">Domains:
+                </label>
+                <textarea
+                  id="domains"
+                  name="domains"
+                  cols="50"
+                  rows="2"
+                ></textarea>
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="keystore_path">Keystore:</label>
+                <span class="unfix-labels">
+                  <input
+                    name="keystore_path"
+                    type="text"
+                    valtype="required"
+                    class="validate bigInputBox maskPasswordOnURL urlWithParams url"
+                    id="keystore_path"
+                  />
+                </span>
+                <a
+                  href="#"
+                  PickType="any"
+                  class="button slim serverFilePickButton"
+                  rel="keystore_path"
+                  style="padding: 3px 12px; margin-top: -5px"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-folder-open"
+                  ></span>
+                  Browse
+                </a>
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="keystore_pass"
+                  >Keystore Password:</label
+                >
+                <input
+                  name="keystore_pass"
+                  type="password"
+                  class="encryptPass"
+                  id="keystore_pass"
+                />
+              </p>
+              <p class="fixedWidthLabels">
+                <label for="key_pass" class="right"> Key Password:</label>
+                <input
+                  name="key_pass"
+                  type="password"
+                  class="encryptPass"
+                  id="key_pass"
+                />
+              </p>
+              <!-- <p class="fixedWidthLabels">
+                            <label class="right" for="challenge_path">Challenge Path:</label>
+                            <span class="unfix-labels">
+                                <input name="challenge_path" type="text" class= bigInputBox" id="challenge_path" style="width:280px;" />
+                            </span>
+                            <a href="#" PickType="dir" class="button slim serverFilePickButton" rel="challenge_path" style="padding:3px 12px;margin-top: -5px;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                Browse
+                            </a>
+                        </p> -->
+              <!-- <p class="fixedWidthLabels">
+                            <label class="right" for="cacert_key">Cacert Key:</label>
+                            <input name="cacert_key" type="password" class="encryptPass" id="cacert_key" />
+                        </p> -->
+              <p class="fixedWidthLabels" style="display: none">
+                <label class="right" for="commonName">Common Name:</label>
+                <input
+                  name="commonName"
+                  type="text"
+                  class="inputBox"
+                  id="commonName"
+                />
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="organisationUnit"
+                  >Organisation Unit:</label
+                >
+                <input
+                  name="organisationUnit"
+                  type="text"
+                  class="inputBox"
+                  id="organisationUnit"
+                />
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="locality">Locality:</label>
+                <input
+                  name="locality"
+                  type="text"
+                  class="inputBox"
+                  id="locality"
+                />
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="state">State:</label>
+                <input name="state" type="text" class="inputBox" id="state" />
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="countryCode">Country Code:</label>
+                <input
+                  name="countryCode"
+                  type="text"
+                  class="smallInputBox"
+                  id="countryCode"
+                />
+              </p>
+              <p class="fixedWidthLabels">
+                <label class="right" for="email">Email:</label>
+                <input
+                  name="email"
+                  type="text"
+                  class="bigInputBox"
+                  id="email"
+                />
+              </p>
+              <!-- <p class="fixedWidthLabels">
+                            <label class="right" for="validity">Validity:</label>
+                            <input name="validity" value="365" type="text" class="smallInputBox" id="validity" />
+                        </p> -->
+              <!-- <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="staging">&nbsp;</label>
+                </span>
+                <input type="checkbox" name="staging" id="staging" />
+                <label for="staging" class="ui-priority-primary LetsEncrypt"
+                  >Staging</label
+                >
+              </p>
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="delete_account_keys">&nbsp;</label>
+                </span>
+                <input
+                  type="checkbox"
+                  name="delete_account_keys"
+                  id="delete_account_keys"
+                />
+                <label
+                  for="delete_account_keys"
+                  class="ui-priority-primary LetsEncrypt"
+                  >Delete account key pair</label
+                >
+              </p>
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="delete_domain_keys">&nbsp;</label>
+                </span>
+                <input
+                  type="checkbox"
+                  name="delete_domain_keys"
+                  id="delete_domain_keys"
+                />
+                <label
+                  for="delete_domain_keys"
+                  class="ui-priority-primary LetsEncrypt"
+                  >Delete domain key pair</label
+                >
+              </p> -->
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="ignore_not_crushftp">&nbsp;</label>
+                </span>
+                <input type="checkbox" name="ignore_not_crushftp" id="ignore_not_crushftp" />
+                <label for="ignore_not_crushftp" class="LetsEncrypt"
+                  >Ignore Failing "Not a CrushFTP Server"</label
+                >
+              </p>
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="ignore_all_checks">&nbsp;</label>
+                </span>
+                <input type="checkbox" name="ignore_all_checks" id="ignore_all_checks" />
+                <label for="ignore_all_checks" class="LetsEncrypt"
+                  >Skip all pre-checks (DNS, CrushFTP server, etc)</label
+                >
+              </p>
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="replicate">&nbsp;</label>
+                </span>
+                <input type="checkbox" name="replicate" id="replicate" />
+                <label for="replicate" class="LetsEncrypt"
+                >Replicate?</label>
+              </p>
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="auto_update">&nbsp;</label>
+                </span>
+                <input type="checkbox" name="auto_update" id="auto_update" />
+                <label for="auto_update" class="ui-priority-primary LetsEncrypt"
+                  >Update the certificate automatically</label
+                >
+              </p>
+              <div style="display: none" id="auto_update_items">
+                <span class="fixedWidthLabels">
+                  <label class="right" for="auto_update_run_before_days"
+                    >&nbsp;</label
+                  >
+                </span>
+                <div
+                  class="subPanel ui-widget-content leftborder nobg lineHeight"
+                  style="display: inline-block"
+                >
+                  <label for="auto_update_run_before_days" class="CrushTask"
+                    >Update certs before:
+                  </label>
+                  <input
+                    type="text"
+                    id="auto_update_run_before_days"
+                    name="auto_update_run_before_days"
+                    class="smallInputBox"
+                  />
+                  <label for="auto_update_run_before_days" class="CrushTask"
+                    >days</label
+                  >
+                  <br />
+                  <label for="auto_update_run_check_hours" class="CrushTask"
+                    >Check certificate every:
+                  </label>
+                  <input
+                    type="text"
+                    id="auto_update_run_check_days"
+                    name="auto_update_run_check_days"
+                    class="smallInputBox"
+                  />
+                  <label for="auto_update_run_check_days" class="CrushTask"
+                    >days</label
+                  >
+                  <br />
+                  <strong for="auto_update_info" class="CrushTask"
+                    >Update info:
+                  </strong>
+                  <span class="liveData" id="auto_update_info"></span>
+                </div>
+              </div>
+              <p>
+                <label style="margin-left:125px;" class="right" for="run_plugin_after_renew"
+                  >Execute CrushTask/Job after cert renew:</label
+                >
+                <select name="run_plugin_after_renew" id="run_plugin_after_renew">
+                </select>
+              </p>
+              <br /><br />
+              <p>
+                <span class="fixedWidthLabels">
+                  <label class="right" for="validity">&nbsp;</label>
+                </span>
+                <a
+                  id="submit-btn"
+                  href="#"
+                  class="button slim"
+                  style="padding: 3px 12px; margin-top: -5px"
+                >
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-disk"
+                  ></span>
+                  Submit
+                </a>
+                <span class="spacer"></span>
+                <a href="#" class="button slim" id="test-btn" style="padding: 3px 12px; margin-top: -5px">
+                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-transferthick-e-w'></span>
+                    <span>Test</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

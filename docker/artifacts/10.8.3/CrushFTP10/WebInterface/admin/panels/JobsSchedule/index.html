@@ -1,0 +1,189 @@
+<!-- Panel HTML -->
+<div id="pnlJobsSchedule" class="adminPanel">
+	<div class="sideBar ui-widget-content">
+		<div class="customForm">
+			<p class="buttonBar center" style="padding-top:5px;">
+				<a href="#" class="button" id="newJobsSchedule">
+					<span style='display: inline-block; margin: 0px 3px 0px -12px;float: left;' class='pointer ui-icon ui-icon-plusthick'></span>
+					<span>New</span>
+				</a>
+				<a href="#" class="button" id="deleteJobsSchedule"><span style='display: inline-block; margin: 0px 3px 0px -12px; float: left;' class='pointer ui-icon ui-icon-trash'></span>
+					<span class="btnDeleteText">Delete</span>
+				</a>
+			</p>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="ui-widget-content"></div>
+		<div id="jobsScheduleListActions" class="right" style="margin:5px 0px;">
+			<a href="#" class="selectAll">Select all</a> |
+			<a href="#" class="deSelect">Select none</a>
+		</div>
+		<ul class="ui-state-default nobg sideBarList" id="jobsScheduleList">
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="content" style="margin:5px 5px 5px 320px;">
+		<div class="ui-widget-content" style="padding:5px;">
+			<!--div class="ui-state-highlight ui-corner-all warning" style="padding:5px;display:block;margin:0px 3px;">
+				<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+				Tips for this page will come here
+			</div!-->
+			<div id="jobsScheduleInfo" style="margin-top:12px;">
+				<table width="100%" class="valignMiddle">
+					<tr>
+						<td colspan="3">
+							<a href="#" class="button changePlugin" style="margin-bottom:25px;"><span style='display: inline-block; margin: 0px 3px 0px -12px; float: left;' class='pointer ui-icon ui-icon-wrench'></span>
+								<span class="btnDeleteText">Change Plugin</span>
+							</a>
+							<a href="#" class="button testSchedule" style="margin-bottom:25px;">
+								<span style='display: inline-block; margin: 0px 3px 0px -12px;float: left;' class='pointer ui-icon ui-icon-circle-check'></span>
+								<span>Test &amp; Run Job</span>
+							</a>
+							<a href="#" class="button saveSchedule" style="margin-bottom:25px;">
+								<span style='display: inline-block; margin: 0px 3px 0px -12px;float: left;' class='pointer ui-icon ui-icon-disk'></span>
+								<span>Save</span>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<label for="scheduleName_jobs">Schedule Name:</label>
+							<input type="text" id="scheduleName_jobs" _id="scheduleName" style="margin-bottom:5px;width:350px;" />
+							<input type="text" _id="plugin" class="ui-helper-hidden" />
+							<input type="text" _id="pluginName" class="ui-helper-hidden" />
+							<input type="text" _id="nextRun" class="ui-helper-hidden" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<label for="schedule_notes" style="vertical-align:top;margin-left:60px;">Note:</label>
+							<textarea id="schedule_notes" _id="scheduleNote" style="margin-bottom:5px;width:350px;height:40px;">
+							</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<input type="radio" name="scheduleType" id="manually_jobs" _id="manually" />
+							<label for="manually_jobs">Manually</label>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:80px;">
+							<input type="radio" id="minutely_jobs" name="scheduleType" _id="minutely" />
+							<label for="minutely_jobs">Minutely</label>
+						</td>
+						<td style="width:200px;">
+							<label for="minutelyAmount_jobs">Every</label>
+							<input type="text" class="smallInputBox" id="minutelyAmount_jobs" _id="minutelyAmount" />
+							<label for="minutelyAmount_jobs">minutes.</label>
+						</td>
+						<td rowspan="5" style="vertical-align:top;">
+							<div _id="periodOptions">
+								<div class="option daily weekly monthly">
+									<label for="scheduleTime_jobs">Hour and Minute (hh:mm AM/PM)</label>
+									<br />
+									<input type="text" id="scheduleTime_jobs" _id="scheduleTime" />
+									<label for="scheduleTime_jobs">(Separate multiple times with comma. eg:08:00 AM, 08:30 AM)</label>
+								</div>
+								<div class="option weekly">
+									<fieldset class="weekdays ui-corner-all" style="display:block;position:relative;width:275px;padding: 3px;">
+										<div class="ui-state-default ui-corner-all" _day="1">Sun</div>
+										<div  class="ui-state-default ui-corner-all" _day="2">Mon</div>
+										<div  class="ui-state-default ui-corner-all" _day="3">Tue</div>
+										<div  class="ui-state-default ui-corner-all" _day="4">Wed</div>
+										<div  class="ui-state-default ui-corner-all" _day="5">Thu</div>
+										<div  class="ui-state-default ui-corner-all" _day="6">Fri</div>
+										<div  class="ui-state-default ui-corner-all" _day="7">Sat</div>
+									</fieldset>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="scheduleType" id="daily_jobs" _id="daily" />
+							<label for="daily_jobs">Daily</label>
+						</td>
+						<td>
+							<label for="dailyAmount_jobs">Every</label>
+							<input type="text" class="smallInputBox" id="dailyAmount_jobs" _id="dailyAmount" />
+							<label for="dailyAmount_jobs">days.</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="scheduleType" id="weekly_jobs" _id="weekly" />
+							<label for="weekly_jobs">Weekly</label>
+						</td>
+						<td>
+							<label for="weeklyAmount_jobs">Every</label>
+							<input type="text" class="smallInputBox" id="weeklyAmount_jobs" _id="weeklyAmount" />
+							<label for="weeklyAmount_jobs">week(s) on:</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="scheduleType" id="monthly_jobs" _id="monthly" />
+							<label for="monthly_jobs">Monthly</label>
+						</td>
+						<td>
+							<label for="monthlyAmount_jobs">Every</label>
+							<input type="text" class="smallInputBox" id="monthlyAmount_jobs" _id="monthlyAmount" />
+							<label for="monthlyAmount_jobs">month(s) on:</label>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div _id="periodOptions">
+								<div class="option monthly">
+									<fieldset class="monthdays ui-corner-all" style="display:block;width:280px;position:relative;padding: 3px;">
+									</fieldset>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<fieldset id="pluginArea" class="ui-helper-hidden nobg" style="padding:0px 5px;margin:0px;">
+								<div id="pluginPlaceHolder" style="padding:0px 5px;margin:0px;"></div>
+							</fieldset>
+						</td>
+					</tr>
+				</table>
+				<div class="clear"></div>
+				<div style="margin-top:5px;">
+					<a href="#" class="button changePlugin" style="margin-bottom:25px;"><span style='display: inline-block; margin: 0px 3px 0px -12px; float: left;' class='pointer ui-icon ui-icon-wrench'></span>
+						<span class="btnDeleteText">Change Plugin</span>
+					</a>
+					<a href="#" class="button testSchedule" style="margin-bottom:25px;">
+						<span style='display: inline-block; margin: 0px 3px 0px -12px;float: left;' class='pointer ui-icon ui-icon-circle-check'></span>
+						<span>Test &amp; Run Job</span>
+					</a>
+					<a href="#" class="button saveSchedule" style="margin-bottom:25px;">
+						<span style='display: inline-block; margin: 0px 3px 0px -12px;float: left;' class='pointer ui-icon ui-icon-disk'></span>
+						<span>Save</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<ul id="jobsContext" class="contextMenu" style="display:none;">
+		<li class="moveUp">
+			<a href="#moveUp">Move Up</a>
+		</li>
+		<li class="moveDown">
+			<a href="#moveDown">Move Down</a>
+		</li>
+	</ul>
+	<div class="clear"></div>
+</div>

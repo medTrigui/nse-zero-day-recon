@@ -1,0 +1,90 @@
+<!-- Panel HTML -->
+<div id="pnlGraphs" class="adminPanel sparkline">
+
+  <div class="full-width-cards">
+    <div class="card pie-chart-list full">
+      <div class="card-body">
+        <h3 class="card-title">
+          <span class="lstick"></span>
+          Outgoing Speed
+        </h3>
+        <div class="graphNotes">
+          <span>Current : </span><span id="outSpeedCurrent2" class="ui-priority-primary"></span>, <span>Max : </span><span id="outSpeedMax2" class="ui-priority-primary"></span>
+        </div>
+        <div style="margin:1px">
+          <span id="outSpeedGraph">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <div class="card pie-chart-list full">
+      <div class="card-body">
+        <h3 class="card-title">
+          <span class="lstick"></span>
+          Incoming Speed
+        </h3>
+        <div class="graphNotes">
+          <span>Current : </span><span id="inSpeedCurrent2" class="ui-priority-primary"></span>, <span>Max : </span><span id="inSpeedMax2" class="ui-priority-primary"></span>
+        </div>
+        <div style="margin:1px">
+          <span id="inSpeedGraph">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="graphinfo" id="graphinfo">
+  <span class="close">x</span>
+  <div class="nodata">No information available</div>
+  <div class="loader">Loading...</div>
+  <ul class="info">
+    <li>
+      <strong><span class="value user_name"></span></strong>
+      (<span class="value user_protocol"></span>)
+      <span class="value user_ip"></span>
+      <span class="value time"></span>
+      <br />
+      <strong>Item: </strong>
+      <div class="value name"></div>
+      (<span class="value the_file_size size"></span>)
+      <span class="value the_file_speed size"></span>
+    </li>
+  </ul>
+</div>
+<div class="graphinfo" id="graphtip">
+  <div class="nodata">No information available</div>
+  <div class="loader">Loading...</div>
+  <ul class="info">
+    <li>
+      <strong><span class="value user_name"></span></strong>
+      (<span class="value user_protocol"></span>)
+      <span class="value user_ip"></span>
+      <span class="value time"></span>
+      <br />
+      <strong>Item: </strong>
+      <div class="value name"></div>
+      (<span class="value the_file_size size"></span>)
+      <span class="value the_file_speed size"></span>
+    </li>
+  </ul>
+</div>
+<div class="clear"></div>
+<ul id="memoryGraphContextMenu" class="contextMenu">
+  <li class="">
+    <a href="#" msg="dumpMemory">Dump Memory to Disk</a>
+  </li>
+  <li class="separator">
+    <a href="#" msg="setMaxServerMemory">Set Max Memory</a>
+  </li>
+  <li class="separator">
+    <a href="#" msg="restartProcess">Restart Now</a>
+  </li>
+  <li class="separator">
+    <a href="#" msg="restartIdle">Restart on Idle</a>
+  </li>
+  <li class="separator">
+    <a href="#" msg="ShutdownIdle">Shutdown on Idle</a>
+  </li>
+  <li class="separator">
+    <a href="#" msg="CallGC">Execute Java GC</a>
+  </li>
+</ul>

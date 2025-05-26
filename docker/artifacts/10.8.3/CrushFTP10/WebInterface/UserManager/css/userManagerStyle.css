@@ -1,0 +1,1649 @@
+/*---------- User Manager CSS----------*/
+
+@media only screen and (max-device-width : 480px) {
+    body
+    {
+        min-width: 1100px !important;
+    }
+
+    div#sideBar,div#footer {
+        position: relative; !important;
+    }
+
+    div#header
+    {
+        height: 100px !important;
+        min-width: 1100px !important;
+    }
+
+    div#mostVisitedUsers
+    {
+        display: none !important;
+    }
+
+    div#sideBar
+    {
+        top:0px !important;
+        max-height: 300px !important;
+    }
+
+    div#content {
+        padding: 0px !important;
+    }
+
+    #userList
+    {
+        max-height: 50px;
+    }
+
+    #userListWrapper div
+    {
+        display: none !important;
+    }
+}
+
+
+body
+{
+  margin:0;
+  padding: 105px 5px 45px 5px;
+  margin-right:5px;
+  border: 0px;
+  height:100%;
+}
+
+.ie7 body
+{
+	padding-top:110px;
+}
+
+ .ie7 div#sideBar
+ {
+	top:120px;
+ }
+
+div#sideBar{
+	position:fixed;
+	top:100px;
+	left:5px;
+	padding:5px;
+	width:250px;
+	z-index:0;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+div#content
+{
+	z-index:49;
+}
+
+* html body{
+	overflow:hidden;
+}
+
+* html div#content, *html div#GUIInterface{
+	height:100%;
+	overflow:auto;
+}
+
+table
+{
+	width:100%;
+	border:0px;
+	padding:0px;
+}
+
+td
+{
+	vertical-align: middle;
+}
+/*added by carlos*/
+.map_item
+{
+    float: left;
+    display: inline;
+    margin:  5px 10px;
+    font-size: 14px;
+    min-width: 100px;
+    white-space: nowrap;
+}
+#map_container { width:  100%; height: auto; overflow: auto; max-height: 250px; }
+#map_html { width: auto; overflow: hidden; }
+.checkboxArea
+{
+    margin: 0;
+    padding: 0px 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 70px;
+    white-space: nowrap;
+}
+.checkboxAreaPadded
+{
+    left: 12px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 12px;
+}
+.checkboxArea span
+{
+	cursor:pointer;
+}
+.settingsArea
+{
+	padding-left:15px;
+}
+
+.fields
+{
+	padding-left:18px;
+}
+
+.dataDiv
+{
+    padding-left: 0px !important;
+}
+.settingsPlaceHolder
+{
+    margin-top: 10px;
+}
+.highlight
+{
+    background-color: #6BA7C7;
+    border: #000000 thin solid;
+    color: #ffffff;
+    padding-left: 3px;
+}
+#placeHolder fieldset
+{
+    margin-top: 10px;
+}
+#placeHolder fieldset legend
+{
+    padding: 3px;
+}
+#GUIInterface .blockOverlay
+{
+	-webkit-border-radius:  5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+    height: 100% !important;
+    padding: 10px 0 4px !important;
+    top: -8px !important;
+	z-index:95 !important;
+}
+.closeBtn
+{
+    float: right;
+    top: -3px;
+    right: -5px;
+    position: relative;
+}
+
+.webkit .customForm .button
+{
+    position: relative;
+    top: 5px;
+    margin-top: 0px;
+}
+.quick
+{
+	text-align:right !important;
+	margin: 0px 15px 0px 0px;
+}
+
+.webkit .quick
+{
+	margin-top: 3px;
+}
+
+#showAllPanels
+{
+	right:0px;
+	top:1px;
+}
+
+#navigationContainer
+{
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 5px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    height: 29px;
+}
+
+#topNavigation li
+{
+    list-style: none;
+}
+
+#topNavigation li ul
+{
+    margin: 0px;
+    padding: 0px;
+    padding-left: 15px;
+}
+
+#topNavigation li ul li
+{
+    background-image: url("/WebInterface/Resources/images/bullet_disabled.png");
+    background-position: 1px 7px;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+}
+
+#topNavigation li ul li:hover
+{
+    background-image: url("/WebInterface/Resources/images/bullet_green.png");
+}
+
+#topNavigation li ul li a
+{
+    width: auto;
+    padding: 5px 10px;
+}
+
+#userList
+{
+	overflow-x:hidden;
+	overflow-y:auto;
+	padding:5px;
+    line-height: 25px;
+    width: 97%;
+    clear: both;
+}
+
+.ui-resizable-helper { border: 2px dotted #4B4747; }
+
+#userListWrapper .ui-resizable-se
+{
+    margin-right: 12px !important;
+}
+
+#vfsItemsListingAndOptions a.refresh
+{
+	float:right;
+	text-decoration:none;
+	border:0px;
+	font-weight:normal;
+	cursor:pointer;
+	font-size:11px;
+
+	background-image: url("/WebInterface/Resources/images/arrow_refresh_small.png");
+	background-position: 0px 1px;
+    background-repeat: no-repeat;
+	margin-right:-10px;
+	margin-top:3px;
+	width:16px;
+	height:20px;
+	display:inline-block;
+}
+
+#vfsItemsListingAndOptions a.history
+{
+    background-image: url("/WebInterface/Resources/images/book.png");
+}
+
+.makeSticky
+{
+    background-image: url("/WebInterface/Resources/images/tag_blue_add.png");
+    background-position: 0 -1px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    display:inline-block;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: underline;
+    top: -7px;
+    right: -5px;
+    position: relative;
+}
+
+.removeFromSticky
+{
+    background-image: url("/WebInterface/Resources/images/tag_blue_delete.png");
+}
+
+#growlContainer
+{
+	z-index:999999;
+}
+
+.reloadUsersLink, .reloadUsersLinkMain
+{
+	background-image: url("/WebInterface/Resources/images/arrow_refresh_small.png");
+	background-position: 0px 0px;
+    background-repeat: no-repeat;
+	margin-left:3px;
+	margin-top:3px;
+	height:20px;
+	display:inline-block;
+	padding-left:16px;
+}
+
+#loadingIndicator {
+    background: url("/WebInterface/Resources/images/loading.gif") no-repeat 5px 5px;
+    padding-left: 25px;
+}
+
+.loadingIndicatorWindow .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.vButtons .button
+{
+	margin-bottom:5px;
+}
+
+.noSpacing
+{
+	top: auto !important;
+}
+
+.notes
+{
+	font-size:11px;
+	font-weight:normal;
+}
+.extra-notes{
+    font-size: 13px;
+    font-weight:normal;
+    margin:10px 0px;
+}
+.extra-notes em{
+    font-weight: bold;
+}
+
+.floatRight
+{
+	float:right;
+	top:10px;
+	right:10px;
+}
+
+#vfsItemList .dirItem
+{
+	display:inline-block;
+	width:80%;
+}
+
+#vfsItemList .itemType
+{
+	display:inline-block;
+	margin-left:5px;
+}
+
+.userMgrPanel
+{
+	margin-left:5px;
+}
+
+.inputBoxMin
+{
+	width:auto;
+	min-width:100px;
+}
+
+.loadingIndicator
+{
+	position:fixed;
+	left:42%;
+	top:30%;
+	padding:25px;
+	border:2px solid #ACACAC;
+	-webkit-border-radius:  5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	background-color:white;
+	-moz-opacity:.80;
+	filter:alpha(opacity=80);
+	opacity:.80;
+	width:250px;
+	text-align:center;
+	z-index:90 !important;
+}
+
+li.ui-draggable
+{
+	list-style: none;
+}
+
+#fieldPropertiesDialog td
+{
+	vertical-align:middle;
+}
+
+.contextMenu li a
+{
+	background-image: url(/WebInterface/Resources/images/bullet_go.png);
+}
+
+.contextMenu li.properties a, .vfsItemOperations li.properties a
+{
+    background-image: url(/WebInterface/Resources/images/page_edit.png);
+}
+
+.contextMenu li.paste a
+{
+    background-image: url(/WebInterface/Resources/images/page_paste.png);
+}
+
+.contextMenu li.rename a
+{
+    background-image: url(/WebInterface/Resources/images/drive_rename.png);
+}
+
+.contextMenu li.remove a, .vfsItemOperations li.remove a
+{
+    background-image: url(/WebInterface/Resources/images/page_delete.png);
+}
+
+.vfsItemOperations li.moveRight a
+{
+    background-image: url(/WebInterface/Resources/images/bullet_go.png);
+}
+
+.contextMenu li.current a
+{
+    background-image: url(/WebInterface/Resources/images/user.png);
+}
+
+.contextMenu li.batch a
+{
+    background-image: url(/WebInterface/Resources/images/group.png);
+}
+
+.contextMenu li.batchSelected a
+{
+    background-image: url(/WebInterface/Resources/images/group_add.png);
+}
+
+.contextMenu li.generateURL a
+{
+    background-image: url(/WebInterface/Resources/images/world_link.png);
+}
+
+.contextMenu li.test a, .vfsItemOperations li.test a
+{
+    background-image: url(/WebInterface/Resources/images/server_connect.png);
+}
+
+.contextMenu li.testAll a, .vfsItemOperations li.testAll a
+{
+    background-image: url(/WebInterface/Resources/images/server_connect.png);
+}
+
+
+.vfsItemOperations
+{
+	padding:0px;
+	margin:0px;
+}
+
+.vfsItemOperations li.newFolder a
+{
+    background-image: url(/WebInterface/Resources/images/page_add.png);
+}
+
+.vfsItemOperations li.newItem a
+{
+    background-image: url(/WebInterface/Resources/images/page_link.png);
+}
+
+.vfsItemOperations li.rename a
+{
+	background-image: url(/WebInterface/Resources/images/page_green.png);
+}
+
+.vfsItemOperations li.duplicate a
+{
+    background-image: url(/WebInterface/Resources/images/duplicate.png);
+}
+
+.vfsItemOperations li.copy a
+{
+    background-image: url(/WebInterface/Resources/images/script_save.png);
+}
+
+.vfsItemOperations li.paste a
+{
+    background-image: url(/WebInterface/Resources/images/page_paste.png);
+}
+
+.vfsItemOperations li.show-miniurls a
+{
+    background-image: url(/WebInterface/Resources/images/world_link.png);
+}
+
+.vfsItemOperations li.paste.ui-state-disabled span.count
+{
+    display: none !important;
+}
+.vfsItemOperations li.paste span.count
+{
+    position: absolute;
+    display: inline-block;
+    width: 14px;
+    height: 13px;
+    background: red;
+    color: white;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    text-align: center;
+    font-size: 9px;
+    margin-left: 14px;
+    margin-top: -6px;
+    padding-top: 3px;
+    cursor: pointer;
+    -moz-opacity:.80 !important;
+    filter:alpha(opacity=80) !important;
+    opacity:.80 !important;
+}
+
+.vfsItemOperations LI
+{
+    list-style: none;
+    padding: 0px;
+    margin: 10px 0px;
+	overflow:hidden;
+}
+
+.vfsItemOperations A
+{
+    color: #333;
+    text-decoration: none;
+    display: block;
+    line-height: 20px;
+    height: 20px;
+    background-position: 6px center;
+    background-repeat: no-repeat;
+    outline: none;
+    padding: 1px 5px;
+    padding-left: 28px;
+}
+
+.vfsItemOperations LI.hover A
+{
+    color: #FFF;
+    background-color: #3399FF;
+}
+
+.vfsItemOperations LI.disabled A
+{
+    color: #AAA;
+    cursor: default;
+}
+
+.vfsItemOperations LI.hover.disabled A
+{
+    background-color: transparent;
+}
+
+.validationErrorMessage
+{
+	display:inline-block;
+	padding:2px 10px;
+	margin-left:10px;
+	position:absolute;
+	z-index:1;
+}
+
+.buttonBar
+{
+	margin:4px 0px 8px 0px;
+}
+
+.chrome .buttonBar
+{
+    margin:10px 0px 10px 0px;
+}
+
+.shadow
+{
+	-webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+/*IE 7 Patches*/
+
+.ie7 #myslidemenu
+{
+	clear:both;
+	margin-top:-40px !important;
+}
+
+.ie7 #myslidemenu select
+{
+	padding:2px;
+}
+
+.ie7 #userList
+{
+	margin:0px;
+}
+
+.ie7 .button
+{
+	margin:2px;
+}
+
+
+.ie7 .customForm label
+{
+	top : 0px !important;
+}
+
+.ie7 .ienote
+{
+	margin:10px 0px;
+	display:block;
+}
+
+#privsOptions
+{
+	margin-top:10px;
+}
+
+.ie7 #privsOptions div
+{
+	margin:5px 0px 5px 0px;
+}
+
+.ie7 .vfsItemOperations a
+{
+	width:16px;
+	height:16px;
+}
+
+.ie7 .vfsItemOperations li
+{
+	width:40px;
+}
+
+.ie7 #adminSiteSettings
+{
+	line-height:23px;
+}
+
+.ie7 #creditsData
+{
+	margin-top:0px;
+}
+
+.ie7 #creditsData .button
+{
+	margin-top:25px;
+}
+
+#fieldEncryptionDialog .right
+{
+	padding-top:5px;
+	padding-right:5px;
+	vertical-align:middle;
+}
+
+#fieldEncryptionDialog td
+{
+	vertical-align:middle;
+}
+
+#fieldEncryptionDialog label
+{
+	top:-8px;
+}
+
+#fieldEncryptionDialog span.ui-corner-all
+{
+	top:-3px;
+	position:relative;
+}
+
+#fieldEncryptionDialog .button
+{
+    margin-left: 5px;
+    margin-top: -10px;
+    position: absolute;
+}
+
+.webkit #fieldEncryptionDialog .button
+{
+    margin-top: -8px;
+}
+
+.serverFileDropdown
+{
+	width:90%;
+	padding:3px 0px 0px 0px;
+	float:left;
+	height:25px;
+	margin-bottom:5px;
+}
+
+.serverFileDropdown input
+{
+	width:90%;
+}
+
+.ui-autocomplete {
+	width : 365px !important;
+}
+
+.vfsItemsListBox
+{
+	min-width:240px;
+}
+
+#context-menu
+{
+	z-index:1000;
+}
+
+.logoContainer
+{
+    right:5px;
+    top:2px;
+    position:absolute;
+    z-index:-1;
+}
+
+#logo, .logoContainer a img, .logoContainer a
+{
+    border:0px !important;
+    border-color: white;
+}
+
+.ie9 .connectionSwitch
+{
+    width:500px;
+}
+
+span.batchUserSelector.ui-button
+{
+    top: -5px !important;
+    margin-left: -5px !important;
+    padding: 3px 25px 3px 5px;
+    text-align: left;
+    background-image: url("/WebInterface/Resources/images/down.gif");
+    background-position: 80%;
+    background-repeat: no-repeat;
+}
+
+a.batchUserSelector.ui-button
+{
+    top: 4px !important;
+    margin-left: -4px !important;
+}
+
+/*.chrome span.batchUserSelector.ui-button, .chrome a.batchUserSelector.ui-button, .safari span.batchUserSelector.ui-button
+{
+    top: -5px !important;
+}*/
+
+.safari a.batchUserSelector.ui-button
+{
+    top: 4px !important;
+}
+
+.batchUserSelector .text
+{
+    padding: 0px 17px 0px 0px !important;
+    /* line-height: 0px !important; */
+    /* height: 16px; */
+    background-image: url("/WebInterface/Resources/images/down.gif");
+    background-position: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0px;
+}
+
+.batchUserSelector .current
+{
+    display:inline-block;
+    background-image: url("/WebInterface/Resources/images/user.png");
+    /* background-position: 3px 0px; */
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    /* margin-top: 4px; */
+    /* position: relative; */
+    /* top: 3px; */
+    /* padding: 0px; */
+    /* margin: 0px; */
+}
+
+.batchUserSelector .batch
+{
+    background-image: url("/WebInterface/Resources/images/group.png");
+}
+
+#applyInheritanceTrigger
+{
+    width:80px;
+    padding: 5px;
+}
+
+#applyInheritanceTrigger .ui-button-text{
+    padding: 0px 15px 0px 10px !important;
+    line-height: 22px !important;
+    background-position: 100%;
+}
+
+#applyInheritanceTrigger .text
+{
+    /* float: left; */
+    /* margin-top: -12px; */
+    /* margin-left: 21px; */
+}
+
+.itemPropertyLabel
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+#ui-datepicker-div
+{
+    z-index: 100512 !important;
+}
+#serverDirBrowsePanel li, #vfsItems li
+{
+    padding:2px 4px 2px 8px !important;
+}
+
+#vfsItems.show-meta-info li{
+    border-bottom: 1px solid #ddd;
+}
+
+#vfsItems .metainfo{
+    display: none;
+}
+
+#vfsItems.show-meta-info .metainfo{
+    font-weight: normal;
+    font-size: 12px;
+    opacity: 0.8;
+    display: block;
+    margin-top: 2px;
+}
+#vfsItems.show-meta-info .metainfo .type{
+    float: left;
+    margin-left: -5px;
+}
+#vfsItems.show-meta-info .metainfo .date{
+    float: right;
+    margin-right: 10px;
+}
+#vfsSetupHelp
+{
+    width: 500px;
+    padding: 8px;
+    position: absolute;
+    z-index: 99999;
+    -moz-opacity:.90 !important;
+    filter:alpha(opacity=90) !important;
+    opacity:.90 !important;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 3px 2px 4px #ccc;
+    -webkit-box-shadow: 3px 2px 4px #ccc;
+    box-shadow: 3px 2px 4px #ccc;
+    left:50%;
+    margin-left: -250px;
+    display: none;
+}
+
+body.onlyVFS
+{
+    padding: 5px;
+}
+
+.onlyVFS #sideBar, .onlyVFS #header, .onlyVFS #footer, .onlyVFS #userInfoInheritance
+{
+    display: none !important;
+}
+
+.onlyVFS #placeHolder fieldset
+{
+    margin: 0px;
+    padding: 0px;
+    border: 0px !important;
+    background-image: none !important;
+}
+
+.onlyVFS .userMgrPanel
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+.onlyVFS #placeHolder .ui-widget-content
+{
+    background: none !important;
+}
+
+.onlyVFS .checkboxArea
+{
+    width: 30px;
+}
+
+#webCustomizationsDefaultList, #templateNames
+{
+    margin: 0px;
+    padding: 2px;
+}
+
+#webCustomizationsDefaultList li, #templateNames li
+{
+    padding: 3px 8px;
+    margin: 2px;
+    list-style: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+#IPRestrictions .restriction_A
+{
+    color:green;
+}
+
+#IPRestrictions .restriction_D
+{
+    color:red;
+}
+
+.webkit .chromefix
+{
+    top : -10px !important;
+}
+
+.webkit .chromefix2
+{
+    top : -15px !important;
+}
+
+.quickLocateDialog
+{
+    -webkit-box-shadow: 1px 7px 15px rgba(50, 50, 50, 1);
+    -moz-box-shadow:    1px 7px 15px rgba(50, 50, 50, 1);
+    box-shadow:         1px 7px 15px rgba(50, 50, 50, 1);
+}
+
+#quickLocate input
+{
+    padding: 10px;
+    width:575px;
+    height: 25px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+#quickLocateResult
+{
+    padding: 2px;
+    width: 575px;
+    position: relative;
+    height: 250px;
+    margin: 0px 10px 10px 5px;
+    left: 11px;
+    z-index: 100;
+    top: -10px;
+    overflow-y: auto;
+}
+
+#quickLocateResult div{
+    cursor: pointer;
+    padding: 5px 0px 5px 25px;
+    margin: 1px;
+    background-image: url("/WebInterface/jQuery/images/settings.png") !important;
+    background-position: 5px 3px;
+    background-repeat: no-repeat;
+}
+
+#quickLocateResult div.subItem
+{
+    padding-left: 40px;
+    background-position: 25px 7px;
+    background-image: url("/WebInterface/Resources/images/bullet_arrow.png") !important;
+}
+
+#quickLocateResult div.setting{
+    background-image: url("/WebInterface/jQuery/images/settings.png") !important;
+}
+
+#quickLocateResult div.user{
+    background-image: url("/WebInterface/Resources/images/user.png") !important;
+}
+
+#quickLocateResult div.group{
+    background-image: url("/WebInterface/Resources/images/group.png") !important;
+}
+
+#quickLocate .customForm .ui-state-default.ui-corner-all
+{
+    border-radius: 10px;
+}
+
+#quickLocateResult div .quickLocateNote, #quickLocateResult div .keys
+{
+    float: right;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-right: 5px;
+    position: relative;
+}
+
+#quickLocateResult div .keys
+{
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+    font-weight: normal;
+}
+
+#quickLocateResult div .quickLocateNote .unicode
+{
+    position: relative;
+    top: 3px;
+}
+
+#quickLocateResult div span.type
+{
+    text-transform: capitalize;
+}
+
+#quickLocateResult div .highlight
+{
+    background-color: yellow;
+    border: #C9BDBD thin solid;
+    color: #050505;
+    padding: 1px;
+}
+
+#mostVisitedUsers
+{
+    max-width: 880px;
+    overflow: hidden;
+    float: left;
+}
+
+.mostVisitedLinks li {
+    cursor: pointer;
+    padding: 7px 7px 5px 8px;
+    margin: 2px 1px 0px -5px;
+    list-style: none;
+    float: left;
+    display: inline-block;
+}
+
+.mostVisitedLinks li sup {
+    margin: 0px 0px 5px -15px;
+    top: -7px;
+    position: relative;
+    font-size: 9px;
+    font-weight: normal;
+}
+
+.mostVisitedLinks li a {
+    max-width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.roleGroup
+{
+    margin: 5px;
+    padding: 5px;
+    border: #C9BDBD thin solid;
+    -webkit-border-radius:  5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    clear: both;
+}
+
+.roleGroup div.ui-priority-primary
+{
+    margin: 2px 0px;
+    border: #C9BDBD thin solid;
+    border-width: 0px 0px 1px 0px;
+    padding-bottom: 7px;
+}
+
+.roleGroup .multicheck, .multicheckAll
+{
+    float: right;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.webkit .connectionSwitch
+{
+    margin-top:5px !important;
+}
+
+.webkit .connectionSwitch .ui-icon
+{
+    margin-top: 3px !important;
+}
+
+li div.groupRoot
+{
+    background-image: url("/WebInterface/Resources/images/text_list_bullets.png");
+    background-position: 2px -1px;
+    background-repeat: no-repeat;
+    padding-left: 23px;
+}
+
+li div.groupSubItem
+{
+    background-image: url("/WebInterface/Resources/images/bullet_go.png");
+    background-position: 20px -1px;
+    background-repeat: no-repeat;
+    padding-left: 43px;
+    background-color: #FFE;
+    color: #000 !important;
+}
+
+.webkit .backToTop .ui-icon
+{
+    margin-left: -25px !important;
+}
+
+#pnlPluginCrushTask
+{
+    max-height: 560px;
+    overflow: hidden;
+}
+
+#pnlPluginCrushTask.taskDesignerPopup
+{
+    max-height: inherit !important;
+}
+
+.eventOptions span
+{
+    white-space: nowrap;
+}
+
+#lastServerPathHistory
+{
+    width: 300px;
+    padding-left: 15px;
+    outline: 0 solid;
+    position: absolute;
+    background: #fff;
+    padding: 0px;
+    margin: 0px;
+    z-index: 999;
+    max-height: 300px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    box-shadow: 5px 7px 10px 0px #ccc;
+    line-height: 10px;
+    display: none;
+}
+
+#lastServerPathHistory li
+{
+    list-style: none;
+    padding: 8px 2px 8px 8px;
+    margin: 0px;
+    border-bottom: 1px solid #eee;
+}
+
+#lastServerPathHistory li:hover
+{
+    background-color: #FFFF99;
+}
+
+.ui-dialog-buttonpane
+{
+    border-radius: 0px !important;
+}
+
+.safari #quickJump
+{
+    margin-top: 5px !important;
+}
+
+.dragging
+{
+    padding: 5px 10px;
+    min-width: 150px;
+    line-height: 18px;
+}
+.key-val-field
+{
+    position: relative;
+}
+.key-val-field ._addItem
+{
+    top:9px;
+    right: -35px;
+    background-image: url(/WebInterface/Resources/images/add.png);
+    margin-left: 5px;
+}
+
+.key-val-field ._removeItem
+{
+    top:9px;
+    margin-right: -15px;
+    background-image: url(/WebInterface/Resources/images/delete.png);
+}
+._addItem, ._removeItem
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    float: right;
+    right: 0px;
+}
+.popup-list {
+    list-style: none;
+    padding: 5px;
+    line-height: 18px;
+}
+.popup-list li {
+    list-style: none;
+    padding: 8px 0px 2px 5px;
+    border-bottom: 1px solid #ddd;
+}
+.popup-list li label > span {
+    top: 4px;
+    position: relative;
+}
+.rollback-preview-warning{
+    position: fixed;
+    width: 650px;
+    height: 50px;
+    border: 1px solid #eee;
+    background: #fff38a;
+    z-index: 99;
+    left: 50%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+    opacity: 0.9;
+    padding: 15px;
+    bottom: 49px;
+    margin-left: -325px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px #ddd;
+}
+.rollback-preview-warning a{
+    font-weight: bold;
+}
+.list-paging{
+    font-size: 11px;
+    font-weight: normal;
+    clear: both;
+    margin-top: 5px;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 4px;
+}
+.list-paging .links{
+    float: right;
+}
+.hadoop-vfs-option{
+    padding-left: 115px;
+    padding-bottom: 15px;
+}
+ul#context-menu li {
+    list-style: none;
+}
+#quickJump{
+    margin-top: -5px;
+    margin-bottom: 5px;
+    display: none;
+    background: #F6E0BE;
+    padding: 3px 10px;
+    border-radius: 4px;
+    box-shadow: 2px 1px 14px 3px #ccc;
+    margin-right: 4px;
+    color:black;
+}
+#miniURLs li.ui-widget-content {
+    padding: 8px;
+}
+#miniURLs li.ui-widget-content span {
+    margin-top: -2px;
+}
+.sortby.asc::before{
+    content : '\25B2'
+}
+
+.sortby.desc::before{
+    content : '\25BC'
+}
+#miniURLs li.ui-widget-content span.copy-link {
+    text-decoration: underline;
+    margin-left: 10px;
+}
+#testResultDialog table{
+    padding: 10px;
+}
+#testResultDialog table th{
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+#testResultDialog table td {
+    padding: 6px;
+}
+td.customForm{
+    display: table-cell;
+}
+
+#user-roles h3 {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#user-roles div {
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+}
+
+#user-roles div div.option {
+    display: inline-block;
+    padding: 5px;
+    width: 48%;
+    white-space: nowrap;
+}
+
+span.select-items {
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#user-roles .filters input{
+    padding: 4px;
+    width: 300px;
+}
+
+#user-roles .filters{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#user-roles .filters .select-items{
+    margin-top: 5px;
+}
+
+#user-roles .panel{
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+#user-roles .field-label{
+    cursor: pointer;
+    top: -4px;
+    position: relative;
+}
+
+#user-roles .nothing-found{
+    text-align: center;
+    padding: 20px;
+}
+
+.not-allowed{
+    border: 1px solid red;
+    display: none !important;
+}
+div.jHtmlArea .ToolBar{
+    width: 100% !important;
+}
+#quickLocateButton
+{
+    font-size: 10px;
+}
+#TemplatePopupDialogdiv{
+    margin-top: -10px;
+}
+
+#TemplatePopupDialogdiv .handle{
+    display: inline-block;
+    cursor: move;
+    float: left;
+    margin-left: -5px;
+    top: 5px;
+}
+
+#TemplatePopupDialogdiv #templateNames li{
+    line-height: 17px;
+}
+
+#TemplatePopupDialogdiv #templateNames li .flag{
+    display: none !important;
+}
+
+#TemplatePopupDialogdiv #templateNames li.defaultItem .flag{
+    display: inline-block !important;
+}
+
+#TemplatePopupDialogdiv #templateNames li .name{
+    display: inline-block;
+    max-width: 165px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 2px;
+    white-space: nowrap;
+}
+
+form#frmShareWindow table tr td:first-child label.shareDivLabel {
+    text-align: right;
+    width: 100%;
+    display: inline-block;
+}
+
+.config-option{
+    background-image: url("/WebInterface/Resources/images/eye.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: 20px 20px;
+    background-position: 0px 2px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.config-option.row-option{
+    float: right;
+}
+
+#CustomSharePopupDialog.customFor .hovered{
+    border: 1px dashed #888;
+}
+
+#CustomSharePopupDialog.customForm label {
+    border: 1px solid transparent;
+    display: inline-block;
+}
+
+#CustomSharePopupDialog table{
+    border-spacing: 0;
+}
+
+#CustomSharePopupDialog table tr td{
+    border: 1px solid transparent;
+}
+
+#CustomSharePopupDialog table .hovered td{
+    border: 1px dashed #888;
+}
+
+#CustomSharePopupDialog table .hovered td:first-child{
+    border-right: 1px solid transparent;
+}
+
+#CustomSharePopupDialog table .hovered td:last-child{
+    border-left: 1px solid transparent;
+}
+
+.tohide{
+    opacity: 0.5;
+}
+
+#CustomSharePopupDialog .top-warning{
+    padding: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+}
+
+#CustomSharePopupDialog .top-warning .text{
+    position: relative;
+    top: -10px;
+    line-height: 20px;
+}
+
+#CustomSharePopupDialog .top-warning img{
+    position: relative;
+    top: 8px;
+}
+
+
+.advanced-options, .advanced-options-all {
+    border: 1px solid #ddd;
+    padding: 0px 10px;
+    margin: 3px -10px;
+    line-height: 22px;
+}
+.advanced-options h3, .advanced-options-all h3 {
+    margin: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 4px 1px;
+    cursor: pointer;
+    position: relative;
+}
+.advanced-options.open h3, .advanced-options-all.open h3 {
+    border-bottom: 1px solid #ddd;
+}
+.advanced-options h3 span.icon, .advanced-options-all h3 span.icon{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    display: none;
+}
+
+.advanced-options.open h3 span.icon-open, .advanced-options-all.open h3 span.icon-open{
+    display: inline-block;
+}
+
+.advanced-options.closed h3 span.icon-closed, .advanced-options-all.closed h3 span.icon-closed{
+    display: inline-block;
+}
+
+.advanced-options.open .advanced-options-content, .advanced-options-all.open .advanced-options-all-content{
+    display: block;
+}
+
+.advanced-options.closed .advanced-options-content, .advanced-options-all.closed .advanced-options-all-content{
+    display: none;
+}
+.advanced-options-content input, .advanced-options-all-content input {
+    max-width: 330px;
+}
+
+.heightContent #popup_message{
+    max-height: 350px;
+    overflow: auto;
+}
+.admin-note{
+    font-size: 14px;
+    padding: 7px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 8px;
+    box-shadow: #5d5959 1px 2px 5px;
+    background: #f50120;
+    color: #fff;
+    cursor: pointer;
+    top: 1px;
+    position: relative;
+}
+.ext_option .ui-icon{
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+    display: none;
+}
+.ext_option.has_ext .ui-icon{
+    display: inline-block;
+}
+#selectedInheritance{
+    margin-left: 5px;
+}
+#selectedInheritance span.inherit-item{
+    margin: 0px 5px;
+}
+.drop-ph{
+    width: 70px;
+    height: 17px;
+    border: 1px #000 dashed;
+    border-radius: 5px;
+    display: inline-block;
+}
+#extraTextReference li{
+    word-break: break-all;
+}
+#selectFilteredUsersDiv{
+    text-align: center;
+}
+
+#vfsItemButtons li{
+    padding: 4px 10px;
+}
+#quickLocate .checkbox-parent{
+    /* top: -5px; */
+    position: relative;
+}
+.checkbox-parent span{
+    display: inline-block;
+    top: 2px;
+    position: relative;
+}
+.backToTop{
+    background-image: none !important;
+}
+#event_if_list_labels{
+    margin-top: 10px;
+}
+#event_if_list_labels span{
+    display: inline-block;
+    padding: 5px 8px;
+    margin: 3px;
+    text-transform: capitalize;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.ban-info {
+    padding: 1px 5px;
+    border-left: 2px solid #ccc;
+    margin: 5px;
+    font-size: 11px;
+    font-weight: normal;
+    min-height: 15px;
+    max-height: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

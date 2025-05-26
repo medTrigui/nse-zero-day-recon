@@ -1,0 +1,87 @@
+<script type="text/template" id="html-content">
+  <div class="charts" style="width: 98%;white-space: nowrap;">
+      <div class="row">
+          <div class="col-md-4 col-lg-4 col-sm-12 graph-panel">
+              <h3 class="sub-title">
+                 <i class="fa fa-pie-chart"></i> Job Schedules
+              </h3>
+              <div id="typeDonut" class="graph"></div>
+              <div class="text-center no-data" style="display:none;">Nothing to display</div>
+          </div>
+          <div class="col-md-8 col-lg-8 col-sm-12">
+              <div class="panel panel-success text-left graph-stats">
+                  <div class="panel-heading">
+                      <strong><i class="fa fa-list-ul"></i> Quick Stats:</strong>
+                  </div>
+                  <div class="panel-body">
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                              Total <span class="total-jobs stat"></span> jobs
+                              <div>
+                                  <div style="margin-left:15px;"> &raquo; <span class="total-completed stat">-</span> Completed,</div>
+                                  <div style="margin-left:15px;"> &raquo; <span class="total-completed-error stat">-</span> Completed with errors,</div>
+                                  <div style="margin-left:15px;"> &raquo; <span class="total-running stat">-</span> Running,</div>
+                                  <div style="margin-left:15px;"> &raquo; <span class="total-paused stat">-</span> Paused, and</div>
+                                  <div style="margin-left:15px;"> &raquo; <span class="total-cancelled stat">-</span> Cancelled</div>
+                              </div>
+                          </li>
+                          <li class="list-group-item">
+                              Job <span class="max-run-job stat"></span> has ran most: <span class="max-run-job-count stat">-</span> times
+                          </li>
+                          <li class="list-group-item">
+                              Job <span class="max-run-time-job stat"></span> took maximum time: <span class="max-run-job-time stat">-</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="has-report-data">
+      <hr>
+          <div class="text-center">
+              <button type="button" class="btn btn-lg btn-success" id="exportAsXLS"><i class="fa fa-file-excel-o"></i> Export as XLS</button>
+          </div>
+      <hr>
+      <div class="panel-group" role="tablist" aria-multiselectable="true">
+          <div class="tables"></div>
+      </div>
+  </div>
+</script>
+<script type="text/template" id="template">
+  <div class='panel panel-default'>
+      <a class='collapsed' role='button' data-toggle="collapse" href='#$type_table'>
+          <div class='panel-heading'>
+              <h4 class='panel-title'><i class="fa fa-table"></i> Records</h4>
+          </div>
+      </a>
+      <div id='$type_table' class="collapse in">
+          <div class='panel-body'>
+              <div class='panel panel-default no-border top-margin' id='$type_dataRecord'>
+                  <table id="$typeRecords" class="table table-striped table-bordered $type-table dataTable" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Status</th>
+                              <th>Duration</th>
+                              <th>Started At</th>
+                              <th>Ended At</th>
+                              <th>Log</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                              <th>Name</th>
+                              <th>Status</th>
+                              <th>Duration</th>
+                              <th>Started At</th>
+                              <th>Ended At</th>
+                              <th>Log</th>
+                          </tr>
+                      </tfoot>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</script>

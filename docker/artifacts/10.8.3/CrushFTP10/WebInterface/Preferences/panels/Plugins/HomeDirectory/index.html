@@ -1,0 +1,872 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginHomeDirectory">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div id="pluginSection" class="customForm">
+                    <p>
+                        <input type="checkbox" name="enabled" id="enabled" />
+                        <label for="enabled" class="ui-priority-primary HomeDirectory lblEnabledText">Enabled</label>
+
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+
+                        <input type="checkbox" name="debug" id="debug" />
+                        <label for="debug" class="ui-priority-primary HomeDirectory lblDebugText" class="nonEmbed">Debug</label>
+
+                        <span style="float:right;" class="nonEmbed">
+                            <span class="HomeDirectory lblVersionText">Version:</span>
+                            <span class="liveData" id="version"></span>
+                        </span>
+                    </p>
+                    <div class="tabs nobg">
+                        <ul>
+                            <li><a href="#Help" class="HomeDirectory lblHelpTabText">Help</a>
+                            </li>
+                            <li><a href="#Setup" id="setupTabLink" class="HomeDirectory lblSetupTabText">Setup</a>
+                            </li>
+                        </ul>
+                        <div class="pluginDetails HomeDirectory pnlHelpInstructionsText" id="Help" style="line-height:20px;">
+                            <div style="width:600px;">
+                                <strong>HomeDirectory Plugin Help</strong>
+                                <p>
+                                    Simple plugin that just generates the users home directory when they first login.
+                                    This way you could use say the SQL plugin and setup a user. When they actually
+                                    login, a new folder could be created for them to upload into.
+                                </p>
+                                <strong>How to use:</strong>
+                                <p>
+                                    Set a location where users home folders will be created at. Use the browse button to pick
+                                    the location.
+                                </p>
+                                <p>
+                                    Specify the permission they will have in that folder. In general you will give them full
+                                    permissions here as this folder is probably empty. This way they can then login, and upload
+                                    files to it. If the folder doesn't exist, it will be created for them.
+                                </p>
+                                <p>
+                                    To test, create a new user via the user manager. Don't setup any directory
+                                    items in the "user's stuff (VFS)" pane. Then login with that user and look for
+                                    the new folder that just got created.
+                                    For the time/date format on a unique folder, search google for 'SimpleDateFormat'.
+                                </p>
+                                <p>
+                                    Questions? Email me:<a target="_blank" href="mailto:support@crushftp.com">support@crushftp.com</a>
+                                </p>
+                                <p>
+                                    --Ben Spink
+                                </p>
+                            </div>
+                        </div>
+                        <div id="Setup" class="ui-corner-all ui-widget-content nobg actionConfigPanel" style="padding:5px 10px;">
+                            <p>
+                                <label for="path" class="HomeDirectory lblPathText">Path:</label>
+                                <input type="text" id="path" name="path" class="bigInputBox maskPasswordOnURL url urlWithParams" />
+                                <a href="#" class="button serverFilePickWithParamsButton" rel="path">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    <span class="HomeDirectory btnBrowseText">Browse</span>
+                                </a>
+                            </p>
+                            <div class="serverTypeOptions" style="margin: 0px 13px;display: none;">
+                                <div class="advanced-options closed">
+                                    <h3>
+                                        Advanced options
+                                        <span class="icon icon-open">
+                                            <span class="ui-icon ui-icon-triangle-1-s"></span>
+                                        </span>
+                                        <span class="icon icon-closed">
+                                            <span class="ui-icon ui-icon-triangle-1-w"></span>
+                                        </span>
+                                    </h3>
+                                    <div class="advanced-options-content">
+                                        <div class="ftpSOptions ui-corner-all ui-widget-content nobg" style="border:none;margin:8px 0px;">
+                                            <span class="group-option">
+                                                <input checked="checked" type="checkbox" id="pasv" name="pasv" />
+                                                <label for="pasv">Passive?</label>
+                                            </span>
+                                            <span style="margin:5px;"></span>
+                                            <span class="group-option">
+                                                <input type="checkbox" id="ascii" name="ascii" class="ignoreBind" />
+                                                <label for="ascii" class="CrushTask lblAsciiText">ASCII Transfer</label>
+                                            </span>
+                                            <span style="margin:5px;"></span>
+                                            <span class="group-option">
+                                                <input type="checkbox" id="simple" name="simple" class="ignoreBind" />
+                                                <label for="simple" class="CrushTask lblSimpleText">Simple Mode</label>
+                                            </span>
+                                            <span class="ftpesOptions">
+                                                <span style="margin:5px;"></span>
+                                                <span class="group-option">
+                                                    <input type="checkbox" id="secure_data" name="secure_data" class="ignoreBind" />
+                                                    <label for="secure_data" class="CrushTask">Data channel secure</label>
+                                                </span>
+                                            </span>
+                                            <span style="margin:5px;"></span>
+                                            <span class="group-option">
+                                                <input type="checkbox" id="no_os400" name="no_os400" class="ignoreBind" />
+                                                <label for="no_os400">Don't translate OS/400 paths</label>
+                                            </span>
+                                            <span class="group-option">
+                                                <input type="checkbox" id="config_cwd_list" name="config_cwd_list" class="ignoreBind" />
+                                                <label for="config_cwd_list" class="CrushTask lblForceCWDText">Force CWD before doing listings</label>
+                                            </span>
+                                            <span style="margin:10px;"></span>
+                                            <span class="group-option">
+                                                <input type="checkbox" id="no_stat" name="no_stat" class="ignoreBind" />
+                                                <label for="no_stat" class="CrushTask">Avoid use of '<em>STAT</em>' command.</label>
+                                            </span>
+                                            <span style="margin:10px;"></span>
+                                            <span class="group-option">
+                                                <input type="checkbox" id="star_stat" name="star_stat" class="ignoreBind" />
+                                                <label for="itemProperty_option_star_stat">Use STAT* with item lookups</label>
+                                            </span>
+                                        </div>
+                                        <div class="ftpOptions ui-corner-all ui-widget-content nobg" style="border:none;display:none;margin:8px 0px;">
+                                            <div>
+                                                <label for="secure">Encryption Mode:</label>
+                                                <select id="secure" class="encryptionMode">
+                                                    <option value="false">Plain</option>
+                                                    <option value="true">TLS</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="allftpOptions ui-corner-all ui-widget-content nobg nonSftpOptions" style="border:none;display:none;margin:8px 0px;">
+                                            <div>
+                                                <label for="proxyActivePorts">Active Port Range:</label>
+                                                <input _name="proxyActivePorts" name="proxyActivePorts" type="text" id="proxyActivePorts" />
+                                            </div>
+                                        </div>
+                                        <div class="allftpOptions customScriptPanel ui-corner-all ui-widget-content nobg" style="border:none;display:none;margin:8px 0px;">
+                                            <div>
+                                                <a href="#" class="button slim customScriptBtn" style="padding: 5px 10px;position: relative;margin-top:0px;margin-left:-2px;">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-script'></span>
+                                                    Custom Script
+                                                </a>
+                                            </div>
+                                            <div style="clear:both;margin:8px 0px;display:none;" class="customScriptsPanel">
+                                                <fieldset class="nobg">
+                                                    <legend>Custom Scripts:</legend>
+                                                    <div>
+                                                        <label for="scriptType" class="right ">Script Type:</label>
+                                                        <select id="scriptType" name="scriptType" class="scriptType ignoreBind excludeXML">
+                                                            <option value="before_login_script">before_login_script</option>
+                                                            <option value="after_login_script">after_login_script</option>
+                                                            <option value="before_logout_script">before_logout_script</option>
+                                                            <option value="before_download_script">before_download_script</option>
+                                                            <option value="after_download_script">after_download_script</option>
+                                                            <option value="before_upload_script">before_upload_script</option>
+                                                            <option value="after_upload_script">after_upload_script</option>
+                                                            <option value="before_dir_script">before_dir_script</option>
+                                                            <option value="after_dir_script">after_dir_script</option>
+                                                            <option value="custom">Custom</option>
+                                                        </select>
+                                                        <div class="valPanel" rel="before_login_script">
+                                                            <textarea name="before_login_script" id="before_login_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="after_login_script">
+                                                            <textarea name="after_login_script" id="after_login_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="before_logout_script">
+                                                            <textarea name="before_logout_script" id="before_logout_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="before_download_script">
+                                                            <textarea name="before_download_script" id="before_download_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="after_download_script">
+                                                            <textarea name="after_download_script" id="after_download_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="before_upload_script">
+                                                            <textarea name="before_upload_script" id="before_upload_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="after_upload_script">
+                                                            <textarea name="after_upload_script" id="after_upload_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="before_dir_script">
+                                                            <textarea name="before_dir_script" id="before_dir_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="after_dir_script">
+                                                            <textarea name="after_dir_script" id="after_dir_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="valPanel" rel="custom">
+                                                            <div class="customVal">
+                                                                <select class="customScriptType ignoreBind excludeXML" recName="type">
+                                                                    <option value="after">After</option>
+                                                                    <option value="before">Before</option>
+                                                                </select>
+                                                                <input type="text" placeHolder="verb"  recName="verb" class="ignoreBind excludeXML custVal" style="width:100px" />
+                                                                <textarea style="width: 99%;margin: 5px 2px 0px 0px;"  recName="value" class="ignoreBind excludeXML custVal" rows="2"></textarea>
+
+                                                                <div style="display:none;">
+                                                                    <textarea class="ignoreBind origVal"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="clear smbOnlyOption">
+                                            <input type="checkbox" _name="dfs_enabled" id="dfs_enabled" />
+                                            <label for="dfs_enabled">DFS Enabled</label>
+                                        </div>
+                                        <div class="glacierCredentials">
+                                            <input type="checkbox" _name="delete_xml_representation_files" id="delete_xml_representation_files" />
+                                            <label for="delete_xml_representation_files">Delete local representation after upload</label>
+                                        </div>
+                                        <div class="httpOptions clear noAS2" style="padding:10px;width:410px;display: none;">
+                                            <input type="checkbox" id="send_compressed" />
+                                            <label for="send_compressed">Upload using compression</label>
+                                            <span class="spacer"></span>
+                                            <span class="spacer"></span>
+                                            <input type="checkbox" id="multi" />
+                                            <label for="multi">Upload using multi segments</label>
+                                            <span class="spacer"></span>
+                                            <input type="checkbox" id="receive_compressed" />
+                                            <label for="receive_compressed">Download using compression</label>
+                                            <span class="spacer" style="margin-left: 26px;"></span>
+                                            <input type="checkbox" id="multi_segmented_download" />
+                                            <label for="multi_segmented_download">Download using multi segments</label>
+                                        </div>
+                                        <div class="sftpOptions clear" style="display: none;">
+                                            <div title="File path to a private key file to use for the sftp connection.">
+                                                <label style="display:inline-block;width:125px;text-align:right;" for="ssh_private_key" class="CrushTask lblSSHPrivateKeyText">SSH Private Key:</label>
+                                                <input type="text" id="ssh_private_key" name="ssh_private_key" class="ignoreBind bigInputBox" style="width:300px;" />
+                                                <a href="#" PickType="file" class="button serverFilePickButton slim" rel="ssh_private_key" style="padding:2px 11px;">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                                    <span class="GeneralSettings btnBrowseText">Browse
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <label style="display:inline-block;width:125px;text-align:right;" for="ssh_private_key_pass" class="CrushTask lblSSHPrivateKeyText">Key Password:</label>
+                                                <input type="password" id="ssh_private_key_pass" name="ssh_private_key_pass" class="ignoreBind encryptPass" />
+
+                                                <span title="Some SFTP servers might require both a username and password as well as a private/public key pair to authenticate.">
+                                                    <input type="checkbox" id="ssh_two_factor" name="ssh_two_factor" class="ignoreBind" />
+                                                    <label for="ssh_two_factor" class="CrushTask lblSSHTwoFactor">Two factor auth</label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="clear nonFileOption">
+                                            <div>
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;" for="timeout" class="CrushTask">Connection Timeout:</label>
+                                                <input type="text" id="timeout" name="timeout" class="smallInputBox ignoreBind" />
+                                                <label style="display:inline-block;" for="timeout" class="CrushTask"> (in milliseconds)</label>
+                                            </div>
+                                        </div>
+                                        <div class="clear nonFileOption">
+                                            <div>
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;margin-bottom: 5px;" for="write_timeout" class="CrushTask">Write Timeout:</label>
+                                                <input type="text" id="write_timeout" name="write_timeout" class="smallInputBox ignoreBind" />
+                                                <label style="display:inline-block;" for="write_timeout" class="CrushTask"> (in milliseconds)</label>
+                                            </div>
+                                        </div>
+                                        <div class="clear nonFileOption">
+                                            <div>
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;margin-bottom: 5px;" for="read_timeout" class="CrushTask">Read Timeout:</label>
+                                                <input type="text" id="read_timeout" name="read_timeout" class="smallInputBox ignoreBind" />
+                                                <label style="display:inline-block;" for="read_timeout" class="CrushTask"> (in milliseconds)</label>
+                                            </div>
+                                        </div>
+                                        <div class="clear smb3Option">
+                                            <input type="checkbox" _name="smb3_required_signing" id="smb3_required_signing" />
+                                            <label for="smb3_required_signing">Required signing</label>
+                                        </div>
+                                        <div class="sftpOptions clear" style="display: none;">
+                                            <div>
+                                                <span style="margin-left:105px;"></span>
+                                                <input type="checkbox" id="verifyHost" />
+                                                <label for="verifyHost">Verify SSH key</label>
+                                                <div class="subPanel ui-widget-content leftborder nobg onlyVerifyHost" style="display:none;padding:8px 10px;">
+                                                    <div>
+                                                        <input type="checkbox" id="addNewHost" />
+                                                        <label for="addNewHost">Add new key on first occurrence</label>
+                                                    </div>
+                                                    <div style="margin-top:5px;">
+                                                        <label for="knownHostFile">Known host file:</label>
+                                                        <input id="knownHostFile" type="text" style="width:295px;"/>
+                                                        <a href="#" PickType="file" class="button serverFilePickButton slim" rel="knownHostFile" style="padding:2px 11px;">
+                                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                                            <span class="GeneralSettings btnBrowseText">Browse
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hadoopOptions">
+                                            <p>
+                                                <input name="auth_security" _name="auth_security" type="checkbox" id="auth_security" />
+                                                <label class="right" for="auth_security">Authentication security</label>
+                                            </p>
+                                            <p>
+                                                <label for="user_realm">
+                                                    User realm:
+                                                </label>
+                                                <input _name="user_realm" name="user_realm" type="text" id="user_realm" />
+                                            </p>
+                                            <p>
+                                                <label for="kerberos_config">
+                                                    Kerberos config file:
+                                                </label>
+                                                <input _name="kerberos_config" name="kerberos_config" type="text" class="bigInputBox" id="kerberos_config" />
+                                                <a href="#" PickType="file" class="button slim serverFilePickButton" rel="kerberos_config" style="top:10px;padding:3px 12px;">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                                    Browse
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <label for="login_config">
+                                                    Login config file:
+                                                </label>
+                                                <input _name="login_config" name="login_config" type="text" class="bigInputBox" id="login_config" />
+                                                <a href="#" PickType="file" class="button slim serverFilePickButton" rel="login_config" style="top:10px;padding:3px 12px;">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                                    Browse
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <div class="azureOptions">
+                                            <label for="upload_blob_type">Upload blob type:</label>
+                                            <select id="upload_blob_type" _name="upload_blob_type">
+                                                <option value="blockblob">blockblob</option>
+                                                <option value="appendblob">appendblob</option>
+                                            </select>
+                                        </div>
+                                        <div class="azureOptions">
+                                            <label for="sas_token">Shared access signature token:</label>
+                                            <input class="bigInputBox encryptPass" _name="sas_token" type="text" id="sas_token" />
+                                        </div>
+                                        <div class="azureOptions">
+                                            <input type="checkbox" _name="data_lake_storagegen2" id="data_lake_storagegen2" />
+                                            <label for="data_lake_storagegen2">Data Lake Storage Gen2</label>
+                                        </div>
+                                        <div class="sslOptions clear" stye="display:none;">
+                                            <p>
+                                                <span class="ui-state-highlight ui-corner-all warning" style="padding: 3px;display: block;margin: -5px 0px 0px 0px;width: 392px;">
+                                                    <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                                    <span>
+                                                        Use below options only when SSL client authentication is required.
+                                                    </span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <label class="right" for="keystore_path" style="width: 120px;display: inline-block;">Keystore:</label>
+                                                <input _name="keystore_path" type="text" class="excludeXML bigInputBox" id="keystore_path" style="width:280px;" />
+                                                <a href="#" PickType="file" class="button slim serverFilePickButton" rel="keystore_path" style="padding:3px 12px;margin-top: -5px;">
+                                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                                    Browse
+                                                </a>
+                                            </p>
+                                            <p class="fixedWidthLabels">
+                                                <label class="right" for="keystore_pass">Keystore Password:</label>
+                                                <input _name="keystore_pass" type="password" class="encryptPass excludeXML" id="keystore_pass" />
+                                            </p>
+                                            <p class="fixedWidthLabels">
+                                                <label for="key_pass" class="right">
+                                                    Key Password:
+                                                </label>
+                                                <input _name="key_pass" type="password" class="encryptPass excludeXML" id="key_pass" />
+                                            </p>
+                                        </div>
+                                        <div class="sslOptions hadoopOption2 clear" stye="display:none;">
+                                            <p>
+                                                <span class="spacer"></span>
+                                                <input _name="acceptAnyCert" type="checkbox" class="excludeXML" id="acceptAnyCert" />
+                                                <label class="right" for="acceptAnyCert">Accept any SSL certificate</label>
+                                            </p>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <label for="s3_acl">Canned ACL:</label>
+                                            <select _name="s3_acl" name="s3_acl" id="s3_acl" class="ignoreBind">
+                                                <option value="private">private</option>
+                                                <option value="public-read">public-read</option>
+                                                <option value="public-read-write">public-read-write</option>
+                                                <option value="authenticated-read">authenticated-read</option>
+                                                <option value="bucket-owner-read">bucket-owner-read</option>
+                                                <option value="bucket-owner-full-control">bucket-owner-full-control</option>
+                                                <option value="aws-exec-read">aws-exec-read</option>
+                                                <option value="log-delivery-write">log-delivery-write</option>
+                                            </select>
+                                            <span class="spacer"></span>
+                                            <label for="s3_storage_class">Storage class: </label>
+                                            <select _name="s3_storage_class" name="s3_storage_class" id="s3_storage_class">
+                                                <option value="STANDARD">STANDARD</option>
+                                                <option value="REDUCED_REDUNDANCY">REDUCED_REDUNDANCY</option>
+                                                <option value="STANDARD_IA">STANDARD_IA</option>
+                                                <option value="ONEZONE_IA">ONEZONE_IA</option>
+                                                <option value="INTELLIGENT_TIERING">INTELLIGENT_TIERING</option>
+                                                <option value="GLACIER">GLACIER</option>
+                                                <option value="DEEP_ARCHIVE">DEEP_ARCHIVE</option>
+                                                <option value="OUTPOSTS">OUTPOSTS</option>
+                                                <option value="GLACIER_IR">GLACIER_IR</option>
+                                            </select>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <input type="checkbox" _name="server_side_encrypt" name="server_side_encrypt" class="ignoreBind" id="server_side_encrypt" />
+                                            <label for="server_side_encrypt">Server Side Encrypt?</label>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <input type="checkbox" _name="s3_accelerate"  id="s3_accelerate" />
+                                            <label for="s3_accelerate">Accelerate</label>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <input type="checkbox" _name="s3_stat_head_calls" id="s3_stat_head_calls" />
+                                            <label for="s3_stat_head_calls">Fast S3 item lookup</label>
+                                            <span class="spacer"></span>
+                                            <span style="display: inline-block;">
+                                                <input type="checkbox" _name="s3_sha256" id="s3_sha256" />
+                                                <label for="s3_sha256">SHA256 enabled on signing</label>
+                                                <span class="spacer"></span>
+                                                <input type="checkbox" _name="s3_partial" id="s3_partial" />
+                                                <label for="s3_partial">Show partial uploads</label>
+                                                <span class="spacer"></span>
+                                                <input type="checkbox" _name="s3_bucket_in_path" id="s3_bucket_in_path" />
+                                                <label for="s3_bucket_in_path">Use bucket in the path</label>
+                                                <span class="spacer"></span>
+                                                <input type="checkbox" _name="no_bucket_check" id="no_bucket_check" />
+                                                <label for="no_bucket_check">Don't check bucket at login</label>
+                                                <span class="spacer"></span>
+                                                <input type="checkbox" _name="s3_list_v2" id="s3_list_v2" />
+                                                <label for="s3_list_v2">List version 2</label>
+                                                <span class="spacer"></span>
+                                                <input type="checkbox" _name="s3_lookup_meta_modified" id="s3_lookup_meta_modified" />
+                                                <label for="s3_lookup_meta_modified">Lookup custom modified date (this is slow)</label>
+                                            </span>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <label for="server_side_encrypt_kms">KMS Key Id:</label>
+                                            <input _name="server_side_encrypt_kms" type="text" class="ignoreBind bigInputBox" id="server_side_encrypt_kms" style="margin:4px 0px;" />
+                                            <br>
+                                            <label for="server_side_encrypt_kms"><em>(Optional, formatted as:arn:aws:kms:region:acct-id:key/key-id)</em></label>
+                                        </div>
+                                        <div class="s3CrushCredentials">
+                                            <input type="checkbox" checked="checked" _name="random_id" name="random_id" class="ignoreBind" id="random_id" />
+                                            <label for="random_id">Use Random ID?</label>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <input type="checkbox" checked="checked" _name="multithreaded_s3" name="multithreaded_s3" class="ignoreBind" id="multithreaded_s3" />
+                                            <label for="multithreaded_s3">Multithreaded S3 Uploads?</label>
+                                            <div class="subPanel ui-widget-content leftborder nobg multiThreadUploadOptions" style="display: none;">
+                                                <div style="display: block; height: 15px"></div>
+                                                <label
+                                                  style="display: inline-block; width: 130px; text-align: right"
+                                                  for="s3_threads_upload"
+                                                >
+                                                  Upload Threads:</label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  id="s3_threads_upload"
+                                                  name="s3_threads_upload"
+                                                  _name="s3_threads_upload"
+                                                  class="smallInputBox ignoreBind"
+                                                />
+                                                <div style="display: block; height: 15px"></div>
+                                                <label
+                                                  style="display: inline-block; width: 130px; text-align: right"
+                                                  for="s3_buffer"
+                                                >
+                                                 Upload Buffer:</label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  id="s3_buffer"
+                                                  name="s3_buffer"
+                                                  _name="s3_buffer"
+                                                  class="smallInputBox ignoreBind"
+                                                />
+                                                <label
+                                                  style="display: inline-block;"
+                                                  for="s3_buffer_download">
+                                                  MB
+                                                </label>
+                                                <div style="display: block; height: 15px"></div>
+                                            </div>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <input type="checkbox" checked="checked" _name="multithreaded_s3_download" name="multithreaded_s3_download" class="ignoreBind" id="multithreaded_s3_download" />
+                                            <label for="multithreaded_s3_download">Multithreaded S3 Downloads?</label>
+                                            <div class="subPanel ui-widget-content leftborder nobg multiThreadDownloadOptions" style="display: none;">
+                                                <div style="display: block; height: 15px"></div>
+                                                <label
+                                                  style="display: inline-block; width: 130px; text-align: right"
+                                                  for="s3_threads_download"
+                                                >
+                                                  Download Threads:</label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  id="s3_threads_download"
+                                                  name="s3_threads_download"
+                                                  _name="s3_threads_download"
+                                                  class="smallInputBox ignoreBind"
+                                                />
+                                                <div style="display: block; height: 15px"></div>
+                                                <label
+                                                  style="display: inline-block; width: 130px; text-align: right"
+                                                  for="s3_buffer_download"
+                                                >
+                                                  Download Buffer:</label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  id="s3_buffer_download"
+                                                  name="s3_buffer_download"
+                                                  _name="s3_buffer_download"
+                                                  class="smallInputBox ignoreBind"
+                                                />
+                                                <label
+                                                  style="display: inline-block;"
+                                                  for="s3_buffer_download">
+                                                  MB
+                                                </label>
+                                                <div style="display: block; height: 15px"></div>
+                                                <label
+                                                  style="display: inline-block; width: 130px; text-align: right"
+                                                  for="s3_max_buffer_download"
+                                                >
+                                                  Max Download Buffer:</label
+                                                >
+                                                <input
+                                                  type="text"
+                                                  id="s3_max_buffer_download"
+                                                  name="s3_max_buffer_download"
+                                                  _name="s3_max_buffer_download"
+                                                  class="smallInputBox ignoreBind"
+                                                />
+                                                <label
+                                                  style="display: inline-block;"
+                                                  for="s3_max_buffer_download">
+                                                  MB
+                                                </label>
+                                                <div style="display: block; height: 15px"></div>
+                                            </div>
+                                        </div>
+                                        <div class="s3Credentials">
+                                            <input type="checkbox" _name="s3_meta_md5_and_upload_by" name="s3_meta_md5_and_upload_by" class="ignoreBind" id="s3_meta_md5_and_upload_by" />
+                                            <label for="s3_meta_md5_and_upload_by">Add meta data : MD5 and uploaded by user</label>
+                                        </div>
+                                        <div class="s3CrushCredentials">
+                                            <input type="checkbox" _name="segmented" name="segmented" class="ignoreBind" id="segmented" />
+                                            <label for="segmented">Store files split into segments.</label>
+                                        </div>
+                                        <div class="onedriveCredentials">
+                                            <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;" for="onedrive_tenant">Tenant:</label>
+                                            <input type="text" _name="onedriveTenant" name="onedriveTenant" class="ignoreBind" id="onedriveTenant" />
+                                        </div>
+                                        <div class="onedriveCredentials onedriveCredentialsOnly">
+                                            <label for="onedrive_user_id">User id or User principal name:</label>
+                                            <input type="text" _name="onedrive_user_id" class="ignoreBind" name="onedrive_user_id" id="onedrive_user_id"/>
+                                        </div>
+                                        <div class="onedriveCredentials onedriveCredentialsOnly">
+                                            <input type="checkbox" _name="onedrive_my_shares" name="onedrive_option" value="true" id="onedrive_my_shares" />
+                                            <label for="onedrive_my_shares">Shared files</label>
+                                            <div class="subPanel ui-widget-content leftborder nobg onDriveShared" style="display:none;padding:8px 10px;">
+                                                <label for="onedrive_share_name">Share file name:</label>
+                                                <input type="text" _name="onedrive_share_name" name="onedriveSharename" id="onedrive_share_name" />
+                                            </div>
+                                        </div>
+                                        <div class="sharepointCredentials">
+                                            <div style="margin: 5px 0px;">
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;" for="onedrive_site_id">Site id:</label>
+                                                <input type="text" _name="onedrive_site_id" name="onedriveSiteID" id="onedrive_site_id" />
+                                            </div>
+                                            <div style="margin: 5px 0px;">
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;" for="sharepoint_site_path">Site Path:</label>
+                                                <input type="text" _name="sharepoint_site_path" name="onedriveSitePath" id="sharepoint_site_path" />
+                                            </div>
+                                            <div style="margin: 5px 0px;">
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;" for="sharepoint_site_drive_name">Drive  name:</label>
+                                                <input type="text" _name="sharepoint_site_drive_name" name="onedriveDriveName" id="sharepoint_site_drive_name" />
+                                            </div>
+                                            <div style="padding:5px 0px;">
+                                                <label style="display:inline-block;width:125px;text-align:right;margin-top: 10px;" for="sharepoint_site_folder_name">Folder: </label>
+                                                <input type="text" _name="sharepoint_site_folder_name" name="sharepointFolderName" class="excludeXML ignoreBind" id="sharepoint_site_folder_name" />
+                                            </div>
+                                        </div>
+                                        <div class="gdriveCredentials">
+                                            <input type="checkbox" _name="team_drive" name="team_drive" class="ignoreBind" id="team_drive" />
+                                            <label for="team_drive">Enable Team Drive</label>
+                                        </div>
+                                        <div class="gdriveCredentials">
+                                            <label for="gdrive_corpora">Corpora variable name:</label>
+                                            <select _name="gdrive_corpora" id="gdrive_corpora">
+                                                <option value=""></option>
+                                                <option value="user">user</option>
+                                                <option value="drive">drive</option>
+                                                <option value="allDrives">allDrives</option>
+                                                <option value="domain">domain</option>
+                                            </select>
+                                        </div>
+                                        <div class="webdavOptions">
+                                            <input type="checkbox"_name="webdav_full_url_on_rename"  id="webdav_full_url_on_rename" />
+                                            <label for="webdav_full_url_on_rename">Use full url for rename</label>
+                                        </div>
+                                        <div class="sftpOptions">
+                                            <div>
+                                                <div class="sftp-suggested-settings compact"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                <fieldset class="nobg" style="display:inline-block;">
+                                    <legend class="donotProcess">Directory Permissions:</legend>
+                                    <input type="text" id="permissions" name="permissions" class="bigInputBox" style="display:none;" />
+                                    <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_read" rel="(read)" />
+                                        <label for="privs_read">Download</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_write" rel="(write)" />
+                                        <label for="privs_write">Upload</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_view" rel="(view)" />
+                                        <label for="privs_view">View</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_delete" rel="(delete)" />
+                                        <label for="privs_delete">Delete</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_deletedir" rel="(deletedir)" />
+                                        <label for="privs_deletedir">Delete Folder</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_makedir" rel="(makedir)" />
+                                        <label for="privs_makedir">Create Folder</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_rename" rel="(rename)" />
+                                        <label for="privs_rename">Rename</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_resume" rel="(resume)" />
+                                        <label for="privs_resume">Resume Transfers</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_share" rel="(share)" />
+                                        <label for="privs_share">Share/Publish</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_slideshow" rel="(slideshow)" />
+                                        <label for="privs_slideshow">Slideshow</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_invisible" rel="(invisible)" />
+                                        <label for="privs_invisible">Make Invisible</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_ratio" rel="(ratio)" />
+                                        <label for="privs_ratio">Free Ratio</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_replicate" rel="(replicate)" /><label for="privs_replicate">Replicate</label>
+                                    </span>
+                                    <span style="float:left;margin-right:10px;" title="Blocks changes to this folder, while allowing changes in sub folders." class="vtip">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_locked" rel="(locked)" />
+                                        <label for="privs_ratio">Locked</label>
+                                    </span>
+                                    <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <label for="privs_quota">Quota:(MB)</label>
+                                        <input type="text" id="privs_quota" valtype="float" class="ignoreBind validate excludeXML permissionItem" />
+                                    </span>
+                                    <span style="float:left;margin-right:10px;">
+                                        <input type="checkbox" class="ignoreBind excludeXML permissionCB" id="privs_real_quota" rel="(real_quota)" />
+                                        <label for="privs_real_quota">RealFile Quota</label>
+                                    </span>
+                                    <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                    <span style="clear: both;">
+                                        <label for="privs_comment">
+                                            Comment: (HTML OK)</label>
+                                        <br/>
+                                        <textarea class="ignoreBind excludeXML permissionItem" id="privs_comment" cols="80" rows="3"></textarea>
+                                    </span>
+                                    <span style="clear: both;margin-top:10px;display:block;"></span>
+                                    <span style="">
+                                        <a href="#" class="button" id="advancedPrivsOptions" style="top:0px !important;">
+                                            <span style='display: inline-block; margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-key'></span>
+                                            <span class="">Advanced</span>
+                                        </a>
+                                    </span>
+                                    <div style="clear: both;margin-top:0px;"></div>
+                                    <div style="clear:both;"></div>
+                                </fieldset>
+                            </p>
+                            <p>
+                                <label title="Allows you to specify the individual server that can use this plugin instance." for="server_item" class="HomeDirectory lblAllowedServerPortText">Allowed Server Port:</label>
+                                <div id="server_item_list"></div>
+                                <input style="display:none;" type="text" id="server_item" name="server_item" />
+                                <div class="clear"></div>
+                            </p>
+                            <p title="Java SimpleDateFormat - search google for the format.">
+                                <input type="checkbox" name="uniqueFolder" id="uniqueFolder" />
+                                <label for="uniqueFolder" class="HomeDirectory lblUseUniqueTimeStampText">Use Unique Time Stamped Folder? (ex. johndoe_01.01.2007)</label>
+
+                                <span class="spacer"></span>
+
+                                <input type="text" id="uniqueFolderFormat" name="uniqueFolderFormat" />
+                            </p>
+                            <p>
+                                <label for="username_filter" class="HomeDirectory lblUsernameMatchingText">Username matching:</label>
+                                <input type="text" id="username_filter" name="username_filter" />
+
+                                <span class="spacer"></span>
+
+                                <input type="checkbox" name="prependUsername" id="prependUsername" />
+                                <label for="prependUsername" class="HomeDirectory lblPrependUserNameText">Prepend username?</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="always_generate" id="always_generate" />
+                                <label for="always_generate" class="HomeDirectory lblAlwaysGenerateHomeFolderText">Replace Existing VFS With New Home Folder</label>
+
+                                <!-- <span class="spacer"></span>
+                                <span class="spacer"></span>
+                                <span title="Allows you to specify the individual server that can use this plugin instance.">
+                                    <label for="server_item" class="HomeDirectory lblServerText">Server:</label>
+                                    <select id="server_item" name="server_item"></select>
+                                </span> -->
+                            </p>
+                            <!-- <p class="subPanel ui-widget-content leftborder nobg">
+                                <input type="checkbox" class="reverse" name="erase_home" id="erase_home" />
+                                <label for="erase_home" class="HomeDirectory lblAllowAccessToOldHomeFoldersText">Allow access to old home folders</label>
+                            </p> -->
+                            <p>
+                                <input type="checkbox" name="memory_only" id="memory_only" />
+                                <label for="memory_only" class="HomeDirectory lblMemoryOnlyText">Only build VFS in memory (don't save to user configuration)?</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="event_only" id="event_only" />
+                                <label for="event_only" class="HomeDirectory lblRunOnlyForLoginEventText">Only run if configured for a login event?</label>
+                            </p>
+                            <p title="Enter each additional path on each line.  Example: dropoff/">
+                                <label for="additional_paths" class="HomeDirectory lblCreateAdditionalSubfoldersText">
+                                    <strong>Create additional subfolders in home directory:</strong></label>
+                                <!--textarea class="formTextarea nobg" id="additional_paths" name="additional_paths" /-->
+                                <div class="buttonBar buttonBarNoBottom">
+                                    <a id="addNewSubFolder" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus'></span>Add
+                                    </a>
+                                    <span class="spacer"></span>
+                                    <a id="editSubFolder" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document'></span>Edit
+                                    </a>
+                                    <span class="spacer"></span>
+                                    <a id="removeSubFolder" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>Remove
+                                    </a>
+                                </div>
+                                <div>
+                                    <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:500px;height:200px;float:left;">
+                                        <ol class="nobg selectable multiple sideScroll" id="homeDirSubFolders" name="homeDirSubFolders">
+                                        </ol>
+                                    </div>
+                                    <div id="subfolderPrivs" style="width:800px;height:300px;float:left;margin: -10px 0px 0px 10px;line-height: 30px;display:none;">
+                                        <fieldset class="nobg" style="display:inline-block;">
+                                            <legend class="donotProcess">Directory Permissions:</legend>
+                                            <input type="text" id="subfolder_permissions" name="permissions" class="bigInputBox" style="display:none;" />
+                                            <span style="clear: both;display:block;height:1px;"></span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_read" rel="(read)" />
+                                                <label for="subfolder_privs_read">Download</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_write" rel="(write)" />
+                                                <label for="subfolder_privs_write">Upload</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_view" rel="(view)" />
+                                                <label for="subfolder_privs_view">View</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_delete" rel="(delete)" />
+                                                <label for="subfolder_privs_delete">Delete</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_deletedir" rel="(deletedir)" />
+                                                <label for="subfolder_privs_deletedir">Delete Folder</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_makedir" rel="(makedir)" />
+                                                <label for="subfolder_privs_makedir">Create Folder</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_rename" rel="(rename)" />
+                                                <label for="subfolder_privs_rename">Rename</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_resume" rel="(resume)" />
+                                                <label for="subfolder_privs_resume">Resume Transfers</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_share" rel="(share)" />
+                                                <label for="subfolder_privs_share">Share/Publish</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_slideshow" rel="(slideshow)" />
+                                                <label for="subfolder_privs_slideshow">Slideshow</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_invisible" rel="(invisible)" />
+                                                <label for="subfolder_privs_invisible">Make Invisible</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_ratio" rel="(ratio)" />
+                                                <label for="subfolder_privs_ratio">Free Ratio</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_replicate" rel="(replicate)" /><label for="subfolder_privs_replicate">Replicate</label>
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_locked" rel="(locked)" />
+                                                <label for="subfolder_privs_locked">Locked</label>
+                                            </span>
+                                            <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <label for="subfolder_privs_quota">Quota:(MB)</label>
+                                                <input type="text" id="subfolder_privs_quota" valtype="float" class="ignoreBind validate excludeXML permissionItemSubFolder" />
+                                            </span>
+                                            <span style="float:left;margin-right:10px;">
+                                                <input type="checkbox" class="ignoreBind excludeXML permissionCBSubFolder" id="subfolder_privs_real_quota" rel="(real_quota)" />
+                                                <label for="subfolder_privs_real_quota">RealFile Quota</label>
+                                            </span>
+                                            <span style="clear: both;margin-top:10px;display:block;height:10px;"></span>
+                                            <span style="clear: both;">
+                                                <label for="subfolder_privs_comment">
+                                                    Comment: (HTML OK)</label>
+                                                <br/>
+                                                <textarea class="ignoreBind excludeXML permissionItemSubFolder" id="subfolder_privs_comment" cols="80" rows="3"></textarea>
+                                            </span>
+                                            <span style="clear: both;margin-top:10px;display:block;"></span>
+                                            <span style="">
+                                                <a href="#" class="button" id="advancedPrivsOptionsSubFolder" style="top:0px !important;">
+                                                    <span style='display: inline-block; margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-key'></span>
+                                                    <span class="">Advanced</span>
+                                                </a>
+                                            </span>
+                                            <div style="clear: both;margin-top:0px;"></div>
+                                            <div style="clear:both;"></div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

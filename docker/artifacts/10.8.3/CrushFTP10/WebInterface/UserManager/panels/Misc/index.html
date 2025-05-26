@@ -1,0 +1,791 @@
+<div id="autocompleteFix" style="position: absolute; top: -200px">
+  <input type="text" name="email" value="" style="display: none" />
+  <input type="text" name="email" value="" />
+  <input type="text" name="not-an-email" value="" style="display: none" />
+  <input type="password" name="password" value="" style="display: none" />
+  <input type="password" name="password" value="" />
+</div>
+<!-- Panel HTML -->
+<div id="pnlMisc" class="userMgrPanel">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <div class="ui-priority-primary Misc headerText"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="customForm nobg">
+        <fieldset class="ui-widget-content nobg">
+          <legend class="collapseHandle pointer"></legend>
+          <div class="dataDiv">
+            <!--fieldset  class="ui-widget-content nobg">
+						    <table>
+							    <tr>
+								    <td class="checkboxArea ui-widget-content rightborder nobg">
+										    <input type="checkbox" />
+								    </td>
+								    <td class="settingsArea">
+									    <div class="fields">
+										    <input type="checkbox" id="macbinary_enabled" />
+										    <label for="macbinary_enabled">
+											    MacBinary on by default?
+										    </label>
+										    <input type="checkbox" id="macbinary_always_enabled" />
+										    <label for="macbinary_always_enabled">
+											    Always Encode?</label>
+										    <input type="checkbox" id="macbinary_always_disabled" />
+										    <label for="macbinary_always_disabled">
+											    Always Decode?</label>
+									    </div>
+								    </td>
+							    </tr>
+						    </table>
+					    </fieldset-->
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="misc welcome message sound"
+              pnlId="misc1"
+              config="welcome_message"
+            >
+              <table quickLocate="FTP Welcome Message">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="welcome_message">
+                        FTP / SFTP Welcome message:
+                      </label>
+                      <div class="fields" style="margin-top: 15px">
+                        <textarea
+                          id="welcome_message"
+                          class="MediumListBox bigInputBox"
+                        ></textarea>
+                      </div>
+                      <br />
+                      <!--Attach Sound
+										    <div class="fields">
+											    <input type="file" />
+										    </div>-->
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="character encoding utf8 8859 foreign"
+              pnlId="misc2"
+              config="char_encoding"
+            >
+              <table quickLocate="Character Encoding">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="char_encoding">
+                        Default Character Encoding(FTP)
+                      </label>
+                      <select id="char_encoding">
+                        <option value="UTF-8">UTF-8</option>
+                        <option value="ISO-8859-1">ISO-8859-1</option>
+                        <option value="Big5">Big5</option>
+                        <option value="Big5-HKSCS">Big5-HKSCS</option>
+                        <option value="EUC-JP">EUC-JP</option>
+                        <option value="EUC-KR">EUC-KR</option>
+                        <option value="GB18030">GB18030</option>
+                        <option value="GB2312">GB2312</option>
+                        <option value="GBK">GBK</option>
+                        <option value="IBM-Thai">IBM-Thai</option>
+                        <option value="IBM00858">IBM00858</option>
+                        <option value="IBM01140">IBM01140</option>
+                        <option value="IBM01141">IBM01141</option>
+                        <option value="IBM01142">IBM01142</option>
+                        <option value="IBM01143">IBM01143</option>
+                        <option value="IBM01144">IBM01144</option>
+                        <option value="IBM01145">IBM01145</option>
+                        <option value="IBM01146">IBM01146</option>
+                        <option value="IBM01147">IBM01147</option>
+                        <option value="IBM01148">IBM01148</option>
+                        <option value="IBM01149">IBM01149</option>
+                        <option value="IBM037">IBM037</option>
+                        <option value="IBM1026">IBM1026</option>
+                        <option value="IBM1047">IBM1047</option>
+                        <option value="IBM273">IBM273</option>
+                        <option value="IBM277">IBM277</option>
+                        <option value="IBM278">IBM278</option>
+                        <option value="IBM280">IBM280</option>
+                        <option value="IBM284">IBM284</option>
+                        <option value="IBM285">IBM285</option>
+                        <option value="IBM297">IBM297</option>
+                        <option value="IBM420">IBM420</option>
+                        <option value="IBM424">IBM424</option>
+                        <option value="IBM437">IBM437</option>
+                        <option value="IBM500">IBM500</option>
+                        <option value="IBM775">IBM775</option>
+                        <option value="IBM850">IBM850</option>
+                        <option value="IBM852">IBM852</option>
+                        <option value="IBM855">IBM855</option>
+                        <option value="IBM857">IBM857</option>
+                        <option value="IBM860">IBM860</option>
+                        <option value="IBM861">IBM861</option>
+                        <option value="IBM862">IBM862</option>
+                        <option value="IBM863">IBM863</option>
+                        <option value="IBM864">IBM864</option>
+                        <option value="IBM865">IBM865</option>
+                        <option value="IBM866">IBM866</option>
+                        <option value="IBM868">IBM868</option>
+                        <option value="IBM869">IBM869</option>
+                        <option value="IBM870">IBM870</option>
+                        <option value="IBM871">IBM871</option>
+                        <option value="IBM918">IBM918</option>
+                        <option value="ISO-2022-CN">ISO-2022-CN</option>
+                        <option value="ISO-2022-JP">ISO-2022-JP</option>
+                        <option value="ISO-2022-JP-2">ISO-2022-JP-2</option>
+                        <option value="ISO-2022-KR">ISO-2022-KR</option>
+                        <option value="ISO-8859-1">ISO-8859-1</option>
+                        <option value="ISO-8859-13">ISO-8859-13</option>
+                        <option value="ISO-8859-15">ISO-8859-15</option>
+                        <option value="ISO-8859-2">ISO-8859-2</option>
+                        <option value="ISO-8859-3">ISO-8859-3</option>
+                        <option value="ISO-8859-4">ISO-8859-4</option>
+                        <option value="ISO-8859-5">ISO-8859-5</option>
+                        <option value="ISO-8859-6">ISO-8859-6</option>
+                        <option value="ISO-8859-7">ISO-8859-7</option>
+                        <option value="ISO-8859-8">ISO-8859-8</option>
+                        <option value="ISO-8859-9">ISO-8859-9</option>
+                        <option value="JIS_X0201">JIS_X0201</option>
+                        <option value="JIS_X0212-1990">JIS_X0212-1990</option>
+                        <option value="KOI8-R">KOI8-R</option>
+                        <option value="KOI8-U">KOI8-U</option>
+                        <option value="MacRoman">MacRoman</option>
+                        <option value="Shift_JIS">Shift_JIS</option>
+                        <option value="TIS-620">TIS-620</option>
+                        <option value="US-ASCII">US-ASCII</option>
+                        <option value="UTF-16">UTF-16</option>
+                        <option value="UTF-16BE">UTF-16BE</option>
+                        <option value="UTF-16LE">UTF-16LE</option>
+                        <option value="UTF-32">UTF-32</option>
+                        <option value="UTF-32BE">UTF-32BE</option>
+                        <option value="UTF-32LE">UTF-32LE</option>
+                        <option value="UTF-8">UTF-8</option>
+                        <option value="windows-1250">windows-1250</option>
+                        <option value="windows-1251">windows-1251</option>
+                        <option value="windows-1252">windows-1252</option>
+                        <option value="windows-1253">windows-1253</option>
+                        <option value="windows-1254">windows-1254</option>
+                        <option value="windows-1255">windows-1255</option>
+                        <option value="windows-1256">windows-1256</option>
+                        <option value="windows-1257">windows-1257</option>
+                        <option value="windows-1258">windows-1258</option>
+                        <option value="windows-31j">windows-31j</option>
+                        <option value="x-Big5-HKSCS-2001">
+                          x-Big5-HKSCS-2001
+                        </option>
+                        <option value="x-Big5-Solaris">x-Big5-Solaris</option>
+                        <option value="x-euc-jp-linux">x-euc-jp-linux</option>
+                        <option value="x-EUC-TW">x-EUC-TW</option>
+                        <option value="x-eucJP-Open">x-eucJP-Open</option>
+                        <option value="x-IBM1006">x-IBM1006</option>
+                        <option value="x-IBM1025">x-IBM1025</option>
+                        <option value="x-IBM1046">x-IBM1046</option>
+                        <option value="x-IBM1097">x-IBM1097</option>
+                        <option value="x-IBM1098">x-IBM1098</option>
+                        <option value="x-IBM1112">x-IBM1112</option>
+                        <option value="x-IBM1122">x-IBM1122</option>
+                        <option value="x-IBM1123">x-IBM1123</option>
+                        <option value="x-IBM1124">x-IBM1124</option>
+                        <option value="x-IBM1381">x-IBM1381</option>
+                        <option value="x-IBM1383">x-IBM1383</option>
+                        <option value="x-IBM33722">x-IBM33722</option>
+                        <option value="x-IBM737">x-IBM737</option>
+                        <option value="x-IBM833">x-IBM833</option>
+                        <option value="x-IBM834">x-IBM834</option>
+                        <option value="x-IBM856">x-IBM856</option>
+                        <option value="x-IBM874">x-IBM874</option>
+                        <option value="x-IBM875">x-IBM875</option>
+                        <option value="x-IBM921">x-IBM921</option>
+                        <option value="x-IBM922">x-IBM922</option>
+                        <option value="x-IBM930">x-IBM930</option>
+                        <option value="x-IBM933">x-IBM933</option>
+                        <option value="x-IBM935">x-IBM935</option>
+                        <option value="x-IBM937">x-IBM937</option>
+                        <option value="x-IBM939">x-IBM939</option>
+                        <option value="x-IBM942">x-IBM942</option>
+                        <option value="x-IBM942C">x-IBM942C</option>
+                        <option value="x-IBM943">x-IBM943</option>
+                        <option value="x-IBM943C">x-IBM943C</option>
+                        <option value="x-IBM948">x-IBM948</option>
+                        <option value="x-IBM949">x-IBM949</option>
+                        <option value="x-IBM949C">x-IBM949C</option>
+                        <option value="x-IBM950">x-IBM950</option>
+                        <option value="x-IBM964">x-IBM964</option>
+                        <option value="x-IBM970">x-IBM970</option>
+                        <option value="x-ISCII91">x-ISCII91</option>
+                        <option value="x-ISO-2022-CN-CNS">
+                          x-ISO-2022-CN-CNS
+                        </option>
+                        <option value="x-ISO-2022-CN-GB">
+                          x-ISO-2022-CN-GB
+                        </option>
+                        <option value="x-iso-8859-11">x-iso-8859-11</option>
+                        <option value="x-JIS0208">x-JIS0208</option>
+                        <option value="x-JISAutoDetect">x-JISAutoDetect</option>
+                        <option value="x-Johab">x-Johab</option>
+                        <option value="x-MacArabic">x-MacArabic</option>
+                        <option value="x-MacCentralEurope">
+                          x-MacCentralEurope
+                        </option>
+                        <option value="x-MacCroatian">x-MacCroatian</option>
+                        <option value="x-MacCyrillic">x-MacCyrillic</option>
+                        <option value="x-MacDingbat">x-MacDingbat</option>
+                        <option value="x-MacGreek">x-MacGreek</option>
+                        <option value="x-MacHebrew">x-MacHebrew</option>
+                        <option value="x-MacIceland">x-MacIceland</option>
+                        <option value="x-MacRomania">x-MacRomania</option>
+                        <option value="x-MacSymbol">x-MacSymbol</option>
+                        <option value="x-MacThai">x-MacThai</option>
+                        <option value="x-MacTurkish">x-MacTurkish</option>
+                        <option value="x-MacUkraine">x-MacUkraine</option>
+                        <option value="x-MS932_0213">x-MS932_0213</option>
+                        <option value="x-MS950-HKSCS">x-MS950-HKSCS</option>
+                        <option value="x-MS950-HKSCS-XP">
+                          x-MS950-HKSCS-XP
+                        </option>
+                        <option value="x-mswin-936">x-mswin-936</option>
+                        <option value="x-PCK">x-PCK</option>
+                        <option value="x-SJIS_0213">x-SJIS_0213</option>
+                        <option value="x-UTF-16LE-BOM">x-UTF-16LE-BOM</option>
+                        <option value="X-UTF-32BE-BOM">X-UTF-32BE-BOM</option>
+                        <option value="X-UTF-32LE-BOM">X-UTF-32LE-BOM</option>
+                        <option value="x-windows-50220">x-windows-50220</option>
+                        <option value="x-windows-50221">x-windows-50221</option>
+                        <option value="x-windows-874">x-windows-874</option>
+                        <option value="x-windows-949">x-windows-949</option>
+                        <option value="x-windows-950">x-windows-950</option>
+                        <option value="x-windows-iso2022jp">
+                          x-windows-iso2022jp
+                        </option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="posix chmod chgrp chown owner group permissions unix linux default"
+              pnlId="misc3"
+              config="posix"
+            >
+              <table quickLocate="POSIX">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <table style="width: 410px">
+                        <tr>
+                          <td colspan="3">
+                            <h3>POSIX OS X / Linux / Unix</h3>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 160px; text-align: right">
+                            <label for="default_owner_command"
+                              >Default owner:</label
+                            >
+                          </td>
+                          <td style="width: 250px">
+                            <input type="text" id="default_owner_command" />
+                            <a
+                              href="#"
+                              id="setupPOSIX"
+                              class="button"
+                              style="
+                                float: right;
+                                margin-top: -18px;
+                                margin-right: 20px;
+                              "
+                            >
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-wrench"
+                              ></span
+                              >Setup
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: right">
+                            <label for="default_group_command"
+                              >Default group:</label
+                            >
+                          </td>
+                          <td>
+                            <input type="text" id="default_group_command" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: right">
+                            <label for="default_privs_command"
+                              >Default file privs:</label
+                            >
+                          </td>
+                          <td>
+                            <input type="text" id="default_privs_command" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: right">
+                            <label for="default_folder_privs_command"
+                              >Default folder privs:</label
+                            >
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              id="default_folder_privs_command"
+                            />
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="timezone offset"
+              pnlId="misc4"
+              config="timezone_offset"
+            >
+              <table quickLocate="Timezone Offset">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label id="timezone_offset">Timezone Offset:</label>
+                      <input
+                        class="validate"
+                        valtype="float"
+                        type="text"
+                        id="timezone_offset"
+                      />
+                      <label for=""> (eg. 2.5, 5.5, -5.5 etc) </label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="temporary upload extension"
+              pnlId="misc5"
+              config="temp_upload_ext"
+            >
+              <table
+                quickLocate="File extension to add to uploads that are in progress"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="temp_upload_ext"
+                        >File extension to add to uploads that are in progress:
+                      </label>
+                      <input
+                        type="text"
+                        id="temp_upload_ext"
+                        class="validate"
+                        valtype="dirName"
+                      />
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="delete partial uploads"
+              pnlId="misc10"
+              config="delete_partial_uploads"
+            >
+              <table
+                quickLocate="File extension to add to uploads that are in progress"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input
+                        type="checkbox"
+                        id="delete_partial_uploads"
+                        name="delete_partial_uploads"
+                      />
+                      <label for="delete_partial_uploads">
+                        Delete partial uploads.
+                      </label>
+                      <div
+                        class="ui-state-highlight ui-corner-all warning"
+                        style="
+                          padding: 3px;
+                          display: inline-block;
+                          margin: 0px 3px;
+                          position: relative;
+                          top: -6px;
+                        "
+                      >
+                        <span
+                          style="float: left; margin-right: 0.3em"
+                          class="ui-icon ui-icon-info"
+                        ></span>
+                        <span class="msgText">
+                          You must have temp extension for in progress files
+                          configured to apply this setting.
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="create home folder paths at login"
+              pnlId="misc11"
+              config="create_home_folder"
+            >
+              <table
+                quickLocate="File extension to add to uploads that are in progress"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input
+                        type="checkbox"
+                        id="create_home_folder"
+                        name="create_home_folder"
+                      />
+                      <label for="create_home_folder">
+                        Create home folder paths at login
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <div>
+              <fieldset
+                class="ui-widget-content nobg"
+                filterKeywords="mdtm"
+                pnlId="misc9"
+                config="disable_mdtm_modifications"
+              >
+                <table quickLocate="Disable MDTM modifications">
+                  <tr>
+                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                      <input type="checkbox" />
+                    </td>
+                    <td class="settingsArea">
+                      <div class="fields">
+                        <div>
+                          <input
+                            type="checkbox"
+                            id="disable_mdtm_modifications"
+                            name="disable_mdtm_modifications"
+                          />
+                          <label for="disable_mdtm_modifications">
+                            Disable MDTM modifications
+                          </label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+            <div>
+              <fieldset
+                class="ui-widget-content nobg"
+                filterKeywords="user session log path"
+                pnlId="misc12"
+                config="user_log_path"
+              >
+                <table quickLocate="Custom User Session Log Path">
+                  <tr>
+                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                      <input type="checkbox" />
+                    </td>
+                    <td class="settingsArea">
+                      <div class="fields">
+                        <div>
+                          <label for="user_log_path">
+                            Custom User Session Log Path:
+                          </label>
+                          <input
+                            class="bigInputBox"
+                            type="text"
+                            id="user_log_path"
+                            name="user_log_path"
+                          />
+                          <label for="user_log_path">
+                            (Replaces the global server configured user session log path.)
+                          </label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="filter listings block uploads downloads filename"
+              pnlId="misc6"
+              config="file_filter"
+            >
+              <table quickLocate="Filename filters">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <table>
+                        <tr>
+                          <td colspan="2">
+                            <div>
+                              <label for="file_filter">Filename Filters:</label>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 300px">
+                            <textarea
+                              id="file_filter"
+                              class="MediumListBox bigInputBox"
+                            ></textarea>
+                          </td>
+                          <td valign="top">
+                            <a
+                              href="#"
+                              id="addFileFilter"
+                              class="button"
+                              style="top: auto"
+                            >
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-plus"
+                              ></span>
+                              <span class=""> Add </span>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="block access path restrict"
+              pnlId="misc7"
+              config="block_access"
+            >
+              <table
+                quickLocate="Block access to any path matching these patterns"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <div>
+                        <label for="block_access"
+                          >Block access to any path matching these
+                          patterns:</label
+                        >
+                      </div>
+                      <div>
+                        <textarea
+                          id="block_access"
+                          class="formTextarea"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="notes"
+              pnlId="misc8"
+              config="notes"
+            >
+              <table quickLocate="Notes about this user">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <div>
+                        <label for="notes">
+                          Notes about this user(these are only for your
+                          reference and are not shared with the users):
+                        </label>
+                      </div>
+                      <div>
+                        <textarea id="notes" class="formTextarea"></textarea>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="noForm nobg notInheritable"
+              filterKeywords="extra xtra strings variables"
+              config="extraTextReference"
+            >
+              <legend class="ui-priority-primary">
+                (This setting is not being inherited)
+              </legend>
+              <table cellspacing="0" quickLocate="Extra Text Reference">
+                <tr>
+                  <td
+                    id="extraTextReferencesCheck"
+                    class="checkboxArea ui-widget-content rightborder nobg noInherit specialProperty"
+                  >
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <div>
+                        <label for="extraTextReference">
+                          Extra Text References:
+                        </label>
+                      </div>
+                      <table>
+                        <tr>
+                          <td style="width: 75%">
+                            <div style="margin: 0px 10px">
+                              <div
+                                class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll"
+                              >
+                                <ol
+                                  id="extraTextReference"
+                                  class="nobg selectable single"
+                                ></ol>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="vButtons">
+                            <a href="#" id="addTextRef" class="button">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-plus"
+                              ></span>
+                              <span class=""> Add </span>
+                            </a>
+                            <br />
+                            <a href="#" id="editTextRef" class="button">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-pencil"
+                              ></span>
+                              <span class=""> Edit </span>
+                            </a>
+                            <br />
+                            <a href="#" id="removeTextRef" class="button">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-close"
+                              ></span>
+                              <span class=""> Remove </span>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      <div class="extra-notes">
+                        These items can be referenced throughout CrushFTP for
+                        extra customizations.They are referenced with a
+                        <em>{user_x_itemName}</em>. So if you had an item named
+                        <em>firstName</em> you would reference it with
+                        <em>{user_x_firstName}</em>.
+                      </div>
+                      <div
+                        id="createrinformation"
+                        class="ui-corner-all ui-widget-content nobg sideScroll"
+                        style="padding-left: 15px; margin-top: 15px"
+                      >
+                        <p>
+                          Created on
+                          <span
+                            id="convertedCteatedTime"
+                            style="font-weight: normal"
+                          ></span
+                          ><strong> By </strong> <strong>Username:</strong
+                          ><span
+                            class="liveData"
+                            id="created_by_username"
+                            style="font-weight: normal"
+                          ></span>
+
+                          <strong>Email:</strong
+                          ><span
+                            class="liveData"
+                            id="created_by_email"
+                            style="font-weight: normal"
+                          ></span>
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+          </div>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+</div>

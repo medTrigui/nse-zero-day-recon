@@ -1,0 +1,614 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<style>
+    #pnlEncryption .fieldLabel
+    {
+        width:280px;
+        display:inline-block;
+        text-align: right;
+        margin-right: 8px;
+    }
+</style>
+<div id="pnlEncryption">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Encryption headerText"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="tabs nobg">
+                    <ul>
+                        <li>
+                            <a href="#EncryptionPassword" class="Encryption lblPasswordTabText">Password</a>
+                        </li>
+                        <li>
+                            <a href="#EncryptionSSL" class="Encryption lblSSLTabText">SSL</a>
+                        </li>
+                        <li>
+                            <a href="#EncryptionFiles" class="Encryption lblFilesTabText">Files</a>
+                        </li>
+                        <li>
+                            <a href="#EncryptionKSUtility" class="Encryption lblKSUtilityText">Keystore Utility</a>
+                        </li>
+                    </ul>
+                    <div id="EncryptionPassword" class="customForm">
+                        <p>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" checked="checked" id="password_encryption_DES" />
+                            <label for="password_encryption_DES" class="Encryption lblPasswordTypeDESText ui-priority-primary">DES</label>
+                            <br />
+                            <label class="Encryption lblPasswordTypeDESDescText ui-priority-primary" style="margin-left:26px;line-height: 28px;">
+                                (If you have users that often want you to lookup their password, use this option.)
+                            </label>
+                        </p>
+                        <div>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_SHA" />
+                            <label for="password_encryption_SHA" class="Encryption lblPasswordTypeSHAText ui-priority-primary">SHA</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_SHA512" />
+                            <label for="password_encryption_SHA512" class="Encryption lblPasswordTypeSHA512Text ui-priority-primary">SHA512</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_SHA256" />
+                            <label for="password_encryption_SHA256" class="Encryption lblPasswordTypeSHA256Text ui-priority-primary">SHA256</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_SHA3" />
+                            <label for="password_encryption_SHA3" class="Encryption lblPasswordTypeSHA3Text ui-priority-primary">SHA3</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_MD4" />
+                            <label for="password_encryption_MD4" class="Encryption lblPasswordTypeMD4Text ui-priority-primary">MD4</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_MD5" />
+                            <label for="password_encryption_MD5" class="Encryption lblPasswordTypeMD5Text ui-priority-primary">MD5</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input class="encryptionType ignoreBind" type="radio" name="password_encryption" id="password_encryption_ARGOND" />
+                            <label for="password_encryption_ARGOND" class="Encryption lblPasswordTypeARGONDText ui-priority-primary">ARGOND</label>
+                            <div id="argondOption" style="display: none;" class="ui-widget-content nobg">
+                                <div>
+                                    <label for="argond_memory_cost" class="Encryption fieldLabel">Memory Power Of Two:</label>
+                                    <select class="smallInputBox ignoreBind excludeXML" name="argond_memory_cost" id="argond_memory_cost">
+                                        <option value="4">4</option>
+                                        <option selected="" value="8">8</option>
+                                        <option value="12">12</option>
+                                        <option value="16">16</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="argond_time_cost" class="Encryption fieldLabel">Time Cost:</label>
+                                    <input class="smallInputBox ignoreBind excludeXML" type="numeric" id="argond_time_cost" value="3"  placeholder="3" name="argond_time_cost" />
+                                </div>
+                                <div>
+                                    <label for="argond_parallelism" class="Encryption fieldLabel">Parallelism:</label>
+                                    <input class="smallInputBox ignoreBind excludeXML" type="numeric" id="argond_parallelism" value="4"  placeholder="4" name="argond_parallelism" />
+                                </div>
+                                <div>
+                                    <label for="argond_hash_length" class="Encryption fieldLabel">Hash Length:</label>
+                                    <input class="smallInputBox ignoreBind excludeXML" type="numeric" id="argond_hash_length" value="16" placeholder="16" name="argond_hash_length" />
+                                </div>
+                            </div>
+                            <br />
+                            <label class="Encryption lblPasswordTypeSHAMD5DescText ui-priority-primary" style="margin-left:26px;line-height: 28px;">
+                                (If you never want a password to be reversible, and want added security, use this option.)
+                            </label>
+                        </div>
+
+                        <p class=" crush7Feature">
+                            <label for="unsafe_password_chars">Unsafe Password Characters:</label>
+                            <input type="text" id="unsafe_password_chars" name="unsafe_password_chars" />
+                        </p>
+                        <fieldset>
+                            <div style="float:left;">
+                                <label for="password_salt_location">Password Salt Location:</label>
+                                <input type="text" id="password_salt_location" class="bigInputBox" name="password_salt_location"  />
+                                <a href="#" class="button serverFilePickButton" rel="password_salt_location">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    <span>Browse</span>
+                                </a>
+                            </div>
+                            <div style="margin:0px 10px;padding:5px;width:700px;float:left;font-size:13px;" class="ui-corner-all ui-state-error">
+                                <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span>
+                                <span style="font-size:14px;">
+                                    All existing hashed passwords must be reset if enabling, disabling, or changing anything with the salt
+                                </span>
+                                <br>
+                                <br>
+                                Using a salt for your hashed password greatly increases its strength and is highly recommened. Choose a small text file that will
+                                <span class="ui-priority-primary">never ever</span>
+                                change. If the file is ever lost or changed, all existing saved passwords become useless. Back it up! Everyone would then have to change their password. The salt file should be stored on another file server so that if this server was ever stolen, or compromised, the salt isn't available to help the attacker.
+                            </div>
+                            <div style="clear:both;"></div>
+                        </fieldset>
+                        <p class=" crush7Feature">
+                            <input type="checkbox" id="username_uppercase" name="username_uppercase" />
+                            <label for="username_uppercase">Allow to login with user name in uppercase?</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="blank_passwords" name="blank_passwords" />
+                            <label for="blank_passwords" class="Encryption lblFormAllowUseOfBlankPasswordText">Allow users with blank passwords to login.</label>
+                        </p>
+                        <p>
+                            <label for="random_password_length" class="Encryption fieldLabel lblNumberOfCharactersForRandomPasswordText">Number of characters for random passwords:</label>
+                            <input class="smallInputBox" type="text" id="random_password_length" name="random_password_length" />
+                        </p>
+                        <p>
+                            <label for="min_password_length" class="Encryption fieldLabel lblNewPasswordMinimumLengthText">New password minimum length:</label>
+                            <input class="smallInputBox" type="text" id="min_password_length" name="min_password_length" />
+                        </p>
+                        <p>
+                            <label for="min_password_numbers" class="Encryption fieldLabel lblMinimumNumericCharsText">Minimum numeric characters:</label>
+                            <input class="smallInputBox" type="text" id="min_password_numbers" name="min_password_numbers" />
+                        </p>
+                        <p>
+                            <label for="min_password_lowers" class="Encryption fieldLabel lblMinimumLowerCaseCharsText">Minimum lower case characters:</label>
+                            <input class="smallInputBox" type="text" id="min_password_lowers" name="min_password_lowers" />
+                        </p>
+                        <p>
+                            <label for="min_password_uppers" class="Encryption fieldLabel lblMinimumUpperCaseCharsText">Minimum upper case characters:</label>
+                            <input class="smallInputBox" type="text" id="min_password_uppers" name="min_password_uppers" />
+                        </p>
+                        <p>
+                            <label for="min_password_specials" class="Encryption fieldLabel lblMinimumSpecialCharsText">Minimum special characters:</label>
+                            <input class="smallInputBox" type="text" id="min_password_specials" name="min_password_specials" />
+                        </p>
+                        <p>
+                            <label for="password_history_count" class="Encryption fieldLabel lblPasswordHistoryCountText">Password history count:</label>
+                            <input class="smallInputBox" type="text" id="password_history_count" name="password_history_count" />
+                        </p>
+                    </div>
+                    <div id="EncryptionSSL" class="customForm">
+                        <p>
+                            <label class="Encryption ui-priority-primary">
+                                SSL Certificates are used for HTTPS and FTP(S)(ES) connections. Check <a href="#" class="ssl-guide">SSL Guide</a> or See a tutorial here:
+                                <a href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=SSL" target="_blank">http://www.crushftp.com/crush9wiki/Wiki.jsp?page=SSL</a>
+                            </label>
+                        </p>
+                        <fieldset class="nobg" style="margin-bottom: 10px;width:820px;">
+                            <div style="width: 240px;float: left;padding-right: 10px;border-right: 1px solid #ccc;margin-right: 10px;">
+                                <div class="ui-priority-primary" style="line-height: 18px;margin-bottom: 0px;border-bottom: 1px solid #ccc;
+                                padding-bottom: 5px;margin-left: 3px;">Step 1: Generate Key</div>
+                                <p style="text-align: center;">
+                                    <a href="#" id="generateSelfSignedCerti" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-key' ></span>
+                                        Generate Key
+                                    </a>
+                                </p>
+                            </div>
+                            <div style="width:265px;float:left;margin-right: 10px;border-right: 1px solid #ccc;margin-right: 10px;padding-right:10px;">
+                                <div class="ui-priority-primary" style="line-height: 18px;margin-bottom: 0px;border-bottom: 1px solid #ccc;
+                                padding-bottom: 5px;margin-left: 3px;">Step 2: Generate Certificate Signing Request</div>
+                                <p style="text-align: center;">
+                                    <a href="#" class="button" id="btnGenerateCSR" style="top:4px;">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document'></span>
+                                        <span class="IPServers">Generate CSR</span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div style="width:250px;float:left;margin-right: 10px;">
+                                <div class="ui-priority-primary" style="line-height: 18px;margin-bottom: 0px;border-bottom: 1px solid #ccc;
+                                padding-bottom: 5px;margin-left: 3px;">Step 3: Import Certificate Authority Reply</div>
+                                <p style="text-align: center;">
+                                    <a href="#" class="button" id="btnImportSSL" style="top:4px;">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-arrowthickstop-1-n'></span>
+                                        <span class="IPServers">Import Reply</span>
+                                    </a>
+                                </p>
+                            </div>
+                        </fieldset>
+                        <p>
+                            <label for="cert_path" class="Encryption lblKeystoreLocationText">Keystore Location:</label>
+                            <input type="text" id="cert_path" class="bigInputBox" name="cert_path"  />
+                            <a href="#" PickType="file" class="button serverFilePickButton" rel="cert_path" style="top:4px;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                Browse
+                            </a>
+                        </p>
+                        <div class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;white-space: nowrap;">
+                            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                            <span class="msgText">
+                                Keystores are either Java JKS files or PFX files. A stand alone private key and cert must be properly imported into a keystore first.
+                            </span>
+                        </div>
+                        <p>
+                            <label for="globalKeystorePass" class="Encryption lblKeystorePasswordText lblTestTrigger">Keystore Password:</label>
+                            <input type="password" id="globalKeystorePass" class="encryptPass" name="globalKeystorePass"  />
+                        </p>
+                        <p>
+                            <label for="globalKeystoreCertPass" class="Encryption lblKeyPasswordText lblTestTrigger">Key Password:</label>
+                            <input type="password" id="globalKeystoreCertPass" class="encryptPass" name="globalKeystoreCertPass"  />
+                            <a href="#" class="button" id="testCertificate" style="top:4px;">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon  ui-icon-transferthick-e-w'></span>
+                                Test Certificate
+                            </a>
+                        </p>
+                        <fieldset class="nobg ui-widget-content">
+                            <br>
+                            <legend class="ui-widget-header ui-corner-all">Advanced Options</legend>
+                            <label for="tls_version" class="Encryption">TLS Versions</label>
+                            <input type="text" id="tls_version" class="bigInputBox" name="tls_version"  />
+                            <br><br>
+                            <label for="tls_version_client" class="Encryption">TLS Versions Client</label>
+                            <input type="text" id="tls_version_client" class="bigInputBox" name="tls_version_client"  />
+                            <br><br>
+                            <input type="checkbox" id="needClientAuth" name="needClientAuth" />
+                            <label for="needClientAuth" class="Encryption lblFormRequireValidClientCertificateText">Require valid client certificate.</label>
+                            <br><br>
+                        </fieldset>
+                        <p>
+                            <label class="Encryption lblDisabledCiphersText ui-priority-primary" for="disabled_ciphers">Disabled Ciphers (Generally keep all ciphers enabled)</label>
+                        </p>
+                        <div id="cipherDisabledWarning" style="margin:0px 10px;padding:5px;font-size:13px;display:none;position: inherit;margin-bottom: 10px;" class="ui-corner-all ui-state-error">
+                            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span>
+                            <span style="font-size:14px;">
+                                This configuration has all ciphers disabled, your SSL ports will not function at all. <strong>Disabling all ciphers will block everyone from reaching this server using HTTPS (including you!)</strong>
+                            </span>
+                        </div>
+                        <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="height: 525px;min-width: 800px;">
+                            <div style="position:relative;margin-top: 19px;margin-bottom: 12px;margin-left: 10px;">
+                                <strong>Select:</strong>
+                                <a href="#" id="selectAllCiphers">All</a>
+                                |
+                                <a href="#" id="deselectAllCiphers">None</a>
+                                |
+                                <a href="#" id="deselectUnsecureCiphers">All insecure Ciphers</a>
+                                <a style="position: absolute;right: 20px;margin-top: -7px;" class="button" href="#" id="resetCiphersToDefatul">Reset to Default</a>
+                            </div>
+                            <hr style="margin:15px 0px 5px 0px;border-width:1px 0px 0px 0px;border-color:#E5E0E0;">
+                            <div style="height: auto;">
+                                <div style="float:left;min-width: 380px;width:46%">
+                                    <div style="float:left;margin-top: 10px;margin-bottom: 10px;margin-left: 10px;">
+                                        <label class="ui-priority-primary" style="margin-left:10px;">Disabled Ciphers </label>
+                                        <br/>
+                                        <br/>
+                                        <label style="margin-right:10px;margin-left:10px;"> <strong>Select:</strong><a href="#" id="selectAll_disabled_ciphersOl">All</a>|<a href="#" id="deselectAll_disabled_ciphersOl">None</a></label>
+                                        <label for="filterAvailableCustomizations">Filter:</label>
+                                        <input type="text" class="ignoreBind inputBox excludeXML no-submit" id="filter_disabled_ciphers"  style="width: 150px;"/>
+                                        <label>
+                                            <a href="javascript:void(0);" id="clearFilter_disabled_ciphers">Clear</a>
+                                        </label>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <ol class="nobg selectable single sideScroll custom-list" id="disabled_ciphersOl" name="disabled_ciphersOl" style="width: 97%; float: left;background-color: #E8E8E8;margin-top: 0px;height: 385px;margin-left: 10px;"></ol>
+                                </div>
+                            </div>
+                            <div style="float:left;min-width: 15px;width:8%">
+                                <br>
+                                <br>
+                                <br>
+                                <div style="text-align: center;">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <span>
+                                        <a style="width: 60px;margin-top: 12px;" class="button" id="Moveto_disabled_ciphersOl">&lt;-</a>
+                                    </span>
+                                    <span>
+                                        <a style="width: 60px;margin-top: 12px;" class="button" id="Moveto_undisabled_ciphersOl">-&gt;</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="float:left;min-width: 380px;width:46%">
+                                <div style="margin-top: 10px;margin-bottom: 10px;margin-left: 10px;">
+                                    <label class="ui-priority-primary">Enabled Ciphers </label>
+                                    <br/>
+                                    <br/>
+                                    <label style="margin-right:10px;"> <strong>Select:</strong><a href="#" id="selectAll_undisabled_ciphersOl">All</a>|<a href="#" id="deselectAll_undisabled_ciphersOl">None</a></label>
+                                    <label for="filterAvailableCustomizations">Filter:</label>
+                                    <input type="text" class="ignoreBind inputBox excludeXML no-submit" id="filter_undisabled_ciphers" style="width: 150px;" />
+                                    <label>
+                                        <a href="javascript:void(0);" id="clearFilter_undisabled_ciphers">Clear</a>
+                                    </label>
+                                    <!-- <legend class="ui-widget-header ui-corner-all">Enabled ciphers</legend> -->
+                                </div>
+                                <div style="clear:both;"></div>
+                                <ol class="nobg selectable single sideScroll custom-list" id="undisabled_ciphersOl" name="undisabled_ciphersOl" style="width: 98%; float: left;margin-top: 0px;background-color: #E8E8E8;height: 385px;margin-right: 10px;"></ol>
+                            </div>
+                            <div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="EncryptionFiles" class="customForm">
+                        <fieldset class="noForm nobg">
+                            <p>
+                                <input type="checkbox" id="fileEncryption" name="fileEncryption" />
+                                <label for="fileEncryption" class="Encryption lblEncryptFilesText">Encrypt Files</label>
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="file_encrypt_ascii" name="file_encrypt_ascii" class="" />
+                                <label for="file_encrypt_ascii">ASCII Armor</label>
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="hint_decrypted_size" name="hint_decrypted_size" />
+                                <label for="hint_decrypted_size">Add hinted decrypted size</label>
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="encryption_sign" name="encryption_sign" />
+                                <label for="encryption_sign">Sign</label>
+                            </p>
+                            <p class="oldEncryption">
+                                <label for="fileEncryptionKey" class="Encryption lblPGPKeyOldText">Key Location:</label>
+                                <input type="text" id="fileEncryptionKey" class="bigInputBox" name="fileEncryptionKey" disabled readonly />
+                                <a href="#" id="removeOldEncryptionMethod" class="button ui-state-highlight" style="top:4px;">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-close'></span>
+                                    Remove
+                                </a>
+                            </p>
+                            <p>
+                                <label for="filePublicEncryptionKey" class="Encryption lblPGPKeyText">Public PGP Key:</label>
+                                <input type="text" id="filePublicEncryptionKey" class="bigInputBox" name="filePublicEncryptionKey" />
+                                <a href="#" class="button serverFilePickButton" rel="filePublicEncryptionKey" PickType="file" style="top:4px;">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    Browse
+                                </a>
+                            </p>
+                            <p>
+                                <label for="encryption_cypher">
+                                    Encryption cypher:
+                                </label>
+                                <select _name="encryption_cypher" id="encryption_cypher">
+                                    <option value="TRIPLE_DES">TRIPLE_DES</option>
+                                    <option selected value="CAST5">CAST5</option>
+                                    <option value="BLOWFISH">BLOWFISH</option>
+                                    <option value="AES_128">AES_128</option>
+                                    <option value="AES_192">AES_192</option>
+                                    <option value="AES_256">AES_256</option>
+                                    <option value="TWOFISH">TWOFISH</option>
+                                    <option value="DES">DES</option>
+                                    <option value="SAFER">SAFER</option>
+                                    <option value="IDEA">IDEA</option>
+                                </select>
+                            </p>
+                        <!-- </fieldset>
+                        <p></p>
+                        <fieldset class="noForm nobg"> -->
+                            <hr class="ui-widget-content" />
+                            <p>
+                                <input type="checkbox" id="fileDecryption" name="fileDecryption" />
+                                <label for="fileDecryption" class="Encryption lblDecryptFilesText">Decrypt Files</label>
+                            </p>
+                            <p>
+                                <label for="fileDecryptionKey" class="Encryption lblPrivatePGPKeyText">Private PGP Key:</label>
+                                <input type="text" id="fileDecryptionKey" class="bigInputBox" name="fileDecryptionKey" />
+                                <a href="#" class="button serverFilePickButton" rel="fileDecryptionKey" PickType="file" style="top:4px;">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    Browse
+                                </a>
+                            </p>
+                            <p>
+                                <label for="fileDecryptionKeyPass" class="Encryption lblPrivatePGPKeyPassText">Private PGP Key Pass:</label>
+                                <input type="password" id="fileDecryptionKeyPass" class="encryptPass" name="fileDecryptionKeyPass"  />
+                            </p>
+                            <hr class="ui-widget-content" />
+                            <p>
+                                <a href="#" _parent="fieldset" style="margin-top:10px;margin-left:250px;" class="button noSpacing testPGPButton" rel="fileDecryptionKey,fileDecryptionKeyPass,filePublicEncryptionKey">
+                                    <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-check"></span>
+                                    <span class="">
+                                        Test Key
+                                    </span>
+                                </a>
+                            </p>
+                        </fieldset>
+                        <p></p>
+                        <fieldset class="noForm nobg" id="generateKeyPanel">
+                            <legend class="ui-priority-primary">Generate</legend>
+                            <table width="100%" class="middleAligned">
+                                <tr>
+                                    <td style="width: 190px;" class="right">
+                                        <label for="pgpCommonNameGenerate">Common Name:</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" _name="pgpCommonNameGenerate" id="pgpCommonNameGenerate" class="excludeXML ignoreBind" value=""/>
+                                        (Username or Email)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">
+                                        <label for="pgpKeySizeGenerate">RSA Key Size:</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" _name="pgpKeySizeGenerate" id="pgpKeySizeGenerate" class="excludeXML ignoreBind" value="2048"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">
+                                        <label for="pgpKeyDaysGenerate">Valid Days:</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" _name="pgpKeyDaysGenerate" id="pgpKeyDaysGenerate" class="excludeXML ignoreBind" value="365"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">
+                                        <label for="pgpPrivateKeyPasswordGenerate">Private Key Password:</label>
+                                    </td>
+                                    <td>
+                                        <input _name="pgpPrivateKeyPasswordGenerate" class="excludeXML ignoreBind" type="password" id="pgpPrivateKeyPasswordGenerate" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">
+                                        <label for="pgpPivateKeyPathGenerate">Private Key Path:</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" _name="pgpPivateKeyPathGenerate" id="pgpPivateKeyPathGenerate" class="bigInputBox excludeXML ignoreBind" />
+                                        <a href="#" class="button serverFilePickButton" rel="pgpPivateKeyPathGenerate" PickType="dir" style="top:4px;">
+                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                            Browse
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right">
+                                        <label for="pgp_encryption_cypher">
+                                            Encryption cypher:
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <select _name="pgp_encryption_cypher" multiple="multiple" class="excludeXML ignoreBind" id="pgp_encryption_cypher" style="width: 200px;height: 100px;margin-bottom: 15px;">
+                                            <option value="TRIPLE_DES">TRIPLE_DES</option>
+                                            <option selected value="CAST5">CAST5</option>
+                                            <option value="BLOWFISH">BLOWFISH</option>
+                                            <option selected value="AES_128">AES_128</option>
+                                            <option selected value="AES_192">AES_192</option>
+                                            <option selected value="AES_256">AES_256</option>
+                                            <option selected value="TWOFISH">TWOFISH</option>
+                                            <option value="DES">DES</option>
+                                            <option value="SAFER">SAFER</option>
+                                            <option value="IDEA">IDEA</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right"></td>
+                                    <td>
+                                        <a href="#" class="button noSpacing" id="pgpEncryptionGenerateButton">
+                                            <span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-key"></span>
+                                            <span class="">Generate PGP Key Pair</span>
+                                        </a>
+                                        <br/>
+                                        <br/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <div class="Encryption pnlFilesHelpText">
+                            <p>
+                                File based encryption allows you to store files on your drive in an encrypted format. These files will be unusable to anything outside of CrushFTP, and with the right key. This encryption however provides security in that if the physical files are compromised, they will be useless to whoever has gotten them.
+                            </p>
+                            <p>
+                                lf any of the below warnings do not make sense, or you do not understand them fully,
+                                <br /> <strong>I highly recommend you do not use this feature</strong>
+                                <br />
+                                as you can potentially turn many files into unrecoverable encrypted files!
+                                <br />
+                            </p>
+                            <p> <strong>Caution</strong>
+                                should be taken in guarding the keyfile. Placing it on a network location is the ideal solution.
+                            </p>
+                            <p>
+                                <strong>WARNING:</strong>
+                                Changing the keyfile once files have been encrypted will cause the files to be unrecoverable. You must transfer all files that are encrypted through CrushFTP to another location so that they are not encrypted. At this point you can change the key file, and transfer the files back through CrushFTP to re-encrypt them using the new keyfile.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="EncryptionKSUtility" class="customForm">
+                        <fieldset class="nobg" style="margin-bottom: 10px;min-width:820px;">
+                            <a href="#" id="generateSelfSignedCertiUtil" class="button">
+                                <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-key' ></span>
+                                <span class="Encryption">Generate a new Keystore</span>
+                            </a>
+                            <hr class="ui-widget-content">
+                            <p>
+                                <label for="ksUtil_keystore_path" class="Encryption lblKeystoreLocationText">Keystore Location:</label>
+                                <input type="text" id="ksUtil_keystore_path" class="bigInputBox excludeXML ignoreChange" name="ksUtil_keystore_path"  />
+                                <a href="#" class="button serverFilePickButton" rel="ksUtil_keystore_path" style="top:4px;">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                    Browse
+                                </a>
+                            </p>
+                            <p>
+                                <label for="ksUtil_keystore_pass" class="Encryption lblKeystorePasswordText">Keystore Password:</label>
+                                <input type="password" id="ksUtil_keystore_pass" class="encryptPass excludeXML ignoreChange" name="ksUtil_keystore_pass" />
+                            </p>
+                            <hr class="ui-widget-content">
+                            <p>
+                                <a href="#" id="listSSLContent" class="button">
+                                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-script'></span>
+                                    List SSL Content
+                                </a>
+                            </p>
+                            <div id="sslDetailsPanel" class="sslDetailsPanel" style="display:none;">
+                                <hr class="ui-widget-content">
+                                <div class="buttonBar buttonBarNoBottom">
+                                    <a id="addPrivateSSL" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                        Add Private SSL
+                                    </a>
+                                    <a href="#" id="addPublicSSL" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                                        Add Public SSL
+                                    </a>
+                                    <a id="editAlias" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+                                        Edit
+                                    </a>
+                                    <a id="exportSSL" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-arrowthickstop-1-s'></span>
+                                        Export
+                                    </a>
+                                    <a id="removeAlias" href="#" class="button">
+                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+                                        Remove
+                                    </a>
+                                </div>
+                                <div>
+                                    <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:500px;height:300px;float:left;margin-right:15px;margin-bottom:10px;">
+                                    <ol class="nobg selectable single sideScroll" id="aliases" name="aliases"></ol>
+                                </div>
+                                <div id="keyDetails" class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:800px;height:370px;float:left;margin-bottom:10px;">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <p class="buttonBar right">
+                    <a href="#" class="button">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+                        <span class="submitActionRestore btnResetText">Reset To Default</span>
+                    </a>
+                    <a href="#" class="button" id="cancel">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+                        <span class="submitActionCancel btnCancelText">Cancel</span>
+                    </a>
+                    <a href="#" class="button" id="saveContent">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+                        <span class="submitActionOk btnOKText">Save</span>
+                    </a>
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div id="addSSLDialog" class="customForm" style="display:none;">
+        <div style="margin-top:10px;">
+            <label class="bigLabel" for="addSSLDialog_alias">Alias:</label>
+            <input sid="key_alias" id="addSSLDialog_alias" name="addSSLDialog_alias" />
+        </div>
+        <div style="margin:10px 0px;">
+            <label class="bigLabel" for="addSSLDialog_path">Key Path:</label>
+            <input sid="key_path" type="text" valtype="required" class="bigInputBox" id="addSSLDialog_path" name="addSSLDialog_path" />
+            <a href="#" PickType="file" class="serverFilePickButton ui-state-default ui-widget-content ui-corner-all" style="top: -4px;position: relative;padding:4px 7px 3px 1px;text-decoration:none;" rel="addSSLDialog_path">
+                <span style='display:inline-block;margin:0px 0px -3px 6px;' class='pointer ui-icon ui-icon-folder-open'></span>
+                Browse
+            </a>
+        </div>
+        <div class="passitem">
+            <label class="bigLabel" for="addSSLDialog_pass">Password:</label>
+            <input class="encryptPass" sid="key_pass" type="password" id="addSSLDialog_pass" name="addSSLDialog_pass" />
+        </div>
+    </div>
+    <div id="exportCertiDialog" class="customForm" style="display:none;">
+        <div style="margin-top:10px;">
+            <label class="bigLabel" for="exportCertiDialog_alias">Alias:</label>
+            <input sid="key_alias" id="exportCertiDialog_alias" name="exportCertiDialog_alias" />
+        </div>
+    </div>
+    <div id="sslDetailsPanels" class="sslDetailsPanel" style="display:none;">
+        <div>
+            <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:400px;height:300px;float:left;margin-right:15px;margin-bottom:10px;">
+                <ol class="nobg selectable single sideScroll" id="aliasess" name="aliases"></ol>
+            </div>
+            <div id="keyDetailss" class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:700px;height:370px;float:left;margin-bottom:10px;">
+            </div>
+        </div>
+    </div>
+</div>

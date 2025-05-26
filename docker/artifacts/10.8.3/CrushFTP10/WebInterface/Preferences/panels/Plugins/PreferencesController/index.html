@@ -1,0 +1,109 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginPreferencesController">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div id="pluginSection" class="customForm">
+				<p>
+					<input type="checkbox" name="enabled" id="enabled" />
+					<label for="enabled" class="ui-priority-primary PreferencesController lblEnabledText">Enabled</label>
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" name="debug" id="debug" />
+					<label for="debug" class="ui-priority-primary PreferencesController lblDebugText" class="nonEmbed">Debug</label>
+
+					<span style="float:right;" class="nonEmbed"><span class="PreferencesController lblVersionText">Version:</span><span class="liveData" id="version"></span></span>
+				</p>
+				<div class="tabs nobg">
+					<ul>
+						<li><a href="#Setup" class="PreferencesController lblSnapshotsTabText">Snapshots</a></li>
+						<li><a href="#Help" class="PreferencesController lblInstructionsTabText">Instructions</a></li>
+					</ul>
+				<div id="Setup" class="ui-corner-all ui-widget-content nobg" style="padding:5px 10px;">
+					<p>
+						<label for="weekday" class="PreferencesController lblWeekdayText">Weekday:</label>
+						<select id="weekday" name="weekday" class="inputBox">
+							<option>All</option>
+							<option>Sun</option>
+							<option>Mon</option>
+							<option>Tue</option>
+							<option>Wed</option>
+							<option>Thu</option>
+							<option>Fri</option>
+							<option>Sat</option>
+						</select>
+
+						<span class="spacer"></span>
+
+						<label for="hour" class="PreferencesController lblTimeText">Time:</label>
+						<select id="hour" name="hour" class="inputBox">
+						</select>
+						:
+						<select id="minute" name="minute" class="inputBox">
+						</select>
+						<select id="ampm" name="ampm" class="inputBox">
+							<option>AM</option>
+							<option>PM</option>
+						</select>
+
+						<a href="#" class="button" id="createSnapshot" style="top:-4px !important;">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-copy' ></span><span class="PreferencesController btnCreateSnapshotText">Create Snapshot</span></a>
+					</p>
+					<div>
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td style="width:40%;">
+									<div class="MediumListBox ui-corner-all ui-widget-content nobg sideScroll">
+										<ol class="nobg selectable multiple sideScroll ui-selectable" id="snapshots" name="snapshots">
+										</ol>
+									</div>
+								</td>
+								<td style="padding-left:10px;">
+									<p>
+										<a href="#" class="button" id="removeSnapshot">
+											<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+											<span class="PreferencesController btnRemoveText">Remove</span>
+										</a>
+									</p>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div id="Help" class="ui-corner-all ui-widget-content nobg PreferencesController pnlHelpText" style="padding:5px 10px;">
+					<b>Instructions</b><br />
+					  This plugin allows you to have preset preferences that take effect at different times
+					  of the day. This might be used to specify different bandwidth restrictions or enabling
+					  and disabling server itemsbased on the weekday or time of day. This plugin allows for
+					  some pretty powerful configurations.<br />
+					  <br />
+					  Simply specify the time you want the preferences to take affect, and press the 'Create
+					  Snapshot' button. A copy of your last 'saved' prefs.xml will then be made. (Every time
+					  you click OK a prefs.xml is saved.)Do not configure this plugin while CrushFTP is
+					  installed as a service or daemon. You will always want two snapshots or else the
+					  preferenceswill be swapped at the given time...and never swapped to anything
+					  different.<br />
+					  <br />
+					  When the time arrives for the snapshot, CrushFTP will swap out its preferences and the
+					  new settings will be live.Once the next snapshot time arrives, the next snapshot will
+					  be swapped in and so on. If you do alter your preferencesafter you have made a
+					  snapshot, you will need to re-make your snapshots as they will be out of date with your
+					  currentsettings.<br />
+					  <br />
+					  Questions? Email us: support@crushftp.com<br />
+				</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>

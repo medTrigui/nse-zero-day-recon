@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html data-theme="dark-theme">
+
+<head>
+  <title>crushftp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/WebInterface/Resources/css/new-ui/style.css">
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="/WebInterface/Resources/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header id="topbar_side" class="topbar">
+    <div class="navbar">
+      <div class="navbar-right">
+        <div class="side-close-btn" onclick="openSide(false)">
+          <i class="fa fa-times"></i>
+        </div>
+        <ul class="navbar-right-nav">
+          <li class="login-user">
+            <span>
+              <div><i class="fa fa-user"></i></div>
+              <div class="user-content">
+                <div class="user-item">Vipul Limbachiya</div>
+                <div class="user-item logout"><i class="fa fa-lock mr-2"></i> Logout</div>
+              </div>
+            </span>
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-folder-open mr-2" aria-hidden="true"></i>
+            Files
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-cog mr-2" aria-hidden="true"></i>
+            Server Admin
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-sticky-note mr-2" aria-hidden="true"></i>
+            Jobs
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-user mr-2" aria-hidden="true"></i>
+            User Manager
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-files-o mr-2" aria-hidden="true"></i>
+            Preferences
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-floppy-o mr-2" aria-hidden="true"></i>
+            Shares
+          </li>
+          <li class="nav-item" onclick="openMenu(event)">
+            <i class="fa fa-terminal" aria-hidden="true"></i>
+          </li>
+          <li class="nav-item">
+            <i class="fa fa-image" aria-hidden="true"></i>
+          </li>
+          <li class="nav-item">
+            <label for="server">Server instance: </label>
+            <select class="custom-select" id="server">
+              <option label="Main">Main</option>
+              <option label="option">option</option>
+              <option label="option">option</option>
+              <option label="option">option</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-left">
+        <div class="logo">
+          <img src="./logo.png" alt="logo">
+        </div>
+      </div>
+    </div>
+  </header>
+    <div class="sidebar-menu">
+      <span  onclick="openSide(true)">
+        <i class="fa fa-bars"></i>
+      </span>
+      <div class="logo">
+        <img src="./logo.png" alt="logo">
+      </div>
+    </div>
+  <div class="page-wrapper">
+    <div class="site-version login-user-text">
+      <span>
+        Expired: account expired, (Session time out in 26 min, 06 sec ) Version 9.3.2 Build: 52
+      </span>
+    </div>
+    <!-- tab buttons -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTabs(event, 'Dashboard')">
+        <i class="fa fa-home mr-2"></i>
+        <span class="tab-btn-text">Dashboard</span>
+      </button>
+      <button class="tablinks" onclick="openTabs(event, 'Status')">
+        <i class="fa fa-check mr-2"></i>
+        <span class="tab-btn-text">Status</span>
+      </button>
+      <button class="tablinks" onclick="openTabs(event, 'Reports')">
+        <i class="fa fa-list mr-2"></i>
+        <span class="tab-btn-text">Reports</span>
+      </button>
+      <button class="tablinks" onclick="openTabs(event, 'About')">
+        <i class="fa fa-info mr-2"></i>
+        <span class="tab-btn-text">About</span>
+      </button>
+    </div>
+    <!-- dashboard section -->
+    <div class="page-section" id="Dashboard">
+      <div class="report-top-content">
+        <div class="status">
+          <div class="time-host">
+            <span class="time-host-title">Last Report:</span>
+            <spa class="host">Web Nov 25 23:00:10 IST 2020</span>
+          </div>
+          <div class="time-host">
+            <span class="time-host-title">Host Name:</span>
+            <span class="host">Localhost </span>
+          </div>
+        </div>
+        <span> Live </span>
+      </div>
+      <!-- dashboard cards -->
+      <div class="page-container">
+        <div class='chart-list'>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Server Status
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Session Information
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Login Information
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Download / Upload
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Bytes Transferred
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Speed Information
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Job Schedules
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Process Threads
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card pie-chart-list">
+            <div class="card-body">
+              <h3 class="card-title">
+                <span class="lstick"></span>
+                Memory
+              </h3>
+              <div class="chart-body">
+                <div class="chart-image">
+                  <img src="./Capture.PNG" alt="chart" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-container chart-list">
+        <div class="card info-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Alerts
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card info-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Recent logins
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card info-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Replication info
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-container chart-list">
+        <div class="card bar-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Connections:
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bar-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Memory Use:
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-container chart-list">
+        <div class="card bar-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Outgoing Peed:
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bar-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Incoming Speed:
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-container chart-list">
+        <div class="card bar-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Server Cpu:
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bar-chart-list">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span class="lstick"></span>
+              Os Cpu:
+            </h3>
+            <div class="chart-body">
+              <div class="chart-image">
+                <img src="./Capture2.PNG" alt="chart" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Status section -->
+    <div class="page-section" id="Status">Status</div>
+    <!-- Reports section -->
+    <div class="page-section" id="Reports">Reports</div>
+    <!-- About section -->
+    <div class="page-section" id="About">About</div>
+    <!-- footer section -->
+    <footer class="footer">
+      © 2020 crushftp
+    </footer>
+  </div>
+</body>
+<script>
+  window.addEventListener('load', (e) => {
+    openTabs(e, 'Dashboard');
+  })
+
+  function openSide(value) {
+    console.log(value);
+    let ele = document.getElementById('topbar_side');
+    if (value) {
+      ele.classList.add("topbar-open");
+    }
+    else {
+      ele.classList.remove("topbar-open");
+    }
+  }
+
+  function openTabs(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("page-section");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  function openMenu(evt, cityName) {
+    openSide(false);
+
+    let tablinks = document.getElementsByClassName("nav-item");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" nav-active", "");
+    }
+    evt.currentTarget.className += " nav-active";
+  }
+</script>
+
+</html>

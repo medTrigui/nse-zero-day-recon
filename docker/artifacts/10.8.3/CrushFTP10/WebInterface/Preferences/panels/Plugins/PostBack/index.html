@@ -1,0 +1,93 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginPostBack">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div id="pluginSection" class="customForm">
+				<p>
+					<input type="checkbox" name="enabled" id="enabled" />
+					<label for="enabled" class="ui-priority-primary PostBack lblEnabledText">Enabled</label>
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" name="debug" id="debug" />
+					<label for="debug" class="ui-priority-primary PostBack lblDebugText" class="nonEmbed">Debug</label>
+
+					<span style="float:right;" class="nonEmbed"><span class="PostBack lblVersionText">Version:</span><span class="liveData" id="version"></span></span>
+				</p>
+				<div class="ui-corner-all ui-widget-content nobg" style="padding:5px 10px;">
+					<!-- <p>
+						<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;">
+						<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+							<span class="PostBack lblMetaDataHelpText">
+							&#37;user_name&#37;, &#37;the_real_path&#37;, &#37;the_file_path&#37;, &#37;the_file_name&#37;, &#37;the_file_size&#37;, &#37;the_file_speed&#37;,  &#37;the_file_start&#37;, &#37;the_file_end&#37;, &#37;the_file_error&#37;
+							</span>
+						</span>
+					</p> -->
+					<p>
+						<label for="url" class="PostBack lblURLText">URL:</label>
+						<input type="text" id="url" name="url"  class="bigInputBox" />
+					</p>
+					<p>
+						<label for="username" class="PostBack lblBasicAuthenticationUsernameText">Basic Authentication Username (optional):</label>
+						<input type="text" id="username" name="username" />
+
+						<span class="spacer"></span>
+
+						<label for="password" class="PostBack lblPasswordText">Password (optional):</label>
+						<input type="password" id="password" name="password" class="encryptPass" />
+					</p>
+					<p>
+						<input type="checkbox" id="send_alerts" name="send_alerts" />
+						<label for="send_alerts" class="PostBack lblAlertNotificationText">Alert notifications on failures. </label>
+
+						<span class="spacer"></span>
+
+						<label for="retry_count" class="PostBack lblRetryXTimesText">Retry x times on failure: </label>
+						<input type="text" id="retry_count" name="retry_count"  class="smallInputBox" />
+					</p>
+					<p>
+						<label for="max_full_speed" class="PostBack lblMaximumFilesPerEventText">Maximum files per event that post without delay: </label>
+						<input type="text" id="max_full_speed" name="max_full_speed"  class="smallInputBox" />
+
+						<span class="spacer"></span>
+
+						<label for="delay_interval" class="PostBack lblDelayBetweenEventText">Delay between event posts: </label>
+						<input type="text" id="delay_interval" name="delay_interval"  class="smallInputBox" />
+					</p>
+					<p>
+						<label for="post_data" class="PostBack lblPostDataText">Post Data: </label>
+						<input type="text" id="post_data" name="post_data"  class="bigInputBox" />
+					</p>
+					<p class="subPanel ui-widget-content leftborder nobg lineHeight">
+						<span class="PostBack lblEnableDebugModeInstructionText">
+						Enable debug mode to see how the url was called.
+						</span>
+
+						<br />
+
+						<input type="checkbox" id="recent" name="recent"  />
+						<label for="recent" class="PostBack lblOnlyUseMostRecentItemsText">Only use most recent item.</label>
+
+						<br />
+						<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:inline-block;margin:0px 3px;line-height:21px;width:90%;">
+						<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+							<span  class="PostBack lblPostDataHelpText">
+							If this is for an event where the event happens immediately, and not just on logout, this will only process the most recent item. <br /> Otherwise, it will go through each item executing the command on each.
+							</span>
+						</span>
+					</p>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>

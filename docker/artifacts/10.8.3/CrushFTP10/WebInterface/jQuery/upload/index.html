@@ -1,0 +1,490 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>|| File Upload ||</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/crushFtp.framework.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/ui-lightness/jquery-ui-1.8.2.custom.css" /> -->
+    <link rel="stylesheet" href="/WebInterface/jQuery/upload/css/style.css" />
+    <link
+      href="/WebInterface/Resources/libs/bootstrap-3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/WebInterface/jQuery/upload/js/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/WebInterface/jQuery/upload/js/font-awesome/css/font-awesome-animation.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--[if IE 8]>
+      <link rel="stylesheet" href="/WebInterface/jQuery/upload/css/ie8.css" />
+    <![endif]-->
+  </head>
+  <body style="padding: 15px" class="upload-panel-body">
+    <div id="offline-cover">
+      <div style="font-size: 40px; margin: 20px">
+        <i class="fa fa-unlink"></i>
+      </div>
+      We have lost connection to the server.. trying to reconnect...
+      <br />
+      <br />
+      <a href="#" id="tryReconnect">Try now</a>
+    </div>
+    <div class="mainContentHolder" style="padding: 10px">
+      <div id="fileselector">
+        <div id="container" style="width: 100%">
+          <!-- <form class="form" name="form1" id="uploadForm" method="post" action="/WebInterface/function" enctype="multipart/form-data" encoding="multipart/form-data">
+                        <div id="progressNumber"></div>
+                        <strong>Sample Form</strong>
+                        <input type="text" name="fileTitle" id="fileTitle" placeholder="Batch No">
+                        <input type="text" name="fileDesc" id="fileDesc" placeholder="Keywords">
+                    </form> -->
+          <div id="fileListPanel">
+            <div id="dropzone">
+              <div class="circle animate"></div>
+              <span loc="dragDropMsg">Drag and Drop File Here</span>
+            </div>
+            <div id="rendering-queue">
+              <span class="loader"><i class="fa fa-spinner spin"></i></span>
+            </div>
+            <div id="queue-top-buttons">
+              <div class="btn-group remove-top-dropdown">
+                <button
+                  type="button"
+                  class="btn btn-default dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-trash-o"></i>
+                  <span loc="remove">Remove</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      href="#"
+                      class="button remove-selected"
+                      id="removeSelected"
+                      ><i class="fa fa-check-square-o"></i>
+                      <span loc="removeAllSelected">All Selected</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="button remove-error" id="removeWithError"
+                      ><i class="fa fa-exclamation-circle"></i>
+                      <span loc="removeAllWithError">All With Error</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="button remove-uploaded"
+                      id="removeUploaded"
+                      ><i class="fa fa-upload"></i>
+                      <span loc="removeAllUploaded">All Uploaded</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="button remove-canceled"
+                      id="removeCanceled"
+                      ><i class="fa fa-ban"></i>
+                      <span loc="removeAllCancelled">All Canceled</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="button remove-skipped" id="removeSkipped"
+                      ><i class="fa fa-forward"></i>
+                      <span loc="removeAllSkipped">All Skipped</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="button remove-all" id="removeAll"
+                      ><i class="fa fa-list"></i>
+                      <span loc="removeAll">All</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="input-group input-group-sm">
+                <div
+                  class="input-group-btn"
+                  style="position: absolute; margin-top: -29px"
+                >
+                  <button id="selectFile" type="button" class="btn btn-default">
+                    <i class="fa fa-plus-square-o"></i>
+                    <span loc="addFiles">Add files...</span>
+                  </button>
+                  <button
+                    id="startUpload"
+                    type="button"
+                    class="btn btn-default"
+                  >
+                    <i class="fa fa-upload"></i>
+                    <span loc="upload">Upload</span>
+                  </button>
+                  <button
+                    id="startUploadOpt"
+                    type="button"
+                    class="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown"
+                    style="border-left: 0px; padding-left: 5px;margin-left: -5px;"
+                  >
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul
+                    class="dropdown-menu upload-sub-menu"
+                    style="margin-top: -10px; margin-left: 85px"
+                  >
+                    <li>
+                      <button
+                        id="startUploadSelected"
+                        disabled="disabled"
+                        type="button"
+                        class="btn btn-default selection-button"
+                      >
+                        <i class="fa fa-upload"></i>
+                        <span loc="uploadSelected">Upload Selected</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        id="reuploadAll"
+                        disabled="disabled"
+                        type="button"
+                        class="btn btn-default"
+                      >
+                        <i
+                          class="fa fa-refresh"
+                          title="All existing files will be overwritten while re-uploading"
+                        ></i>
+                        <span loc="reuploadAll">Re-Upload All</span>
+                      </button>
+                    </li>
+                  </ul>
+                  <button
+                    disabled="disabled"
+                    id="cancelUpload"
+                    type="button"
+                    class="btn btn-default"
+                  >
+                    <i class="fa fa-remove"></i>
+                    <span loc="cancel">Cancel</span>
+                  </button>
+                  <button
+                    style="display: none"
+                    id="uploadDetails"
+                    type="button"
+                    class="btn btn-default"
+                  >
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span loc="uploadDetails">Upload Details</span>
+                  </button>
+                  <!-- <button style="display:none;" id="removeWithError" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Remove all with errors</button> -->
+                  <button
+                    id="overwriteAll"
+                    type="button"
+                    class="btn btn-default"
+                  >
+                    <i class="fa fa-files-o"></i>
+                    <span loc="overwriteAll">Overwrite All</span>
+                  </button>
+                  <button id="resumeAll" type="button" class="btn btn-default">
+                    <i class="fa fa-paste"></i>
+                    <span loc="resumeAll">Resume All</span>
+                  </button>
+                  <button
+                    disabled="disabled"
+                    id="shareUploaded"
+                    type="button"
+                    class="btn btn-default"
+                    style="border-right: 0px;"
+                  >
+                    <i class="fa fa-share-alt"></i>
+                    <span loc="shareUploaded">Share Uploaded</span>
+                  </button>
+                  <button
+                    id="shareSelected"
+                    disabled="disabled"
+                    type="button"
+                    class="btn btn-default"
+                    style="border-left: 0px; padding-left: 5px;margin-left: -8px;"
+                  >
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul
+                    id="shareDropdown"
+                    class="dropdown-menu-c share-sub-menu"
+                    style="margin-top: 0px; margin-left: 398px;display: none;z-index: 9;position: absolute;"
+                  >
+                    <li>
+                      <button
+                        id="startShareSelected"
+                        type="button"
+                        class="btn btn-default selection-button"
+                      >
+                        <i class="fa fa-share"></i>
+                        <span loc="shareSelected">Share Selected</span>
+                      </button>
+                    </li>
+                  </ul>
+                  <!-- <button id="removeSelected" disabled="disabled" type="button" class="btn btn-default selection-button"><i class="fa fa-trash-o"></i> Remove Selected</button> -->
+                  <span class="syncapponly right-btn">
+                    <button
+                      id="infoServer"
+                      type="button"
+                      class="btn btn-default"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      data-html="true"
+                      title=""
+                    >
+                      <i class="fa fa-info"></i>
+                    </button>
+                    <button
+                      id="shareHistory"
+                      type="button"
+                      class="btn btn-default"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="History"
+                    >
+                      <i class="fa fa-clock-o"></i>
+                    </button>
+                    <button
+                      id="refreshUIElectron"
+                      type="button"
+                      class="btn btn-default"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Refresh"
+                    >
+                      <i class="fa fa-refresh"></i>
+                    </button>
+                    <button
+                      id="logoutElectron"
+                      type="button"
+                      class="btn btn-default"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Logout"
+                    >
+                      <i class="fa fa-sign-out"></i>
+                    </button>
+                    <button
+                      id="quitElectron"
+                      type="button"
+                      class="btn btn-default"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Quit"
+                    >
+                      <i class="fa fa-power-off"></i>
+                    </button>
+                  </span>
+                  <input
+                    type="file"
+                    id="file"
+                    multiple="multiple"
+                    name="uploads[]"
+                    class="inputFileIE8"
+                  />
+                </div>
+              </div>
+            </div>
+            <hr id="queue-buttons-separator" />
+            <div class="input-group input-group-sm" id="queue-buttons">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default select-all">
+                  <span class="select-button"></span>
+                </button>
+                <!-- <button type="button" class="btn btn-default remove"><i class="fa fa-trash"></i> Remove Selected</button> -->
+              </div>
+              <input
+                style="
+                  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial,
+                    sans-serif;
+                "
+                type="text"
+                class="form-control filter-control"
+                id="filter"
+                placeholder="&#xf0b0; Quick Filter.."
+                locph="quickFilterSubtext"
+                prependloc="&#xf0b0; "
+              />
+              <span class="input-group-addon filter-button"
+                ><i class="fa fa-search"></i
+              ></span>
+            </div>
+            <hr />
+            <ol id="queue" class="ui-widget-content ui-corner-all"></ol>
+            <div style="display: none" class="scroll-with-activity">
+              <label
+                ><input
+                  checked="checked"
+                  type="checkbox"
+                  id="scrollWithActivity"
+                />
+                <span loc="scrollWithActivity"
+                  >Scroll with activity</span
+                ></label
+              >
+            </div>
+            <div style="display: none" class="failed-items-label">
+              <i class="fa fa-bell"></i> <span loc="total">Total</span>
+              <span id="failedFilesCount"></span>
+              <span loc="filesFailed">file(s) failed.</span>
+            </div>
+            <hr />
+            <div class="queue-footer" id="queue-footer">
+              <span class="queue-info" id="queue-info">
+                <!-- <label for="resumeTransfers" class="checkmark resume-all" data-toggle="tooltip" data-placement="right" title="When checked, it will auto resume all existing files on the server.">
+                                    <input type="checkbox" id="resumeTransfers"> Resume Transfers
+                                </label> -->
+                <span id="queue-selected-info" style="display: none">
+                  <strong
+                    ><span loc="selectedFiles">Selected File(s):</span></strong
+                  >
+                  <span class="total-selected-files">0</span>,
+                  <strong><span loc="size">Size:</span></strong>
+                  <span class="total-selected-size">0</span>
+                </span>
+                <small class="filtered-text" style="display: none"
+                  ><span loc="filtered">(Filtered)</span></small
+                >
+                <strong><span loc="totalFiles">Total File(s):</span></strong>
+                <span class="total-files">0</span>,
+                <strong><span loc="size">Size:</span></strong>
+                <span class="total-size">0</span>
+              </span>
+            </div>
+          </div>
+          <script type="text/template" id="tplQueueItem">
+            <div class='custom-data-row queue-item-row row {{#selected}}{{selected}}{{/selected}}' _index='{{index}}' _id='{{id}}'><div class='closing'><i class='fa fa-spinner spin'></i> <span class="decompressing"><span loc="decompressingFile">Decompressing file...</span><span class="flip-icon"><i class="fa fa-folder-open-o"></i></span></span><span class="writing" loc="writingFile">Writing file...</span></div><div class='processing'><i class='fa fa-spinner spin'></i> <span loc="pleaseWait">Please wait...</span></div>{{#error}}<span class='error'><span class="verifying">{{{error.verifying}}}</span> {{{error.exists}}} {{{error.existsOnServer}}} {{{error.sizeExceed}}} {{{error.nameSizeExceed}}} {{{error.fileExtenstionNotAllowed}}} {{{error.fileNameNotAllowed}}} {{{error.message}}}</span>{{/error}}<span class='name' title='{{{fullPathEscaped}}}'><span class='selection'></span> <span class='icon'><i class='fa {{icon}} fa-fw'></i></span> {{{fullPathEscaped}}} </span>{{#modified}}<span class='timestamp'>{{modified}}</span>{{/modified}}{{#autoRenamed}}<span class='auto-renamed'>(file auto renamed)</span>{{/autoRenamed}}{{#stats}}<div class='stats'><span loc="uploadedIn">Uploaded in</span> <span class='time'>{{stats.time}}</span> <span loc="atAvgSpeedOf">at average speed of</span> <span class='avgSpeed'>{{stats.speed}}</span></div>{{/stats}}<div class='failed stats'><span loc="uploadingFailed">Uploading failed</span>{{#message}}<span> {{message}}</span>{{/message}}</div><div class='canceled stats'><span loc="canceled">Canceled</span></div><div class='skipped stats'><span loc="skipped">Skipped</span></div><div class='speed'>{{#uploadInfo.currentSpeed}}<strong class='current lbl'><span loc="currentSpeed">Current Speed:</span></strong> <span class='current value'>{{uploadInfo.currentSpeed}}</span>{{/uploadInfo.currentSpeed}} {{#uploadInfo.avgSpeed}}<strong class='average lbl'>, <span loc="averageSpeed">Average Speed:</span></strong> <span class='average value'>{{uploadInfo.avgSpeed}}</span>{{/uploadInfo.avgSpeed}}</div><div class='progress'><div class='progress-bar progress-bar-warning progress-bar-striped active' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width: {{uploadInfo.percent}}%'><span class='progress-text'><span class='uploaded'>{{uploadInfo.uploaded}}{{^uploadInfo.uploaded}}0 byte{{/uploadInfo.uploaded}}</span> <span loc="of">of</span> <span class='total'>{{uploadInfo.total}}{{^uploadInfo.total}}{{{sizeF}}}{{/uploadInfo.total}}</span>{{#uploadInfo.timeElapsed}} <i class='fa fa-clock-o'></i> <span loc="elapsed">Elapsed</span>/<span loc="remaining">Remaining</span>:<span class='elapsed'>{{uploadInfo.timeElapsed}}</span>/<span class='remaining'>{{uploadInfo.timeRemaining}}</span>{{/uploadInfo.timeElapsed}}</span></div></div><span class='size' data-toggle='tooltip' data-placement='right' title='{{size}}'>{{{sizeF}}}</span><span class='buttons'>  <span class='btn waiting'><i class='fa fa-hourglass'></i> <span loc="waiting">Waiting..</span></span> {{#formData}}<span class='btn details'><i class='fa fa-pencil-square-o'></i> <span loc="details">Details</span></span>{{/formData}} <span class='btn overwrite'><i class='fa fa-files-o'></i> <span loc="overwrite">Overwrite</span></span><span class='btn resume-file'><i class='fa fa-paste'></i> <span loc="resume">Resume</span></span><span class='btn upload'><i class='fa fa-upload'></i> <span loc="upload">Upload</span></span> <span class='btn re-upload'><i class='fa fa-refresh'></i> <span loc="reupload">Re-Upload</span></span> <span class='btn pause'><i class='fa fa-pause'></i> <span loc="pause">Pause</span></span> <span class='btn resume'><i class='fa fa-play'></i> <span loc="resume">Resume</span></span> <span class='btn remove'><i class='fa fa-trash'></i> <span loc="remove">Remove</span></span> <span class='btn copy'><i class='fa fa-clipboard'></i> <span loc="copyURL">Copy URL</span></span><span class='btn cancel'><i class='fa fa-close'></i> <span loc="cancel">Cancel</span></span></span><i class='fa fa-circle success-mark'></i><i class='fa fa-circle failure-mark'></i><span class='clear'></span></div>
+          </script>
+          <script type="text/template" id="tplGlobalProgressbar">
+            <div class="global-progressbar">
+                {{#processing}}
+                    <div class='processing'><i class='fa fa-spinner spin'></i> <span loc="pleaseWait">Please wait...</span></div>
+                {{/processing}}
+                <div>
+                    <div class="progress" style="display: block;">
+                        <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{perc}}%">
+                            <span class="progress-text">
+                                <span class="uploaded">{{uploadedSize}}</span> <span loc="of">of</span> <span class="total">{{totalSize}}</span>
+                                {{^paused}}
+                                    <i class="fa fa-clock-o"></i> <span loc="elapsed">Elapsed</span>/<span loc="remaining">Remaining</span>:<span class="elapsed">{{elapsed}}</span>/<span class="remaining">{{remaining}}</span>
+                                {{/paused}}
+                                {{#paused}}
+                                    <span loc="paused">Paused</span>..
+                                {{/paused}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="speed" style="display: block;">
+                        <span class="left">
+                            <strong class="current lbl"><span loc="uploading">Uploading</span>:</strong>
+                            <strong class="current lbl speedfilename">{{fileName}}</strong>
+                            <span class="current value">{{currentIndex}}</span> <span loc="of" class="lower-case">of</span> <span loc="total" class="lower-case">total</span> <span class="current value">{{totalItems}}</span> <span loc="items">item(s)</span>
+                        </span>
+                        <strong class="current lbl"><span loc="averageSpeed">Average Speed:</span></strong>
+                        <span class="current value">{{currentSpeed}}/s</span>
+                        <span class="buttons">
+                            <a href="#" class="skip"><i class="fa fa-forward"></i> <span loc="skip">Skip</span></a>
+                            {{^paused}}
+                                <a href="#" class="pause"><i class="fa fa-pause"></i> <span loc="pause">Pause</span></a>
+                            {{/paused}}
+                            {{#paused}}
+                                <a href="#" class="resume"><i class="fa fa-play"></i> <span loc="resume">Resume</span></a>
+                            {{/paused}}
+                            <a href="#" class="cancelAll"><i class="fa fa-remove"></i> <span loc="cancelAll">Cancel All</span></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+          </script>
+          <script type="text/template" id="tplShareHistory">
+            <div class='share-history-row custom-data-row' _index='{{index}}' _id='{{id}}'>
+                <span class="share-badge">{{itemCount}}</span>
+                <div class='shared-time'>{{time}} <span class="moment">{{moment}}</span></div>
+                <div class='shared-items list'>{{sharedItems}}</div>
+                <div class='shared-link'>{{url}}</div>
+                <span class='shared-remove-icon'><span class='btn remove'><i class='fa fa-trash'></i> <span loc="remove">Remove from local history</span></span></span>
+                <span class='shared-copy-icon'><span class='btn copy'><i class='fa fa-clipboard'></i> <span loc="copy">Copy</span></span></span>
+            </div>
+          </script>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="/WebInterface/custom.css" />
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery.Electron.Inject.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/moment.min.js"
+    ></script>
+    <script src="/WebInterface/Resources/libs/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/upload/js/common.js"
+    ></script>
+    <script>
+      window.localizations = {};
+    </script>
+    <!-- <script type="text/javascript" src="/WebInterface/localizations/en.js"></script> -->
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/upload/js/loc.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/upload/js/customizations.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/upload/js/pasteImage.js"
+    ></script>
+    <script src="/WebInterface/jQuery/upload/js/mustache.min.js"></script>
+    <script src="/WebInterface/Resources/js/dataTable/dataTable.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/WebInterface/Resources/js/dataTable/dataTable.css"
+    />
+    <script src="/WebInterface/jQuery/upload/js/bootbox.min.js"></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/browserSelector.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/jQuery/upload/js/upload.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<script>
+    const b2cConfig = {
+        tenentName: window.tenantNameB2C,
+        userFlowName: window.userFlowNameB2C,
+        clientId: window.MSSignClientIDB2C,
+        redirectUri: window.location.href.split("#")[0].split("?")[0],
+        codeChallenge: btoa(Math.random().toString()).substr(2, 40) + btoa(Math.random().toString()).substr(2, 40)
+    }
+
+     function signInB2C() {
+        const url = `https://${b2cConfig.tenentName}.b2clogin.com/${b2cConfig.tenentName}.onmicrosoft.com/oauth2/v2.0/authorize?p=${b2cConfig.userFlowName}&client_id=${b2cConfig.clientId}&nonce=defaultNonce&redirect_uri=${encodeURIComponent(b2cConfig.redirectUri)}&scope=openid&response_type=id_token&prompt=login`;
+        window.location = url;
+        return false;
+    }
+    function removeHash() {
+        var scrollV, scrollH, loc = window.location;
+        if ("pushState" in history)
+            history.pushState("", document.title, loc.pathname + loc.search);
+        else {
+            // Prevent scrolling by storing the page's current scroll offset
+            scrollV = document.body.scrollTop;
+            scrollH = document.body.scrollLeft;
+            loc.hash = "";
+            // Restore the scroll offset, should be flicker free
+            document.body.scrollTop = scrollV;
+            document.body.scrollLeft = scrollH;
+        }
+    }
+    var hash = window.location.hash.substring(1);
+     if(hash.startsWith("id_token")){
+        removeHash();
+        var accessTokenB2C = hash.split("=")[1];
+        $("#username").val("crush_oauth2_azure_b2c");
+        $("#password").val(accessTokenB2C);
+        $("#loginForm").submit();
+        setTimeout(function(){
+            $("#password").val("");
+            $("#username").val("");
+        }, 100);
+    }
+</script>
+<button class="bsk-btn bsk-btn-default" id="SignInB2C" onclick="return signInB2C();">
+  <img src="/WebInterface/Resources/images/ms-pictogram.png" class="x-icon" />
+  Sign in with Microsoft B2C
+</button>

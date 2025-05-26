@@ -1,0 +1,93 @@
+<script type="text/template" id="html-content">
+  <div class="charts" style="width: 98%;white-space: nowrap;">
+      <div class="row">
+          <div class="col-md-4 col-lg-4 col-sm-12 graph-panel">
+              <h3 class="sub-title">
+                 <i class="fa fa-pie-chart"></i> Download/Upload distribution
+              </h3>
+              <div id="uploadDownloadDonut" class="graph"></div>
+              <div class="text-center no-data" style="display:none;">Nothing to display</div>
+          </div>
+          <div class="col-md-8 col-lg-8 col-sm-12">
+              <div class="panel panel-success text-left graph-stats">
+                  <div class="panel-heading">
+                      <strong><i class="fa fa-list-ul"></i> Quick Stats:</strong>
+                  </div>
+                  <div class="panel-body">
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                              Between <span class="start-date stat"></span> to <span class="end-date stat"></span> total <span class="total-download stat"></span> file(s) were downloaded (<span class="download-size stat"></span>) while total <span class="total-upload stat"></span> file(s) were uploaded (<span class="upload-size stat"></span>)
+                          </li>
+                          <li class="list-group-item">
+                              The largest file downloaded is <span class="largest-file-download-name stat"></span> (<span class="largest-file-download-size stat"></span>)
+                          </li>
+                          <li class="list-group-item">
+                              The largest file uploaded is <span class="largest-file-upload-name stat"></span> (<span class="largest-file-upload-size stat"></span>)
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="has-report-data">
+      <hr>
+          <div class="text-center">
+              <button type="button" class="btn btn-lg btn-success" id="exportAsXLS"><i class="fa fa-file-excel-o"></i> Export as XLS</button>
+          </div>
+      <hr>
+      <div class="panel-group" role="tablist" aria-multiselectable="true">
+          <div class="tables"></div>
+      </div>
+  </div>
+</script>
+<script type="text/template" id="template">
+  <div class='panel panel-default'>
+      <a class='collapsed' role='button' data-toggle="collapse" href='#$type_table'>
+          <div class='panel-heading'>
+              <h4 class='panel-title'><i class="fa fa-$type"></i> $type</h4>
+          </div>
+      </a>
+      <div id='$type_table' class="collapse in">
+          <div class='panel-body'>
+              <div class='panel panel-default'>
+                  <a class='collapsed' role='button' data-toggle="collapse" href='#$type_ext_donut'>
+                      <div class='panel-heading'>
+                          <h4 class='panel-title'><i class="fa fa-pie-chart"></i> File type wise $type:</h4>
+                      </div>
+                  </a>
+                  <div class='panel-body collapse in' id='$type_ext_donut'>
+                      <div class="col-md-12 graph-panel text-center">
+                          <div id="extDonut$type" class="graph"></div>
+                          <div class="text-center no-data" style="display:none;">Nothing to display</div>
+                      </div>
+                  </div>
+              </div>
+              <div class='panel panel-default no-border top-margin' id='$type_dataRecord'>
+                  <table id="$typeRecords" class="table table-striped table-bordered $type-table dataTable" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Size</th>
+                              <th>Avg. Speed</th>
+                              <th>Path</th>
+                              <th>URL</th>
+                              <th>Info</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                              <th>Name</th>
+                              <th>Size</th>
+                              <th>Avg. Speed</th>
+                              <th>Path</th>
+                              <th>URL</th>
+                              <th>Info</th>
+                          </tr>
+                      </tfoot>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</script>

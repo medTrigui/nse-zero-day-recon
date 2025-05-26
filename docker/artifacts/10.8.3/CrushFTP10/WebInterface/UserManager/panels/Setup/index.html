@@ -1,0 +1,2643 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlSetup" class="userMgrPanel">
+	<div>
+		<ul id="vfsItemContext" class="contextMenu">
+			<li class="properties">
+				<a href="#properties">Properties</a>
+			</li>
+			<li class="test separator">
+				<a href="#test">Test</a>
+			</li>
+			<li class="testAll separator">
+				<a href="#testAll">Test All</a>
+			</li>
+			<li class="rename separator adminOnly">
+				<a href="#rename">Virtual Rename</a>
+			</li>
+			<li class="remove separator">
+				<a href="#remove">Virtual Remove</a>
+			</li>
+			<li class="generateURL separator adminOnly">
+				<a href="#generateURL">Generate MiniURL</a>
+			</li>
+		</ul>
+	</div>
+	<div id="userpassDialog" class="customForm" style="display: none;">
+		<table width="100%">
+			<tr>
+				<td class="itemPropertyLabel">
+					<label for="option_user_name">User name: </label>
+				</td>
+				<td>
+					<input class="ignoreBind excludeXML" style="padding:3px;" type="text" autocomplete="off" id="option_user_name" />
+				</td>
+			</tr>
+			<tr>
+				<td style="margin:8px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="itemPropertyLabel">
+					<label for="option_password">Password: </label>
+				</td>
+				<td>
+					<input class="ignoreBind excludeXML" style="padding:3px;" type="password" autocomplete="off" id="option_password" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="testResultDialog" class="customForm" style="display: none;">
+		<table width="100%">
+			<th>
+				<td style="width:25%">VFS Item</td>
+				<td>Result</td>
+				<td style="width:15%">Time Taken</td>
+			</th>
+		</table>
+	</div>
+	<div id="fieldPropertiesDialog" class="customForm" title="VFS Item Properties">
+		<table width="100%">
+			<tr>
+				<td class="itemPropertyLabel">
+					<label for="item_option_itemType">
+						Item type: </label>
+				</td>
+				<td>
+					<select id="item_option_itemType" class="ignoreBind inputBox excludeXML">
+						<option value="file">File</option>
+						<option value="smb">SMB</option>
+						<option value="smb1">SMB1</option>
+						<option value="smb3">SMB3</option>
+						<option value="ftp">FTP</option>
+						<option value="ftps">FTPS</option>
+						<option value="ftpes">FTPES</option>
+						<option value="sftp">SFTP</option>
+						<option value="http">HTTP</option>
+						<option value="https">HTTPS</option>
+						<option value="webdav">WEBDAV</option>
+						<option value="webdavs">WEBDAVS</option>
+						<option value="s3">S3</option>
+						<option value="s3crush">S3Crush</option>
+						<option value="gdrive">GDrive</option>
+						<option value="gstorage">GStorage</option>
+						<option value="memory">Memory</option>
+						<option value="rfile">RFile</option>
+						<option value="hadoop">HADOOP</option>
+						<option value="azure">Azure</option>
+						<option value="citrix">Citrix</option>
+						<option value="glacier">Glacier</option>
+						<option value="dropbox">Dropbox</option>
+						<option value="backblaze">Backblaze(b2)</option>
+						<option value="onedrive">OneDrive</option>
+						<option value="sharepoint">SharePoint</option>
+						<option value="sharepoint2">SharePoint2</option>
+						<option value="box">Box</option>
+					</select>
+					<span class="spacer"></span>
+					<input type="checkbox" _name="encrypted" id="itemProperty_option_encrypturl"  />
+					<label for="itemProperty_option_encrypturl">
+						Encrypt URL</label>
+				</td>
+			</tr>
+			<tr>
+				<td width="120px;" class="itemPropertyLabel">
+					<label for="itemProperty_option_name">Name: </label>
+				</td>
+				<td>
+					<input class="bigInputBox" type="text" _name="name" id="itemProperty_option_name" />
+					<input class="ui-helper-hidden excludeXML" type="text" _name="name" id="itemProperty_option_name_static" />
+					<input class="ui-helper-hidden excludeXML" type="text" _name="type" id="itemProperty_option_type_static" />
+				</td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+			</tr>
+			<tr>
+				<td class="itemPropertyLabel" style="vertical-align: top;">
+					<label for="vfs_expire" style="top: 0px;">Expires: </label>
+				</td>
+				<td>
+					<div class="" style="position:relative;">
+						<input type="text" id="vfs_expire" _name="expires_on" class="date time validate" valtype="dateTimeExpire" style="width:150px;" />
+						<a href="#" class="button slim" id="quickSetVFSExpirationTime">
+							<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-wrench"></span>
+							<span class="">
+								Quick Set
+							</span>
+						</a>
+						<span class="spacer"></span>
+						<input type="checkbox" _name="delete_expired_item" id="itemProperty_option_delete_expired_item" />
+						<label for="itemProperty_option_delete_expired_item">Delete when expired</label>
+						<div style="margin-bottom:5px;">
+							(MM/dd/yyyy hh:mm am/pm) Leave blank for no expiration.
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="s3Credentials nonS3API">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_s3serverURL">Server: </label>
+	            </td>
+	            <td>
+	                <select id="itemProperty_option_s3serverURL">
+	                    <option value="s3.amazonaws.com">s3.amazonaws.com</option>
+	                    <option value="s3-af-south-1.amazonaws.com">s3-af-south-1.amazonaws.com</option>
+	                    <option value="s3.af-south-1.amazonaws.com">s3.af-south-1.amazonaws.com</option>
+	                    <option value="s3-accesspoint.af-south-1.amazonaws.com">s3-accesspoint.af-south-1.amazonaws.com</option>
+	                    <option value="s3-ap-east-1.amazonaws.com">s3-ap-east-1.amazonaws.com</option>
+	                    <option value="s3-ap-northeast-1.amazonaws.com">s3-ap-northeast-1.amazonaws.com</option>
+	                    <option value="s3-ap-northeast-2.amazonaws.com">s3-ap-northeast-2.amazonaws.com</option>
+	                    <option value="s3-ap-northeast-3.amazonaws.com">s3-ap-northeast-3.amazonaws.com</option>
+	                    <option value="s3-ap-south-1.amazonaws.com">s3-ap-south-1.amazonaws.com</option>
+	                    <option value="s3-ap-southeast-1.amazonaws.com">s3-ap-southeast-1.amazonaws.com</option>
+	                    <option value="s3-ap-southeast-2.amazonaws.com">s3-ap-southeast-2.amazonaws.com</option>
+	                    <option value="s3-ca-central-1.amazonaws.com">s3-ca-central-1.amazonaws.com</option>
+	                    <option value="s3-cn-north-1.amazonaws.com">s3-cn-north-1.amazonaws.com</option>
+	                    <option value="s3-cn-northwest-1.amazonaws.com">s3-cn-northwest-1.amazonaws.com</option>
+	                    <option value="s3-eu-central-1.amazonaws.com">s3-eu-central-1.amazonaws.com</option>
+	                    <option value="s3-eu-north-1.amazonaws.com">s3-eu-north-1.amazonaws.com</option>
+	                    <option value="s3-eu-south-1.amazonaws.com">s3-eu-south-1.amazonaws.com</option>
+	                    <option value="s3-eu-west-1.amazonaws.com">s3-eu-west-1.amazonaws.com</option>
+	                    <option value="s3-eu-west-2.amazonaws.com">s3-eu-west-2.amazonaws.com</option>
+	                    <option value="s3-eu-west-3.amazonaws.com">s3-eu-west-3.amazonaws.com</option>
+	                    <option value="s3-external-1.amazonaws.com">s3-external-1.amazonaws.com</option>
+	                    <option value="s3-me-south-1.amazonaws.com">s3-me-south-1.amazonaws.com</option>
+	                    <option value="s3-sa-east-1.amazonaws.com">s3-sa-east-1.amazonaws.com</option>
+	                    <option value="s3.us-east-1.amazonaws.com">s3.us-east-1.amazonaws.com</option>
+	                    <option value="s3-us-east-2.amazonaws.com">s3-us-east-2.amazonaws.com</option>
+	                    <option value="s3-us-west-1.amazonaws.com">s3-us-west-1.amazonaws.com</option>
+	                    <option value="s3-us-west-2.amazonaws.com">s3-us-west-2.amazonaws.com</option>
+	                    <option value="s3-us-south-1.amazonaws.com">s3-us-south-1.amazonaws.com</option>
+	                    <option value="s3-us-south-2.amazonaws.com">s3-us-south-2.amazonaws.com</option>
+	                </select>
+	            </td>
+	        </tr>
+	        <tr class="glacierCredentials">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_glacierServerURL">Server: </label>
+	            </td>
+	            <td>
+	                <select id="itemProperty_option_glacierServerURL">
+	                    <option value="glacier.us-east-1.amazonaws.com">glacier.us-east-1.amazonaws.com</option>
+	                    <option value="glacier.us-east-2.amazonaws.com">glacier.us-east-2.amazonaws.com</option>
+	                    <option value="glacier.us-west-1.amazonaws.com">glacier.us-west-1.amazonaws.com</option>
+	                    <option value="glacier.us-west-2.amazonaws.com">glacier.us-west-2.amazonaws.com</option>
+	                    <option value="glacier.external-1.amazonaws.com">glacier.external-1.amazonaws.com</option>
+	                    <option value="glacier.ca-central-1.amazonaws.com">glacier.ca-central-1.amazonaws.com</option>
+	                    <option value="glacier.ap-south-1.amazonaws.com">glacier.ap-south-1.amazonaws.com</option>
+	                    <option value="glacier.ap-northeast-2.amazonaws.com">glacier.ap-northeast-2.amazonaws.com</option>
+	                    <option value="glacier.ap-southeast-1.amazonaws.com">glacier.ap-southeast-1.amazonaws.com</option>
+	                    <option value="glacier.ap-southeast-2.amazonaws.com">glacier.ap-southeast-2.amazonaws.com</option>
+	                    <option value="glacier.ap-northeast-1.amazonaws.com">glacier.ap-northeast-1.amazonaws.com</option>
+	                    <option value="glacier.eu-central-1.amazonaws.com">glacier.eu-central-1.amazonaws.com</option>
+	                    <option value="glacier.eu-west-1.amazonaws.com">glacier.eu-west-1.amazonaws.com</option>
+	                    <option value="glacier.eu-west-2.amazonaws.com">glacier.eu-west-2.amazonaws.com</option>
+	                    <option value="glacier.sa-east-1.amazonaws.com">glacier.sa-east-1.amazonaws.com</option>
+	                </select>
+	            </td>
+	        </tr>
+			<tr class="itemURLOption">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_url">URL: </label>
+				</td>
+				<td>
+					<span class="azureOption">
+						<select class="excludeXML ignoreBind" id="itemProperty_option_azureServerURL">
+		                    <option value="file.core.windows.net">File share</option>
+		                    <option value="blob.core.windows.net">Blob share</option>
+		                    <option value="blob.core.chinacloudapi.cn">China Blob share</option>
+		                </select>
+					</span>
+					<input class="bigInputBox maskPasswordOnURL" type="text" _name="url" id="itemProperty_option_url" style="width: 600px"  />
+					<input class="ui-helper-hidden excludeXML" type="text" _name="url" id="itemProperty_option_url_static" />
+					<div id="warningText" style="padding: 5px;position: absolute;z-index: 100;margin-top: -5px;display:none;" class="ui-corner-all ui-state-highlight"><span style="top:1px;" class="ui-icon ui-icon-alert"></span><span class="">Caution: Change this field carefully</span></div>
+				</td>
+			</tr>
+			<tr class="s3Credentials nonS3API">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_s3_bucket">Bucket: </label>
+	            </td>
+	            <td>
+	                <input class="bigInputBox" type="text" id="itemProperty_option_s3_bucket"  />
+	                <div style="padding: 5px;position: absolute;z-index: 100;margin-top: -5px;display:none;" class="error ui-corner-all ui-state-error"><span style="top:1px;" class="ui-icon ui-icon-alert"></span><span class="err">Error: Special characters not allowed</span></div>
+	            </td>
+	        </tr>
+	        <tr class="gstorageCredentials">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_gstorage_bucket">Bucket: </label>
+	            </td>
+	            <td>
+	                <input class="" type="text" id="itemProperty_option_gstorage_bucket"  />
+	                <div style="padding: 5px;position: absolute;z-index: 100;margin-top: -5px;display:none;" class="error ui-corner-all ui-state-error"><span style="top:1px;" class="ui-icon ui-icon-alert"></span><span class="err">Error: Special characters not allowed</span></div>
+	            </td>
+	        </tr>
+	         <tr class="gstorageCredentials">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_gstorage_path">Path: </label>
+	            </td>
+	            <td>
+	                <input class="bigInputBox" type="text" id="itemProperty_option_gstorage_path"  />
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials nonS3API">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_s3_path">Path: </label>
+	            </td>
+	            <td>
+	                <input class="bigInputBox" type="text" id="itemProperty_option_s3_path"  />
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials nonS3API">
+	            <td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox" _name="s3_accelerate"  id="itemProperty_option_s3_accelerate" />
+					<label for="itemProperty_option_s3_accelerate">Accelerate</label>
+				</td>
+	        </tr>
+	        <tr class="s3Credentials">
+	            <td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox" _name="s3_stat_head_calls" id="itemProperty_option_s3_stat_head_calls" />
+					<label for="itemProperty_option_s3_stat_head_calls">Fast S3 item lookup</label>
+					<span class="spacer"></span>
+					<div style="margin-top: 5px;">
+						<input type="checkbox" _name="s3_sha256" id="itemProperty_option_s3_sha256" />
+						<label for="itemProperty_option_s3_sha256">SHA256 enabled on signing (Signing Version 4)</label>
+					</div>
+					<div style="margin-top: 5px;">
+						<input type="checkbox" _name="s3_sha256_request_header" id="itemProperty_option_s3_sha256_request_header" />
+						<label for="itemProperty_option_s3_sha256_request_header">Include SHA256 to request headers (Signing Version 4 related)</label>
+					</div>
+					<div style="margin-top: 5px;">
+						<input type="checkbox" _name="s3_partial" id="itemProperty_option_s3_partial" />
+						<label for="itemProperty_option_s3_partial">Show partial uploads</label>
+						<span class="spacer"></span>
+						<input type="checkbox" _name="s3_bucket_in_path" id="itemProperty_option_s3_bucket_in_path" />
+						<label for="itemProperty_option_s3_bucket_in_path">Use bucket in the path</label>
+					</div>
+					<div style="margin-top: 5px;">
+						<input type="checkbox" _name="no_bucket_check" id="itemProperty_option_no_bucket_check" />
+						<label for="itemProperty_option_no_bucket_check">Don't check bucket at login</label>
+						<span class="spacer"></span>
+						<input type="checkbox" _name="s3_list_v2" id="itemProperty_option_s3_list_v2" />
+						<label for="itemProperty_option_s3_list_v2">List version 2</label>
+					</div>
+					<div style="margin-top: 5px;">
+						<input type="checkbox" _name="s3_lookup_meta_modified" id="itemProperty_option_s3_lookup_meta_modified" />
+						<label for="itemProperty_option_s3_lookup_meta_modified">Lookup custom modified date (this is slow)</label>
+					</div>
+				</td>
+	        </tr>
+	        <tr class="smbOnlyOption">
+	            <td>
+	            </td>
+	            <td>
+	                <input type="checkbox" _name="dfs_enabled"  id="itemProperty_option_dfs_enabled" />
+	                <label for="itemProperty_option_dfs_enabled">DFS Enabled</label>
+	            </td>
+	        </tr>
+	        <tr class="glacierCredentials">
+	            <td class="itemPropertyLabel">
+	            </td>
+	            <td>
+	                <input type="checkbox" _name="delete_xml_representation_files" id="itemProperty_option_delete_xml_representation_files" />
+	                <label for="itemProperty_option_delete_xml_representation_files">Delete local representation after upload</label>
+	            </td>
+	        </tr>
+	        <tr class="glacierCredentials">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_vault_name">Vault Name: </label>
+	            </td>
+	            <td>
+	                <input class="bigInputBox" type="text" id="itemProperty_option_vault_name"  />
+	                <div style="padding: 5px;position: absolute;z-index: 100;margin-top: -5px;display:none;" class="error ui-corner-all ui-state-error"><span style="top:1px;" class="ui-icon ui-icon-alert"></span><span class="">Error: Special characters not allowed</span></div>
+	            </td>
+	        </tr>
+			<tr class="ftpCredentials">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_user_name">User name: </label>
+				</td>
+				<td>
+					<input type="text" autocomplete="off" id="itemProperty_option_user_name" />
+					&nbsp;
+					<span class="passwordOption">
+					<label for="itemProperty_option_password">Password: </label>
+					<input type="password" autocomplete="off" id="itemProperty_option_password" />
+					</span>
+				</td>
+			</tr>
+			<tr class="boxOption">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+	                <input type="checkbox" _name="box_store_jwt_json" name="box_store_jwt_json" id="itemProperty_option_box_store_jwt_json" />
+                	<label for="itemProperty_option_box_store_jwt_json">Store JWT JSON file</label>
+				</td>
+			</tr>
+			<tr class="boxOption JWT_JSON">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_box_jwt_config_content">JWT config: </label>
+				</td>
+				<td>
+	                <textarea class="bigInputBox encryptPass" _name="box_jwt_config_content" id="itemProperty_option_box_jwt_config_content" rows="10"></textarea>
+				</td>
+			</tr>
+			<tr class="blobType">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_upload_blob_type">Upload blob type: </label>
+	            </td>
+	            <td>
+	                <select id="itemProperty_option_upload_blob_type" _name="upload_blob_type">
+                        <option value="blockblob">blockblob</option>
+                        <option value="appendblob">appendblob</option>
+                    </select>
+	            </td>
+	        </tr>
+	        <tr class="azureOption">
+	            <td colspan="2">
+	                <label for="itemProperty_option_sas_token">Shared access signature token: </label>
+	                <input class="bigInputBox encryptPass" _name="sas_token" type="text" id="itemProperty_option_sas_token" />
+	            </td>
+	        </tr>
+	        <tr class="azureOption">
+	        	<td class="itemPropertyLabel">
+	            </td>
+	            <td>
+	            	<input type="checkbox" _name="data_lake_storagegen2" name="data_lake_storagegen2" id="itemProperty_option_data_lake_storagegen2" />
+                	<label for="itemProperty_option_data_lake_storagegen2">Data Lake Storage Gen2</label>
+	            </td>
+	        </tr>
+			<tr class="rfileOption">
+				<td colspan="2" style="text-align:center;">
+					<div id="warningText" style="padding: 5px;display:inline-block;" class="ui-corner-all ui-state-highlight"><span style="top:1px;" class="ui-icon ui-icon-alert"></span>
+					RFile: <a target="_blank" href="http://www.crushftp.com/crush10wiki/Wiki.jsp?page=RFile">http://www.crushftp.com/crush10wiki/Wiki.jsp?page=RFile</a>
+					</div>
+				</td>
+			</tr>
+			<tr class="noFileOption">
+				<td></td>
+				<td style="padding-bottom: 10px;">
+					<label for="itemProperty_option_use_dmz">Route connection through DMZ when possible: </label>
+					<select _name="use_dmz"  id="itemProperty_option_use_dmz"></select>
+				</td>
+			</tr>
+			<tr class="blockblob_option">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_block_blob_upload_buffer_size">
+						Upload buffer size:
+					</label>
+				</td>
+				<td>
+					<input type="text" id="itemProperty_option_block_blob_upload_buffer_size" _name="block_blob_upload_buffer_size" class="smallInputBox" />
+					<label for="itemProperty_option_block_blob_upload_buffer_size">
+						MB
+					</label>
+				</td>
+			</tr>
+			<tr class="blockblob_option">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_block_blob_upload_threads">
+						Max upload threads:
+					</label>
+				</td>
+				<td>
+					<input type="text" id="itemProperty_option_block_blob_upload_threads" _name="block_blob_upload_threads" class="smallInputBox" />
+				</td>
+			</tr>
+			<tr class="boxOption JWT_JSON_Reverse">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_box_client_id">Client Id: </label>
+				</td>
+				<td>
+	                <input class="bigInputBox" _name="box_client_id" type="text" id="itemProperty_option_box_client_id" />
+				</td>
+			</tr>
+			<tr class="boxOption JWT_JSON_Reverse">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_box_enterprise_id">Enterprise Id: </label>
+				</td>
+				<td>
+	                <input class="bigInputBox" _name="box_enterprise_id" type="text" id="itemProperty_option_box_enterprise_id" />
+				</td>
+			</tr>
+			<tr class="boxOption JWT_JSON_Reverse">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_box_public_key_id">Public Key Id: </label>
+				</td>
+				<td>
+	                <input class="bigInputBox" _name="box_public_key_id" type="text" id="itemProperty_option_box_public_key_id" />
+				</td>
+			</tr>
+			<tr class="boxOption JWT_JSON_Reverse">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_box_private_key">Private Key: </label>
+				</td>
+				<td>
+	                <textarea class="bigInputBox encryptPass" _name="box_private_key" id="itemProperty_option_box_private_key" rows="10"></textarea>
+				</td>
+			</tr>
+			<tr class="boxOption JWT_JSON_Reverse">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_box_private_pass_phrase">Private Key password phrase: </label>
+				</td>
+				<td>
+	                <input class="bigInputBox encryptPass" _name="box_private_pass_phrase" type="password" id="itemProperty_option_box_private_pass_phrase" />
+				</td>
+			</tr>
+			<tr class="boxOption">
+	            <td class="itemPropertyLabel">
+	                <label for="itemProperty_option_box_path">Path: </label>
+	            </td>
+	            <td>
+	                <input class="bigInputBox" type="text" id="itemProperty_option_box_path"  />
+	            </td>
+	        </tr>
+			<tr class="HAOptions">
+				<td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox"_name="haDownload"  id="itemProperty_option_haDownload" />
+					<label for="itemProperty_option_haDownload">HA Download Recovery</label>
+					<span class="spacer"></span>
+					<input type="checkbox"_name="haUpload"  id="itemProperty_option_haUpload" />
+					<label for="itemProperty_option_haUpload">HA Upload Recovery</label>
+				</td>
+			</tr>
+			<tr class="webdavOptions">
+				<td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox"_name="webdav_full_url_on_rename"  id="itemProperty_option_webdav_full_url_on_rename" />
+					<label for="itemProperty_option_webdav_full_url_on_rename">Use full url for rename</label>
+				</td>
+			</tr>
+			<tr class="httpOptions">
+				<td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox"_name="send_compressed"  id="itemProperty_option_send_compressed" />
+					<label for="itemProperty_option_send_compressed">Upload using compression</label>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+					<input type="checkbox"_name="multi"  id="itemProperty_option_multi" />
+					<label for="itemProperty_option_multi">Upload using multi segments</label>
+					<div></div>
+					<input type="checkbox"_name="receive_compressed"  id="itemProperty_option_receive_compressed" />
+					<label for="itemProperty_option_receive_compressed">Download using compression</label>
+					<span class="spacer" style="margin-left: 26px;"></span>
+					<input type="checkbox"_name="multi_segmented_download"  id="itemProperty_option_multi_segmented_download" />
+					<label for="itemProperty_option_multi_segmented_download">Download using multi segments</label>
+				</td>
+			</tr>
+			<tr class="ftpsOptions">
+				<td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox" id="itemProperty_option_config_cwd_list" _name="config_cwd_list" />
+					<label for="itemProperty_option_config_cwd_list">Force CWD before doing listings</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="itemProperty_option_no_stat" _name="no_stat" />
+					<label for="itemProperty_option_no_stat">Avoid use of '<em>STAT</em>' command</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="itemProperty_option_star_stat" _name="star_stat" />
+					<label for="itemProperty_option_star_stat">Use STAT* with item lookups</label>
+				</td>
+			</tr>
+			<tr class="ftpsOptions">
+				<td></td>
+				<td style="padding-bottom: 10px;">
+					<input type="checkbox" id="itemProperty_option_pasv" _name="pasv" />
+					<label for="itemProperty_option_pasv">Passive?</label>
+					<span class="spacer"></span>
+					<input type="checkbox" id="itemProperty_option_no_os400" _name="no_os400" />
+					<label for="itemProperty_option_no_os400">Don't translate OS/400 paths</label>
+				</td>
+			</tr>
+			<tr class="ftpOptions sftpOptions">
+				<td colspan="2">
+					<div>
+		                <a href="#" class="button customScriptBtn" style="padding: 5px 10px;position: relative;float: right;margin-top: -32px;">
+		                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-script'></span>
+		                    Custom Script
+		                </a>
+		            </div>
+		            <div style="clear:both;margin:8px 0px;display:none;" class="customScriptsPanel">
+		            	<div id="customScriptTemplate" style="display:none;">
+		            		<div class="customVal">
+	                            <select class="customScriptType ignoreBind excludeXML" recName="type">
+	                                <option value="after">After</option>
+	                                <option value="before">Before</option>
+	                            </select>
+	                            <input type="text" placeHolder="verb"  recName="verb" class="ignoreBind excludeXML custVal" style="width:100px" />
+	                            <textarea style="width: 99%;margin: 5px 2px 0px 0px;"  recName="value" class="ignoreBind excludeXML custVal" rows="2"></textarea>
+
+	                            <div style="display:none;">
+	                                <textarea class="origVal"></textarea>
+	                            </div>
+	                        </div>
+                        </div>
+		                <fieldset class="nobg">
+		                    <legend>Custom Scripts:</legend>
+		                    <div>
+		                        <label for="scriptType" class="right ">Script Type:</label>
+		                        <select id="scriptType" name="scriptType" class="scriptType ignoreBind excludeXML">
+		                            <option value="before_login_script">before_login_script</option>
+		                            <option value="after_login_script">after_login_script</option>
+		                            <option value="before_logout_script">before_logout_script</option>
+		                            <option value="before_download_script">before_download_script</option>
+		                            <option value="after_download_script">after_download_script</option>
+		                            <option value="before_upload_script">before_upload_script</option>
+		                            <option value="after_upload_script">after_upload_script</option>
+		                            <option value="before_dir_script">before_dir_script</option>
+		                            <option value="after_dir_script">after_dir_script</option>
+		                            <option value="custom">Custom</option>
+		                        </select>
+		                        <div class="valPanel" rel="before_login_script">
+		                            <textarea _name="before_login_script" id="before_login_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="after_login_script">
+		                            <textarea _name="after_login_script" id="after_login_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="before_logout_script">
+		                            <textarea _name="before_logout_script" id="before_logout_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="before_download_script">
+		                            <textarea _name="before_download_script" id="before_download_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="after_download_script">
+		                            <textarea _name="after_download_script" id="after_download_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="before_upload_script">
+		                            <textarea _name="before_upload_script" id="before_upload_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="after_upload_script">
+		                            <textarea _name="after_upload_script" id="after_upload_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="before_dir_script">
+		                            <textarea _name="before_dir_script" id="before_dir_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" rel="after_dir_script">
+		                            <textarea _name="after_dir_script" id="after_dir_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+		                        </div>
+		                        <div class="valPanel" id="custom_scripts" rel="custom">
+		                        </div>
+		                    </div>
+		                </fieldset>
+		            </div>
+				</td>
+			</tr>
+			<tr class="commonFTPOptions">
+				<td></td>
+				<td style="padding-bottom:10px;">
+					<input type="checkbox" _name="simple" id="itemProperty_option_simple" />
+					<label for="itemProperty_option_simple">Simple</label>
+					<span class="ftpesOptions">
+						<span class="spacer"></span>
+						<input type="checkbox" id="itemProperty_option_secure_data" _name="secure_data" />
+						<label for="itemProperty_option_secure_data">Data channel secure</label>
+					</span>
+					<span class="spacer"></span>
+					<input type="checkbox" _name="no_mdtm" id="itemProperty_option_no_mdtm" />
+					<label for="itemProperty_option_no_mdtm">No MDTM</label>
+				</td>
+			</tr>
+			<tr class="noFileOption">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_timeout">
+						Connection Timeout:
+					</label>
+				</td>
+				<td>
+					<input type="text" id="itemProperty_option_timeout" _name="timeout" class="smallInputBox" />
+                    <label style="display:inline-block;" for="itemProperty_option_timeout" class="CrushTask"> (in milliseconds)</label>
+				</td>
+			</tr>
+			<tr class="noFileOption">
+				<td class="itemPropertyLabel">
+				    <label for="itemProperty_write_timeout">
+						Write Timeout:
+					</label>
+				</td>
+				<td>
+                    <input type="text" id="itemProperty_write_timeout" _name="write_timeout" class="smallInputBox" />
+                    <label style="display:inline-block;" for="itemProperty_write_timeout" class="CrushTask"> (in milliseconds)</label>
+				</td>
+			</tr>
+			<tr class="noFileOption">
+				<td class="itemPropertyLabel">
+                    <label for="itemProperty_read_timeout">
+						Read Timeout:
+					</label>
+				</td>
+				<td>
+                    <input type="text" id="itemProperty_read_timeout" _name="read_timeout" class="smallInputBox" />
+                    <label style="display:inline-block;" for="itemProperty_read_timeout" class="CrushTask"> (in milliseconds)</label>
+				</td>
+			</tr>
+			<tr class="smb3Option">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+                    <input type="checkbox" _name="smb3_required_signing" id="itemProperty_option_smb3_required_signing" />
+	                <label for="itemProperty_option_smb3_required_signing">Required signing</label>
+				</td>
+			</tr>
+			<tr class="commonFTPOptions nonSftpOptions">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_proxyActivePorts">
+						Active Port Range:
+					</label>
+				</td>
+				<td>
+					<input _name="proxyActivePorts" type="text" id="itemProperty_option_proxyActivePorts" />
+				</td>
+			</tr>
+			<tr class="ftpOptions">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_ftpEncryption">Encryption Mode: </label>
+				</td>
+				<td>
+					<select id="itemProperty_option_ftpEncryption" _name="secure">
+						<option value="false">Plain</option>
+						<option value="true">TLS</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="SSLOptions">
+				<td colspan="2">
+					<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;margin:5px 3px;">
+						<span style="top:1px;" class="ui-icon ui-icon-info"></span>
+						<span class="">
+							Use below options only when SSL client authentication is required.
+						</span>
+					</span>
+				</td>
+			</tr>
+			<tr class="SSLOptions">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_keystore_path">
+						Keystore:
+					</label>
+				</td>
+				<td>
+					<input _name="keystore_path" type="text" class="excludeXML" id="itemProperty_option_keystore_path" />
+				</td>
+			</tr>
+			<tr class="SSLOptions">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_keystore_pass">
+						Keystore Password:
+					</label>
+				</td>
+				<td>
+					<input _name="keystore_pass" type="password" class="encryptPass excludeXML" id="itemProperty_option_keystore_pass" />
+				</td>
+			</tr>
+			<tr class="SSLOptions">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_key_pass">
+						Key Password:
+					</label>
+				</td>
+				<td>
+					<input _name="key_pass" type="password" class="encryptPass excludeXML" id="itemProperty_option_key_pass" />
+				</td>
+			</tr>
+            <tr class="SSLOptions hadoopOption2">
+				<td colspan="2">
+					<span class="spacer"></span>
+					<input _name="acceptAnyCert" type="checkbox" class="excludeXML" id="acceptAnyCert" />
+                	<label class="right" for="acceptAnyCert">Accept any SSL certificate</label>
+					<span class="spacer"></span>
+					<span class="hadoopOption">
+						<input _name="auth_security" type="checkbox" class="excludeXML" id="auth_security" />
+                		<label class="right" for="auth_security">Authentication security</label>
+                	</span>
+				</td>
+			</tr>
+			<tr class="hadoopOption">
+				<td  class="itemPropertyLabel">
+                	<label for="user_realm">User realm: </label>
+                </td>
+                <td>
+					<input _name="user_realm" type="text" class="excludeXML" id="user_realm" />
+				</td>
+			</tr>
+			<tr class="s3Credentials nonS3API">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_secretKeyID">User name: </label>
+				</td>
+				<td>
+					<input type="text" _name="secretKeyID" name="s3KeyID" class="excludeXML neverInclude" id="itemProperty_option_secretKeyID" />
+					&nbsp;
+					<label for="itemProperty_option_secretKey">Password: </label>
+					<input type="password" _name="secretKey" name="s3Key" class="excludeXML neverInclude" id="itemProperty_option_secretKey" />
+				</td>
+			</tr>
+			<tr class="s3Credentials">
+				<td></td>
+	            <td>
+	                <input type="checkbox" _name="server_side_encrypt" name="server_side_encrypt" class="excludeXML" id="itemProperty_option_server_side_encrypt" />
+	                <label for="itemProperty_option_server_side_encrypt">Server Side Encrypt?</label>
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_s3_acl">Canned ACL: </label>
+				</td>
+				<td>
+					<select _name="s3_acl" id="itemProperty_option_s3_acl">
+						<option value="private">private</option>
+						<option value="public-read">public-read</option>
+						<option value="public-read-write">public-read-write</option>
+						<option value="authenticated-read">authenticated-read</option>
+						<option value="bucket-owner-read">bucket-owner-read</option>
+						<option value="bucket-owner-full-control">bucket-owner-full-control</option>
+						<option value="aws-exec-read">aws-exec-read</option>
+						<option value="log-delivery-write">log-delivery-write</option>
+					</select>
+					<span class="spacer"></span>
+					<label for="itemProperty_option_s3_storage_class">Storage class: </label>
+					<select _name="s3_storage_class" id="itemProperty_option_s3_storage_class">
+						<option value="STANDARD">STANDARD</option>
+						<option value="REDUCED_REDUNDANCY">REDUCED_REDUNDANCY</option>
+						<option value="STANDARD_IA">STANDARD_IA</option>
+						<option value="ONEZONE_IA">ONEZONE_IA</option>
+						<option value="INTELLIGENT_TIERING">INTELLIGENT_TIERING</option>
+						<option value="GLACIER">GLACIER</option>
+						<option value="DEEP_ARCHIVE">DEEP_ARCHIVE</option>
+						<option value="OUTPOSTS">OUTPOSTS</option>
+						<option value="GLACIER_IR">GLACIER_IR</option>
+					</select>
+				</td>
+			</tr>
+	        <tr class="s3Credentials">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_server_side_encrypt_kms">KMS Key Id: </label>
+				</td>
+	            <td>
+	                <input _name="server_side_encrypt_kms" name="server_side_encrypt_kms" type="text" class="excludeXML bigInputBox" id="itemProperty_option_server_side_encrypt_kms" style="margin:4px 0px;" />
+	                <br>
+	                <label for=""><em>(Optional, formatted as: arn:aws:kms:region:acct-id:key/key-id)</em></label>
+	            </td>
+	        </tr>
+	        <tr class="s3CrushCredentials">
+				<td></td>
+	            <td>
+	                <input type="checkbox" _name="random_id" name="random_id" class="excludeXML" id="itemProperty_option_random_id" />
+	                <label for="itemProperty_option_random_id">Use Random ID?</label>
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials">
+				<td></td>
+	            <td>
+	                <input type="checkbox" _name="multithreaded_s3" name="multithreaded_s3" class="excludeXML" id="itemProperty_option_multithreaded_s3" />
+	                <label for="itemProperty_option_multithreaded_s3">Multithreaded S3 Uploads?</label>
+	                <div class="subPanel ui-widget-content leftborder nobg multiThreadUploadOptions">
+			            <div style="display: block; height: 15px"></div>
+			            <label
+			              style="display: inline-block; width: 130px; text-align: right"
+			              for="s3_buffer"
+			            >
+			              Upload Buffer:</label
+			            >
+			            <input
+			              type="text"
+			              id="s3_buffer"
+			              name="s3_buffer"
+			              _name="s3_buffer"
+			              class="smallInputBox excludeXML"
+			            />
+			            <label
+			              style="display: inline-block;"
+			              for="s3_buffer"
+			            >
+			              MB</label
+			            >
+			            <div style="display: block; height: 15px"></div>
+			            <label
+			              style="display: inline-block; width: 130px; text-align: right"
+			              for="s3_threads_upload"
+			            >
+			              Upload Threads:</label
+			            >
+			            <input
+			              type="text"
+			              id="s3_threads_upload"
+			              name="s3_threads_upload"
+			              _name="s3_threads_upload"
+			              class="smallInputBox excludeXML"
+			            />
+			            <div style="display: block; height: 15px"></div>
+			         </div>
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials">
+				<td></td>
+	            <td>
+	                <input type="checkbox" _name="multithreaded_s3_download" name="multithreaded_s3_download" class="excludeXML" id="itemProperty_option_multithreaded_s3_download" />
+	                <label for="itemProperty_option_multithreaded_s3_download">Multithreaded S3 Downloads?</label>
+					<div class="subPanel ui-widget-content leftborder nobg multiThreadDownloadOptions">
+						<div style="display: block; height: 15px"></div>
+			            <label
+			              style="display: inline-block; width: 130px; text-align: right"
+			              for="s3_buffer_download"
+			            >
+			              Download Buffer:</label
+			            >
+			            <input
+			              type="text"
+			              id="s3_buffer_download"
+			              name="s3_buffer_download"
+			              _name="s3_buffer_download"
+			              class="smallInputBox excludeXML"
+			            />
+			            <label
+			              style="display: inline-block;"
+			              for="s3_buffer_download">
+			              MB
+			          	</label>
+			            <div style="display: block; height: 15px"></div>
+			            <label
+			              style="display: inline-block; width: 130px; text-align: right"
+			              for="s3_threads_download"
+			            >
+			              Download Threads:</label
+			            >
+			            <input
+			              type="text"
+			              id="s3_threads_download"
+			              name="s3_threads_download"
+			              _name="s3_threads_download"
+			              class="smallInputBox excludeXML"
+			            />
+			            <div style="display: block; height: 15px"></div>
+			            <label
+			              style="display: inline-block; width: 130px; text-align: right"
+			              for="s3_max_buffer_download"
+			            >
+			              Max Download Buffer:</label
+			            >
+			            <input
+			              type="text"
+			              id="s3_max_buffer_download"
+			              name="s3_max_buffer_download"
+			              _name="s3_max_buffer_download"
+			              class="smallInputBox excludeXML"
+			            />
+			            <label
+			              style="display: inline-block;"
+			              for="s3_max_buffer_download">
+			              MB
+			          	</label>
+			            <div style="display: block; height: 15px"></div>
+			          </div>
+	            </td>
+	        </tr>
+	        <tr class="s3CrushCredentials">
+				<td></td>
+	            <td>
+	                <input type="checkbox" _name="segmented" name="segmented" class="excludeXML" id="itemProperty_option_segmented" />
+	                <label for="itemProperty_option_segmented">Store files split into segments.</label>
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials">
+				<td></td>
+	            <td>
+	                <input type="checkbox" _name="s3_meta_md5_and_upload_by" name="s3_meta_md5_and_upload_by" class="excludeXML" id="itemProperty_option_s3_meta_md5_and_upload_by" />
+	                <label for="itemProperty_option_s3_meta_md5_and_upload_by">Add meta data : MD5 and uploaded by user</label>
+	            </td>
+	        </tr>
+	        <tr class="s3Credentials nonS3API">
+	            <td colspan="2">
+					<div style="padding: 5px;margin-top: 5px;" class="ui-corner-all ui-state-highlight"><span style="top:1px;" class="ui-icon ui-icon-alert"></span>
+						These permissions are required on the bucket: <em>PutObject</em>, <em>GetObject</em>, <em>DeleteObject</em>, <em>ListBucket</em>, <em>ListBucketMultipartUploads</em>, <em>ListMultipartUploadParts</em>
+					</div>
+	            </td>
+	        </tr>
+	        <tr class="onedriveCredentials">
+				<td class="itemPropertyLabel">
+					<label class="username" for="itemProperty_option_onedrive_secretKeyID">User name: </label>
+				</td>
+				<td>
+					<input type="text" _name="secretKeyID" name="driveKeyID" class="excludeXML username" id="itemProperty_option_onedrive_secretKeyID" />
+					<span class="username">&nbsp;</span>
+					<label for="itemProperty_option_onedrive_secretKey">Password: </label>
+					<input type="password" _name="secretKey" name="driveKey" class="excludeXML" id="itemProperty_option_onedrive_secretKey" />
+				</td>
+			</tr>
+			<tr class="onedriveCredentials">
+				<td class="itemPropertyLabel">
+					<label for="itemProperty_option_onedrive_tenant">Tenant: </label>
+				</td>
+				<td>
+					<input type="text" _name="onedriveTenant" name="onedriveTenant" class="excludeXML" id="itemProperty_option_onedrive_tenant" />
+					<div style="padding: 5px;position: absolute;z-index: 100;margin-top: -5px;display:none;" class="error ui-corner-all ui-state-error"><span style="top:1px;" class="ui-icon ui-icon-alert"></span><span class="err">Error: Special characters not allowed</span></div>
+				</td>
+			</tr>
+			<tr class="onedriveCredentials onedriveCredentialsOnly">
+		      <td class="itemPropertyLabel">
+		        <label for="itemProperty_option_onedrive_user_id">User id or User principal name:</label>
+		      </td>
+		      <td>
+		        <input
+		          type="text"
+		          _name="onedrive_user_id"
+		          name="onedrive_user_id"
+		          class="excludeXML"
+		          id="itemProperty_option_onedrive_user_id"
+		        />
+		      </td>
+		    </tr>
+			<tr class="onedriveCredentials" style="margin-top:10px;">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+					<a href="#" class="button refreshMSToken" style="top:5px;margin-left:0px;margin-top:7px;">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh'></span>
+						Get Refresh Token
+					</a>
+					<span class="ui-state-highlight ui-corner-all" style="padding:3px;display:inline-block;margin:0px 3px;width:auto;position: relative;top: -6px;">
+						<span style="top:1px;" class="ui-icon ui-icon-info"></span>
+						<span>
+							<a target="_blank" href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=OneDriveSetup">Learn more: OneDrive/Sharepoint Setup</a>
+						</span>
+					</span>
+				</td>
+			</tr>
+			<tr class="onedriveCredentials onedriveCredentialsOnly">
+				<td></td>
+	            <td>
+	            	<div>
+	                	<input type="checkbox" _name="onedrive_my_shares" name="onedrive_option" class="excludeXML" id="itemProperty_option_onedrive_my_shares" />
+	                	<label for="itemProperty_option_onedrive_my_shares">Shared files</label>
+	                </div>
+	                <div class="subPanel ui-widget-content leftborder nobg onDriveShared" style="display:none;padding:8px 10px;">
+	                	<label for="itemProperty_option_onedrive_share_name">Share file name: </label>
+						<input type="text" _name="onedrive_share_name" name="onedriveSharename" class="excludeXML" id="itemProperty_option_onedrive_share_name" />
+	                </div>
+	            </td>
+			</tr>
+			<tr class="sharepointCredentials">
+				<td></td>
+	            <td>
+	                <div class="nobg" style="padding:8px 10px;">
+	                	<label style="display: inline-block;width:75px;text-align: right;" for="itemProperty_option_sharepoint_site_id">Site id: </label>
+						<input type="text" _name="sharepoint_site_id" name="sharepointSiteID" class="excludeXML" id="itemProperty_option_sharepoint_site_id" />
+	                </div>
+	                <div class="nobg" style="padding:8px 10px;">
+	                	<label style="display: inline-block;width:75px;text-align: right;" for="itemProperty_option_sharepoint_site_path">Site Path: </label>
+						<input type="text" _name="sharepoint_site_path" name="sharepointSitePath" class="excludeXML" id="itemProperty_option_sharepoint_site_path" />
+	                </div>
+	                <div class="nobg" style="padding:8px 10px;">
+	                	<label style="display: inline-block;width:75px;text-align: right;" for="itemProperty_option_sharepoint_site_drive_name">Drive name: </label>
+						<input type="text" _name="sharepoint_site_drive_name" name="sharepointDriveName" class="excludeXML" id="itemProperty_option_sharepoint_site_drive_name" />
+	                </div>
+	                <div class="nobg" style="padding:8px 10px;">
+	                	<label style="display: inline-block;width:75px;text-align: right;" for="itemProperty_option_sharepoint_site_folder_name">Folder: </label>
+						<input type="text" _name="sharepoint_site_folder_name" name="sharepointFolderName" class="excludeXML ignoreBind" id="itemProperty_option_sharepoint_site_folder_name" />
+	                </div>
+	            </td>
+			</tr>
+			<tr class="onedriveCredentials sharepointCredentials">
+				<td></td>
+	            <td>
+	            	<div class="nobg" style="padding:6px 10px;">
+	                	<label style="display: inline-block;margin-left:-30px;text-align: right;" for="itemProperty_option_one_drive_conflict_behaviour">Conflict Behaviour: </label>
+						<select _name="one_drive_conflict_behaviour" name="one_drive_conflict_behaviour" class="excludeXML" id="itemProperty_option_one_drive_conflict_behaviour">
+							<option value="fail">Fail</option>
+							<option value="replace">Replace</option>
+							<option value="rename">Rename</option>
+						</select>
+	                </div>
+	            </td>
+			</tr>
+			<tr class="gdriveCredentials">
+				<td class="itemPropertyLabel">
+					<label class="username" for="itemProperty_option_gdrive_secretKeyID">User name: </label>
+				</td>
+				<td>
+					<input type="text" _name="secretKeyID" name="driveKeyID" class="excludeXML username" id="itemProperty_option_gdrive_secretKeyID" />
+					<span class="username">&nbsp;</span>
+					<label for="itemProperty_option_gdrive_secretKey">Password: </label>
+					<input type="password" _name="secretKey" name="driveKey" class="excludeXML" id="itemProperty_option_gdrive_secretKey" />
+				</td>
+			</tr>
+			<tr class="gdriveCredentials noGstorage">
+				<td></td>
+	            <td>
+	            	<div>
+	                	<input type="checkbox" _name="team_drive" name="team_drive_gdrive" class="excludeXML" id="itemProperty_option_gdrive_team_drive" />
+	                	<label for="itemProperty_option_gdrive_team_drive">Enable Team Drive</label>
+	                </div>
+	            </td>
+			</tr>
+			<tr class="gdriveCredentials" style="margin-top:10px;">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+					<a href="#" class="button refreshGoogleToken" style="top:5px;margin-left:0px;margin-top:7px;">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh'></span>
+						Get Refresh Token
+					</a>
+					<span class="ui-state-highlight ui-corner-all" style="padding:3px;display:inline-block;margin:0px 3px;width:auto;position: relative;top: 0px;">
+						<span style="top:1px;top:2px" class="ui-icon ui-icon-info"></span>
+						<span>
+							<a class="noGdrive" target="_blank" href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Google%20Cloud%20Storage%20Integration">Learn more: GStorage Setup</a>
+							<a class="noGstorage" target="_blank" href="http://www.crushftp.com/crush9wiki/Wiki.jsp?page=GDriveSetup">Learn more: GDrive Setup</a>
+						</span>
+					</span>
+				</td>
+			</tr>
+			<tr class="gstorageCredentials">
+				<td></td>
+	            <td>
+	            	<div>
+	                	<input type="checkbox" _name="gstorage_with_s3_api" name="gstorage_with_s3_api" class="excludeXML" id="itemProperty_option_gdrive_gstorage_with_s3_api" />
+	                	<label for="itemProperty_option_gdrive_gstorage_with_s3_api">S3 API</label>
+	                </div>
+	            </td>
+			</tr>
+			<tr class="gdriveCredentials noGstorage" style="margin-top:10px;">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+					<label for="gdrive_corpora">Corpora variable name:</label>
+					<span class="spacer"></span>
+					<select _name="gdrive_corpora" id="itemProperty_option_gdrive_corpora">
+						<option value=""></option>
+						<option value="user">user</option>
+						<option value="drive">drive</option>
+						<option value="allDrives">allDrives</option>
+						<option value="domain">domain</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="citrixCredentials">
+				<td class="itemPropertyLabel" >
+					<label class="username" for="itemProperty_option_client_id">Client ID: </label>
+				</td>
+				<td>
+					<input type="text" _name="client_id" name="client_id" class="excludeXML username" id="itemProperty_option_client_id" />
+					<span class="username">&nbsp;</span>
+					<label for="itemProperty_option_client_secret">Password: </label>
+					<input type="password" _name="client_secret" name="client_secret" class="excludeXML" id="itemProperty_option_client_secret" />
+				</td>
+			</tr>
+			<tr class="citrixCredentials" style="margin-top:10px;">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+					<a href="#" class="button refreshCitrixToken" style="top:5px;margin-left:0px;margin-top:7px;">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh'></span>
+						Get Refresh Token
+					</a>
+				</td>
+			</tr>
+			<tr class="dropBoxCredentials">
+				<td class="itemPropertyLabel" >
+					<label class="username" for="itemProperty_option_dropbox_client_id">Username: </label>
+				</td>
+				<td>
+					<input type="text" _name="client_id" name="client_id" class="excludeXML username" id="itemProperty_option_dropbox_client_id" />
+					<span class="username">&nbsp;</span>
+					<label for="itemProperty_option_dropbox_client_secret">Password: </label>
+					<input type="password" _name="client_secret" name="client_secret" class="excludeXML" id="itemProperty_option_dropbox_client_secret" />
+				</td>
+			</tr>
+			<tr class="dropBoxCredentials" style="margin-top:10px;">
+				<td class="itemPropertyLabel">
+				</td>
+				<td>
+					<a href="#" class="button refreshDropboxToken" style="top:5px;margin-left:0px;margin-top:7px;">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-refresh'></span>
+						Get Access Token
+					</a>
+				</td>
+			</tr>
+			<tr class="hadoopOption">
+	            <td class="itemPropertyLabel">
+	                <label for="kerberos_config">
+	                    Kerberos config file:
+	                </label>
+	             </td>
+	             <td>
+	                <input _name="kerberos_config" type="text" class="bigInputBox" style="width:335px;" id="itemProperty_option_kerberos_config" />
+	                <a href="#" PickType="file" class="button slim serverFilePickButton" rel="itemProperty_option_kerberos_config" style="top:10px;padding:3px 12px;">
+	                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+	                    Browse
+	                </a>
+	            </td>
+	        </tr>
+	        <tr class="hadoopOption">
+	            <td class="itemPropertyLabel">
+	                <label for="login_config">
+	                    Login config file:
+	                </label>
+	             </td>
+	             <td>
+	                <input _name="login_config" type="text" class="bigInputBox" style="width:335px;" id="itemProperty_option_login_config" />
+	                <a href="#" PickType="file" class="button slim serverFilePickButton" rel="itemProperty_option_login_config" style="top:10px;padding:3px 12px;">
+	                    <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+	                    Browse
+	                </a>
+	            </td>
+	        </tr>
+			<tr class="privateOptions">
+				<td colspan="2">
+					<label for="itemProperty_option_private_key_file_path">Private key file path: </label>
+					&nbsp;
+					<input class="bigInputBox" type="text" _name="ssh_private_key" id="itemProperty_option_private_key_file_path" />
+					<a href="#" PickType="file" class="button serverFilePickButton" rel="itemProperty_option_private_key_file_path" style="top:5px;margin-left:0px;">
+						<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+						<span class="GeneralSettings btnBrowseText">Browse
+						</span>
+					</a>
+				</td>
+			</tr>
+			<tr class="privateOptions">
+				<td colspan="2">
+					<label for="itemProperty_option_private_key_file_pass">Private key file pass: </label>
+					&nbsp;
+					<input class="bigInputBox encryptPass" type="password" _name="ssh_private_key_pass" id="itemProperty_option_private_key_file_pass" />
+				</td>
+			</tr>
+			<tr class="privateOptions">
+				<td colspan="2">
+					<input type="checkbox" _name="ssh_two_factor" id="itemProperty_option_two_factor_authentication" />
+					<label for="itemProperty_option_two_factor_authentication">Two factor authentication</label>
+				</td>
+			</tr>
+			<tr class="privateOptions">
+				<td colspan="2">
+					<input type="checkbox" _name="verifyHost" id="itemProperty_option_verifyHost" />
+					<label for="itemProperty_option_verifyHost">Verify SSH key</label>
+					<div class="subPanel ui-widget-content leftborder nobg onlyVerifyHost" style="display:none;padding:8px 10px;">
+						<div>
+							<input type="checkbox" _name="addNewHost" id="itemProperty_option_addNewHost" />
+							<label for="itemProperty_option_addNewHost">Add new key on first occurrence</label>
+						</div>
+						<div>
+							<label for="itemProperty_option_knownHostFile">Known host file: </label>
+							<input _name="knownHostFile" type="text" id="itemProperty_option_knownHostFile" style="width:295px;"/>
+							<a href="#" PickType="file" class="button serverFilePickButton" rel="itemProperty_option_knownHostFile" style="top:5px;margin-left:0px;">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+								<span class="GeneralSettings btnBrowseText">Browse
+								</span>
+							</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="ui-helper-hidden">
+				<td class="itemPropertyLabel">
+					<label for="path">Path: </label>
+				</td>
+				<td>
+					<input readonly="true" class="bigInputBox" type="text" _name="path" id="itemProperty_option_path" />
+				</td>
+			</tr>
+			<tr class="as2Options">
+				<td colspan="2">
+					<div class="tabs nobg">
+						<ul>
+							<li><a href="#itemProperty_tab_Options">Options</a></li>
+							<li><a href="#itemProperty_tab_Signing">Signing</a></li>
+							<li><a href="#itemProperty_tab_Encrypting">Encrypting</a></li>
+						</ul>
+						<div id="itemProperty_tab_Options">
+							<table width="100%">
+								<tr>
+									<td colspan="2">
+										<div style="margin:5px 0px;">
+											<input type="checkbox" _name="as2AsyncMdn" id="itemProperty_option_as2AsyncMdn" />
+											<label for="itemProperty_option_as2AsyncMdn">Async MDN</label>
+											<span class="spacer"></span>
+											<input type="checkbox" _name="as2Compress" id="itemProperty_option_as2Compress" />
+											<label for="itemProperty_option_as2Compress">Use Compression</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td width="110px;">
+										<label for="itemProperty_option_as2SignType">Sign Message: </label>
+									</td>
+									<td>
+										<select _name="as2SignType" id="itemProperty_option_as2SignType">
+											<option value="md5">md5</option>
+											<option value="sha1">sha1</option>
+											<option value="none">none</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2EncryptType">Encrypt Message: </label>
+									</td>
+									<td>
+										<select _name="as2EncryptType" id="itemProperty_option_as2EncryptType">
+											<option value="none">none</option>
+											<option value="3des">3des</option>
+											<option value="aes_128">aes_128</option>
+											<option value="aes_192">aes_192</option>
+											<option value="aes_256">aes_256</option>
+											<option value="rc4_40">rc4_40</option>
+											<option value="rc4_56">rc4_56</option>
+											<option value="rc4_128">rc4_128</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2FromPartner">From Partner: </label>
+									</td>
+									<td>
+										<input _name="as2FromPartner" type="text" id="itemProperty_option_as2FromPartner" />
+										&nbsp;
+										<label for="itemProperty_option_as2ToPartner">To Partner: </label>
+										<input _name="as2ToPartner" type="text" id="itemProperty_option_as2ToPartner" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2From">From Email: </label>
+									</td>
+									<td>
+										<input _name="as2From" type="text" id="itemProperty_option_as2From" />
+										&nbsp;
+										<label for="itemProperty_option_as2Subject">Subject: </label>
+										<input _name="as2Subject" type="text" id="itemProperty_option_as2Subject" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2RecipientUrl">Recipient URL: </label>
+									</td>
+									<td>
+										<input _name="as2RecipientUrl" class="bigInputBox" type="text" id="itemProperty_option_as2RecipientUrl" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2ResponseUrl">Response URL: </label>
+									</td>
+									<td>
+										<input _name="as2ResponseUrl" class="bigInputBox" type="text" id="itemProperty_option_as2ResponseUrl" />
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="itemProperty_tab_Signing">
+							<table width="100%">
+								<tr>
+									<td style="width: 130px;">
+										<label for="itemProperty_option_as2SignKeystorePath">
+											Keystore Path:
+										</label>
+									</td>
+									<td>
+										<input _name="as2SignKeystorePath" type="text" id="itemProperty_option_as2SignKeystorePath" style="width:295px;"/>
+										<a href="#" PickType="file" class="button serverFilePickButton" rel="itemProperty_option_as2SignKeystorePath" style="top:5px;margin-left:0px;">
+											<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+											<span class="GeneralSettings btnBrowseText">Browse
+											</span>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2SignKeystoreFormat">
+											Keystore format:
+										</label>
+									</td>
+									<td>
+										<select _name="as2SignKeystoreFormat" id="itemProperty_option_as2SignKeystoreFormat">
+											<option>JKS</option>
+											<option>PKCS12</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2SignKeystorePassword">
+											Keystore Password:
+										</label>
+									</td>
+									<td>
+										<input _name="as2SignKeystorePassword" type="password" class="encryptPass" id="itemProperty_option_as2SignKeystorePassword" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2SignKeyAlias">
+											Key name(alias):
+										</label>
+									</td>
+									<td>
+										<input _name="as2SignKeyAlias" type="text" id="itemProperty_option_as2SignKeyAlias" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2SignKeyPassword">
+											Key Password:
+										</label>
+									</td>
+									<td>
+										<input _name="as2SignKeyPassword" type="password" class="encryptPass" id="itemProperty_option_as2SignKeyPassword" />
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="itemProperty_tab_Encrypting">
+							<table width="100%">
+								<tr>
+									<td style="width: 130px;">
+										<label for="itemProperty_option_as2EncryptKeystorePath">
+											Keystore Path:
+										</label>
+									</td>
+									<td>
+										<input _name="as2EncryptKeystorePath" type="text" id="itemProperty_option_as2EncryptKeystorePath" style="width:295px;" />
+										<a href="#" PickType="file" class="button serverFilePickButton" rel="itemProperty_option_as2EncryptKeystorePath" style="top:5px;margin-left:0px;">
+											<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+											<span class="GeneralSettings btnBrowseText">Browse
+											</span>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2EncryptKeystoreFormat">
+											Keystore format:
+										</label>
+									</td>
+									<td>
+										<select _name="as2EncryptKeystoreFormat" id="itemProperty_option_as2EncryptKeystoreFormat">
+											<option>JKS</option>
+											<option>PKCS12</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2EncryptKeystorePassword">
+											Keystore Password:
+										</label>
+									</td>
+									<td>
+										<input _name="as2EncryptKeystorePassword" type="password" class="encryptPass" id="itemProperty_option_as2EncryptKeystorePassword" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2EncryptKeyAlias">
+											Key name(alias):
+										</label>
+									</td>
+									<td>
+										<input _name="as2EncryptKeyAlias" type="text" id="itemProperty_option_as2EncryptKeyAlias" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="itemProperty_option_as2EncryptKeyPassword">
+											Key Password:
+										</label>
+									</td>
+									<td>
+										<input _name="as2EncryptKeyPassword" type="password" class="encryptPass" id="itemProperty_option_as2EncryptKeyPassword" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="sftpOptions">
+				<td colspan="2">
+					<div>
+						<div>
+							<div class="sftp-suggested-settings"></div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="fieldAdvancedDialog" class="customForm" title="Advanced settings">
+		<div class="tabs nobg" id="advancedSettingsTabs">
+			<ul>
+				<li><a href="#itemProperty_Encryption">Encryption</a></li>
+				<li><a href="#itemProperty_Sync">Sync</a></li>
+				<li><a href="#itemProperty_Posix">POSIX</a></li>
+				<li><a href="#itemProperty_Advanced">Extra Permissions</a></li>
+			</ul>
+			<div id="itemProperty_Advanced" class="extra customForm">
+				<div style="clear: both;">
+					<input type="checkbox" class="ignoreBind" _name="ratio" id="itemSync_option_setup_ratio"/>
+					<label for="itemSync_option_setup_ratio">Free Ratio</label>
+				</div>
+				<div class="vtip" title="If enabled, web downloads will not tell he browser how big the file is so that the file's size can be bigger or smaller when finally downloaded.">
+					<input type="checkbox" _name="dynamic_size" id="itemSync_option_dynamic_size" />
+					<label for="itemSync_option_dynamic_size">
+						Dynamic Size
+					</label>
+				</div>
+			</div>
+			<div id="itemProperty_Encryption" class="customForm sideScroll" style="height:420px;">
+				<table width="100%">
+					<tr>
+						<td>
+							 <fieldset class="encryption noForm nobg notInheritable">
+								<legend class="ui-priority-primary">Upload</legend>
+								<table width="100%">
+									<tr>
+										<td style="width: 190px;" class="right">
+										</td>
+										<td>
+											<input _name="pgpDecryptUpload" type="checkbox" id="itemEncryption_option_pgpDecryptUpload" />
+											<label for="itemEncryption_option_pgpDecryptUpload">
+												PGP Decrypt
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_pgpPrivateKeyUploadPath">
+												Private Key Path:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpPrivateKeyUploadPath" id="itemEncryption_option_pgpPrivateKeyUploadPath" class="bigInputBox" />
+											<a href="#"  style="float: right;margin-right: 50px;margin-top: -7px;top:0px !important;" PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPrivateKeyUploadPath">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+												<span class="">
+													Browse
+												</span>
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_pgpPrivateKeyUploadPassword">
+												Private Key Password:
+											</label>
+										</td>
+										<td>
+											<input _name="pgpPrivateKeyUploadPassword" class="encryptPass" type="password" id="itemEncryption_option_pgpPrivateKeyUploadPassword" />
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+										</td>
+										<td>
+											<input _name="pgpEncryptUpload" type="checkbox" id="itemEncryption_option_pgpEncryptUpload" />
+											<label for="itemEncryption_option_pgpEncryptUpload">
+												PGP Encrypt
+											</label>
+											<span class="spacer"></span>
+											<input _name="pgpAsciiUpload" type="checkbox" id="itemEncryption_option_pgpAsciiUpload" />
+											<label for="itemEncryption_option_pgpAsciiUpload">
+												ASCII Armor
+											</label>
+											<span class="spacer"></span>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+										</td>
+										<td>
+											<input type="checkbox" id="itemEncryption_option_hint_decrypted_size" _name="hint_decrypted_size" />
+                                            <label for="itemEncryption_option_hint_decrypted_size">Add hinted decrypted size</label>
+											<span class="spacer"></span>
+											<input type="checkbox" id="itemEncryption_option_sign" _name="pgpSignUpload" />
+                                            <label for="itemEncryption_option_sign">Sign</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_pgpPublicKeyUploadPath">
+												Public Key Path:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpPublicKeyUploadPath" id="itemEncryption_option_pgpPublicKeyUploadPath" class="bigInputBox" />
+											<a href="#"  style="float: right;margin-right: 50px;margin-top: -7px;top:0px !important;"  PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPublicKeyUploadPath">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+												<span class="">
+													Browse
+												</span>
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_encryption_cypher_upload">
+												Encryption cypher:
+											</label>
+										</td>
+										<td>
+											<select _name="encryption_cypher_upload" id="itemEncryption_option_encryption_cypher_upload">
+												<option value="TRIPLE_DES">TRIPLE_DES</option>
+												<option selected value="CAST5">CAST5</option>
+												<option value="BLOWFISH">BLOWFISH</option>
+												<option value="AES_128">AES_128</option>
+												<option value="AES_192">AES_192</option>
+												<option value="AES_256">AES_256</option>
+												<option value="TWOFISH">TWOFISH</option>
+												<option value="DES">DES</option>
+												<option value="SAFER">SAFER</option>
+												<option value="IDEA">IDEA</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="center">
+											<a href="#"  _parent="table" style="margin-top:10px;" class="button noSpacing testPGPButton" rel="itemEncryption_option_pgpPrivateKeyUploadPath,itemEncryption_option_pgpPrivateKeyUploadPassword,itemEncryption_option_pgpPublicKeyUploadPath">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-check"></span>
+												<span class="">
+													Test Key
+												</span>
+											</a>
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+							<fieldset class="encryption noForm nobg notInheritable">
+								<legend class="ui-priority-primary">Download</legend>
+								<table width="100%" class="customForm">
+									<tr>
+										<td style="width: 190px;" class="right">
+										</td>
+										<td>
+											<input _name="pgpDecryptDownload" type="checkbox" id="itemEncryption_option_pgpDecryptDownload" />
+											<label for="itemEncryption_option_pgpDecryptDownload">
+												PGP Decrypt
+											</label>
+											<span class="spacer"></span>
+											<input _name="decrypt_pgp_check_downloads" type="checkbox" id="itemEncryption_option_decrypt_pgp_check_downloads" />
+											<label for="itemEncryption_option_decrypt_pgp_check_downloads">
+												Check decrypt downloads
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_pgpPrivateKeyDownloadPath">
+												Private Key Path:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpPrivateKeyDownloadPath" id="itemEncryption_option_pgpPrivateKeyDownloadPath" class="bigInputBox" />
+											<a href="#"  style="float: right;margin-right: 50px;margin-top: -7px;top:0px !important;"  PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPrivateKeyDownloadPath">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+												<span class="">
+													Browse
+												</span>
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_pgpPrivateKeyDownloadPassword">
+												Private Key Password:
+											</label>
+										</td>
+										<td>
+											<input _name="pgpPrivateKeyDownloadPassword" class="encryptPass" type="password" id="itemEncryption_option_pgpPrivateKeyDownloadPassword" />
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+										</td>
+										<td>
+											<input _name="pgpEncryptDownload" type="checkbox" id="itemEncryption_option_pgpEncryptDownload" />
+											<label for="itemEncryption_option_pgpEncryptDownload">
+												PGP Encrypt
+											</label>
+											<span class="spacer"></span>
+											<input _name="pgpAsciiDownload" type="checkbox" id="itemEncryption_option_pgpAsciiDownload" />
+											<label for="itemEncryption_option_pgpAsciiDownload">
+												ASCII Armor
+											</label>
+											<span class="spacer"></span>
+										</td>
+									</tr>
+									<tr>
+										<td class="right"></td>
+										<td>
+											<input _name="encrypt_pgp_check_downloads" type="checkbox" id="itemEncryption_option_encrypt_pgp_check_downloads" />
+											<label for="itemEncryption_option_encrypt_pgp_check_downloads">
+												Check encrypt downloads
+											</label>
+											<span class="spacer"></span>
+											<input type="checkbox" id="itemEncryption_option_hint_sign_download" _name="pgpSignDownload" />
+                                            <label for="itemEncryption_option_hint_sign_download">Sign</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_pgpPublicKeyDownloadPath">
+												Public Key Path:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpPublicKeyDownloadPath" id="itemEncryption_option_pgpPublicKeyDownloadPath" class="bigInputBox" />
+											<a href="#"  style="float: right;margin-right: 50px;margin-top: -7px;top:0px !important;"  PickType="file" class="button noSpacing serverFilePickButton" rel="itemEncryption_option_pgpPublicKeyDownloadPath">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+												<span class="">
+													Browse
+												</span>
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="itemEncryption_option_encryption_cypher_download">
+												Encryption cypher:
+											</label>
+										</td>
+										<td>
+											<select _name="encryption_cypher_download" id="itemEncryption_option_encryption_cypher_download">
+												<option value="TRIPLE_DES">TRIPLE_DES</option>
+												<option selected value="CAST5">CAST5</option>
+												<option value="BLOWFISH">BLOWFISH</option>
+												<option value="AES_128">AES_128</option>
+												<option value="AES_192">AES_192</option>
+												<option value="AES_256">AES_256</option>
+												<option value="TWOFISH">TWOFISH</option>
+												<option value="DES">DES</option>
+												<option value="SAFER">SAFER</option>
+												<option value="IDEA">IDEA</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="center">
+											<a href="#" style="margin-top:10px;" _parent="table" class="button noSpacing testPGPButton" rel="itemEncryption_option_pgpPrivateKeyDownloadPath,itemEncryption_option_pgpPrivateKeyDownloadPassword,itemEncryption_option_pgpPublicKeyDownloadPath">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-check"></span>
+												<span class="">
+													Test Key
+												</span>
+											</a>
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+							 <fieldset class="noForm nobg notInheritable">
+								<legend class="ui-priority-primary">Generate</legend>
+								<table width="100%">
+									<tr>
+										<td style="width: 190px;" class="right">
+											<label for="pgpCommonNameGenerate">
+												Common Name:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpCommonNameGenerate" id="pgpCommonNameGenerate" class="" value=""/> (Username or Email)
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="pgpKeySizeGenerate">
+												RSA Key Size:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpKeySizeGenerate" id="pgpKeySizeGenerate" class="" value="2048"/>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="pgpKeyDaysGenerate">
+												Valid Days:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpKeyDaysGenerate" id="pgpKeyDaysGenerate" class="" value="365"/>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="pgpPrivateKeyPasswordGenerate">
+												Private Key Password:
+											</label>
+										</td>
+										<td>
+											<input _name="pgpPrivateKeyPasswordGenerate" type="password" id="pgpPrivateKeyPasswordGenerate" />
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+											<label for="pgpPivateKeyPathGenerate">
+												Private Key Path:
+											</label>
+										</td>
+										<td>
+											<input type="text" _name="pgpPivateKeyPathGenerate" id="pgpPivateKeyPathGenerate" class="bigInputBox" />
+											<a href="#"  style="float: right;margin-right: 50px;margin-top: -7px;top:0px !important;"  PickType="dir" class="button noSpacing serverFilePickButton" rel="pgpPivateKeyPathGenerate">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+												<span class="">
+													Browse
+												</span>
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="right">
+										</td>
+										<td>
+											<a href="#" class="button noSpacing" id="pgpEncryptionGenerateButton">
+												<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-key"></span>
+												<span class="">
+													Generate PGP Key Pair
+												</span>
+											</a>
+											<br/>
+											<br/>
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="itemProperty_Sync" class="sync customForm">
+				<table width="100%">
+					<tr>
+						<td style="width: 150px;" class="right">
+							<label for="itemSync_option_syncName">
+								Name:
+							</label>
+						</td>
+						<td>
+							<input _name="syncName" type="text" id="itemSync_option_syncName" class="bigInputBox" />
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label for="itemSync_option_syncRevisions">
+								Revisions:
+							</label>
+						</td>
+						<td>
+							<input _name="syncRevisions" type="text" id="itemSync_option_syncRevisions" class="smallInputBox" />
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label for="itemSync_option_syncRevisionsPath">
+								Revisions Storage Path:
+							</label>
+						</td>
+						<td>
+							<input type="text" _name="syncRevisionsPath" id="itemSync_option_syncRevisionsPath" class="bigInputBox" />
+							<a href="#" PickType="dir" style="float: right;margin-right: 125px;margin-top: -7px;top:0px !important;" class="button noSpacing serverFilePickButton" rel="itemSync_option_syncRevisionsPath">
+								<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+								<span class="">
+									Browse
+								</span>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label>
+								Upload only:
+							</label>
+						</td>
+						<td>
+							<input type="checkbox" _name="syncUploadOnly" id="itemSync_option_syncUploadOnly" />
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="itemProperty_Posix" class="posix customForm">
+				<h3>Folders:</h3>
+				<hr class="ui-widget-content">
+				<table width="100%" style="margin-top: 10px;">
+					<tr>
+						<td style="width: 150px;" class="right">
+							<label for="itemPosix_option_folder_permissions">
+								Permissions:
+							</label>
+						</td>
+						<td>
+							<input _name="posixFolderPermissions" type="text" id="itemPosix_option_folder_permissions" class="smallInputBox" />
+							<label for="itemPosix_option_folder_permissions">
+								<small>(eg. 777)</small>
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label for="itemPosix_option_folder_user">
+								User:
+							</label>
+						</td>
+						<td>
+							<input _name="posixFolderUser" type="text" id="itemPosix_option_folder_user" class="inputBox" />
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label for="itemPosix_option_folder_group">
+								Group:
+							</label>
+						</td>
+						<td>
+							<input _name="posixFolderGroup" type="text" id="itemPosix_option_folder_group" class="inputBox" />
+						</td>
+					</tr>
+				</table>
+				<h3>Files:</h3>
+				<hr class="ui-widget-content">
+				<table width="100%" style="margin-top: 10px;">
+					<tr>
+						<td style="width: 150px;" class="right">
+							<label for="itemPosix_option_permissions">
+								Permissions:
+							</label>
+						</td>
+						<td>
+							<input _name="posixPermissions" type="text" id="itemPosix_option_permissions" class="smallInputBox" />
+							<label for="itemPosix_option_permissions">
+								<small>(eg. 777)</small>
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label for="itemPosix_option_user">
+								User:
+							</label>
+						</td>
+						<td>
+							<input _name="posixUser" type="text" id="itemPosix_option_user" class="inputBox" />
+						</td>
+					</tr>
+					<tr>
+						<td class="right">
+							<label for="itemPosix_option_group">
+								Group:
+							</label>
+						</td>
+						<td>
+							<input _name="posixGroup" type="text" id="itemPosix_option_group" class="inputBox" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+    <table>
+        <tr>
+            <td>
+                <div class="ui-priority-primary Setup headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg">
+                <fieldset class="ui-widget-content nobg" config="account_info">
+                    <legend class="collapseHandle pointer"></legend>
+                    <div class="dataDiv">
+                        <fieldset id="accountDetailsAndOptions" class="noForm nobg notInheritable" filterKeywords="password use_name random account enabled disabled setup">
+                            <legend class="ui-priority-primary">(This setting is not being inherited.)</legend>
+                            <table quickLocate="Enable/Disable Account">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg noInherit">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea multipleConfigs">
+                                        <div>
+                                            <table style="padding-left: 20px;">
+                                                <tr config="account_enabled">
+                                                    <td colspan="2">
+                                                        <input type="checkbox" id="account_enabled" class="excludeXML" />
+                                                        <label for="account_enabled">
+                                                            Account Enabled</label>
+                                                            <label id="expiredLabel" style="color:red;margin-left:10px;">
+                                                            	(Account is expired)
+                                                            	<a style="top:-4px" href="javascript:void(0);" id="extendExpiration" config="account_expire">
+                                                            		<span class="ui-icon ui-icon-clock" style="display: inline-block;top: 3px;position: relative;"></span>
+                                                            		Extend Expiration
+                                                            	</a>
+                                                            </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                    </td>
+                                                </tr>
+                                                <tr config="user_name">
+                                                    <td style="width: 100px;">
+                                                        <label for="user_name">
+                                                            User name:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="validate" valtype="userName" type="text" id="crush_value1"  style="width:230px;" />
+                                                    </td>
+                                                </tr>
+                                                <tr config="password">
+                                                    <td style="width: 100px;">
+                                                        <label for="password" id="revealPassword">
+                                                            Password:
+                                                        </label>
+                                                    </td>
+                                                    <td id="passwordFieldRow">
+                                                        <input type="password" class="validate" valtype="userPass" id="crush_value2" />
+                                                    </td>
+                                                </tr>
+											</table>
+											<table style="padding-left: 20px;" config="password">
+                                                <tr>
+                                                    <td id="randomPasswordPanel">
+                                                        <a id="generateRandomPass" href="#" class="button" style="top: 0px;">
+															<span style='display: inline-block; margin: -2px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-locked'></span>
+                                                            <span class="">Generate Random Password </span>
+														</a>
+														<div id="passwordGeneratePanel" style="margin-top:10px">
+															<input class="excludeXML" id="generated_password" type="text" />
+															<a class="button" style="top:-4px" href="javascript:void(0);" id="usePassword">Use this</a>&nbsp;
+															<a class="button" style="top:-4px" href="javascript:void(0);" id="cancelPassword">Cancel</a>
+														</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg saltPanel" filterKeywords="salt" pnlId="setup5" config="salt">
+                            <table quickLocate="Salt setup">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields safari-notop" style="position: relative;">
+                                            <label for="salt">
+                                                Salt:
+                                            </label>
+                                            <input class="ui-state-default ui-corner-all" type="text" id="salt" />
+                                            <a id="generateRandomSaltPass" href="#" class="button" style="top: 0px;">
+												<span style='display: inline-block;
+                                                margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-locked'></span>
+                                                <span class="">Generate Random</span>
+											</a>
+                                        	<div id="warningTextSalt" style="padding: 5px;z-index: 100;margin: 5px 0px;width:600px;display:none;" class="ui-corner-all ui-state-highlight"><span style="top:1px;" class="ui-icon ui-icon-alert"></span><span class="">Caution: Changing the salt will invalidate the password and you will need to re-enter the password.</span></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg" filterKeywords="auto password" pnlId="setup1" config="auto_set_pass">
+                            <table quickLocate="Auto Set Password on next login">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="auto_set_pass" />
+                                            <label for="auto_set_pass">
+                                                Auto set password on next login</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg" filterKeywords="phone" pnlId="setup5" config="phone">
+                            <table quickLocate="User Phone">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="phone">
+                                                Phone:
+                                            </label>
+                                            <input type="text" id="phone" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg" filterKeywords="two factor sms authentication otp twilio" pnlId="setup6" config="otp_auth">
+                            <table quickLocate="Use two factor sms authentication (OTP)">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <input type="checkbox" id="otp_auth" />
+                                            <label for="otp_auth">
+                                                Two factor OTP/SMS authentication.</label>
+                                            <div>
+	                                            <table id="two-factor-protocols" style="width: 850px;margin-left: -3px;display: none;">
+													<tr>
+														<td>
+															<input type="checkbox" id="otp_auth_all" class="ignoreBind excludeXML" />
+															<label for="otp_auth_all">
+																All</label>
+														</td>
+														<td>
+															<input type="checkbox" id="otp_auth_ftp"/>
+															<label for="otp_auth_ftp">
+																FTP</label>
+														</td>
+														<td>
+															<input type="checkbox" id="otp_auth_ftps"/>
+															<label for="otp_auth_ftps">
+																FTPS</label>
+														</td>
+														<td>
+															<input type="checkbox" id="otp_auth_sftp"/>
+															<label for="otp_auth_sftp">
+																SFTP</label>
+														</td>
+														<td>
+															<input type="checkbox" id="otp_auth_http"/>
+															<label for="otp_auth_http">
+																HTTP</label>
+														</td>
+														<td>
+															<input type="checkbox" id="otp_auth_https"/>
+															<label for="otp_auth_https">
+																HTTPS</label>
+														</td>
+														<td>
+															<input type="checkbox" id="otp_auth_webdav"/>
+															<label for="otp_auth_webdav">
+																WebDAV</label>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="7">
+															<div style="margin-top: 5px;">
+																<label for="otp_token_timeout">
+					                                                Token times out in
+					                                            </label>
+					                                            <input class="validate smallInputBox seconds" valtype="numeric" type="text" id="otp_token_timeout" />
+					                                            <label for="otp_token_timeout">
+					                                                seconds (0=no limit)
+					                                            </label>
+															</div>
+														</td>
+													</tr>
+												</table>
+											</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg" filterKeywords="otp" pnlId="setup15" config="otp">
+                            <table quickLocate="OTP auto valid for">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="otp_auth_valid_for_days">
+                                                OTP Auth valid for
+                                            </label>
+                                            <input type="text" id="otp_auth_valid_for_days" class="smallInputBox" />
+                                            <label for="otp_auth_valid_for_days">
+                                            	days
+                                            </label>
+                                            <label style="font-weight:normal;">
+                                            	(Last auth with OTP: <span class="liveData" id="otp_auth_last_login">N/A</span>)
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg" filterKeywords="two factor authentication google secret" pnlId="setup7" config="twofactor_secret">
+                            <table quickLocate="Use two factor sms authentication (OTP)">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <label for="twofactor_secret">
+                                                Two factor authentication secret.
+                                            </label>
+                                            <input type="password" id="twofactor_secret" class="bigInputBox" readonly="readonly" />
+                                            <a href="#" id="clear2FASecret" class="button">
+                                            	<span style='display: inline-block; margin: -2px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-trash'></span>
+                                            	<span class="">Clear Secret</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <!-- <fieldset class="ui-corner-all nobg" filterKeywords="two factor authentication google force" pnlId="setup_e6" config="twofactor_force">
+                            <table quickLocate="force two factor authentication">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                        	<input type="checkbox" id="twofactor_force_google_enrollment" />
+                                            <label for="twofactor_force_google_enrollment">
+                                                Two Factor: force Google Authenticator setup
+                                            </label>
+                                            <span class="ui-state-highlight ui-corner-all" style="padding:3px;display:inline-block;margin:0px 3px;width:auto;position: relative;top: -6px;">
+												<span style="top:1px;margin-top: 0px;" class="ui-icon ui-icon-info"></span>
+												<span>
+													<a target="_blank" href="https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Google%2520Authenticator">Learn more: Google Authenticator</a>
+												</span>
+											</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset> -->
+                        <fieldset class="ui-corner-all nobg" filterKeywords="email first last name" pnlId="setup2" config="user_info">
+                            <table quickLocate="User Email">
+                                <tr>
+                                    <td class="checkboxArea ui-widget-content rightborder nobg">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div>
+                                            <table style="padding-left: 20px;">
+                                                <tr config="email">
+                                                    <td style="width: 100px;">
+                                                        <label for="email">
+                                                            Email:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" valtype="email" id="email" class="bigInputBox validate" />
+                                                    </td>
+                                                </tr>
+                                                <tr config="first_name">
+                                                    <td>
+                                                        <label for="first_name">
+                                                            First Name:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="first_name" />
+                                                    </td>
+                                                </tr>
+                                                <tr config="last_name">
+                                                    <td>
+                                                        <label for="last_name">
+                                                            Last Name:
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id="last_name" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="padding-top: 10px;">
+                                                        <a href="#" id="sendPassEmail" class="button" config="sendUserPassInfoMail">
+                                                        	<span style='display: inline-block; margin: -2px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-mail-closed'></span>
+                                                        	<span class="">Send e-mail to this user</span>
+                                                        </a>
+														<span class="spacer"></span>
+														<a href="javascript:void(0);" id="runJobForUser" class="button adminOnly" style="padding-right: 15px;">
+                                                        	<span style='display: inline-block; margin: -2px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-copy'></span>
+                                                        	<span class="">Run Job </span>
+                                                        	<span class="ui-icon ui-icon-triangle-1-s" style="position: absolute;right: 0px;top: 7px;"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset id="vfsItemsListingAndOptions" class="ui-corner-all nobg" filterKeywords="vfs virtual file system folder quota comment rename delete upload download home ratio" pnlId="setup3" config="VFS">
+                        	<div id="vfsSetupHelp" class="ui-widget ui-widget-content">
+								<div class="" style="padding:3px;display:block;margin:0px 3px;">
+									<span style="float:right;cursor: pointer;position: absolute;right: 6px;margin-top: -8px;" class="close">x</span>
+									<table>
+										<tr>
+											<td width="40px;">
+												<img src="/WebInterface/Resources/images/help.png" />
+											</td>
+											<td>
+												<div>
+													Step 1:
+													<span class="ui-priority-secondary">
+														Drag item from the left side to the right side.  This is the Virtual File System (VFS) area.
+													</span>
+												</div>
+												<div style="margin-top:10px;">
+													Step 2:
+													<span class="ui-priority-secondary">
+														Select the item on the right side, and then change the permissions checkboxes for that item.
+													</span>
+												</div>
+												<div class="ui-priority-secondary" style="text-align:center;margin-top:5px;">
+													(Click anywhere to hide this.)
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+                        	</div>
+                            <table quickLocate="VFS Setup">
+                                <tr>
+                                    <td id="vfsCheckBox" propertyType="panelSetup:VFS" class="checkboxArea ui-widget-content rightborder nobg specialProperty">
+                                        <input vfsArea="yes" type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields ui-tabs ui-widget ui-widget-content ui-corner-all" style="padding-left:5px;padding-top:5px">
+                                        	<ul id="vfsItemButtons" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+												<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active vfsBtnDefault">
+													<a href="#vfs-1">VFS</a>
+												</li>
+												<li id="addNewBtn" class="ui-state-default ui-corner-top adminOnly">
+													<a href="#" id="vfsAddNew">
+														<span class="ui-state-hover" style="border: none;">
+															<span class="ui-icon ui-icon-plusthick" role="presentation" style="float: right;margin-right: 0px;margin-top: -1px;"></span>
+														</span>
+														Add new
+													</a>
+												</li>
+											</ul>
+											<table style="width:100%;" id="vfsItemPanel">
+                                                <tr>
+													<td id="serverItemOperations" style="vertical-align: top; padding:0px;margin:0px;width:1%;">
+														<div style="margin-top:110px;">
+															<ul class="vfsItemOperations">
+																<li class="newFolder vtip" title="Create new folder">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="rename vtip adminOnly" title="Rename selected item">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="remove vtip" title="Delete selected item">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="moveRight vtip" title="Add selected item to VFS">
+																	<a href="javascript:void(0);"></a>
+																</li>
+															</ul>
+														</div>
+													</td>
+                                                    <td class="vfsItemsListBox customForm noBtnTop" style="vertical-align: top;width:33%;">
+                                                        <h3 align="center">
+                                                            Server's Files</h3>
+														<div class="ui-widget serverFileDropdown" style="float:left;position: relative;">
+															<select id="serverDirSelectList" _width="100" class="ignoreBind">
+																<option>/</option>
+															</select>
+														</div>
+														<a class="refresh" href="#" id="refreshServerListing" style="margin-left:-5%;float:left;margin-top:3px;position: relative;"></a>
+														<a class="refresh history" href="#" id="showServerItemHistory" style="margin-left:0px;float:left;margin-top:3px;display: none;position: relative;"></a>
+														<ul id="lastServerPathHistory" style="" tabindex="98" class="nobg  wrapword">
+                                                        </ul>
+                                                        <br />
+                                                        <div class="clear" style="margin-top: 10px;">
+                                                        	<span class="ui-priority-secondary">
+																<label for="filterServersFiles">Filter: </label>
+																<input type="text" style="width:180px;" class="ignoreBind inputBox excludeXML" id="filterServersFiles" />
+															</span>
+															<label>
+																<a href="javascript:void(0);" id="clearServerFilesFilter">Clear</a>
+															</label>
+														</div>
+                                                        <div style="height:490px;width:100%;max-width:450px;"  class="ui-corner-all ui-widget-content nobg sideScroll">
+                                                            <ol id="serverDirBrowsePanel" style="width:100%;padding-left:15px;outline: 0 solid;" tabindex="98" class="LargeListBox nobg customSelectable multiple wrapword">
+                                                            </ol>
+                                                        </div>
+                                                        <span class="clear"></span>
+                                                        <div class="list-paging">
+                                                        	Showing <span class="from"></span> to <span class="to"></span> of <span class="total"></span>
+                                                        	<span class="links">
+                                                        		<a href="javascript:void(0);" class="prev">&laquo; Prev</a>
+                                                        		<a href="javascript:void(0);" class="next">Next &raquo;</a>
+                                                        	</span>
+												            <span class="clear"></span>
+                                                        </div>
+                                                    </td>
+													<td id="vfsItemOperations" style="vertical-align: top; padding:0px;margin:0px;width:1%;">
+														<div style="margin-top:110px;margin-left:5px;">
+															<ul class="vfsItemOperations">
+																<li class="properties vtip" title="Properties">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="newFolder vtip" title="Create new Virtual Directory">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="newItem vtip" title="Create new Remote Item">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="duplicate vtip" title="Make Duplicate Item">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="rename vtip adminOnly" title="Rename selected item">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="remove vtip" title="Delete selected item">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="copy vtip" title="Copy selected items, you can paste them to other users too">
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="paste vtip" title="Paste VFS Items">
+																	<span class="count"></span>
+																	<a href="javascript:void(0);"></a>
+																</li>
+																<li class="show-miniurls vtip" title="MiniURLs of the user">
+																	<span class="count"></span>
+																	<a href="javascript:void(0);"></a>
+																</li>
+															</ul>
+														</div>
+													</td>
+                                                    <td id="vfsItemList" class="vfsItemsListBox" style="vertical-align: top; padding-left: 0px; padding-right: 10px;width:33%;">
+                                                        <h3 align="center">
+                                                            User's Stuff</h3>
+                                                        <div style="padding-top: 4px;">
+															<div style="width:50px;padding:3px;float:left;margin-top:-2px;display:inline-block;" class="ui-corner-all ui-widget-content nobg vtip" title="Drag and drop a file/folder from the left side (Server's files)<br /> to here.<br /><br />This will add it to the user's virtual file system.<br /><br />If an item is not in this list, the user will not have access to it.<br /><br />This listing is interactive so you can simulate what<br />the user will see.<br /><br />It is a WYSIWYG.<br /><br />Select an item, and change the permissions the user will<br />have on the item.<br /><br />There are also additional options available when<br />you right click on an item.">
+																<span style="top:1px;" class="ui-icon ui-icon-lightbulb"></span> Help
+															</div>
+															 <select id="userDirSelectList" class="ignoreBind inputBox excludeXML" style="width: 65%;float:left;margin:-3px 3px 7px 2px;height:25px;">
+                                                                <option>/</option>
+                                                            </select>
+															<a class="refresh" href="#" id="refreshUserListing" style="margin-right:3px;float:left;margin-top: 0px;"></a>
+                                                        </div>
+                                                        <br>
+                                                        <div class="clear" style="margin-top: 15px;">
+                                                        	<span class="ui-priority-secondary">
+																<label for="filterUsersFiles">Filter: </label>
+																<input type="text" style="width:180px;" class="ignoreBind inputBox excludeXML" id="filterUsersFiles" />
+															</span>
+															<label>
+																<a href="javascript:void(0);" id="clearUsersFilesFilter">Clear</a>
+															</label>
+														</div>
+                                                        <div style="height:490px;width:100%;margin-top:0px;z-index: 1;position: relative;max-width:450px;" class="ui-corner-all ui-widget-content nobg sideScroll">
+                                                            <ol id="vfsItems" tabindex="99" style="width:100%;padding-left:15px;outline: 0 solid;" class="LargeListBox nobg customSelectable multiple wrapword">
+                                                            </ol>
+                                                        </div>
+                                                        <span class="clear"></span>
+                                                        <div class="list-paging">
+                                                        	Showing <span class="from"></span> to <span class="to"></span> of <span class="total"></span>
+                                                        	<span class="links">
+                                                        		<a href="javascript:void(0);" class="prev">&laquo; Prev</a>
+                                                        		<a href="javascript:void(0);" class="next">Next &raquo;</a>
+                                                        	</span>
+												            <span class="clear"></span>
+                                                        </div>
+                                                        <div class="meta-info-footer">
+                                                        	<span style="float: left;margin-top: 5px;">
+                                                        		<input type="checkbox" class="ignoreBind ignoreChange" id="showmetaInfo"/><label for="showmetaInfo">Show meta info</label>
+                                                        	</span>
+                                                        	<span style="float: right;margin-top: 7px;">
+	                                                        	<label for="sortVFSItems">Sort:</label>
+	                                                        	<select id="sortVFSItems" class="ignoreChange ignoreBind">
+	                                                        		<option value="" selected>Default</option>
+												                	<option value="name">Name Ascending</option>
+												                	<option value="name-d">Name Descending</option>
+												                	<option value="type">Type Ascending</option>
+												                	<option value="type-d">Type Descending</option>
+												                	<option value="date">Date Ascending</option>
+												                	<option value="date-d">Date Descending</option>
+													            </select>
+												            </span>
+												            <span class="clear"></span>
+                                                        </div>
+                                                        <span class="clear"></span>
+                                                    </td>
+                                                    <td width="32%">
+														<div id="vfsOptions">
+															<div>
+																<a href="#" class="button" id="inheritFromRootVFSOptions"><span style='display: inline-block; margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-wrench'></span><span class="">Inherit / Reset </span></a>
+															</div>
+															<div id="privsOptions">
+																<div style="clear: both;" class="ext_option" rel="setup_download_types">
+																	<input type="checkbox" class="ignoreBind" id="setup_read"/><label class="altClick" for="setup_read">Download</label>
+																	<span style="" class="flag ui-icon ui-icon-flag"></span>
+																</div>
+																<div style="clear: both;" class="ext_option" rel="setup_upload_types">
+																	<input type="checkbox" class="ignoreBind noVirtualItemOpt" id="setup_write"/><label class="altClick" for="setup_write">Upload</label>
+																	<span style="" class="flag ui-icon ui-icon-flag"></span>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind" id="setup_view"/><label for="setup_view">View</label>
+																</div>
+																<div style="clear: both;" class="ext_option" rel="setup_delete_types">
+																	<input type="checkbox" class="ignoreBind noVirtualItemOpt" id="setup_delete"/><label class="altClick" for="setup_delete">Delete</label>
+																	<span style="" class="flag ui-icon ui-icon-flag"></span>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind noVirtualItemOpt" id="setup_deletedir"/><label for="setup_deletedir">Delete Folder</label>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind noVirtualItemOpt" id="setup_makedir"/><label for="setup_makedir">Create Folder</label>
+																</div>
+																<div style="clear: both;" class="ext_option" rel="setup_rename_types">
+																	<input type="checkbox" class="ignoreBind" id="setup_rename"/><label class="altClick" for="setup_rename">Rename</label>
+																	<span style="" class="flag ui-icon ui-icon-flag"></span>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind" id="setup_resume"/><label for="setup_resume">Resume Transfers</label>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind" id="setup_share"/><label for="setup_share">Share/Publish</label>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind" id="setup_slideshow"/><label for="setup_slideshow">Slideshow</label>
+																</div>
+																<div style="clear: both;">
+																	<input type="checkbox" class="ignoreBind" id="setup_invisible"/><label for="setup_invisible">Make Invisible</label>
+																</div>
+																<div style="clear: both;">
+																	<span title="Replicate" class="vtip replicate-checkbox">
+																		<input type="checkbox" class="ignoreBind" id="setup_replicate"/><label for="setup_replicate">Replicate</label>
+																	</span>
+																	<span class="spacer replicate-async" style="display: none;">
+																		<input type="checkbox" class="ignoreBind" id="setup_replicate_async"/><label for="setup_replicate_async">Async</label>
+																	</span>
+																</div>
+																<div style="clear: both;" title="Blocks changes to this folder, while allowing changes in sub folders." class="vtip">
+																	<input type="checkbox" class="ignoreBind" id="setup_locked"/><label for="setup_locked">Locked</label>
+																</div>
+																<div config="VFS_Quota">
+																	<div style="clear: both;">
+																		<label for="setup_quota">
+																		Quota:(MB)</label>
+																		<span class="spacer"></span>
+																		<input type="text" id="setup_quota" valtype="float" class="ignoreBind validate"/>
+																	</div>
+																	<div>
+																		<input type="checkbox" class="ignoreBind" id="setup_real_quota"/><label for="setup_real_quota">RealFile Quota</label>
+																	</div>
+																</div>
+																<div style="clear: both;margin-top: 5px;">
+																	<a href="#" class="button" id="advancedVFSOptions" style="top:0px !important;"><span style='display: inline-block; margin: 0px 3px 0px -7px; float: left;' class='pointer ui-icon ui-icon-key'></span><span class="">Advanced</span></a>
+																</div>
+																<br/>
+																<div style="clear: both;">
+																	<label>
+																	Comment: (HTML OK)</label>
+																	<br/>
+																	<textarea class="ignoreBind" id="setup_comment" cols="40" rows="5"></textarea>
+																</div>
+																<div class="" style="display: none;">
+																	<input type="text" id="setup_download_types" class="ignoreBind" />
+																	<input type="text" id="setup_upload_types" class="ignoreBind" />
+																	<input type="text" id="setup_delete_types" class="ignoreBind" />
+																	<input type="text" id="setup_rename_types" class="ignoreBind" />
+																</div>
+															</div>
+														</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset class="ui-corner-all nobg" filterKeywords="linking linked vfs"  pnlId="setup4" config="VFS_LINKING">
+                            <table quickLocate="VFS Linking">
+                                <tr>
+                                    <td id="linkedVFSCheck" propertyType="panelSetup:LinkedVFS" class="checkboxArea ui-widget-content rightborder nobg specialProperty">
+                                        <input type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        VFS Linking
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-top:10px;">
+                                                        <a id="removeVFSLink" href="#" class="button"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+                                                            float: left;' class='pointer ui-icon ui-icon-circle-minus'></span><span class="">Remove
+                                                            </span></a><span class="spacer"></span><a id="addVFSLink" href="#" class="button"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+                                                                float: left;' class='pointer ui-icon ui-icon-circle-plus'></span><span class="">Add
+                                                                </span></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div>
+                                                            <div class="ui-corner-all ui-widget-content nobg sideScroll" style="width: 350px;
+                                                                height: 200px;float:left;">
+                                                                <ol id="vfsLinks" class="nobg selectable single">
+                                                                </ol>
+                                                            </div>
+                                                            <a style="float:left;margin:5px 10px;" id="editSelectedVFSLink" href="#" class="button adminOnly">
+                                                            	<span style='display: inline-block; margin: 0px 3px 0px -7px;float: left;' class='pointer ui-icon ui-icon-pencil'></span>
+                                                            	Edit Selected User's VFS
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <div id="VFSOnlyButtons" style="display: none;">
+		<div class="fields" style="float:right">
+			<a href="#" class="button" id="saveUserDataVFSOnly"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+				float: left;' class='pointer ui-icon ui-icon-check'></span><span class="">Save Changes</span>
+			</a>
+			<a href="#" class="button" id="cancelChangesVFSOnly"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+				float: left;' class='pointer ui-icon ui-icon-circle-close'></span><span class="">Cancel</span>
+			</a>
+		</div>
+    </div>
+    <ul id="subVFSConfigContext" class="contextMenu" style="display:none;">
+		<li class="rename">
+			<a href="#rename">Rename</a>
+		</li>
+		<li class="remove">
+			<a href="#delete">Delete</a>
+		</li>
+	</ul>
+	<div id="editUserVFSFramePopup"></div>
+	<div id="dmzCustomOptions" style="display: none;line-height:30px;">
+        <div>
+            <label for="customDMZType">Type: </label>
+            <select id="customDMZType">
+                <option value="socks5">Socks 5</option>
+                <option value="internal://">internal://</option>
+            </select>
+        </div>
+        <div class="socksOptions">
+            <div>
+                <label for="customDMZHost">Host: </label>
+                <input id="customDMZHost" class="bigInputBox" type="text" />
+            </div>
+            <div>
+                <label for="customDMZPort">Port:</label>
+                <input id="customDMZPort" class="smallInputBox" type="text" />
+            </div>
+        </div>
+    </div>
+    <div id="jobSelector" style="display: none;">
+    	<div style="padding-bottom: 5px;">
+    		Filter: <input id="filter_job" type="text" placeholder="Filter by job name" style="width: 215px;padding: 4px 8px;" class="ignoreBind inputBox excludeXML">
+    	</div>
+    	<hr class="ui-widget-content">
+    	<div id="noJobMsg" style="text-align: center;display:none;margin:10px">No jobs available</div>
+    	<div id="noMatchigJobMsg" style="text-align: center;display:none;">There are no jobs available matching the filter</div>
+    	<div style="margin-top: 10px;">
+    		<ol class="LargeListBox nobg selectable multiple">
+    		</ol>
+    	</div>
+    </div>
+	<div id="miniURLsPanel" style="display: none;">
+	    <p>
+	    	<label>Server URL: <input type="text" class="inputBox bigInputBox" id="serverURLforMiniURL"></label>
+	        <span style="float:right;" id="miniURLSortLinks">
+	            <strong>Sort By:</strong>
+	            <a href="#" class="sortby" rel="key" id="miniMapSortByrel">Key</a> |
+	            <a href="#" class="sortby" rel="redirect" id="miniMapSortByPath">Path</a> |
+	            <a href="#" class="sortby" rel="expire" id="miniMapSortByDate">Expiration Date</a>
+	        </span>
+	    </p>
+	    <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+	        <ol class="nobg selectable single sideScroll" id="miniURLs" name="miniURLs">
+	        </ol>
+	    </div>
+	</div>
+</div>
+<ul id="batchRunJobSelector" class="contextMenu" style="display:none;width:220px;">
+    <li class="current">
+        <a href="#current">This User</a>
+    </li>
+    <li class="batchSelected separator">
+        <a href="#selectedBatch">All Selected users in the List</a>
+    </li>
+    <li class="batch separator">
+        <a href="#batch">All Users in the List</a>
+    </li>
+</ul>

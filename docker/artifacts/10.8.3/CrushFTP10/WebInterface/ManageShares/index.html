@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="cache-control" content="no-cache">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.css" />
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <link type="text/css" href="css/defaultTheme.css" rel="stylesheet" />
+        <link type="text/css" href="css/tablesorter/style.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/crushFtp.framework.css" />
+        <link type="text/css" href="/WebInterface/Resources/css/vtip.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/WebInterface/custom.css" />
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+        <!-- Css and JS for DataTable (datatables.net) -->
+        <link rel="stylesheet" type="text/css" href="/WebInterface/Resources/css/jquery.dataTables.min.css" />
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.alerts.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.notify.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.xml2json.js"></script>
+        <!-- <script type="text/javascript" src = "/WebInterface/Resources/js/date.format.js"></script> -->
+        <script type="text/javascript" src = "/WebInterface/Resources/js/vtip.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/browserSelector.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.contextMenu.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+        <script type="text/javascript" src = "/WebInterface/jQuery/js/date.format.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.hotkeys.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.cssRule.js"></script>
+        <script type="text/javascript" src = "js/jquery.fixedheadertable.js"></script>
+        <script type="text/javascript" src = "js/jquery.tablesorter.min.js"></script>
+        <script type="text/javascript">window.justReference = true;</script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.idle-timer.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/WIInitVars.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/WICustomizations.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/WICommonMethods.js"></script>
+        <script type="text/javascript" src="/WebInterface/jQuery/js/jqueryFileTree.js"></script>
+        <script type="text/javascript" src="/WebInterface/custom.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+        <script type="text/javascript" src = "js/crushftp.manageShares.js"></script>
+        <!-- File Browser stuff -->
+        <link rel="stylesheet" href="/WebInterface/Resources/css/localFileBrowser.css" />
+        <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"></script>
+        <style type="text/css">
+            #manageShareslist tbody td {
+            border: 1px solid #fff;
+            }
+            #manageShareslist tbody td:hover {
+            border: 1px solid #807777;
+            }
+            #manageShareslist table.dataTable thead th .sorting_asc
+            {
+                background : none;
+            }
+        </style>
+    </head>
+    <body id="GUIAdmin" class="manageSharesBody" style="display:none;">
+        <div class="clear content">
+        <div id="manageShares">
+        <div id="loadingIndicator"></div>
+        <div style="padding:5px 0px 5px 0px;" class="manageSharesFilterTop">
+            <div style="margin-bottom: 0px;padding:7px 15px 0 15px" class="basket-top manageShares">
+            </div>
+            <div style="clear: both;">
+                <a href="javascript:void(0);" id="deleteSelectedShares" class="deleteShare" _loc="ManageShareWindowDeleteSelectedLinkText" style="padding-bottom: 15px;">Delete selected</a>
+                <a href="javascript:void(0);" id="refreshBtn" class="refreshBtn" _loc="ManageShareWindowRefreshLinkText">Refresh</a>
+                <div style="clear: both;"></a>
+                </div>
+                <div class="manageShareSharesContent">
+                    <table id="manageShareslist" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th style="width: 2%;background-image: none !important;"><input name="select_all" value="1" type="checkbox"></th>
+                                <th></th>
+                                <th _column="created" _loc="ManageShareWindowGridCreatedLabelText">Created</th>
+                                <th></th>
+                                <th _column="expire" _loc="ManageShareWindowGridExpiresLabelText">Expires</th>
+                                <th _column="emailTo" _loc="ManageShareWindowGridToLabelText">To</th>
+                                <th _column="paths" _loc="ManageShareWindowGridPathsLabelText">Shared Items</th>
+                                <th _column="Remaining Uses" _loc="ManageShareWindowGridRemainingUsesLabelText">Remaining Uses</th>
+                                <th _column="downloads" _loc="ManageShareWindowGridDownloadsLabelText">Downloads</th>
+                                <th _column="comments" _loc="ManageShareWindowGridCommentsLabelText">Comments</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="externalShareItemDetails" style="display: none;">
+                    <div class="shareDetailsHeader basket-top">
+                        <div style="float:left;">
+                            <a href="javascript:void(0);" tabindex="-1" class="prevShare" style="margin:0px" _loc="ManageShareWindowPrevItemText">Prev</a>  <a tabindex="-1" href="javascript:void(0);" class="nextShare" style="margin:0px" _loc="ManageShareWindowNextItemText">Next</a>
+                        </div>
+                        <div style="float:right;">
+                            <a tabindex="-1" href="javascript:void(0);" class="editShare editShareItem" style="margin:0px" _loc="ManageShareWindowEditLinkText">Edit</a>
+                            <a tabindex="-1" href="javascript:void(0);" class="deleteShare deleteShareItem" style="margin:0px" _loc="ManageShareWindowDeleteLinkText">Delete</a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <table border="0" cellpadding="2" cellspacing="2" width="100%" class="shareItemDetailsPanel">
+                        <tbody>
+                            <tr>
+                                <td class="smallLbls" id="emailInfoPanel" style="padding:5px !important; border:0px !important;width:50%;">
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridLinkLabelText">Link:</label><span rel="web_link"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridFromLabelText">From:</label>
+                                        <p style="margin:-15px 0px 0px 90px;" rel="emailFrom"></p>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridToLabelText">To:</label>
+                                        <p style="margin:-15px 0px 0px 90px;" rel="emailTo"></p>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridCCLabelText">CC:</label>
+                                        <p style="margin:-15px 0px 0px 90px;" rel="emailCc"></p>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridBCCLabelText">BCC:</label>
+                                        <p style="margin:-15px 0px 0px 90px;" rel="emailBcc"></p>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridReplyToLabelText">Reply To:</label>
+                                        <p style="margin:-15px 0px 0px 90px;" rel="emailReplyTo"></p>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridSubjectLabelText">Subject:</label><span rel="emailSubject"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label  style="width: 40px;" _loc="ManageShareWindowGridBodyLabelText">Body:</label>
+                                        <p style="margin:0px;" class="emailBody" rel="emailBody"></p>
+                                    </div>
+                                </td>
+                                <td style="padding:5px !important; border:0px;border-left:1px solid #eee;width:50%;">
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridCreatedLabelText">Created:</label><span rel="created"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridExpiresLabelText">Expires:</label><span rel="expire"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridRemainingUsesLabelText">Remaining Uses:</label><span rel="login_allowance"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridDownloadsLabelText">Downloads:</label><span rel="downloads"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridShareTypeLabelText">Share Type:</label><span rel="publishType"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridUserNameLabelText">Username:</label><span rel="username"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridPasswordLabelText">Password:</label><span rel="password"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridAttachedLabelText">Attached in Email ?</label><span rel="attach"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridUploadLabelText">Upload Allowed ?</label><span rel="allowUploads"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridCommentsLabelText">Comments</label><span rel="share_comments"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label style="width: 45px;" _loc="ManageShareWindowGridPathsLabelText">Paths:</label>
+                                        <p style="margin:0px;" id="pathList" rel="paths"></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align:right;" class="shareDetailsFooter">
+                        <a href="javascript:void(0);" tabindex="-1" class="prevShare" style="margin:0px" _loc="ManageShareWindowPrevItemText">Prev</a>  <a tabindex="-1" href="javascript:void(0);" class="nextShare" style="margin:0px" _loc="ManageShareWindowNextItemText">Next</a>
+                    </div>
+                </div>
+                <div id="internalShareItemDetails" style="display: none;">
+                    <div style="float:left;">
+                        <a tabindex="-1" href="javascript:void(0);" class="prevShare" style="margin:0px" _loc="ManageShareWindowPrevItemText">Prev</a>  <a tabindex="-1" href="javascript:void(0);" class="nextShare" style="margin:0px" _loc="ManageShareWindowNextItemText">Next</a>
+                    </div>
+                    <div style="float:right;">
+                        <a tabindex="-1" href="javascript:void(0);" class="deleteShare deleteShareItem" style="margin:0px" _loc="ManageShareWindowDeleteLinkText">Delete</a>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <table border="0" cellpadding="2" cellspacing="2" width="100%" class="shareItemDetailsPanel">
+                        <tbody>
+                            <tr>
+                                <td style="padding:5px !important; border:0px !important;width:50%;">
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridUserNameLabelText">Username:</label><span rel="username"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridShareTypeLabelText">Share Type:</label><span rel="publishType"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridCreatedLabelText">Created:</label><span rel="created"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridExpiresLabelText">Expires:</label><span rel="expire"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridDownloadsLabelText">Downloads:</label><span rel="downloads"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridUploadLabelText">Upload Allowed ?</label><span rel="allowUploads"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridCommentsLabelText">Comments</label><span rel="share_comments"></span>
+                                    </div>
+                                    <div class="shareItem">
+                                        <label _loc="ManageShareWindowGridPathsLabelText">Paths:</label>
+                                        <p style="margin:-15px 0px 0px 135px;" rel="paths"></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align:right;">
+                        <a tabindex="-1" href="javascript:void(0);" class="prevShare" style="margin:0px" _loc="ManageShareWindowPrevItemText">Prev</a>  <a tabindex="-1" href="javascript:void(0);" class="nextShare" style="margin:0px" _loc="ManageShareWindowNextItemText">Next</a>
+                    </div>
+                </div>
+                <div id="selectSimilar" style="display: none;">
+                    <div>
+                        <span _loc="ManageShareWindowSelectSimilarNoteText">Select share accounts with</span> <span id="columnToSelect" class="ui-priority-primary"></span> <span _loc="ManageShareWindowSelectSimilarNoteLikeText">like:</span>
+                        <div style="margin:10px 5px;">
+                            <textarea id="matchColumnData" style="width:100%;height:100px;"></textarea>
+                        </div>
+                        <label><input type="checkbox" id="exactMatch" /> <span _loc="ManageShareWindowSelectSimilarExactMatchText">Exact match?</span></label>
+                    </div>
+                </div>
+                <ul id="rowContextMenu" class="contextMenu" style="display:none;">
+                    <li class="similar">
+                        <a href="#similar" _loc="ManageShareWindowSelectSimilarText">Select Similar</a>
+                    </li>
+                    <li class="delete separator">
+                        <a href="#delete" _loc="ManageShareWindowDeleteLinkText">Delete</a>
+                    </li>
+                </ul>
+                <div id="growlContainer" style="display: none;">
+                    <div id="growl">
+                        <a class="ui-notify-close" href="#"><span class="ui-icon ui-icon-close" style="float: right">
+                        </span></a><span style="float: left; margin: 2px 5px 0 0;" class="ui-icon ui-icon-alert">
+                        </span>
+                        <h2>
+                            #{title}
+                        </h2>
+                        <p>
+                            #{text}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialog-message"></div>
+        <div id="edit-dialog" style="display:none;">
+            <p>
+                <label for="expiresDate" style="width:120px;text-align:right;display:inline-block;padding-right:10px;"><span _loc="ManageShareWindowGridExpiresLabelText">Expires:</span></label>
+                <input type="text" id="expiresDate" tabindex="-1" />
+            </p>
+            <p>
+                <label for="login_allowance" style="width:120px;text-align:right;display:inline-block;padding-right:10px;"><span _loc="ManageShareWindowGridRemainingUsesLabelText">Remaining Uses:</span></label>
+                <select id="login_allowance" tabindex="-1">
+                    <option value="-1" selected id="ShareWindowMaxUsesUnlimitedText">Unlimited</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </p>
+        </div>
+    </body>
+</html>

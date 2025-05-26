@@ -1,0 +1,211 @@
+<div id="autocompleteFix" style="position: absolute; top: -200px">
+  <input type="text" name="email" value="" style="display: none" />
+  <input type="text" name="email" value="" />
+  <input type="text" name="not-an-email" value="" style="display: none" />
+  <input type="password" name="password" value="" style="display: none" />
+  <input type="password" name="password" value="" />
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginWebApplication">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <div id="pluginSection" class="customForm">
+          <p>
+            <input type="checkbox" name="enabled" id="enabled" />
+            <label
+              for="enabled"
+              class="ui-priority-primary WebApplication lblEnabledText"
+              >Enabled</label
+            >
+
+            <span class="spacer"></span>
+            <span class="spacer"></span>
+
+            <input type="checkbox" name="debug" id="debug" />
+            <label
+              for="debug"
+              class="ui-priority-primary WebApplication lblDebugText"
+              class="nonEmbed"
+              >Debug</label
+            >
+
+            <span style="float: right" class="nonEmbed"
+              ><span class="WebApplication lblVersionText">Version:</span
+              ><span class="liveData" id="version"></span
+            ></span>
+          </p>
+          <div
+            class="ui-corner-all ui-widget-content nobg"
+            style="padding: 5px 10px"
+          >
+            <div class="fixedWidthLabelsFront">
+              <p>
+                <label
+                  title="Allows you to specify the individual server that can use this plugin instance."
+                  for="server_item"
+                  class="CrushLDAPGroup lblAllowedServerPortText bigLabel"
+                  >Allowed Server Port:</label
+                >
+                <span
+                  id="server_item_list"
+                  style="
+                    display: inline-block;
+                    margin-left: 180px;
+                    margin-top: -15px;
+                  "
+                ></span>
+                <input
+                  style="display: none"
+                  type="text"
+                  id="server_item"
+                  name="server_item"
+                />
+              </p>
+              <p
+                title="Variables are allowed such as %username% or %password%."
+              >
+                <label
+                  for="username"
+                  class="right WebApplication lblHTTPUsernameText"
+                  >HTTP Username:
+                </label>
+                <input type="text" id="username" name="username" />
+              </p>
+              <p
+                title="Variables are allowed such as %username% or %password%."
+              >
+                <label
+                  for="password"
+                  class="right WebApplication lblHTTPPasswordText"
+                  >HTTP Password:
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="encryptPass"
+                />
+              </p>
+              <p>
+                <label
+                  for="user_url"
+                  class="right WebApplication lblUserXMLURLText"
+                  >User XML URL:
+                </label>
+                <input
+                  type="text"
+                  id="user_url"
+                  name="user_url"
+                  class="bigInputBox url"
+                />
+              </p>
+              <p>
+                <label
+                  for="user_post_data"
+                  class="right WebApplication lblPostDataText"
+                  >Post Data:
+                </label>
+                <input
+                  type="text"
+                  id="user_post_data"
+                  name="user_post_data"
+                  class="bigInputBox url"
+                />
+              </p>
+              <p>
+                <label
+                  for="permissions_url"
+                  class="right WebApplication lblPermissionXMLURLText"
+                  >Permission XML URL:
+                </label>
+                <input
+                  type="text"
+                  id="permissions_url"
+                  name="permissions_url"
+                  class="bigInputBox url"
+                />
+              </p>
+              <p>
+                <label
+                  for="permissions_post_data"
+                  class="right WebApplication lblPostDataText"
+                  >Post Data:
+                </label>
+                <input
+                  type="text"
+                  id="permissions_post_data"
+                  name="permissions_post_data"
+                  class="bigInputBox url"
+                />
+              </p>
+              <p>
+                <label
+                  for="vfs_url"
+                  class="right WebApplication lblVFSXMLURLText"
+                  >VFS XML URL:
+                </label>
+                <input
+                  type="text"
+                  id="vfs_url"
+                  name="vfs_url"
+                  class="bigInputBox url"
+                />
+              </p>
+              <p>
+                <label
+                  for="vfs_post_data"
+                  class="right WebApplication lblPostDataText"
+                  >Post Data:
+                </label>
+                <input
+                  type="text"
+                  id="vfs_post_data"
+                  name="vfs_post_data"
+                  class="bigInputBox url"
+                />
+              </p>
+              <p title="GET or POST">
+                <label
+                  for="method"
+                  class="right WebApplication lblHTTPMethodText"
+                  >HTTP Method:
+                </label>
+                <input
+                  type="text"
+                  id="method"
+                  name="method"
+                  class="smallInputBox"
+                />
+              </p>
+              <p>
+                <label
+                  for="usernameTemplate"
+                  class="right WebApplication lblImportSettingsFromUserText"
+                  >Import settings from CrushFTP user:
+                </label>
+                <input
+                  type="text"
+                  id="usernameTemplate"
+                  valtype="required"
+                  name="usernameTemplate"
+                  class="validate"
+                />
+              </p>
+            </div>
+            <p
+              title="For mutliple logins with the same username, keep this setting off."
+            >
+              <input type="checkbox" id="overwrite_vfs" name="overwrite_vfs" />
+              <label
+                for="overwrite_vfs"
+                class="WebApplication lblOverwriteVFSItemsText"
+                >Overwrite VFS items?</label
+              >
+            </p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

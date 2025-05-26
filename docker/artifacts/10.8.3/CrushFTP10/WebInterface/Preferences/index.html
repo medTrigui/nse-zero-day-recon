@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+      <title>CrushFTP - Preferences</title>
+      <link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+      <link type="text/css" href="/WebInterface/Resources/css/style.css" rel="stylesheet" />
+      <link type="text/css" href="/WebInterface/Preferences/css/style.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="/WebInterface/Resources/css/vtip.css" />
+      <link type="text/css" href="/WebInterface/Resources/css/jHtmlArea/jHtmlArea.css" rel="stylesheet" />
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.ui.selectableAdvanced.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.cookie.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery-ui-timepicker-addon.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.textChange.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.blockUI.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/url.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/sslGuideButton.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/browserSelector.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.xml2json.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.alerts.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.notify.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.browseVFSPopup.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/configSuggestions.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.suggestedSettings.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.encryptPassword.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.validator.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/vtip.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jHtmlArea-0.7.0.min.js"></script>
+      <script type="text/javascript" src="js/crushftp.localizations.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/moment.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+      <script type="text/javascript" src="js/crushftp.interface.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.replicationSave.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.contextMenu.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.hotkeys.js"></script>
+      <script type="text/javascript" src="/WebInterface/admin/js/crushftp.telnet.inject.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/testPGPButton.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+      <!-- Personalization stuff  -->
+      <link type="text/css" href="/WebInterface/admin/css/jquerytour.css" rel="stylesheet" />
+      <script type="text/javascript" src="/WebInterface/admin/js/tour.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/json2.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jstorage.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.Personalizations.js"></script>
+      <!-- File Browser stuff -->
+      <link rel="stylesheet" href="/WebInterface/Resources/css/localFileBrowser.css" />
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function () {
+           $("#switcher").themeswitcher({ onSelect: function (item) {} });
+         });
+      </script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/themeswitcher.js"></script>
+      <style>
+         body {
+         margin: 0;
+         padding: 60px 5px 45px 5px;
+         border: 0px;
+         height: 100%;
+         }
+         .ui-notify {
+         z-index: 9999;
+         }
+         .logoContainer {
+         right: 5px;
+         top: 2px;
+         position: absolute;
+         z-index: -1;
+         }
+         #logo,
+         .logoContainer a img,
+         .logoContainer a {
+         border: 0px !important;
+         border-color: white;
+         }
+         .middleAligned td {
+         vertical-align: middle;
+         }
+         .buttonBar {
+         position: fixed;
+         bottom: 0px;
+         z-index: 801;
+         right: 20px;
+         }
+         /*.chrome .buttonBar
+         {
+         bottom: -10px;
+         }*/
+         .buttonBar.buttonBarNoBottom {
+         position: inherit;
+         bottom: auto;
+         z-index: auto;
+         right: auto;
+         }
+         #backToTop {
+         right: 286px;
+         display: none;
+         }
+         #fieldAdvancedDialog label.lbl {
+         top: 0px !important;
+         }
+      </style>
+   </head>
+   <body class="ui-widget-content">
+      <div id="autocompleteFix" style="position: absolute; top: -200px">
+         <input type="text" name="email" value="" style="display: none" />
+         <input type="text" name="email" value="" />
+         <input type="text" name="not-an-email" value="" style="display: none" />
+         <input type="password" name="password" value="" style="display: none" />
+         <input type="password" name="password" value="" />
+      </div>
+      <div class="navigation ui-widget-content" id="header" style="height: 55px">
+         <div
+            id="topSwitchButtons"
+            style="
+            margin: 5px;
+            float: left;
+            background: none;
+            border-top: 0px;
+            border-right: 0px;
+            border-left: 0px;
+            display: none;
+            "
+            >
+            <ul style="background: none; border: none">
+               <li class="ui-state-default ui-corner-top">
+                  <a href="/WebInterface/../"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-folder-open"
+                     >
+                  </span
+                     >Files</a
+                     >
+               </li>
+               <li
+                  privs="connect,server_edit,server_view,update_run,report_edit,report_view"
+                  class="ui-state-default ui-corner-top"
+                  >
+                  <a href="/WebInterface/admin/index.html"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-gear"
+                     >
+                  </span
+                     >Server Admin</a
+                     >
+               </li>
+               <li
+                  privs="connect,job_edit,job_view,job_list,job_list_history"
+                  class="ui-state-default ui-corner-top"
+                  >
+                  <a href="/WebInterface/Jobs/index.html"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-copy"
+                     >
+                  </span
+                     >Jobs</a
+                     >
+               </li>
+               <li
+                  privs="connect,user_admin,user_edit,user_view"
+                  class="ui-state-default ui-corner-top"
+                  >
+                  <a href="/WebInterface/UserManager/index.html"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-person"
+                     >
+                  </span
+                     >User Manager</a
+                     >
+               </li>
+               <li
+                  privs="connect,pref_edit,pref_view"
+                  class="ui-state-default ui-corner-top ui-state-active"
+                  >
+                  <a href="/WebInterface/Preferences/index.html"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-copy"
+                     >
+                  </span
+                     >Preferences</a
+                     >
+               </li>
+               <li
+                  privs="connect,share_edit,share_view"
+                  class="ui-state-default ui-corner-top"
+                  >
+                  <a href="/WebInterface/TempAccounts/index.html"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-bookmark"
+                     >
+                  </span
+                     >Shares</a
+                     >
+               </li>
+               <li
+                  privs="connect"
+                  class="ui-state-default ui-corner-top vtip"
+                  title="Telnet"
+                  >
+                  <a href="/WebInterface/admin/log.html" id="telnetButton">
+                  <span
+                     style="
+                     display: inline-block;
+                     margin: -1px -4px 0px -10px;
+                     float: left;
+                     width: 16px;
+                     height: 16px;
+                     "
+                     class="pointer terminal-icon"
+                     >
+                  </span
+                     ></a>
+               </li>
+               <li class="ui-state-default ui-corner-top vtip" title="Logout">
+                  <a href="#tabs-5" onclick="return doLogout();"
+                     ><span
+                     style="
+                     display: inline-block;
+                     margin: -1px 3px 0px -10px;
+                     float: left;
+                     "
+                     class="pointer ui-icon ui-icon-locked"
+                     >
+                  </span
+                     ></a>
+               </li>
+               <li class="clear"></li>
+            </ul>
+         </div>
+         <div style="position: absolute; top: 38px; left: 5px">
+            <span class="note" id="loggedInAs"></span>
+            <span style="margin-left: 5px" class="note" id="SessionSeconds"></span>
+            <span
+               style="margin-left: 6px"
+               class="liveData ui-priority-primary note"
+               id="crushVersionInfo"
+               ></span>
+         </div>
+         <div>
+            <span id="switcher"></span>
+         </div>
+         <div
+            class="enterpriseFeature adjust-wrap"
+            style="position: relative; left: 160px; top: 8px; display: inline-block"
+            >
+            <span class="wrap">
+               <label for="mainServerInstance">Server Instance:</label>
+               <select id="mainServerInstance" class="inputBox">
+                  <option value=""></option>
+                  <option value="">Main</option>
+               </select>
+            </span>
+            <span class="infoPH" rel=".wrap"></span>
+         </div>
+         <div class="logoContainer">
+            <a
+               id="logo"
+               style="border: 0px; padding: 0px"
+               href="javascript:void(0);"
+               >
+            <img
+               src="/WebInterface/Resources/images/crushftp_gray_logo_resized.png"
+               alt=""
+               border="0"
+               width="200"
+               />
+            </a>
+            <div class="clear"></div>
+         </div>
+         <div class="clear"></div>
+      </div>
+      <div class="ui-widget clear">
+         <table
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            class="ui-widget-content"
+            id="GUIInterface"
+            >
+            <tr id="mostVisitedLinksPanel">
+               <td colspan="2">
+                  <div
+                     class="bottomborder ui-widget ui-widget-content ui-state-default nobg"
+                     >
+                     <!-- <span class="ui-priority-primary" style="float:left;margin:8px 15px 8px 5px;">Most visited:</span> -->
+                     <ul class="mostVisitedLinks" style="height: 26px"></ul>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td id="menu" valign="top" style="width: 200px; min-width: 200px">
+                  <ul class="links">
+                     <li>
+                        <a
+                           panel="IPServers"
+                           href="#"
+                           class="navigationItem ui-state-default IPServers"
+                           >IP / Servers</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="GeneralSettings"
+                           href="#"
+                           class="navigationItem ui-state-default GeneralSettings"
+                           >General Settings</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="WebInterface"
+                           href="#"
+                           class="navigationItem ui-state-default WebInterface"
+                           >WebInterface</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="EmailTemplates"
+                           href="#"
+                           class="navigationItem ui-state-default EmailTemplates"
+                           >Email Templates</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Restrictions"
+                           href="#"
+                           class="navigationItem ui-state-default Restrictions"
+                           >Restrictions</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Replication"
+                           href="#"
+                           class="navigationItem ui-state-default Replication"
+                           >Replication / Clustering</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Banning"
+                           href="#"
+                           class="navigationItem ui-state-default Banning"
+                           >Banning</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Logging"
+                           href="#"
+                           class="navigationItem ui-state-default Logging"
+                           >Logging</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Encryption"
+                           href="#"
+                           class="navigationItem ui-state-default Encryption"
+                           >Encryption</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Alerts"
+                           href="#"
+                           class="navigationItem ui-state-default Alerts"
+                           >Alerts</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="FolderMonitor"
+                           href="#"
+                           class="navigationItem ui-state-default FolderMonitor"
+                           >Folder Monitor</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Tunnels"
+                           href="#"
+                           class="navigationItem ui-state-default Tunnels"
+                           >Tunnels</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="UserConfig"
+                           href="#"
+                           class="navigationItem ui-state-default UserConfig"
+                           >User Config</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="SearchConfig"
+                           href="#"
+                           class="navigationItem ui-state-default SearchConfig"
+                           >Search Config</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="SyncConfig"
+                           href="#"
+                           class="navigationItem ui-state-default SyncConfig"
+                           >Sync Config</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="StatsConfig"
+                           href="#"
+                           class="navigationItem ui-state-default StatsConfig"
+                           >Stats Config</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Preview"
+                           href="#"
+                           class="navigationItem ui-state-default Preview"
+                           >Preview</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Misc"
+                           href="#"
+                           class="navigationItem ui-state-default Misc"
+                           >Misc</a
+                           >
+                     </li>
+                     <li>
+                        <a
+                           panel="Plugins"
+                           href="#"
+                           class="navigationItem ui-state-default Plugins"
+                           >Plugins</a
+                           >
+                     </li>
+                  </ul>
+               </td>
+               <td id="content" valign="top" class="ui-widget-content">
+                  <div id="placeHolder">
+                     <div
+                        id="notification"
+                        style="display: none"
+                        class="ui-corner-all ui-state-error"
+                        ></div>
+                  </div>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="footer" class="ui-widget-content">
+         <div style="margin: 5px 0px; padding: 5px; height: 25px">
+            <div class="fields" style="float: right">
+               <a href="#" class="button" id="backToTop"
+                  ><span
+                  style="
+                  display: inline-block;
+                  margin: 0px 3px 0px -10px;
+                  float: left;
+                  "
+                  class="pointer ui-icon ui-icon-arrowreturnthick-1-n"
+                  >
+               </span
+                  ><span id="BackToTopLinkText">Back to top</span>
+               </a>
+            </div>
+            <div style="float: left; margin-top: 10px">
+               <span id="PoweredByText" class="poweredby"
+                  >Powered by
+               <a href="http://www.crushftp.com/" target="_blank">CrushFTP</a>
+               </span>
+               <span id="CopyrightText" class="copyright"
+                  >&copy; 2025
+               <a href="http://www.CrushFTP.com/" target="_blank">CrushFTP</a>
+               </span>
+            </div>
+         </div>
+      </div>
+      <div id="growlContainer" style="display: none">
+         <div id="growl">
+            <a class="ui-notify-close" href="#">
+            <span class="ui-icon ui-icon-close" style="float: right"></span>
+            </a>
+            <span
+               style="float: left; margin: 2px 5px 0 0"
+               class="ui-icon ui-icon-alert"
+               ></span>
+            <h2>#{title}</h2>
+            <p>#{text}</p>
+         </div>
+      </div>
+      <div id="generateKeystoreDialog" class="customForm" style="display: none">
+         <div>
+            <label class="bigLabel" for="keystoreDialog_algorithm"
+               >Keystore Algorithm:</label
+               >
+            <input
+               type="text"
+               value="RSA"
+               sid="key_alg"
+               readonly
+               id="keystoreDialog_algorithm"
+               name="keystoreDialog_algorithm"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_keySize">Keys Size:</label>
+            <select
+               sid="key_size"
+               id="keystoreDialog_keySize"
+               name="keystoreDialog_keySize"
+               >
+               <option>1024</option>
+               <option selected>2048</option>
+               <option>4096</option>
+            </select>
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_sigalgorithm"
+               >Sig Algorithm:</label
+               >
+            <select
+               sid="sig_alg"
+               name="keystoreDialog_sigalgorithm"
+               id="keystoreDialog_sigalgorithm"
+               >
+               <option value="SHA1withRSA">SHA1withRSA</option>
+               <option value="SHA256withRSA" selected>SHA256withRSA</option>
+               <option value="SHA384withRSA">SHA384withRSA</option>
+               <option value="SHA512withRSA">SHA512withRSA</option>
+            </select>
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_validityDays"
+               >Validity Days:</label
+               >
+            <input
+               sid="days"
+               type="text"
+               valtype="required,zeroPlus,onlyNumber"
+               value="365"
+               class="smallInputBox"
+               id="keystoreDialog_validityDays"
+               name="keystoreDialog_validityDays"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_domainName"
+               >Domain Name:</label
+               >
+            <input
+               sid="cn"
+               type="text"
+               valtype="required,domain2"
+               value="www.domain.com"
+               class="bigInputBox"
+               id="keystoreDialog_domainName"
+               name="keystoreDialog_domainName"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_sans">SANs:</label>
+            <input
+               sid="sans"
+               type="text"
+               value="www.domain.com"
+               id="keystoreDialog_sans"
+               class="bigInputBox"
+               name="keystoreDialog_sans"
+               />
+            <label for="keystoreDialog_sans"
+               >(Leave blank if not a SAN certificate.)</label
+               >
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_department"
+               >Department:</label
+               >
+            <input
+               sid="ou"
+               type="text"
+               valtype="required,zeroPlus"
+               _ignore="true"
+               id="keystoreDialog_department"
+               name="keystoreDialog_department"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_company">Company:</label>
+            <input
+               sid="o"
+               type="text"
+               valtype="required,noDoubleQuotes"
+               _ignore="true"
+               id="keystoreDialog_company"
+               name="keystoreDialog_company"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_city">City:</label>
+            <input
+               sid="l"
+               type="text"
+               valtype="required,noDoubleQuotes"
+               _ignore="true"
+               id="keystoreDialog_city"
+               name="keystoreDialog_city"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_stateCode"
+               >State Name:</label
+               >
+            <input
+               sid="st"
+               type="text"
+               valtype="required"
+               _ignore="true"
+               id="keystoreDialog_stateCode"
+               name="keystoreDialog_stateCode"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_country">Country:</label>
+            <input
+               sid="c"
+               type="text"
+               valtype="required,onlyTwoChars"
+               _ignore="true"
+               class="smallInputBox"
+               id="keystoreDialog_country"
+               name="keystoreDialog_country"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_email">Email:</label>
+            <input
+               sid="e"
+               type="text"
+               valtype="required,email"
+               _ignore="true"
+               id="keystoreDialog_email"
+               style="width: 200px"
+               name="keystoreDialog_email"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_path">Path:</label>
+            <input
+               type="text"
+               valtype="required"
+               class="bigInputBox"
+               id="keystoreDialog_path"
+               name="keystoreDialog_path"
+               />
+            <a
+               href="#"
+               fileMode="server"
+               PickType="dir"
+               class="serverFilePickButton ui-state-default ui-widget-content ui-corner-all"
+               style="
+               top: -4px;
+               position: relative;
+               padding: 4px 7px 3px 1px;
+               text-decoration: none;
+               "
+               rel="keystoreDialog_path"
+               id="browseKeystoreGenerateLocation"
+               >
+            <span
+               style="display: inline-block; margin: 0px 0px 3px 6px"
+               class="pointer ui-icon ui-icon-folder-open"
+               ></span>
+            Browse
+            </a>
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_fileName">File Name:</label>
+            <input
+               type="text"
+               valtype="required,endsWith"
+               valmsg="File's extension has to be '.JKS'"
+               valdata="jks"
+               id="keystoreDialog_fileName"
+               name="keystoreDialog_fileName"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_pass">Password:</label>
+            <input
+               sid="key_pass"
+               class="encryptPass"
+               valtype="required"
+               type="password"
+               id="keystoreDialog_pass"
+               name="keystoreDialog_pass"
+               />
+         </div>
+         <div>
+            <label class="bigLabel" for="keystoreDialog_confirmpass"
+               >Confirm Password:</label
+               >
+            <input
+               type="password"
+               class="encryptPass"
+               valtype="match-encrypted"
+               ref="keystoreDialog_pass"
+               id="keystoreDialog_confirmpass"
+               name="keystoreDialog_confirmpass"
+               />
+         </div>
+      </div>
+      <div id="generateCSRDialog" class="customForm" style="display: none">
+         <div style="margin: 10px 0px">
+            <label class="bigLabel" for="generateCSRDialog_path">Path:</label>
+            <input
+               sid="keystore_path"
+               type="text"
+               valtype="required"
+               class="bigInputBox"
+               id="generateCSRDialog_path"
+               name="generateCSRDialog_path"
+               />
+            <a
+               href="#"
+               fileMode="server"
+               PickType="file"
+               class="serverFilePickButton ui-state-default ui-widget-content ui-corner-all"
+               style="
+               top: -4px;
+               position: relative;
+               padding: 4px 7px 3px 1px;
+               text-decoration: none;
+               "
+               rel="generateCSRDialog_path"
+               id="browseKeystoreGenerateLocation"
+               >
+            <span
+               style="display: inline-block; margin: 0px 0px 3px 6px"
+               class="pointer ui-icon ui-icon-folder-open"
+               ></span>
+            Browse
+            </a>
+         </div>
+         <div>
+            <label class="bigLabel" for="generateCSRDialog_pass">Password:</label>
+            <input
+               class="encryptPass"
+               sid="key_pass"
+               type="password"
+               id="generateCSRDialog_pass"
+               name="generateCSRDialog_pass"
+               />
+         </div>
+      </div>
+      <div id="importSSLDialog" class="customForm" style="display: none">
+         <fieldset class="nobg" style="margin-bottom: 10px">
+            <div
+               class="ui-priority-primary"
+               style="
+               line-height: 18px;
+               margin-bottom: 5px;
+               border-bottom: 1px solid #ccc;
+               padding-bottom: 5px;
+               margin-left: 3px;
+               "
+               >
+               Select a file you have generated in Step #1
+            </div>
+            <div>
+               <label
+                  class="bigLabel"
+                  style="width: 225px"
+                  for="importSSLDialog_keystore_path"
+                  >Keystore Path:</label
+                  >
+               <input
+                  sid="keystore_path"
+                  class="bigInputBox"
+                  type="text"
+                  id="importSSLDialog_keystore_path"
+                  name="importSSLDialog_keystore_path"
+                  />
+               <a
+                  href="#"
+                  fileMode="server"
+                  PickType="file"
+                  class="serverFilePickButton ui-state-default ui-widget-content ui-corner-all"
+                  style="
+                  top: -4px;
+                  position: relative;
+                  padding: 4px 7px 3px 1px;
+                  text-decoration: none;
+                  "
+                  rel="importSSLDialog_keystore_path"
+                  id="browseImportSSLKeyStorePath"
+                  >
+               <span
+                  style="display: inline-block; margin: 0px 0px 3px 6px"
+                  class="pointer ui-icon ui-icon-folder-open"
+                  ></span>
+               Browse
+               </a>
+            </div>
+            <div>
+               <label
+                  class="bigLabel"
+                  style="width: 225px"
+                  for="importSSLDialog_key_pass"
+                  >Keystore Password:</label
+                  >
+               <input
+                  sid="key_pass"
+                  class="encryptPass"
+                  type="password"
+                  id="importSSLDialog_key_pass"
+                  name="importSSLDialog_key_pass"
+                  />
+            </div>
+            <!--div>
+               <label class="bigLabel" for="importSSLDialog_key_confirmpass">Keystore Password:</label>
+               <input valtype="match" ref="importSSLDialog_key_pass"  type="password" id="importSSLDialog_key_confirmpass" name="importSSLDialog_key_confirmpass" />
+               </div-->
+         </fieldset>
+         <fieldset class="nobg" style="margin-bottom: 10px">
+            <div
+               class="ui-priority-primary"
+               style="
+               line-height: 18px;
+               margin-bottom: 5px;
+               border-bottom: 1px solid #ccc;
+               padding-bottom: 5px;
+               margin-left: 3px;
+               "
+               >
+               Select certificate reply file you have received from certificate
+               authority.
+            </div>
+            <div>
+               <label
+                  class="bigLabel"
+                  style="width: 225px"
+                  for="importSSLDialog_import_path"
+                  >Import Certificate Authority Reply File:</label
+                  >
+               <input
+                  sid="import_path"
+                  class="bigInputBox"
+                  type="text"
+                  id="importSSLDialog_import_path"
+                  name="importSSLDialog_import_path"
+                  />
+               <a
+                  href="#"
+                  fileMode="server"
+                  PickType="file"
+                  class="serverFilePickButton ui-state-default ui-widget-content ui-corner-all"
+                  style="
+                  top: -4px;
+                  position: relative;
+                  padding: 4px 7px 3px 1px;
+                  text-decoration: none;
+                  "
+                  rel="importSSLDialog_import_path"
+                  id="browseImportSSLImportTo"
+                  >
+               <span
+                  style="display: inline-block; margin: 0px 0px 3px 6px"
+                  class="pointer ui-icon ui-icon-folder-open"
+                  ></span>
+               Browse
+               </a>
+            </div>
+         </fieldset>
+         <fieldset class="nobg">
+            <div>
+               <div
+                  class="ui-priority-primary"
+                  style="
+                  line-height: 18px;
+                  margin-bottom: 5px;
+                  border-bottom: 1px solid #ccc;
+                  padding-bottom: 5px;
+                  margin-left: 3px;
+                  "
+                  >
+                  Select the additional certificates. These are the intermediate
+                  certs, bundle files, root or ca certs. These are everything else
+                  *except* the reply file that go into building the certificate chain.
+               </div>
+               <table style="width: 100%; padding: 0px; margin: 0px">
+                  <tr>
+                     <td style="width: 225px">
+                        <label
+                           class="bigLabel"
+                           style="width: 225px"
+                           for="importSSLDialog_trusted_paths"
+                           >Trusted Certificates:</label
+                           >
+                     </td>
+                     <td>
+                        <div class="trustedCertificates">
+                           <input
+                              class="bigInputBox"
+                              type="text"
+                              id="importSSLDialog_trusted_paths"
+                              name="importSSLDialog_trusted_paths"
+                              />
+                           <a
+                              href="#"
+                              fileMode="server"
+                              PickType="file"
+                              class="serverFilePickButton ui-state-default ui-widget-content ui-corner-all"
+                              style="
+                              top: -4px;
+                              position: relative;
+                              padding: 4px 7px 3px 1px;
+                              text-decoration: none;
+                              "
+                              rel="importSSLDialog_trusted_paths"
+                              id="browseImportSSLImportTo"
+                              >
+                           <span
+                              style="display: inline-block; margin: 0px 0px 3px 6px"
+                              class="pointer ui-icon ui-icon-folder-open"
+                              ></span>
+                           Browse
+                           </a>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </fieldset>
+      </div>
+      <div id="codeEditorPanel"></div>
+      <div id="loadingIndicator"></div>
+      <div id="access-denied" style="display: none">
+         Your IP is not allowed to do administration or your username does not have
+         permission.
+      </div>
+   </body>
+</html>

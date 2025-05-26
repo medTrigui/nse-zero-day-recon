@@ -1,0 +1,26 @@
+#extension <space> content-type
+.jpg image/jpeg
+.jpeg image/jpeg
+.gif image/gif
+.png image/png
+.bmp image/bmp
+.html text/html
+.htm text/html
+.exif text/html
+.css text/css
+.dhtml text/html
+.rss text/xml
+.xml text/xml
+.xsl text/xml
+.txt text/plain
+.log text/plain
+.jar application/java-archive
+.zip application/zip
+.js text/javascript
+.pdf application/pdf
+.jnlp application/x-java-jnlp-file
+.swf application/x-shockwave-flash
+.mov video/quicktime
+.ico image/vnd.microsoft.icon
+#one final catch all "*" will do anything not in the list as whatever you set it to.
+* application/binary

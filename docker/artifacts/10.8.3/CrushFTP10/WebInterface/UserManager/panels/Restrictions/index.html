@@ -1,0 +1,1815 @@
+<div id="autocompleteFix" style="position: absolute; top: -200px">
+  <input type="text" name="email" value="" style="display: none" />
+  <input type="text" name="email" value="" />
+  <input type="text" name="not-an-email" value="" style="display: none" />
+  <input type="password" name="password" value="" style="display: none" />
+  <input type="password" name="password" value="" />
+</div>
+<!-- Panel HTML -->
+<div id="pnlRestrictions" class="userMgrPanel">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+        <div class="ui-priority-primary Restrictions headerText"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="customForm nobg">
+        <fieldset class="ui-widget-content nobg">
+          <legend class="collapseHandle pointer"></legend>
+          <div class="dataDiv">
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="restrictions account expires delete date"
+              pnlId="restrictions1"
+              config="account_expire"
+            >
+              <table quickLocate="Account Expiration">
+                <tr>
+                  <td
+                    class="checkboxArea ui-widget-content rightborder nobg expiration_pnl"
+                  >
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields safari-notop">
+                      <table>
+                        <tr>
+                          <td>
+                            <label for="account_expire"
+                              >Account Expires:
+                            </label>
+                            <input
+                              type="text"
+                              id="account_expire"
+                              class="date time validate"
+                              valtype="dateTimeExpire"
+                              style="width: 150px"
+                            />
+                            <label for="account_expire"
+                              >(MM/dd/yyyy hh:mm am/pm) Leave blank for no
+                              expiration.</label
+                            >
+                            <a
+                              href="#"
+                              class="button"
+                              id="quickSetExpirationTime"
+                            >
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-wrench"
+                              ></span>
+                              <span class=""> Quick Set </span>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input
+                              type="checkbox"
+                              class="checkOptions"
+                              id="account_expire_delete"
+                            />
+                            <label for="account_expire_delete"
+                              >Auto delete the account also</label
+                            >
+                          </td>
+                        </tr>
+                        <tr class="">
+                          <td style="padding: 10px 0px">
+                            <div
+                              id="expirationTask"
+                              class="subPanel ui-widget-content leftborder nobg"
+                              style="padding-top: 10px"
+                            >
+                              <label for="account_expire_task"
+                                >Execute CrushTask when account expires</label
+                              >
+                              <select
+                                id="account_expire_task"
+                                name="account_expire_task"
+                                style="width: 145px"
+                              >
+                                <option value="">Please select</option>
+                              </select>
+                              <span
+                                class="ui-state-highlight ui-corner-all"
+                                style="
+                                  padding: 3px;
+                                  display: inline-block;
+                                  margin: -3px 3px;
+                                  position: absolute;
+                                  margin-top: -8px;
+                                "
+                              >
+                                <span
+                                  style="float: left; margin-right: 0.3em"
+                                  class="ui-icon ui-icon-info"
+                                ></span>
+                                <span class="">
+                                  You can add tasks from
+                                  <a
+                                    href="/WebInterface/Preferences/index.html"
+                                    target="_blank"
+                                    style="text-decoration: underline"
+                                    >Preferences</a
+                                  >
+                                  -> Plugins -> CrushTask
+                                </span>
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="account_expire_rolling_days"
+                              >Extend expiration if used every x days:
+                            </label>
+                            <input
+                              class="validate smallInputBox"
+                              valtype="float"
+                              type="text"
+                              id="account_expire_rolling_days"
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="account_expire_advance_days_notify"
+                              >How many days in advance to notify user of
+                              account expiration?</label
+                            >
+                            <input
+                              class="validate smallInputBox"
+                              valtype="float"
+                              type="text"
+                              id="account_expire_advance_days_notify"
+                            />
+                          </td>
+                        </tr>
+                        <tr class="">
+                          <td style="padding: 5px 0px">
+                            <div
+                              id="expirationTask"
+                              class="subPanel ui-widget-content leftborder nobg"
+                              style="padding-top: 10px"
+                            >
+                              <label for="account_expire_notify_task"
+                                >Execute CrushTask to notify about account
+                                expiration</label
+                              >
+                              <select
+                                id="account_expire_notify_task"
+                                name="account_expire_notify_task"
+                                style="width: 145px"
+                              >
+                                <option value="">Please select</option>
+                              </select>
+                              <span
+                                class="ui-state-highlight ui-corner-all"
+                                style="
+                                  padding: 3px;
+                                  display: inline-block;
+                                  margin: -3px 3px;
+                                  position: absolute;
+                                  margin-top: -8px;
+                                "
+                              >
+                                <span
+                                  style="float: left; margin-right: 0.3em"
+                                  class="ui-icon ui-icon-info"
+                                ></span>
+                                <span class="">
+                                  You can add tasks from
+                                  <a
+                                    href="/WebInterface/Preferences/index.html"
+                                    target="_blank"
+                                    style="text-decoration: underline"
+                                    >Preferences</a
+                                  >
+                                  -> Plugins -> CrushTask
+                                </span>
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="expire password days"
+              pnlId="restrictions2"
+              config="expire_password_days"
+            >
+              <table quickLocate="Password Expiration">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <table>
+                        <tr>
+                          <td>
+                            <input type="checkbox" id="expire_password" />
+                            <label for="expire_password"
+                              >Expire Password.</label
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="expire_password_days">Days </label>
+                            <input
+                              class="validate"
+                              valtype="float"
+                              type="text"
+                              id="expire_password_days"
+                            />
+                            <a
+                              id="btnExpireNow"
+                              href="javascript:void(0);"
+                              class="button"
+                            >
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-key"
+                              ></span>
+                              <span class=""> Expire now </span>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="expire_password_when" style="top: 0px">
+                              Password will expire on:
+                            </label>
+                            <span
+                              class="liveData"
+                              id="expire_password_when"
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding-top: 10px">
+                            <label for="password_expire_advance_days_notify"
+                              >How many days in advance to notify user of
+                              password expiration?</label
+                            >
+                            <input
+                              class="validate smallInputBox"
+                              valtype="float"
+                              type="text"
+                              id="password_expire_advance_days_notify"
+                            />
+                          </td>
+                        </tr>
+                        <tr class="">
+                          <td style="padding: 5px 0px">
+                            <div
+                              id="expirationTask"
+                              class="subPanel ui-widget-content leftborder nobg"
+                              style="padding-top: 10px"
+                            >
+                              <label for="password_expire_notify_task"
+                                >Execute CrushTask to notify about password
+                                expiration</label
+                              >
+                              <select
+                                id="password_expire_notify_task"
+                                name="password_expire_notify_task"
+                                style="width: 145px"
+                              >
+                                <option value="">Please select</option>
+                              </select>
+                              <span
+                                class="ui-state-highlight ui-corner-all"
+                                style="
+                                  padding: 3px;
+                                  display: inline-block;
+                                  margin: -3px 3px;
+                                  position: absolute;
+                                  margin-top: -8px;
+                                "
+                              >
+                                <span
+                                  style="float: left; margin-right: 0.3em"
+                                  class="ui-icon ui-icon-info"
+                                ></span>
+                                <span class="">
+                                  You can add tasks from
+                                  <a
+                                    href="/WebInterface/Preferences/index.html"
+                                    target="_blank"
+                                    style="text-decoration: underline"
+                                    >Preferences</a
+                                  >
+                                  -> Plugins -> CrushTask
+                                </span>
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="minimum age for password"
+              pnlId="restrictions17"
+              config="min_pass_age"
+            >
+              <table quickLocate="Max Simultaneous Login">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="min_pass_age"
+                        >Minimum age for password:
+                      </label>
+                      <input
+                        class="validate smallInputBox"
+                        valtype="onlyNumber"
+                        type="text"
+                        id="min_pass_age"
+                      />
+                      <label for="min_pass_age">in hours</label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="maximum logins simultaneous concurrent"
+              pnlId="restrictions3"
+              config="max_logins"
+            >
+              <table quickLocate="Max Simultaneous Login">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="max_logins">Max Simultaneous Login:</label>
+                      <input
+                        class="validate smallInputBox"
+                        valtype="onlyNumber"
+                        type="text"
+                        id="max_logins"
+                      />
+                      <label for="max_logins">(-1=disable, 0=no limit)</label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="attempts logins block disable account failure"
+              pnlId="restrictions16"
+              config="failure_count_max"
+            >
+              <table
+                quickLocate="Disable account after too many login attempts"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="failure_count_max"
+                        >Disable account after:
+                      </label>
+                      <input
+                        class="validate smallInputBox"
+                        valtype="onlyNumber"
+                        type="text"
+                        id="failure_count_max"
+                      />
+                      <label for="failure_count_max">login failures </label>
+
+                      <span class="spacer"></span>
+                      <label>Failure counts:</label>
+                      <label class="liveData" id="failure_count">0</label>
+                      <div style="margin-top: 10px">
+                        <label for="disabled_account_task"
+                          >Execute CrushTask:
+                        </label>
+                        <select
+                          id="disabled_account_task"
+                          name="disabled_account_task"
+                        >
+                          <option value="">Please select</option>
+                        </select>
+                        <span
+                          class="ui-state-highlight ui-corner-all"
+                          style="
+                            padding: 3px;
+                            display: inline-block;
+                            margin: -3px 3px;
+                            top: 8px;
+                            position: absolute;
+                            margin-top: 18px;
+                          "
+                        >
+                          <span
+                            style="float: left; margin-right: 0.3em"
+                            class="ui-icon ui-icon-info"
+                          ></span>
+                          <span class="">
+                            You can add tasks from
+                            <a
+                              href="/WebInterface/Preferences/index.html"
+                              target="_blank"
+                              style="text-decoration: underline"
+                              >Preferences</a
+                            >
+                            -> Plugins -> CrushTask
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="hammering successful logins"
+              pnlId="restrictions18"
+              config="login_hammer_attempts"
+            >
+              <table>
+                <td class="checkboxArea ui-widget-content rightborder nobg">
+                  <input type="checkbox" />
+                </td>
+                <td class="settingsArea">
+                  <div class="fields">
+                    <table>
+                      <tr>
+                        <td>
+                          <div>
+                            <span class="ui-priority-primary">
+                              Hammering Successful Logins Setting:
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div style="margin-top: 10px">
+                            <label for="login_hammer_attempts"
+                              >Maximum of</label
+                            >
+                            <input
+                              id="login_hammer_attempts"
+                              name="login_hammer_attempts"
+                              class="smallInputBox"
+                              type="text"
+                            />
+                            <label for="login_hammer_interval"
+                              >attempts in</label
+                            >
+                            <input
+                              id="login_hammer_interval"
+                              name="login_hammer_interval"
+                              class="smallInputBox"
+                              type="text"
+                            />
+                            <label for="login_hammer_timeout"
+                              >seconds, then banned for</label
+                            >
+                            <input
+                              id="login_hammer_timeout"
+                              name="login_hammer_timeout"
+                              class="smallInputBox"
+                              type="text"
+                            />
+                            <label for="login_hammer_timeout">minutes.</label>
+                            <span
+                              class="ui-state-highlight ui-corner-all warning"
+                              style="
+                                padding: 3px;
+                                position: relative;
+                                top: -5px;
+                              "
+                            >
+                              <span
+                                style="
+                                  margin-right: 0.3em;
+                                  display: inline-block;
+                                  position: relative;
+                                  top: 4px;
+                                "
+                                class="ui-icon ui-icon-info"
+                              ></span>
+                              <span class="CrushTask lblPreviewActionHelpText">
+                                Value 0 <strong>does not</strong> mean permanent
+                              </span>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="maximum logins ip unique kick oldest session"
+              pnlId="restrictions4"
+              config="max_logins_ip"
+            >
+              <table quickLocate="Max Logins Per IP">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="max_logins_ip"
+                        >Max Logins Per Unique IP:
+                      </label>
+                      <input
+                        class="validate smallInputBox"
+                        valtype="numeric"
+                        type="text"
+                        id="max_logins_ip"
+                      />
+                      <label for="max_logins_ip">(0=no limit) </label>
+
+                      <span class="spacer"></span>
+                      <input type="checkbox" id="logins_ip_auto_kick" />
+                      <label for="logins_ip_auto_kick"
+                        >Auto kick oldest session if exceeded</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="ignore maximum logins connections"
+              pnlId="restrictions5"
+              config="ignore_max_logins"
+            >
+              <table
+                quickLocate="Ignore Server's Max Connections and Always Allow Login"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input type="checkbox" id="ignore_max_logins" />
+                      <label for="ignore_max_logins">
+                        Ignore Server's Max Connections and Always Allow
+                        Login</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="day of week connect"
+              pnlId="restrictions6"
+              config="day_of_week_allow"
+            >
+              <table quickLocate="Allow User to Connect to These Days">
+                <tr>
+                  <td
+                    id="allowedConnectionDaysCheck"
+                    propertyType="panelRestrictions:AllowedDays"
+                    class="checkboxArea ui-widget-content rightborder nobg specialProperty"
+                  >
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      Allow User to Connect to These Days
+                      <div
+                        style="margin: 5px 0px"
+                        id="dayOfWeekAllowedToConnect"
+                      >
+                        <input type="checkbox" id="day1" class="ignoreBind" />
+                        <label for="day1"> Sunday</label>
+                        <span class="spacer"></span>
+                        <input type="checkbox" id="day2" class="ignoreBind" />
+                        <label for="day2"> Monday</label>
+                        <span class="spacer"></span>
+                        <input type="checkbox" id="day3" class="ignoreBind" />
+                        <label for="day3"> Tuesday</label>
+                        <span class="spacer"></span>
+                        <input type="checkbox" id="day4" class="ignoreBind" />
+                        <label for="day4"> Wednesday</label>
+                        <span class="spacer"></span>
+                        <input type="checkbox" id="day5" class="ignoreBind" />
+                        <label for="day5"> Thursday</label>
+                        <span class="spacer"></span>
+                        <input type="checkbox" id="day6" class="ignoreBind" />
+                        <label for="day6"> Friday</label>
+                        <span class="spacer"></span>
+                        <input type="checkbox" id="day7" class="ignoreBind" />
+                        <label for="day7"> Saturday</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="hours of day"
+              pnlId="restrictions7"
+              config="hours_of_day"
+            >
+              <table quickLocate="Hours of the day a user may connect">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <label for="hours_of_day"
+                        >Hours of the day a user may connect:
+                      </label>
+                      <input
+                        type="text"
+                        id="hours_of_day"
+                        class="bigInputBox validate"
+                        valtype="hoursOfTheDay"
+                      />
+                      <label>(24 hours, 0,1,2,3..,23)</label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="share sharing usershare"
+              pnlId="restrictions8"
+              config="allow_user_shares"
+            >
+              <table
+                quickLocate="Allow receiving of shared items from other users"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input type="checkbox" id="allow_user_shares" />
+                      <label for="allow_user_shares"
+                        >Allow receiving of shared items from other users.
+                        (Enterprise Licenses Only)</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="ip restrictions banning restricted limit allow deny starting ending"
+              pnlId="restrictions9"
+              config="ip_restrictions"
+            >
+              <table quickLocate="IP Restrictions">
+                <tr>
+                  <td
+                    id="ipRestrictionsCheck"
+                    propertyType="panelRestrictions:IPRestrictions"
+                    class="checkboxArea ui-widget-content rightborder nobg specialProperty"
+                  >
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <table>
+                        <tr>
+                          <td>
+                            <div style="margin-bottom: 10px">
+                              IP Restrictions
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="#" class="button" id="addIPRestriction">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-plus"
+                              ></span>
+                              <span class=""> Add </span>
+                            </a>
+
+                            <a href="#" class="button" id="editIPRestriction">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-pencil"
+                              ></span>
+                              <span class=""> Edit </span>
+                            </a>
+
+                            <a id="pasteBanList" href="#" class="button">
+                              <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-clipboard' ></span>
+                              Paste IP List
+                            </a>
+
+                            <a href="#" class="button" id="removeIPRestriction">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-minus"
+                              ></span>
+                              <span class=""> Remove </span>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div style="margin: 10px 0px">
+                              <div
+                                class="ui-corner-all ui-widget-content nobg sideScroll"
+                                style="width: 600px; height: 400px"
+                              >
+                                <ol
+                                  id="IPRestrictions"
+                                  class="nobg selectable single"
+                                ></ol>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="socks proxy host allowed destination"
+              pnlId="restrictions20"
+              config="socks_site_filter_allow"
+            >
+              <table
+                quickLocate="List of paths to trusted public SSH key files"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields safari-notop">
+                      <div>
+                        <label for="socks_site_filter_allow">
+                          Allowed destination SOCKS proxy hosts / IPs (one per line, wildcard supported):
+                        </label>
+                      </div>
+                      <div>
+                        <table width="100%">
+                          <tr>
+                            <td width="500px">
+                              <textarea
+                                class="formTextarea"
+                                id="socks_site_filter_allow"
+                              ></textarea>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="socks proxy host blocked destination"
+              pnlId="restrictions21"
+              config="socks_site_filter_block"
+            >
+              <table
+                quickLocate="List of paths to trusted public SSH key files"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields safari-notop">
+                      <div>
+                        <label for="socks_site_filter_block">
+                          Blocked destination SOCKS proxy hosts / IPs (one per line, wildcard supported):
+                        </label>
+                      </div>
+                      <div>
+                        <table width="100%">
+                          <tr>
+                            <td width="500px">
+                              <textarea
+                                class="formTextarea"
+                                id="socks_site_filter_block"
+                              ></textarea>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="allowed protocols https sftp webdav max connections ftps"
+              pnlId="restrictions10"
+              config="CONNECTIONS_PER_PROTOCOL"
+            >
+              <table quickLocate="Max connections per protocol">
+                <tr>
+                  <td
+                    id="connectionsPerProtocolCheck"
+                    propertyType="panelRestrictions:ConnectionsPerProtocol"
+                    class="checkboxArea ui-widget-content rightborder nobg specialProperty"
+                  >
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields" id="maxConnectionsPerProtocolSettings">
+                      <div>
+                        Max connections per protocol this user can connect
+                        with<br />
+                        <table style="width: 850px; line-height: 26px">
+                          <tr>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_ftp"
+                                class="ignoreBind checkOptions"
+                              />
+                              <label for="proto_ftp"> FTP</label>
+                              <br />
+                              <input
+                                type="text"
+                                id="proto_ftp_val"
+                                class="smallInputBox defaultValCon ignoreBind validate"
+                                valtype="required,numeric"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_ftps"
+                                class="ignoreBind checkOptions"
+                              />
+                              <label for="proto_ftps"> FTPS</label>
+                              <br />
+                              <input
+                                type="text"
+                                id="proto_ftps_val"
+                                class="smallInputBox defaultValCon ignoreBind validate"
+                                valtype="required,numeric"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_sftp"
+                                class="ignoreBind checkOptions"
+                              />
+                              <label for="proto_sftp"> SFTP</label>
+                              <br />
+                              <input
+                                type="text"
+                                id="proto_sftp_val"
+                                class="smallInputBox defaultValCon ignoreBind validate"
+                                valtype="required,numeric"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_socks"
+                                class="ignoreBind checkOptions"
+                              />
+                              <label for="proto_socks"> SOCKS</label>
+                              <br />
+                              <input
+                                type="text"
+                                id="proto_socks_val"
+                                class="smallInputBox defaultValCon ignoreBind validate"
+                                valtype="required,numeric"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_http"
+                                class="ignoreBind checkOptions"
+                              />
+                              <label for="proto_http"> HTTP</label>
+                              <br />
+                              <input
+                                type="text"
+                                id="proto_http_val"
+                                class="smallInputBox countLimit ignoreBind"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_https"
+                                class="ignoreBind checkOptions"
+                              />
+                              <label for="proto_https"> HTTPS</label>
+                              <br />
+                              <input
+                                type="text"
+                                id="proto_https_val"
+                                class="smallInputBox countLimit ignoreBind"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                id="proto_webdav"
+                                class="ignoreBind"
+                              />
+                              <label for="proto_webdav"> WebDAV</label>
+                              <br />
+                              (WebDav is shared with HTTP or HTTPS)
+                            </td>
+                          </tr>
+                        </table>
+                        0 means there is no limit
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="require encryption FTPS"
+              pnlId="restrictions11"
+              config="require_encryption"
+            >
+              <table quickLocate="Require encryption?">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input type="checkbox" id="require_encryption" />
+                      <label for="require_encryption">
+                        Require encryption ?</label
+                      >
+                      <div style="clear: both"></div>
+                      (Only applies to FTPS since FTPS can change from clear
+                      text to encryption... the connection has been made. You
+                      may allow some accounts like anon... to be clear, while
+                      making the other account require encryption.)
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="ssh public private key sftp trusted"
+              pnlId="restrictions12"
+              config="ssh_public_keys"
+            >
+              <table
+                quickLocate="List of paths to trusted public SSH key files"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields safari-notop">
+                      <div>
+                        <label for="ssh_public_keys">
+                          List of paths to trusted public SSH key files: (This
+                          user is allowed to login using any of these keys)
+                        </label>
+                      </div>
+                      <div>
+                        <table width="100%">
+                          <tr>
+                            <td width="360px">
+                              <textarea
+                                class="formTextarea"
+                                id="ssh_public_keys"
+                              ></textarea>
+                            </td>
+                            <td style="vertical-align: top; padding-top: 10px">
+                              <a
+                                href="#"
+                                PickType="file"
+                                class="left button noSpacing serverFilePickButton"
+                                rel="ssh_public_keys"
+                              >
+                                <span
+                                  style="
+                                    display: inline-block;
+                                    margin: 0px 3px 0px -7px;
+                                    float: left;
+                                  "
+                                  class="pointer ui-icon ui-icon-document"
+                                ></span>
+                                <span class=""> Add + </span>
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="ssh public private key sftp trusted password"
+              pnlId="restrictions13"
+              config="publickey_password"
+            >
+              <table
+                quickLocate="Require public key and password for authentication"
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input type="checkbox" id="publickey_password" />
+                      <label for="publickey_password">
+                        Require public key and password for
+                        authentication.</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="ssh public private key sftp trusted password keyboard interactive"
+              pnlId="restrictions19"
+              config="publickey_keyboardinteractive"
+            >
+              <table
+                quickLocate="Require public key and keyboard interactive for authentication."
+              >
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <input type="checkbox" id="publickey_keyboardinteractive" />
+                      <label for="publickey_keyboardinteractive">
+                        Require public key and keyboard interactive for authentication.</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <!--fieldset class="ui-widget-content nobg" filterKeywords="ssl keystore client certificate authentication">
+							<table>
+								<tr>
+									<td class="checkboxArea ui-widget-content rightborder nobg">
+										<input type="checkbox" />
+									</td>
+									<td class="settingsArea">
+										<div class="fields">
+											<table>
+												<tr>
+													<td colspan="3">
+														SSL Client Certificate Authentication
+													</td>
+												</tr>
+												<tr>
+													<td style="width:120px;">
+													 <label for="userKeystore">Keystore Location:</label>
+													</td>
+													<td style="width:100px">
+														<input type="text" id="userKeystore" class="bigInputBox" />
+													</td>
+													<td>
+														<a href="#" PickType="dir" class="button noSpacing serverFilePickButton" rel="userKeystore">
+															<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-folder-open"></span>
+															<span class="">
+																Browse
+															</span>
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label for="userKeystorePass">Keystore Password:</label>
+													</td>
+													<td>
+														<input type="password" id="userKeystorePass" />
+													</td>
+													<td>
+														<a href="#" class="button noSpacing">
+															<span style="display:inline-block;margin:0px 3px 0px -7px;float:left;" class="pointer ui-icon ui-icon-transferthick-e-w"></span>
+															<span class="">
+																Test Certificate
+															</span>
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label for="userKeystoreCertPass">Key Password:</label>
+													</td>
+													<td colspan="2">
+														<input type="password" id="userKeystoreCertPass" />
+													</td>
+												</tr>
+												<tr>
+													<td colspan="3">
+														<input type="checkbox" id="needClientAuth" />
+														<label for="needClientAuth">
+															Require valid client certificate</label>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</fieldset-->
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="file encryption key decrypt pgp private public"
+              pnlId="restrictions14"
+              config="PGP_SETUP"
+            >
+              <table quickLocate="PGP Key Setup">
+                <tr>
+                  <td class="checkboxArea ui-widget-content rightborder nobg">
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields safari-notop">
+                      <table>
+                        <tr>
+                          <td colspan="2">
+                            <p class="oldEncryption" style="display: none">
+                              <label for="fileEncryptionKey"
+                                >Key Location:
+                              </label>
+                              <input
+                                type="text"
+                                id="fileEncryptionKey"
+                                class="bigInputBox"
+                                disabled
+                                readonly
+                              />
+
+                              <a
+                                href="#"
+                                id="removeOldEncryptionMethod"
+                                class="button ui-state-highlight"
+                                style="top: 4px"
+                              >
+                                <span
+                                  style="
+                                    display: inline-block;
+                                    margin: 0px 3px 0px -7px;
+                                    float: left;
+                                  "
+                                  class="pointer ui-icon ui-icon-close"
+                                ></span>
+                                <span class="Encryption btnKeyRemoveText"
+                                  >Remove
+                                </span>
+                              </a>
+                            </p>
+                            <p>
+                              <label for="filePublicEncryptionKey"
+                                >Public PGP Key:
+                              </label>
+                              <input
+                                type="text"
+                                id="filePublicEncryptionKey"
+                                class="bigInputBox"
+                                name="filePublicEncryptionKey"
+                              />
+
+                              <a
+                                href="#"
+                                class="button serverFilePickButton"
+                                rel="filePublicEncryptionKey"
+                                PickType="file"
+                                style="top: 4px"
+                              >
+                                <span
+                                  style="
+                                    display: inline-block;
+                                    margin: 0px 3px 0px -7px;
+                                    float: left;
+                                  "
+                                  class="pointer ui-icon ui-icon-folder-open"
+                                ></span>
+                                <span>Browse</span>
+                              </a>
+                            </p>
+
+                            <p></p>
+
+                            <p>
+                              <label for="fileDecryptionKey"
+                                >Private PGP Key:</label
+                              >
+                              <input
+                                type="text"
+                                id="fileDecryptionKey"
+                                class="bigInputBox"
+                                name="fileDecryptionKey"
+                              />
+
+                              <a
+                                href="#"
+                                class="button serverFilePickButton"
+                                rel="fileDecryptionKey"
+                                PickType="file"
+                                style="top: 4px"
+                              >
+                                <span
+                                  style="
+                                    display: inline-block;
+                                    margin: 0px 3px 0px -7px;
+                                    float: left;
+                                  "
+                                  class="pointer ui-icon ui-icon-folder-open"
+                                ></span>
+                                <span>Browse</span>
+                              </a>
+                            </p>
+                            <p>
+                              <label for="fileDecryptionKeyPass"
+                                >Private PGP Key Pass:</label
+                              >
+                              <input
+                                type="password"
+                                id="fileDecryptionKeyPass"
+                                class="encryptPass"
+                                name="fileDecryptionKeyPass"
+                              />
+                            </p>
+                            <p>
+                              <label for="encryption_cypher">
+                                Encryption cypher:
+                              </label>
+                              <select
+                                _name="encryption_cypher"
+                                id="encryption_cypher"
+                              >
+                                <option value="TRIPLE_DES">TRIPLE_DES</option>
+                                <option selected value="CAST5">CAST5</option>
+                                <option value="BLOWFISH">BLOWFISH</option>
+                                <option value="AES_128">AES_128</option>
+                                <option value="AES_192">AES_192</option>
+                                <option value="AES_256">AES_256</option>
+                                <option value="TWOFISH">TWOFISH</option>
+                                <option value="DES">DES</option>
+                                <option value="SAFER">SAFER</option>
+                                <option value="IDEA">IDEA</option>
+                              </select>
+                            </p>
+                            <p>
+                                <input _name="file_encrypt_ascii" type="checkbox" id="file_encrypt_ascii" />
+                                <label for="file_encrypt_ascii">
+                                  ASCII Armor
+                                </label>
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="hint_decrypted_size" _name="hint_decrypted_size" />
+                                <label for="hint_decrypted_size">Add hinted decrypted size</label>
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="encryption_sign" _name="encryption_sign" />
+                                <label for="encryption_sign">Sign</label>
+                            </p>
+                            <p>
+                              <a
+                                href="#"
+                                _parent="table"
+                                style="margin-left: 250px"
+                                class="button noSpacing testPGPButton"
+                                rel="fileDecryptionKey,fileDecryptionKeyPass,filePublicEncryptionKey"
+                              >
+                                <span
+                                  style="
+                                    display: inline-block;
+                                    margin: 0px 3px 0px -7px;
+                                    float: left;
+                                  "
+                                  class="pointer ui-icon ui-icon-check"
+                                ></span>
+                                <span class=""> Test Key </span>
+                              </a>
+                            </p>
+                            <p></p>
+                            <div
+                              class="noForm nobg ui-widget-content"
+                              id="generateKeyPanel"
+                            >
+                              <div
+                                class="ui-widget-header ui-corner-all"
+                                style="
+                                  padding: 0px 5px;
+                                  display: inline-block;
+                                  position: relative;
+                                  top: -8px;
+                                  margin: 0px 10px;
+                                "
+                              >
+                                Generate Public / Private Key Utility:
+                              </div>
+                              <table width="100%" class="middleAligned">
+                                <tr>
+                                  <td style="width: 190px" class="right">
+                                    <label
+                                      for="restrictions_pgpCommonNameGenerate"
+                                    >
+                                      Common Name:
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="text"
+                                      _name="pgpCommonNameGenerate"
+                                      id="restrictions_pgpCommonNameGenerate"
+                                      class="excludeXML ignoreBind"
+                                      value=""
+                                    />
+                                    (Username or Email)
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="right">
+                                    <label
+                                      for="restrictions_pgpKeySizeGenerate"
+                                    >
+                                      RSA Key Size:
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="text"
+                                      _name="pgpKeySizeGenerate"
+                                      id="restrictions_pgpKeySizeGenerate"
+                                      class="excludeXML ignoreBind"
+                                      value="2048"
+                                    />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="right">
+                                    <label
+                                      for="restrictions_pgpKeyDaysGenerate"
+                                    >
+                                      Valid Days:
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="text"
+                                      _name="pgpKeyDaysGenerate"
+                                      id="restrictions_pgpKeyDaysGenerate"
+                                      class="excludeXML ignoreBind"
+                                      value="365"
+                                    />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="right">
+                                    <label
+                                      for="restrictions_pgpPrivateKeyPasswordGenerate"
+                                    >
+                                      Private Key Password:
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <input
+                                      _name="pgpPrivateKeyPasswordGenerate"
+                                      class="excludeXML ignoreBind"
+                                      type="password"
+                                      id="restrictions_pgpPrivateKeyPasswordGenerate"
+                                    />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="right">
+                                    <label
+                                      for="restrictions_pgpPivateKeyPathGenerate"
+                                    >
+                                      Private Key Path:
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="text"
+                                      _name="pgpPivateKeyPathGenerate"
+                                      id="restrictions_pgpPivateKeyPathGenerate"
+                                      class="bigInputBox excludeXML ignoreBind"
+                                    />
+                                    <a
+                                      href="#"
+                                      class="button serverFilePickButton"
+                                      rel="restrictions_pgpPivateKeyPathGenerate"
+                                      PickType="dir"
+                                      style="margin-top: 5px !important"
+                                    >
+                                      <span
+                                        style="
+                                          display: inline-block;
+                                          margin: 0px 3px 0px -7px;
+                                          float: left;
+                                        "
+                                        class="pointer ui-icon ui-icon-folder-open"
+                                      ></span>
+                                      <span>Browse</span>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="right">
+                                    <label for="encryption_cypher_gen">
+                                      Encryption cypher:
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <select
+                                      _name="encryption_cypher_gen"
+                                      multiple="multiple"
+                                      class="excludeXML ignoreBind"
+                                      id="encryption_cypher_gen"
+                                      style="
+                                        width: 200px;
+                                        height: 100px;
+                                        margin-bottom: 15px;
+                                      "
+                                    >
+                                      <option value="TRIPLE_DES">
+                                        TRIPLE_DES
+                                      </option>
+                                      <option selected value="CAST5">
+                                        CAST5
+                                      </option>
+                                      <option value="BLOWFISH">BLOWFISH</option>
+                                      <option selected value="AES_128">
+                                        AES_128
+                                      </option>
+                                      <option selected value="AES_192">
+                                        AES_192
+                                      </option>
+                                      <option selected value="AES_256">
+                                        AES_256
+                                      </option>
+                                      <option selected value="TWOFISH">
+                                        TWOFISH
+                                      </option>
+                                      <option value="DES">DES</option>
+                                      <option value="SAFER">SAFER</option>
+                                      <option value="IDEA">IDEA</option>
+                                    </select>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="right"></td>
+                                  <td>
+                                    <a
+                                      href="#"
+                                      class="button noSpacing"
+                                      id="restrictions_pgpEncryptionGenerateButton"
+                                    >
+                                      <span
+                                        style="
+                                          display: inline-block;
+                                          margin: 0px 3px 0px -7px;
+                                          float: left;
+                                        "
+                                        class="pointer ui-icon ui-icon-key"
+                                      ></span>
+                                      <span class="">
+                                        Generate PGP Key Pair
+                                      </span>
+                                    </a>
+                                    <br />
+                                    <br />
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">
+                            File based encryption allows you to store files on
+                            your drive in an encrypted format. These files will
+                            be unusable to anything outside of CrushFTP, and
+                            with the right key. This encryption however provides
+                            security in that if the physical files are
+                            compromised, they will be useless to whoever has
+                            gotten them.
+
+                            <br />
+                            <br />
+
+                            If any of the below warning do not make sense, or
+                            you do not understand them fully,
+                            <strong>do not use this feature</strong> as you can
+                            potentially turn many files into unrecoverable
+                            encrypted files!
+
+                            <br />
+                            <br />
+
+                            <span
+                              class="ui-state-highlight ui-corner-all warning"
+                              style="
+                                padding: 3px;
+                                display: inline-block;
+                                margin: 0px 3px;
+                              "
+                            >
+                              <span
+                                style="float: left; margin-right: 0.3em"
+                                class="ui-icon ui-icon-info"
+                              ></span>
+                              <span class="">
+                                <strong>Caution</strong> should be taken in
+                                guarding the key file. Placing it on a network
+                                location is the ideal solution.
+                              </span>
+                            </span>
+
+                            <br />
+                            <br />
+
+                            <span
+                              class="ui-state-error ui-corner-all warning"
+                              style="
+                                padding: 3px;
+                                display: inline-block;
+                                margin: 0px 3px;
+                              "
+                            >
+                              <span
+                                style="float: left; margin-right: 0.3em"
+                                class="ui-icon ui-icon-info"
+                              ></span>
+                              <span class="">
+                                <strong>Warning</strong>:Changing the key file
+                                once files have been encrypted will cause the
+                                files to be <strong>unrecoverable</strong>. You
+                                must transfer all files that are encrypted
+                                through CrushFTP to another location so that
+                                they are not encrypted. At this point you can
+                                change the key file, and transfer the files back
+                                through. CrushFTP to re-encrypt them using the
+                                new key file.
+                              </span>
+                            </span>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset
+              class="ui-widget-content nobg"
+              filterKeywords="content block zip aes rar byte"
+              pnlId="restrictions15"
+              config="content_restriction"
+            >
+              <table quickLocate="Content Restriction">
+                <tr>
+                  <td
+                    id="extensionBlockCheck"
+                    propertyType="panelRestrictions:extensionBlockRules"
+                    class="checkboxArea ui-widget-content rightborder nobg specialProperty"
+                  >
+                    <input type="checkbox" />
+                  </td>
+                  <td class="settingsArea">
+                    <div class="fields">
+                      <table>
+                        <tr>
+                          <td>Content Restriction</td>
+                        </tr>
+                        <tr>
+                          <td style="padding-top: 10px">
+                            <a href="#" class="button" id="addBlockRule">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-plus"
+                              ></span>
+                              <span class=""> Add </span>
+                            </a>
+
+                            <a href="#" class="button" id="editBlockRule">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-pencil"
+                              ></span>
+                              <span class=""> Edit </span>
+                            </a>
+                            <a href="#" class="button" id="removeBlockRule">
+                              <span
+                                style="
+                                  display: inline-block;
+                                  margin: 0px 3px 0px -7px;
+                                  float: left;
+                                "
+                                class="pointer ui-icon ui-icon-circle-minus"
+                              ></span>
+                              <span class=""> Remove </span>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div style="margin: 10px 0px; width: 800px">
+                              <div
+                                class="ui-corner-all ui-widget-content nobg sideScroll"
+                                style="
+                                  width: 400px;
+                                  height: 200px;
+                                  margin: 0px 10px 0px 0px;
+                                  float: left;
+                                "
+                              >
+                                <ol
+                                  id="extensionBlockRules"
+                                  class="nobg selectable single"
+                                ></ol>
+                              </div>
+                              <div
+                                class="offsetEntries ui-corner-all ui-widget-content nobg sideScroll"
+                                style="
+                                  width: 100px;
+                                  height: 190px;
+                                  float: left;
+                                  padding: 5px;
+                                "
+                              >
+                                <span
+                                  style="position: absolute; margin-top: -25px"
+                                  >Offset entries</span
+                                >
+                                <ol
+                                  id="offsetItems"
+                                  class="nobg selectable single"
+                                ></ol>
+                              </div>
+                              <div
+                                class="offsetEntries"
+                                style="
+                                  width: 200px;
+                                  float: left;
+                                  padding: 0px 5px;
+                                "
+                              >
+                                <div>
+                                  <a href="#" class="button" id="addOffset">
+                                    <span
+                                      style="
+                                        display: inline-block;
+                                        margin: 0px 3px 0px -7px;
+                                        float: left;
+                                      "
+                                      class="pointer ui-icon ui-icon-circle-plus"
+                                    ></span>
+                                    <span class=""> Add </span>
+                                  </a>
+                                </div>
+                                <br />
+                                <div>
+                                  <a href="#" class="button" id="removeOffset">
+                                    <span
+                                      style="
+                                        display: inline-block;
+                                        margin: 0px 3px 0px -7px;
+                                        float: left;
+                                      "
+                                      class="pointer ui-icon ui-icon-circle-minus"
+                                    ></span>
+                                    <span class=""> Remove </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+          </div>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+</div>
+<div
+  id="WIbannedIPDialogBan"
+  class="customDialogFrom customForm"
+  title="IP Restriction"
+  style="display: none"
+>
+  <form action="" name="WIbannedIPDialog">
+    <div id="before_after_Id">
+      <label for="before/after">Insert before/after selection? </label>
+      <select id="selectionId" style="width: 312px">
+        <option value="Before">Before</option>
+        <option value="After">After</option>
+      </select>
+      <label for="" class="metaInfo"></label>
+    </div>
+    <div>
+      <label for="Choose one">Choose one:</label>
+      <select id="chooseoptId" style="width: 312px">
+        <option value="A">Allow</option>
+        <option value="D">Deny</option>
+      </select>
+      <label for="" class="metaInfo"></label>
+    </div>
+    <div>
+      <label for="startingIP">Please enter a starting IP:</label>
+      <input type="text" size="30" id="startingIP" style="width: 312px" />
+      <label for="" class="metaInfo"></label>
+    </div>
+    <div>
+      <label for="stoppingIP">Please enter a stopping IP:</label>
+      <input type="text" size="30" id="stoppingIp" style="width: 312px" />
+      <label for="" class="metaInfo"></label>
+    </div>
+    <div>
+      <label for="reason">Reason:</label>
+      <input type="text" size="30" id="reason" style="width: 312px" />
+      <label for="" class="metaInfo"></label>
+    </div>
+  </form>
+</div>

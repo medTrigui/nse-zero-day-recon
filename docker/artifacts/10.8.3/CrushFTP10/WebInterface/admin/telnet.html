@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>CrushFTP - Telnet</title>
+    <link type="text/css" href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/style.css" rel="stylesheet" />
+    <link type="text/css" href="/WebInterface/Resources/css/vtip.css" rel="stylesheet" />
+    <link type="text/css" href="css/adminStyle.css" rel="stylesheet" />
+
+    <!--[if lte IE 7]>
+    <style type="text/css">
+    html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.xml2json.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json2xml.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.textChange.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.notify.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/vtip.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/browserSelector.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+    <script type="text/javascript" src = "/WebInterface/admin/js/crushftp.telnet.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            crushTelnet.methods.init();
+        });
+    </script>
+</head>
+<body id="GUIAdmin" style="padding:10px 10px 0px 10px;">
+    <div id="autocompleteFix" style="position:absolute;top:-200px;">
+        <input type="text" name="email" value="" style="display: none" />
+        <input type="text" name="email" value=""/>
+        <input type="text" name="not-an-email" value="" style="display: none" />
+        <input type="password" name="password" value="" style="display: none" />
+        <input type="password" name="password" value=""/>
+    </div>
+    <div style="width:800px;" id="telnetDialog" title="Telnet Client" data-connected="false" data-conid="">
+        <form>
+            <input type="text" name="telnet_host" id="telnet_host" placeholder="Hostname" style="width: 30%; padding: 7px" value="" />
+            <input type="text" name="telnet_port" id="telnet_port" placeholder="Port Number" style="width: 15%; padding: 7px" value="" />
+            <button type="button" name="telnet_connect" id="telnet_connect" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="padding: 6px 10px">Connect</button>
+            <textarea name="telnet_area" id="telnet_area" style="width: 98.5%; padding: 7px; height: 450px; resize: none; margin-top: 10px"></textarea>
+            <input type="text" name="telnet_cmd" id="telnet_cmd" placeholder="Write here the telnet command and hit enter" style="width: 98.5%; padding: 7px; margin-top: 10px" />
+        </form>
+    </div>
+    <div id="growlContainer" style="display: none;">
+        <div id="growl">
+            <a class="ui-notify-close" href="#"><span class="ui-icon ui-icon-close" style="float: right">
+            </span></a><span style="float: left; margin: 2px 5px 0 0;" class="ui-icon ui-icon-alert">
+            </span>
+            <h2>
+                #{title}</h2>
+            <p>
+                #{text}</p>
+        </div>
+    </div>
+</body>
+</html>

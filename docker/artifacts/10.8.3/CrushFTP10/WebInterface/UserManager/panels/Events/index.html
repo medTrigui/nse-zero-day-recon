@@ -1,0 +1,531 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlEvents" class="userMgrPanel">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Events headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg">
+                <fieldset class="ui-widget-content nobg" config="events">
+                    <legend class="collapseHandle pointer"></legend>
+                    <div class="dataDiv">
+                        <fieldset class="ui-widget-content nobg" filterKeywords="event email notify upload plugin execute form smtp body from" pnlId="events1" config="events">
+                            <legend style="font-size: inherit;color: inherit;background: transparent;border: 0;"></legend>
+                            <table id="userEvents">
+                                <tr>
+                                    <td id="userEventsCB" propertyType="panelEvents:Events" class="checkboxArea ui-widget-content rightborder nobg specialProperty">
+                                        <input class='config' type="checkbox" />
+                                    </td>
+                                    <td class="settingsArea">
+                                        <div class="fields">
+                                            <table>
+												<tr>
+                                                    <td colspan="2">
+                                                        <div class="fields vButtons" style="padding-left:10px;margin-bottom:10px;">
+															<a href="#" style="float:left;margin-right:10px;" id="addEvent" class="button"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+																float: left;' class='pointer ui-icon ui-icon-circle-plus'></span><span class="">Add
+																	Event </span></a>
+
+															<a href="#" style="float:left;margin-right:10px;" id="linkEvent" class="button nonTemplateBtn"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+																float: left;' class='pointer ui-icon ui-icon-link'></span><span class="">Link Event
+																</span></a>
+
+															<a href="#" style="float:left;margin-right:10px;" id="copyEvent" class="button"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+																float: left;' class='pointer ui-icon ui-icon-copy'></span><span class="">Copy Event
+																</span></a>
+
+															<a href="#" style="float:left;margin-right:10px;" id="duplicateEvent" class="button nonTemplateBtn"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+																float: left;' class='pointer ui-icon ui-icon-transferthick-e-w'></span><span class="">
+																	Duplicate Event </span></a>
+
+															<a href="#" style="float:left;margin-right:10px;" id="renameEvent" class="button nonTemplateBtn"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+																float: left;' class='pointer ui-icon ui-icon-pencil'></span><span class="">Rename Event
+																</span></a>
+
+															<a href="#" style="float:left;margin-right:10px;" id="deleteEvent" class="button"><span style='display: inline-block; margin: 0px 3px 0px -7px;
+																float: left;' class='pointer ui-icon ui-icon-circle-close'></span><span class="">Delete
+																	Event </span></a>
+                                                            <div class="clear" style="margin-top: 10px;"></div>
+                                                        </div>
+                                                    </td>
+												</tr>
+                                                <tr>
+                                                    <td width="30%" style="vertical-align:top;">
+                                                        <div style="margin-left: 14px;">
+                                                            <label for="filterAvailableEvents">Filter:</label>
+                                                            <input type="text" style="width:200px;" class="ignoreBind inputBox excludeXML" id="filterAvailableEvents" />
+                                                            <label>
+                                                                <a href="javascript:void(0);" id="clearAvlEventsFilter">Clear</a>
+                                                            </label>
+                                                        </div>
+                                                        <div style="margin: 0px 10px;">
+                                                            <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                                                <ol id="eventList" rel="events" class="nobg selectable single" style="min-width:250px;">
+                                                                </ol>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+													<td>
+														<div id="eventActionPanel" class="ui-widget-content ui-state-highlight shadow" style="padding:10px;min-width:600px;">
+															<div id="eventDataBindPanel">
+																<input type="text" id="pluginName" class="ignoreBind ui-helper-hidden" />
+																<input type="text" id="event_plugin_list" class="ignoreBind ui-helper-hidden" />
+																<input type="text" id="id" class="ignoreBind ui-helper-hidden" />
+																<input type="text" id="name" class="ignoreBind ui-helper-hidden" />
+                                                                <input type="text" id="linkUser" class="ignoreBind ui-helper-hidden" />
+                                                                <input type="text" id="linkEvent" class="ignoreBind ui-helper-hidden" />
+																<div>
+																	<label for="event_action_list">Action:</label>
+																	<select id="event_action_list" class="ignoreBind">
+																		<option></option>
+																		<option value="(send_email)">Send Email</option>
+																		<option value="(run_plugin)">Run Plugin</option>
+                                                                        <option value="(reverse)">Send Reverse Notifications</option>
+                                                                        <option value="(subscribe_reverse_notification_event_template)">Subscribe reverse notification event template</option>
+																	</select>
+																</div>
+																<div class="customForm ui-widget-content nobg nonTemplate" style="padding:15px;margin-bottom:5px;">
+																	<div style="margin-bottom:10px;">
+                                                                        <div style="margin-bottom:10px;">
+    																		When this user:
+                                                                        </div>
+                                                                        <div style="margin-left:20px;" class="eventOptions">
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(upload)" id="evtCB_upload" /><label for="evtCB_upload">Uploads </label>
+                                                                            </span> &nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(makedir)" id="evtCB_makedir" /><label for="evtCB_makedir">Creates Folder </label>
+                                                                            </span> &nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(delete)" id="evtCB_delete" /><label for="evtCB_delete">Deletes </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(rename)" id="evtCB_rename" /><label for="evtCB_rename">Renames </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(download)" id="evtCB_download" /><label for="evtCB_download">Downloads </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(pre_download)" id="evtCB_pre_download" /><label for="evtCB_pre_download">Pre-Download </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(connect)" id="evtCB_connect" /><label for="evtCB_connect">Connects </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(welcome)" id="evtCB_welcome" /><label for="evtCB_welcome">Accepts disclaimer </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(error)" id="evtCB_error" /><label for="evtCB_error">Has an error </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(site)" id="evtCB_site" /><label for="evtCB_site">Issues site command </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share)" id="evtCB_share" /><label for="evtCB_share">Shares</label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(custom)" id="evtCB_custom" /><label for="evtCB_custom">Custom</label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(problem)" id="evtCB_problem" /><label for="evtCB_problem">Problem</label>
+                                                                            </span>&nbsp;
+                                                                        </div>
+																		<input id="event_user_action_list" class="ignoreBind" type="text" style="display:none;" />
+																	</div>
+                                                                    <hr class="non-reverse nonTemplate" style="margin: 5px 0px 15px 0px;color: #ccc;">
+                                                                    <div class="non-reverse nonTemplate" style="margin-bottom:10px;">
+                                                                        <div style="margin-bottom: 6px;margin-top: 6px;">
+                                                                            When a Share this user creates has this activity:
+                                                                        </div>
+                                                                        <div style="margin-left:20px;" class="eventOptions">
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_upload)" id="evtCB_share_upload" /><label for="evtCB_share_upload">Uploads </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_makedir)" id="evtCB_share_makedir" /><label for="evtCB_share_makedir">Creates Folder </label>
+                                                                            </span> &nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_delete)" id="evtCB_share_delete" /><label for="evtCB_share_delete">Deletes </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_rename)" id="evtCB_share_rename" /><label for="evtCB_share_rename">Renames </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_download)" id="evtCB_share_download" /><label for="evtCB_share_download">Downloads </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_pre_download)" id="evtCB_share_pre_download" /><label for="evtCB_share_pre_download">Pre-Download </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_connect)" id="evtCB_share_connect" /><label for="evtCB_share_connect">Connects </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_welcome)" id="evtCB_share_welcome" /><label for="evtCB_share_welcome">Accepts disclaimer </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_error)" id="evtCB_share_error" /><label for="evtCB_share_error">Has an error </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_site)" id="evtCB_share_site" /><label for="evtCB_share_site">Issues site command </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_custom)" id="evtCB_share_custom" /><label for="evtCB_share_custom">Custom</label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(share_problem)" id="evtCB_share_problem" /><label for="evtCB_share_problem">Problem</label>
+                                                                            </span>&nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class="non-reverse nonTemplate" style="margin: 5px 0px 15px 0px;color: #ccc;">
+                                                                    <div class="non-reverse nonTemplate" style="margin-bottom:10px;">
+                                                                        <div style="margin-bottom: 6px;margin-top: 6px;">
+                                                                            When someone makes a change in one of this user’s VFS folders:
+                                                                        </div>
+                                                                        <div style="margin-left:20px;" class="eventOptions">
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(r_upload)" id="evtCB_r_upload" /><label for="evtCB_r_upload">Uploads </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(r_makedir)" id="evtCB_r_makedir" /><label for="evtCB_r_makedir">Creates Folder </label>
+                                                                            </span> &nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(r_delete)" id="evtCB_r_delete" /><label for="evtCB_r_delete">Deletes </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(r_rename)" id="evtCB_r_rename" /><label for="evtCB_r_rename">Renames </label>
+                                                                            </span>&nbsp;
+                                                                            <span>
+                                                                                <input type="checkbox" class="ignoreBind excludeXML eventListAction" rel="(r_download)" id="evtCB_r_download" /><label for="evtCB_r_download">Downloads </label>
+                                                                            </span>&nbsp;
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class="nonTemplate" style="margin: 5px 0px 15px 0px;color: #ccc;">
+																	<div class="nonTemplate" style="margin-bottom: 6px;margin-top: 6px;">
+																		<input name="eventActionOn" type="radio" id="event_always_cb" class="ignoreBind" /> <label for="event_always_cb">Always do the event</label>
+																	</div>
+																	<div class="nonTemplate" style="margin-bottom:10px;">
+																		<input name="eventActionOn" type="radio" id="event_if_cb" class="ignoreBind" /> <label for="event_if_cb">Only if they</label>
+																		<select id="event_if_list" class="ignoreBind">
+																			<option value=""></option>
+                                                                            <option value="(upload)">Upload in any directory</option>
+                                                                            <option value="(download)">Download from any directory</option>
+																			<option value="(upload_dir)">Upload in below directory</option>
+                                                                            <option value="(download_dir)">Download from below directory</option>
+                                                                            <option value="(delete_dir)">Delete from below directory</option>
+                                                                            <option value="(rename_dir)">Rename from below directory</option>
+                                                                            <option value="(make_dir)">Make directory from below directory</option>
+                                                                            <option value="(real_url)">Do activity in real URL</option>
+																		</select>
+																	</div>
+																	<div class="nonTemplate" id="ftpDirPanel" class="subPanel ui-widget-content leftborder nobg">
+																		<label for="event_dir_data"> <span class="noreal">Directory</span> <span class="real">Path</span>:</label>
+
+																		<input id="event_dir_data" type="text" class="ignoreBind bigInputBox validate SSHOptionsHandle maskPasswordOnURL" valtype="dirPathAllowStar"  />
+
+                                                                        <a href="#" PickType="any" class="button serverFilePickButton noreal" rel="event_dir_data" style="top:10px;">
+                                                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>Browse
+                                                                        </a>
+
+                                                                        <a href="#" PickType="any" class="button serverFilePickButton real" rel="event_dir_data" style="top:10px;">
+                                                                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>Browse
+                                                                        </a>
+                                                                        <div id="event_dir_data_empty" style="display: none;">
+                                                                            <span style="padding:3px" class="ui-corner-all ui-state-error">(No directory specified! This applies to all uploads.)</span>
+                                                                        </div>
+                                                                        <div id="realURLOption" style="display:none;">
+                                                                            <div class="ftpSOptions ui-corner-all ui-widget-content nobg" style="border:none;margin:8px 0px;">
+                                                                                <input checked="checked" type="checkbox" id="pasv" name="pasv" />
+                                                                                <label for="pasv">Passive?</label>
+                                                                                <span style="margin:5px;"></span>
+                                                                                <input type="checkbox" id="ascii" name="ascii" class="ignoreBind" />
+                                                                                <label for="ascii" class="CrushTask lblAsciiText">ASCII Transfer</label>
+                                                                                <span style="margin:5px;"></span>
+                                                                                <input type="checkbox" id="simple" name="simple" class="ignoreBind" />
+                                                                                <label for="simple" class="CrushTask lblSimpleText">Simple Mode</label>
+                                                                                <span style="margin:5px;"></span>
+                                                                                <span style="display:inline-block;">
+                                                                                    <input type="checkbox" id="no_os400" name="no_os400" class="ignoreBind" />
+                                                                                    <label for="no_os400">Don't translate OS/400 paths</label>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="ftpOptions ui-corner-all ui-widget-content nobg" style="border:none;display:none;margin:8px 0px;">
+                                                                                <div>
+                                                                                    <label for="secure">Encryption Mode:</label>
+                                                                                    <select id="secure" class="encryptionMode">
+                                                                                        <option value="false">Plain</option>
+                                                                                        <option value="true">TLS</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="#" class="button customScriptBtn" style="padding: 0px;position: relative;float: right;margin-top: -32px;">
+                                                                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-script'></span>
+                                                                                        Custom Script
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div style="clear:both;margin:8px 0px;display:none;" class="customScriptsPanel">
+                                                                                    <fieldset class="nobg">
+                                                                                        <legend>Custom Scripts:</legend>
+                                                                                        <div>
+                                                                                            <label for="scriptType" class="right ">Script Type:</label>
+                                                                                            <select id="scriptType" name="scriptType" class="scriptType ignoreBind excludeXML">
+                                                                                                <option value="before_login_script">before_login_script</option>
+                                                                                                <option value="after_login_script">after_login_script</option>
+                                                                                                <option value="before_logout_script">before_logout_script</option>
+                                                                                                <option value="before_download_script">before_download_script</option>
+                                                                                                <option value="after_download_script">after_download_script</option>
+                                                                                                <option value="before_upload_script">before_upload_script</option>
+                                                                                                <option value="after_upload_script">after_upload_script</option>
+                                                                                                <option value="before_dir_script">before_dir_script</option>
+                                                                                                <option value="after_dir_script">after_dir_script</option>
+                                                                                                <option value="custom">Custom</option>
+                                                                                            </select>
+                                                                                            <div class="valPanel" rel="before_login_script">
+                                                                                                <textarea name="before_login_script" id="before_login_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="after_login_script">
+                                                                                                <textarea name="after_login_script" id="after_login_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="before_logout_script">
+                                                                                                <textarea name="before_logout_script" id="before_logout_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="before_download_script">
+                                                                                                <textarea name="before_download_script" id="before_download_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="after_download_script">
+                                                                                                <textarea name="after_download_script" id="after_download_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="before_upload_script">
+                                                                                                <textarea name="before_upload_script" id="before_upload_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="after_upload_script">
+                                                                                                <textarea name="after_upload_script" id="after_upload_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="before_dir_script">
+                                                                                                <textarea name="before_dir_script" id="before_dir_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="after_dir_script">
+                                                                                                <textarea name="after_dir_script" id="after_dir_script" style="width: 99%;margin: 5px 2px 0px 0px;" rows="3"></textarea>
+                                                                                            </div>
+                                                                                            <div class="valPanel" rel="custom">
+                                                                                                <div class="customVal">
+                                                                                                    <select class="customScriptType ignoreBind excludeXML" recName="type">
+                                                                                                        <option value="after">After</option>
+                                                                                                        <option value="before">Before</option>
+                                                                                                    </select>
+                                                                                                    <input type="text" placeHolder="verb"  recName="verb" class="ignoreBind excludeXML custVal" style="width:100px" />
+                                                                                                    <textarea style="width: 99%;margin: 5px 2px 0px 0px;"  recName="value" class="ignoreBind excludeXML custVal" rows="2"></textarea>
+
+                                                                                                    <div style="display:none;">
+                                                                                                        <textarea class="ignoreBind origVal"></textarea>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </fieldset>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="httpOptions ui-corner-all ui-widget-content nobg clear" style="padding:10px;width:390px;display: none;">
+                                                                                <input type="checkbox" id="send_compressed" />
+                                                                                <label for="send_compressed">Upload using compression</label>
+                                                                                <span class="spacer"></span>
+                                                                                <input type="checkbox" id="multi" />
+                                                                                <label for="multi">Upload using multi segments</label>
+                                                                                <span class="spacer"></span>
+                                                                                <input type="checkbox" id="receive_compressed" />
+                                                                                <label for="receive_compressed">Download using compression</label>
+                                                                                <span class="spacer"></span>
+                                                                                <input type="checkbox" id="multi_segmented_download" />
+                                                                                <label for="multi_segmented_download">Download using multi segments</label>
+                                                                            </div>
+                                                                            <div class="sftpOptions ui-corner-all ui-widget-content nobg clear" style="padding:10px 0px 0px 10px;width:530px;display: none;">
+                                                                                <div title="File path to a private key file to use for the sftp connection.">
+                                                                                    <label style="display:inline-block;width:100px;text-align:right;" for="ssh_private_key" class="CrushTask lblSSHPrivateKeyText">SSH Private Key:</label>
+                                                                                    <input type="text" id="ssh_private_key" name="ssh_private_key" class="ignoreBind maskPasswordOnURL bigInputBox" style="width:325px;" />
+                                                                                    <a href="#" PickType="file" class="button serverFilePickButton common slim" rel="ssh_private_key" style="padding:2px 11px;">
+                                                                                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+                                                                                        <span class="GeneralSettings btnBrowseText">Browse
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <label style="display:inline-block;width:100px;text-align:right;" for="ssh_private_key_pass" class="CrushTask lblSSHPrivateKeyText">Key Password:</label>
+                                                                                    <input type="password" id="ssh_private_key_pass" name="ssh_private_key_pass" class="ignoreBind encryptPass" />
+
+                                                                                    <span title="Some SFTP servers might require both a username and password as well as a private/public key pair to authenticate.">
+                                                                                        <input type="checkbox" id="ssh_two_factor" name="ssh_two_factor" class="ignoreBind" />
+                                                                                        <label for="ssh_two_factor" class="CrushTask lblSSHTwoFactor">Two factor auth</label>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="sslOptions fixedWidthLabels ui-corner-all ui-widget-content nobg clear" stye=" 5pxpmargin-top:3px;adding:10px;width:400px;display:none;">
+                                                                                <p>
+                                                                                    <span class="ui-state-highlight ui-corner-all warning" style="padding: 3px;display: block;margin: -5px 0px 0px 0px;width: 392px;">
+                                                                                        <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                                                                                        <span class="">
+                                                                                            Use below options only when SSL client authentication is required.
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </p>
+                                                                                <p>
+                                                                                    <label class="right" for="keystore_path">Keystore:</label>
+                                                                                    <input _name="keystore_path" type="text" class="excludeXML" id="keystore_path" />
+                                                                                </p>
+                                                                                <p>
+                                                                                    <label class="right" for="keystore_pass">Keystore Password:</label>
+                                                                                    <input _name="keystore_pass" type="password" class="encryptPass excludeXML" id="keystore_pass" />
+                                                                                </p>
+                                                                                <p>
+                                                                                    <label for="key_pass" class="right">
+                                                                                        Key Password:
+                                                                                    </label>
+                                                                                    <input _name="key_pass" type="password" class="encryptPass excludeXML" id="key_pass" />
+                                                                                </p>
+                                                                            </div>
+                                                                            <p class="s3Credentials">
+                                                                                <input type="checkbox" _name="s3_accelerate"  id="s3_accelerate" />
+                                                                                <label for="s3_accelerate">Accelerate</label>
+                                                                            </p>
+                                                                            <p class="s3Credentials">
+                                                                                <input type="checkbox" _name="server_side_encrypt" name="server_side_encrypt" class="ignoreBind" id="server_side_encrypt" />
+                                                                                <label for="server_side_encrypt">Server Side Encrypt?</label>
+                                                                            </p>
+                                                                            <p class="s3Credentials">
+                                                                                <label for="server_side_encrypt_kms">KMS Key Id:</label>
+                                                                                <input _name="server_side_encrypt_kms" name="server_side_encrypt_kms" type="text" class="ignoreBind bigInputBox" id="server_side_encrypt_kms" style="margin:4px 0px;" />
+                                                                                <br>
+                                                                                <label for="server_side_encrypt_kms"><em>(Optional, formatted as:arn:aws:kms:region:acct-id:key/key-id)</em></label>
+                                                                            </p>
+                                                                        </div>
+																	</div>
+																</div>
+																<div class="customForm ui-widget-content nobg" style="padding:15px;margin-bottom:5px;">
+																	<div style="margin-bottom:10px;">
+																		<input type="radio" name="eventTime" id="event_now_cb" class="ignoreBind" /> <label for="event_now_cb">Do event immediately</label>
+																	</div>
+																	<div style="margin-bottom:10px;">
+																		<input type="radio" name="eventTime" id="event_after_cb" class="ignoreBind" /> <label for="event_after_cb">Do event after user </label>
+																		<select id="event_after_list" class="ignoreBind bigInputBox">
+																			<option value=""></option>
+																			<option value="(disconnect)">Disconnect</option>
+																			<option value="(disconnect_all)">Disconnect all sessions</option>
+																			<option value="(disconnect_batch)">Complete the batch</option>
+																			<option value="(idle_30)">is idle for 30 seconds</option>
+																			<option value="(idle_60)">is idle for 60 seconds</option>
+																		</select>
+																	</div>
+                                                                    <div>
+                                                                        <label for="">
+                                                                            Run Event Asynchronously:
+                                                                        </label>
+                                                                        <input style="display:none;" type="text" id="async" _name="async" />
+                                                                        <input type="radio" name="async" id="event_auto_cb" class="ignoreBind excludeXML" /> <label for="event_auto_cb">Auto</label>&nbsp;
+                                                                        <input type="radio" name="async" id="event_yes_cb" class="ignoreBind excludeXML" /> <label for="event_yes_cb">Yes</label>&nbsp;
+                                                                        <input type="radio" name="async" id="event_no_cb" class="ignoreBind excludeXML" /> <label for="event_no_cb">No</label>
+                                                                    </div>
+																</div>
+																<div id="emailActionPanel" class="customForm ui-widget-content nobg" style="padding:15px;margin-bottom:5px;">
+                                                                    <p class="crush6Feature" style="margin-bottom: 20px;margin-top:5px;">
+                                                                        <a href="#" class="button" id="pickEmailTemplate">
+                                                                            <span style='display: inline-block; margin: -3px 0px 1px -9px;' class='pointer ui-icon ui-icon-mail-open'></span>
+                                                                            <span class="">Pick Email Template</span>
+                                                                        </a>
+                                                                    </p>
+																	<p>
+                                                                        <label for="from">From:</label>
+																		<br />
+																		<input type="text" class="bigInputBox ignoreBind" id="from" name="from">
+																	</p>
+																	<p>
+																		<label for="to">To:</label>
+																		<br />
+																		<textarea id="to" name="to" style="height:50px;width:350px;" class="ignoreBind"></textarea>
+																	</p>
+																	<p>
+																		<label for="cc">CC:</label>
+																		<br />
+																		<textarea id="cc" name="cc" style="height:50px;width:350px;" class="ignoreBind"></textarea>
+																	</p>
+																	<p>
+																		<label for="bcc">BCC:</label>
+																		<br />
+																		<textarea id="bcc" name="bcc" style="height:50px;width:350px;" class="ignoreBind"></textarea>
+																	</p>
+																	<p>
+																		<label for="subject" >Subject:</label>
+																		<br />
+																		<input type="text" class="bigInputBox ignoreBind" id="subject" name="subject" />
+																	</p>
+																	<p>
+																		<div style="float:right;margin-top:-7px">
+																			<label for="variable">Variables / Templates:</label>
+																			<select id="variable" class="bigInputBox ignoreBind">
+																				<option value=""></option>
+																				<option value="Files have been uploaded!\n%web_upload_form%\n<LINE>%user_time% %the_file_path%%the_file_name% Total Size:%the_file_size_formatted% @ %the_file_speed% k/sec</LINE>\nPlease process these as soon as possible!">Example for Upload:%user_name% has uploaded %user_session_upload_count% files.</option>
+																				<option value="%user_name% has downloaded %user_session_download_count% files.\n\nThe following files were downloaded in this session:\n\n<LINE>%user_time% %the_file_path%%the_file_name% Total Size:%the_file_size_formatted% @ %the_file_speed% k/sec</LINE>">Example for Download:%user_name% has downloaded %user_session_download_count% files.</option>
+																				<option value="%user_time%">Time/Date of Event</option>
+																				<option value="<LINE>%the_file_path%</LINE>">Path to Current File</option>
+																				<option value="<LINE>%the_file_name%</LINE>">Name of Current File</option>
+																				<option value="<LINE>%the_file_size_formatted%</LINE>">Size of Current File</option>
+																				<option value="<LINE>%the_file_speed% k/sec</LINE>">Speed of File Transfer</option>
+																				<option value="<LINE>%the_file_error%</LINE>">Error message (if any)</option>
+																				<option value="<LINE>%all%</LINE>">All Variables Unformatted</option>
+																			</select>
+																		</div>
+																		<label for="body">Body:</label>
+																		<div class="clear"></div>
+																		<textarea id="body"  style="height:200px;width:500px;" name="body" class="ignoreBind"></textarea>
+																	</p>
+                                                                    <p>
+                                                                        <a href="#" class="button" id="sendEventEmail">
+                                                                            <span style='display: inline-block; margin: -3px 0px 1px -9px;' class='pointer ui-icon ui-icon-mail-closed'></span>
+                                                                            <span class="">Send test message </span>
+                                                                        </a>
+                                                                    </p>
+																	<div class="clear"></div>
+																</div>
+															</div>
+															<div id="pluginActionPanel" class="customForm ui-widget-content nobg" style="padding:15px 5px;margin-bottom:5px;">
+																<select id="pluginsAvailable" class="ignoreBind">
+                                                                    <option value="CrushTask">CrushTask (User Defined)</option>
+																</select>
+																<p>
+																	<div class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;margin:0px 3px;">
+																	<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+																		<strong>Warning:</strong> Not all plugins can be called from an event. (<a style="text-decoration:underline;" href="javascript:void(0);" id="showNotSupportedPluginList">Show list of plugins</a>)
+																	</div>
+																	<div id="listOfPluginsInSystem" class="ui-helper-hidden" style="margin-top:10px;">
+																		<strong>Plugins that can be called:</strong>
+																		<ul>
+																			<li>CrushTask</li>
+																			<li>HomeDirectory</li>
+																			<li>PostBack</li>
+																		</ul>
+																	</div>
+																</p>
+																<div id="pluginPlaceHolder" style="max-width:900px;overflow:auto;"></div>
+															</div>
+														</div>
+													</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,135 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlRestrictions">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div class="ui-priority-primary Restrictions headerText">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="customForm nobg">
+			<p>
+				<span class="Restrictions lblDaysOfTheWeeksAllowedToConnectHeaderText ui-priority-primary">
+					Days of the week users are allowed to connect:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_1" name="day_of_week_allow_1" />
+					<label for="day_of_week_allow_1" class="Restrictions lblSundayText">Sunday</label>
+					<span style="margin: 20px;"></span>
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_2" name="day_of_week_allow_2" />
+					<label for="day_of_week_allow_2" class="Restrictions lblMondayText">Monday</label>
+					<span style="margin: 20px;"></span>
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_3" name="day_of_week_allow_3" />
+					<label for="day_of_week_allow_3" class="Restrictions lblTuesdayText">Tuesday</label>
+					<span style="margin: 20px;"></span>
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_4" name="day_of_week_allow_4" />
+					<label for="day_of_week_allow_4" class="Restrictions lblWednesdayText">Wednesday</label>
+					<span style="margin: 20px;"></span>
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_5" name="day_of_week_allow_5" />
+					<label for="day_of_week_allow_5" class="Restrictions lblThursdayText">Thursday</label>
+					<span style="margin: 20px;"></span>
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_6" name="day_of_week_allow_6" />
+					<label for="day_of_week_allow_6" class="Restrictions lblFridayText">Friday</label>
+					<span class="spacer"></span>
+					<input class="dayOfTheWeek excludeXML" type="checkbox" id="day_of_week_allow_7" name="day_of_week_allow_7" />
+					<label for="day_of_week_allow_7" class="Restrictions lblSaturdayText">Saturday</label>
+			</p>
+			<!--p>
+					<input type="checkbox" id="server_download_queuing" name="server_download_queuing" />
+					<label for="server_download_queuing" class="Restrictions lblDownloadQueuingText">Download Queuing?</label>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<label for="server_download_queue_size" class="Restrictions lblDownloadQueueSizeLabelText">Download Queue Size:</label>
+					<input type="text" id="server_download_queue_size" name="server_download_queue_size"  style="width:100px" />
+
+					<span class="spacer"></span>
+
+					<label for="server_download_queue_size_max" class="Restrictions lblDownloadQueueSizeMaxLabelText">Max:</label>
+					<input type="text" id="server_download_queue_size_max" name="server_download_queue_size_max"  style="width:100px" />
+			</p>
+			<p>
+					<input type="checkbox" id="server_upload_queuing" name="server_upload_queuing" />
+					<label for="server_upload_queuing" class="Restrictions lblUploadQueuingLabelText">Upload Queuing?</label>
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<label for="server_upload_queue_size" class="Restrictions lblUploadQueueSizeLabelText">Upload Queue Size:</label>
+					<input type="text" id="server_upload_queue_size" name="server_upload_queue_size"  style="width:100px" />
+
+					<span class="spacer"></span>
+
+					<label for="server_upload_queue_size_max" class="Restrictions lblUploadQueueSizeMaxLabelText">Max:</label>
+					<input type="text" id="server_upload_queue_size_max" name="server_upload_queue_size_max"  style="width:100px" />
+			</p-->
+			<p>
+				<input type="checkbox" id="deny_fxp" name="deny_fxp" />
+				<label for="deny_fxp" class="Restrictions lblDenyFXPLabelText">Deny FXP?</label>
+			</p>
+			<p>
+				<input type="checkbox" id="deny_localhost_admin" name="deny_localhost_admin" />
+				<label for="deny_localhost_admin" class="Restrictions lblDenyLocalhostAdministrationLabelText">Deny localhost automatic remote administration?</label>
+			</p>
+			<p>
+				<input type="checkbox" id="deny_reserved_ports" name="deny_reserved_ports" />
+				<label for="deny_reserved_ports" class="Restrictions lblDenyReservedPortsLabelText">Deny reserved ports?</label>
+			</p>
+			<p class="crush7Feature">
+				<input type="checkbox" id="deny_secure_active_mode" name="deny_secure_active_mode" />
+				<label for="deny_secure_active_mode">Deny secure active mode?</label>
+			</p>
+			<p>
+				<label  for="filename_filters_str" class="Restrictions lblFileNameFiltersLabelText ui-priority-primary">
+					Filename Filters (block matching names)
+				</label>
+			</p>
+			<p>
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td style="width:365px;">
+							<textarea class="formTextarea" id="filename_filters_str" name="filename_filters_str"></textarea>
+						</td>
+						<td style="padding-top:12px;">
+							<a id="addFilenameFilter" href="#" class="button">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus' ></span>
+							<span class="Restrictions btnAddNewFilenameFilterText">
+							Add</span></a>
+						</td>
+					</tr>
+				</table>
+			</p>
+			<p>
+				<label for="block_access"  class="Restrictions lblBlockPathMatchingPatternLabelText ui-priority-primary">
+					Block access to any path matching these patterns:
+				</label>
+			</p>
+			<p>
+				<textarea class="formTextarea" id="block_access" name="block_access"></textarea>
+			</p>
+		</td>
+	</tr>
+	</table>
+			<p class="buttonBar right">
+				<a href="#" class="button">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+					<span class="submitActionRestore Restrictions btnResetText">Reset To Default</span>
+				</a>
+				<a href="#" class="button" id="cancel">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+					<span class="submitActionCancel Restrictions btnCancelText">Cancel</span>
+				</a>
+				<a href="#" class="button" id="saveContent">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+					<span class="submitActionOk Restrictions btnOKText">Save</span>
+				</a>
+			</p>
+</div>

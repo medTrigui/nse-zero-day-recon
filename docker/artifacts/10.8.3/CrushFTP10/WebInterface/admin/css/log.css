@@ -1,0 +1,411 @@
+/*---------- User Manager CSS----------*/
+body
+{
+  margin:0px;
+  padding: 2px 2px 0px 2px;
+  border: 0px;
+  height:100%;
+  font-family: Verdana, Arial, sans-serif;
+}
+.console-wrapper
+{
+  overflow: auto;
+  height: 620px;
+  width: 100%;
+  margin: 0px;
+  overflow: auto;
+}
+.console {
+  padding: 10px;
+  font-size: 13px;
+  border: 0px;
+  background-color: #FFF;
+  color: #000;
+}
+.console div,
+.console div .label,
+.console div .highlight {
+  font-family: Lucida Console, Courier New, Monaco5, monospace !important;
+}
+.console div {
+  margin: 0px;
+  margin-bottom: 2px;
+  padding: 0px;
+}
+.logData div{
+    border: 0px;
+    width: auto;
+    outline: 0;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: block;
+    white-space:nowrap;
+    height: 15px;
+}
+.logData div .lineNo
+{
+  padding-right: 0.5em;
+  padding-top: 0.0em;
+  text-align: right;
+  white-space: nowrap;
+  border-right: 1px solid #ccc;
+  min-width: 50px;
+  display: inline-block;
+  height: 15px;
+  color:#959595;
+}
+
+.lineNo.set-marker:before{
+  content: " ";
+  position: absolute;
+  width: 0 !important;
+  height: 0 !important;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #009688;
+  border-bottom: 5px solid transparent;
+  margin-top: -5px;
+  background-color: transparent;
+  left: 5px;
+  top: 5px;
+}
+
+.copyReady
+{
+    padding:10px;
+}
+
+.wrapWordLog
+{
+  white-space: pre;           /* CSS 2.0 */
+  white-space: pre-wrap;      /* CSS 2.1 */
+  white-space: pre-line;      /* CSS 3.0 */
+  white-space: -pre-wrap;     /* Opera 4-6 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap;  /* HP Printers */
+  white-space: -moz-pre-wrap !important;   /* Mozilla*/
+  word-wrap: break-word;      /* IE 5+ */
+  word-break: break-all;
+}
+
+.console .highlight {
+  color: #000;
+  padding: 1px;
+}
+
+a, a:visited
+{
+    color: #051E42;
+}
+a:hover, a:active
+{
+    color: #6C6C6C;
+}
+
+#navMapWrapper
+{
+  margin-top: -3px;
+}
+
+#miniMap
+{
+  width:15px;
+  border: 1px solid #ccc;
+  height: 590px;
+  float: left;
+  padding: 2px;
+  margin: 0px 5px 0px 0px;
+  position: relative;
+}
+
+#miniMap.pointer
+{
+ cursor: pointer;
+}
+
+#miniMap .marker
+{
+  display: inline-block;
+  height:2px;
+  width:15px;
+  cursor: pointer;
+  position: absolute;
+}
+
+#miniMap .positionMarker
+{
+  display: inline-block;
+  border: 1px solid #534E4E;
+  height: 15px;
+  width: 27px;
+  cursor: move;
+  position: absolute;
+  left: -5px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 99;
+}
+
+.toTop, .toBottom
+{
+  float:left;
+  width:15px;
+  background-color: gray;
+  height: 10px;
+  clear: both;
+  padding: 3px;
+  margin:1px 0px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  font-size: 8px;
+  padding-top: 0px;
+  font-weight: bolder;
+}
+
+.minVal, .maxVal, .bufferLogSizeSelector
+{
+  font-size: 11px;
+  display: inline-block;
+  position: relative;
+  padding: 3px 5px;
+  border: 1px solid white;
+  margin-bottom: 4px;
+  background-color: white;
+}
+
+.inLogActionItem .color_picker
+{
+  margin: 0px 5px;
+  display: inline-block;
+  float: none;
+}
+
+.inLogActionItem
+{
+  -moz-box-shadow: 3px 2px 4px #ccc;
+  -webkit-box-shadow: 3px 2px 4px #ccc;
+  box-shadow: 3px 2px 4px #ccc;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  display: inline-block;
+  position: relative;
+  padding: 3px 5px;
+  border: 1px solid white;
+  margin-bottom: 4px;
+  background-color: white;
+  height: 17px;
+  float: right;
+  margin-left: 5px;
+}
+
+
+#realTimeIndicator
+{
+  background-image: url(/WebInterface/Resources/images/bullet_green.png);
+  background-position: 0px 5px;
+  background-repeat: no-repeat;
+  padding: 5px 10px 1px 17px;
+}
+
+.minVal, .maxVal
+{
+  top: -3px;
+}
+
+.minVal
+{
+ margin-right: 10px;
+}
+
+.maxVal
+{
+  margin-left: 10px;
+}
+
+.bufferLogSizeSelector
+{
+  margin:0px;
+  padding: 2px;
+}
+
+#slider-wrapper
+{
+  margin: 7px 5px 0px 5px;
+  float: left;
+  height: 20px;
+}
+
+#slider
+{
+  display: inline-block;
+  border: 1px solid #ccc;
+  height: 15px;
+  background-color: white;
+}
+
+#slider .handle
+{
+  display: inline-block;
+  width: 90px;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  border: 1px solid #ccc;
+  height: 24px;
+  margin:2px 0px;
+  padding: 0px;
+  cursor: move;
+  text-align: center;
+  font-size: 10px;
+  top: -8px;
+}
+
+.sliderTooltip
+{
+  position: absolute;
+  width: 236px;
+  left: 50%;
+  margin-left: -118px;
+  color: #8A8484;
+  text-align: center;
+}
+
+.moveSliderCustom
+{
+  display: inline-block;
+  position: absolute;
+  margin: 0px;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.filterHeader
+{
+  padding: 5px;
+  margin: 0px 20px;
+}
+
+#findAndFilters div.color_picker
+{
+  float: none;
+  display: inline-block;
+  margin: 0px 0px 0px 2px;
+}
+
+.filterOption, .findOption
+{
+  margin: 1px 2px;
+  max-width: 425px;
+  float: left;
+  padding: 5px;
+  height: 22px;
+  white-space: nowrap;
+}
+
+.filterOption
+{
+  width: 400px;
+}
+
+.addSearchTerm, .removeSearchTerm, .removeFilter, .addFilter
+{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  top: 4px;
+  position: relative;
+}
+
+.addSearchTerm, .addFilter
+{
+  background-image: url(/WebInterface/Resources/images/add.png);
+}
+
+.removeSearchTerm, .removeFilter
+{
+  background-image: url(/WebInterface/Resources/images/delete.png);
+}
+
+
+.exclideFilterOption
+{
+  font-size: 11px;
+  display: inline-block;
+  padding: 0px 5px;
+  background-color: #eee;
+}
+
+.filterProcess
+{
+  top: -8px;
+  background: url("/WebInterface/Resources/images/loading.gif") no-repeat 0px -1px;
+  padding-left: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+#helpPanel, #helpPanel table td
+{
+  border:1px solid #ccc;
+}
+
+#logContextMenu, #logContextMenu LI, #logContextMenu LI A
+{
+  width: 180px !important;
+}
+
+.contextMenu LI.startSelection A
+{
+    background-image: url(/WebInterface/Resources/images/application_side_expand.png);
+}
+
+.contextMenu LI.endSelection A
+{
+    background-image: url(/WebInterface/Resources/images/application_side_contract.png);
+}
+.contextMenu LI.markSelected A
+{
+    background-image: url(/WebInterface/Resources/images/page_paintbrush.png);
+}
+.contextMenu LI.filterSelected A
+{
+    background-image: url(/WebInterface/Resources/images/page_green.png);
+}
+
+.selection-marker{
+  background-color: transparent;
+  left: 20px;
+  z-index: 111;
+  width: 0 !important;
+  height: 0 !important;
+  border-top: 5px solid transparent;
+  border-right: 10px solid #009688;
+  border-bottom: 5px solid transparent;
+  margin-top: -5px;
+}

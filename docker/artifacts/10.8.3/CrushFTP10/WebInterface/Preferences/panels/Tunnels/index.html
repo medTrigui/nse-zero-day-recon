@@ -1,0 +1,227 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlTunnels">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Tunnels headerText">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="Tunnels" class="customForm">
+                    <p>
+                        <span class="Tunnels pnlDescText ui-priority-primary">
+                            Tunnels allow for specific access to services on your network
+                        </span>
+                    </p>
+                    <p class="buttonBar left buttonBarNoBottom">
+                        <a href="#" class="button" id="addTunnel">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                            <span class="Tunnels btnAddText">Add</span>
+                        </a>
+                        <a href="#" class="button" id="copyTunnel">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-copy'></span>
+                            <span class="Tunnels btnCopyText">Copy</span>
+                        </a>
+                        <a href="#" class="button" id="removeTunnel">
+                            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>
+                            <span class="Tunnels btnRemoveText">Remove</span>
+                        </a>
+                    </p>
+                    <p>
+                        <label for="tunnel_ram_cache" class="Tunnels lblTunnelRAMCacheText">RAM available for tunnel cache:</label>
+                        <input type="text" id="tunnel_ram_cache" name="tunnel_ram_cache" />
+                        <label for="tunnel_ram_cache" class="Tunnels">MB</label>
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+                        <label for="tunnel_minimum_version" class="Tunnels">Minimum tunnel version:</label>
+                        <input type="text" id="tunnel_minimum_version" name="tunnel_minimum_version" class="smallInputBox" />
+                    </p>
+                    <p>
+                        <div style="margin:0px 10px;">
+                            <div class="MediumListBox ui-corner-all ui-widget-content nobg sideScroll">
+                                <ol class="nobg selectable multiple sideScroll ui-selectable" id="tunnels" name="tunnels">
+                                </ol>
+                            </div>
+                        </div>
+                    </p>
+                    <div id="formDetailsPanel" class="formDetailsPanel" style="display:none;">
+                        <p>
+                            <input type="radio" name="tunnelType" id="tunnelType_HTTP" />
+                            <label for="tunnelType_HTTP" class="Tunnels lblHttpsTunnelText ui-priority-primary">HTTP(S) Tunnel</label>
+                            <span class="spacer"></span>
+                            <span class="spacer"></span>
+                            <input type="radio" name="tunnelType" id="tunnelType_SSH" />
+                            <label for="tunnelType_SSH" class="Tunnels lblSSHPortForwardingText ui-priority-primary">SSH Port Forwarding (Tunnel)</label>
+                        </p>
+                        <fieldset class="ui-widget-content nobg">
+                            <legend class="Tunnels lblConfigTabText">
+                                Config
+                            </legend>
+                            <p>
+                                <label for="name" class="Tunnels lblTunnelNameText">Tunnel Name:</label>
+                                <input type="text" id="name" name="name" />
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="configurable" name="configurable" />
+                                <label for="configurable" class="Tunnels lblUserConfigurableText">
+                                    User Configurable</label>
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="run" name="run" />
+                                <label for="run" class="Tunnels lblAutoStartText">
+                                    Auto Start</label>
+
+                                <span class="spacer"></span>
+                                <input type="checkbox" id="validate_cert" name="validate_cert" />
+                                <label for="validate_cert" class="Tunnels">
+                                    Validate Server Certificate</label>
+                            </p>
+                            <fieldset class="ui-widget-content nobg settingSubPart" style="width:400px;height:100px">
+                                <legend class="Tunnels normal lblServerTabText">
+                                    Server
+                                </legend>
+                                <p>
+                                    <label for="destIp" class="Tunnels lblDestinationHostText">Destination Host:</label>
+                                    <input type="text" id="destIp" name="destIp" />
+                                </p>
+                                <p>
+                                    <label for="destPort" class="Tunnels lblDestinationPortText">Destination Port:</label>
+                                    <input class="smallInputBox" type="text" id="destPort" name="destPort" />
+                                </p>
+                            </fieldset>
+                            <fieldset class="ui-widget-content nobg settingSubPart" style="width:300px;height:100px">
+                                <legend class="Tunnels normal lblClientTabText">
+                                    Client
+                                </legend>
+                                <p>
+                                    <label for="bindIp" class="Tunnels lblLocalClientIPText">Local Client IP:</label>
+                                    <input type="text" id="bindIp" name="bindIp" />
+                                </p>
+                                <p>
+                                    <label for="localPort" class="Tunnels lblLocalClientPortText">Port:</label>
+                                    <input type="text" id="localPort" class="smallInputBox" name="localPort" />
+                                    <span class="spacer"></span>
+                                    <input type="checkbox" id="reverse" name="reverse" />
+                                    <label for="reverse" class="Tunnels lblReverseText">
+                                        Reverse?</label>
+                                </p>
+                            </fieldset>
+                            <p class="clear"></p>
+                            <fieldset class="ui-widget-content nobg settingSubPart forHTTPTunnelOnly">
+                                <legend class="Tunnels normal lblTweaksTabText">
+                                    Tweaks (advanced settings)
+                                </legend>
+                                <p>
+                                   <label for="tunnel_version" class="Tunnels">Version:</label>
+                                   <select id="tunnel_version" name="tunnel_version">
+                                       <option value="Tunnel2" selected="true">Tunnel2</option>
+                                       <option value="Tunnel3">Tunnel3</option>
+                                   </select>
+                                </p>
+                                <p>
+                                    <label for="stableSeconds" class="Tunnels lblStableSecondsText">Stable Seconds:</label>
+                                    <input class="smallInputBox" type="text" id="stableSeconds" name="stableSeconds" />
+                                    <span class="spacer"></span>
+                                    <span class="spacer"></span>
+                                    <label for="channelRampUp" class="Tunnels lblChannelRampUpText">Channel Ramp Up:</label>
+                                    <input class="smallInputBox" type="text" id="channelRampUp" name="channelRampUp" />
+                                    <span class="spacer"></span>
+                                    <span class="spacer"></span>
+                                    <label for="speedThreshold" class="Tunnels lblSpeedThresholdText">Speed Threshold Percentage:</label>
+                                    <input class="smallInputBox" type="text" id="speedThreshold" name="speedThreshold" />
+                                </p>
+                                <p>
+                                    <label for="minFastSpeed" class="Tunnels lblMinFastSpeedText">Min Fast Speed:</label>
+                                    <input class="smallInputBox" type="text" id="minFastSpeed" name="minFastSpeed" />
+                                    <span class="spacer"></span>
+                                    <span class="spacer"></span>
+                                    <label for="minSlowSpeed" class="Tunnels lblMinSlowSpeedText">Min Slow Speed:</label>
+                                    &nbsp;
+                                    <input class="smallInputBox" type="text" id="minSlowSpeed" name="minSlowSpeed" />
+                                    <span class="spacer"></span>
+                                    <span class="spacer"></span>
+                                    <label for="ackTimeout" class="Tunnels lblAckTimeoutText">Ack Timeout:</label>
+                                    <input class="smallInputBox" type="text" id="ackTimeout" name="ackTimeout" />
+                                </p>
+                                <p>
+                                    <label for="sendBuffer" class="Tunnels lblSendBufferText">Send Buffer (MB):</label>
+                                    <input class="smallInputBox" type="text" id="sendBuffer" name="sendBuffer" />
+                                </p>
+                            </fieldset>
+
+                            <p class="clear"></p>
+                            <div class="forHTTPTunnelOnly">
+                                <p style="margin-top:35px;">
+                                    <label for="buttonConnect" class="Tunnels lblConnectBtnText">Connect Button's Text:&nbsp;&nbsp;&nbsp;</label>
+                                    <input type="text" id="buttonConnect" name="buttonConnect" />
+
+                                    <span class="spacer"></span>
+
+                                    <label for="channelsInMax" class="Tunnels lblInChannelsText">In Channels:&nbsp;&nbsp;&nbsp;</label>
+                                    <input class="smallInputBox" type="text" id="channelsInMax" name="channelsInMax" />
+
+                                </p>
+                                <p>
+                                    <label for="buttonDisconnect" class="Tunnels lblDisconnectBtnText">Disconnect Button's Text:</label>
+                                    <input type="text" id="buttonDisconnect" name="buttonDisconnect" />
+
+                                    <span class="spacer"></span>
+
+                                    <label for="channelsOutMax" class="Tunnels lblOutChannelsText">Out Channels:</label>
+                                    <input class="smallInputBox" type="text" id="channelsOutMax" name="channelsOutMax" />
+
+                                </p>
+                                <p style="margin-top:35px;">
+                                    <label for="runAfterConnect" class="Tunnels lblRunAfterConnectingText">
+                                        Run after connecting:</label>
+                                    <span class="spacer"></span>
+                                    <span class="spacer"></span>
+                                    &nbsp;
+
+                                    <select class="bigInputBox" id="runAfterConnect" name="runAfterConnect">
+                                        <option selected value="{key=No Action, value=}">No Action</option>
+                                        <option value="{key=Mac Open AFP://, value=open_afp}">Mac Open AFP://</option>
+                                        <option value="{key=Mac Open SMB://, value=open_smb}">Mac Open SMB://</option>
+                                        <option value="{key=Mac Open VNC://, value=open_vnc}">Mac Open VNC://</option>
+                                        <option value="{key=Open HTTP://, value=open_http}">Open HTTP://</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    <label for="runBeforeDisconnect" class="Tunnels lblRunBeforeDisconnectingText">
+                                        Run before disconnecting:</label>
+                                    <span class="spacer"></span>
+                                    <select class="bigInputBox" id="runBeforeDisconnect" name="runBeforeDisconnect">
+                                        <option selected value="{key=No Action, value=}">No Action</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="buttonBar right">
+        <a href="#" class="button">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+            <span class="submitActionRestore Tunnels btnResetText">Reset To Default</span>
+        </a>
+        <a href="#" class="button" id="cancel">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel'></span>
+            <span class="submitActionCancel Tunnels btnCancelText">Cancel</span>
+        </a>
+        <a href="#" class="button" id="saveContent">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk'></span>
+            <span class="submitActionOk Tunnels btnOKText">Save</span>
+        </a>
+    </p>
+</div>

@@ -1,0 +1,225 @@
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>CrushFTP Links</title>
+		<link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/ui-lightness/jquery-ui-1.8.2.custom.css" />
+	    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+        <script type="text/javascript" src = "/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+        <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+    	<script type="text/javascript">
+    	var categories =  [{
+		    name : "Web Development",
+		    items : [{
+		                title : "XML",
+		                image : "xml_128.png",
+		                tags : ["text","plain","coding","data"],
+		                link : "http://xml.com"
+		            },
+		            {
+		                title : "CSS",
+		                image : "css_128.png",
+		                tags : ["text","plain","design"],
+		                link : "http://css.com"
+		            },
+		            {
+		                title : "HTML",
+		                image : "html_128.png",
+		                tags : ["text","plain","layout"],
+		                link : "http://html.com"
+		            },
+		            {
+		                title : "JavaScript",
+		                image : "js_128.png",
+		                tags : ["text","plain","programming"],
+		                link : "http://js.com"
+		            }]
+		    },
+		    {
+		    name : "Desktop Application",
+		    items : [{
+		                title : "SQL",
+		                image : "xls_128.png",
+		                tags : ["coding","data","mssql"],
+		                link : "http://sql.com"
+		            },
+		            {
+		                title : ".Net",
+		                image : "vob_128.png",
+		                tags : ["programming"],
+		                link : "http://dotnet.com"
+		            },
+		            {
+		                title : "Resources",
+		                image : "jpeg_128.png",
+		                tags : ["other"],
+		                link : "http://abcd.com"
+		            }]
+		    }
+		];
+
+		// Add a method "has" to array
+		Array.prototype.has = function (value) {
+		    var i;
+		    for (var i = 0, loopCnt = this.length; i < loopCnt; i++) {
+		        if (this[i] === value) {
+		            return true;
+		        }
+		    }
+		    return false;
+		};
+
+		function renderLinks(items, panel) {
+		    if(!items)return;
+		    var container = $("#" + panel);
+		    var innerDiv = $("<div class='tabs'></div>");
+		    var tabLinks = $("<ul></ul>");
+		    innerDiv.append(tabLinks);
+		    for(var i=0;i<items.length;i++)
+		    {
+		    	if (items[i].items.length == 0) continue;
+		        tabLinks.append("<li><a href='#tabs-"+i+"'>"+items[i].name+"</a></li>");
+		        var linksDiv = $("<div id='tabs-"+i+"' class='tabItem'></div>");
+		        innerDiv.append(linksDiv);
+		        var links = items[i].items;
+		        var tags = [];
+		        for(var j=0;j<links.length;j++)
+		        {
+		            var _link = $("<div class='siteLink'><a target='_blank' href='"+links[j].link+"'><img src='/WebInterface/jQuery/images/fileExtensions/"+links[j].image+"' alt='"+links[j].title+"' title='"+links[j].title+"' /><span class='title ui-corner-all'>"+links[j].title+"</span></a></div>");
+		            linksDiv.append(_link);
+		            _link.data("tags", links[j].tags);
+		            tags.push.apply(tags, links[j].tags);
+		        }
+		        linksDiv.append("<div style='clear:both;'></div>");
+		        var uniqueTags = [];
+				$.each(tags, function(i, el){
+				    if($.inArray(el, uniqueTags) === -1) uniqueTags.push(el);
+				});
+		        uniqueTags.sort();
+		        var filters = $("<div style='margin:5px;'><table class='ui-widget'><tr><td style='width:50px;vertical-align:top;padding-top:5px;'><strong>Filter:</strong></td><td class='links ui-state-normal'></td></tr></table></div>");
+		        var checkboxes = filters.find("td.links");
+		        for(var k=0;k<uniqueTags.length;k++)
+		        {
+		            checkboxes.append("<label class='linkFilterCheckbox'><input type='checkbox' value='"+uniqueTags[k]+"' /> "+uniqueTags[k]+"</label>");
+		        }
+		        linksDiv.prepend(filters);
+		        filters.after("<span style='clear:both;display:block;'></span>");
+		        filters.find("input").change(function(){
+		            var _parent = $(this).closest(".tabItem");
+		            var _itms  = _parent.find("div.siteLink").hide();
+		            var checked = _parent.find("input:checked").each(function(){
+		                var val = $(this).val();
+		                _itms.each(function(){
+		                    var tags = $(this).data("tags");
+		                    if(tags.has(val))
+		                    {
+		                        $(this).show();
+		                    }
+		                })
+		            });
+		            if(checked.length==0)
+		                _itms.show();
+		        })
+		    }
+		    container.empty().append(innerDiv);
+		    innerDiv.tabs();
+		}
+		function delayedRender()
+		{
+	       if (pendingCount == 0)
+	       {
+	       		for (var i=categories.length-1;i>=0; i--)
+	       		{
+	       			for (var ii=categories.length-1;ii>=0; ii--)
+		       		{
+		       			if (i != ii && categories[i].name == categories[ii].name)
+		       			{
+		       				for (var x=0; x<categories[ii].items.length; x++)
+		       				{
+		       					categories[i].items.push(categories[ii].items[x]);
+		       				}
+		       				categories.splice(ii,1);
+		       				break;
+		       			}
+	       			}
+	       		}
+	       		renderLinks(categories, "siteLinksPanel");
+	       }
+		}
+		var pendingCount = 0;
+    	$(function() {
+            if(window.additionalCategories && window.additionalCategories.length>0)
+            {
+                for(var i=0;i<window.additionalCategories.length;i++)
+                {
+                	pendingCount++;
+                    $.getScript(window.additionalCategories[i], function(data) {
+                        var newObj = eval(data);
+                        categories = categories.concat(newObj);
+                        pendingCount--;
+                        delayedRender();
+                    }).fail(function(){
+                        pendingCount--;
+                        delayedRender();
+                    });
+                }
+            }
+      	    else renderLinks(categories, "siteLinksPanel");
+    	});
+    	</script>
+    	<style type="text/css">
+    	body
+		{
+		    margin: 5px;
+		    padding: 0px 5px 10px 5px;
+		    border: 1px solid #eee;
+		    -moz-border-radius: 10px 10px 10px 10px;
+		    -webkit-border-radius: 10px 10px 10px 10px;
+		    font-family: Verdana, sans-serif;
+		    font-size: 11px;
+			overflow-x:hidden;
+		}
+    	#siteLinksPanel .siteLink
+    	{
+    		width:200px;
+    		height:150px;
+    		float:left;
+    		display: inline-block;
+    		text-align: center;
+    		border: 1px solid gray;
+		    -moz-border-radius: 10px 10px 10px 10px;
+		    -webkit-border-radius: 10px 10px 10px 10px;
+		    -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+			-moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+			margin:5px;
+    	}
+    	#siteLinksPanel .siteLink .title
+    	{
+			display: block;
+			text-align: center;
+			margin-top: -5px;
+    	}
+    	#siteLinksPanel .siteLink a, #siteLinksPanel .siteLink img
+    	{
+    		border: 0px !important;
+    	}
+    	#siteLinksPanel .siteLink a, #siteLinksPanel .linkFilterCheckbox
+    	{
+    		padding: 8px;
+    		text-transform: capitalize;
+    	}
+    	#siteLinksPanel .linkFilterCheckbox
+    	{
+    		display: inline-block;
+    		float:left;
+    		margin: 0px 5px;
+    		padding: 2px 0px;
+    	}
+    	</style>
+	</head>
+	<body>
+		<div id="siteLinksPanel">
+		</div>
+	</body>
+</html>

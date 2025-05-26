@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>CrushFTP WebInterface :: Reset Password</title>
+    <link rel="stylesheet" type="text/css" href="/WebInterface/jQuery/css/login.css" />
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/jQuery/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src = "/WebInterface/Resources/js/jQuery.cookie.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+    <script type="text/javascript" src="/WebInterface/Resources/js/resetpass.js"></script>
+    <!--##CUSTOMSCRIPT##-->
+    <script type="text/javascript">
+        var passwordRule = {
+        random_password_length: 8,
+        min_password_numbers: 0,
+        min_password_lowers: 0,
+        min_password_uppers: 0,
+        min_password_specials: 0
+        };
+    </script>
+</head>
+
+<body style="overflow-x: hidden; overflow-y: auto;" class="login">
+    <!--##HEADER##-->
+    <form autocomplete="off" method="post" id="frmReset" action="/WebInterface/function/">
+        <div id="login">
+            <div id="languageSelector" style="display:none;">
+                <select>
+                    <option value="en" rel="English">English</option>
+                    <option value="br" rel="Brazilian">Bulgarian</option>
+                    <option value="bg" rel="Bulgarian">Bulgarian</option>
+                    <option value="cn" rel="Chinese">Chinese</option>
+                    <option value="cs" rel="Czech">Czech</option>
+                    <option value="da" rel="Danish">Danish</option>
+                    <option value="nl" rel="Dutch">Dutch</option>
+                    <option value="fr" rel="French">French</option>
+                    <option value="de" rel="German">German</option>
+                    <option value="hu" rel="Hungarian">Hungarian</option>
+                    <option value="it" rel="Italian">Italian</option>
+                    <option value="ja" rel="Japanese">Japanese</option>
+                    <option value="ko" rel="Korean">Korean</option>
+                    <option value="pl" rel="Polish">Polish</option>
+                    <option value="ro" rel="Romanian">Romanian</option>
+                    <option value="ru" rel="Russian">Russian</option>
+                    <option value="sk" rel="Slovak">Slovak</option>
+                    <option value="es" rel="Spanish">Spanish</option>
+                </select>
+            </div>
+            <div id="panelbody">
+                <div id="branding" class="clearfix branding">
+                    <a id="defaultLogoLink" href="http://www.crushftp.com/">
+                        <img id="imgLogo" src="/WebInterface/images/logo.png" style="border-width:0px;float:left;" />
+                    </a>
+                    <img id="resetWheel" src="/WebInterface/Resources/images/wheel.gif" />
+                </div>
+                <div id="panelLogin" style="padding:10px;">
+                    <div class="user-name-panel">
+                        <label for="reset_1" id="resetPageUserName"></label>
+                        <input autocomplete="off" type="text" class="textbox" name="reset_1" id="reset_1" value="" />
+                    </div>
+                    <div class="resetPanel">
+                        <label for="password" id="resetPagePassword"></label>
+                        <input autocomplete="off" type="password" class="textbox" name="password" id="password" />
+                    </div>
+                    <div class="resetPanel">
+                        <label for="passwordConfirm" id="resetPagePasswordConfirm"></label>
+                        <input autocomplete="off" type="password" class="textbox" name="passwordConfirm" id="passwordConfirm" />
+                    </div>
+                    <div style="clear:both;padding:0px;"></div>
+                    <div class="resetPanel" style="padding:0px;" id="generatePasswordPanel">
+                        <a id="btnGeneratePassword" class="button" href="javascript:void(0);" style="border-radius: 4px;box-shadow: none;border: 1px solid #eee;float:none;display: inline-block;">
+                            <span id="GeneratePasswordButtonText">Generate password</span>
+                        </a>
+                        <div id="passwordGeneratePanel" style="display:none;">
+                            <div style="clear:both;padding:5px;"></div>
+                            <input id="generated_password" type="text" class="textboxSmall" style="width:230px" />
+                            <a id="usePassword" class="button" href="javascript:void(0);"  style="float:none;border-radius: 4px;box-shadow: none;border: 1px solid #eee;padding: 0px 10px;height: 25px;margin-top: 5px;display:inline-block;position:relative;">
+                                <span class="password-used" style="position: absolute;background: rgb(248,248,248);top: 0px;text-align: center;display: inline-block;width: 37px;left: 0px;height: 22px;padding: 1px 20px;line-height: 24px;display:none;">Done..</span>
+                                <span id="GeneratePasswordUseButtonText" style="padding: 5px;line-height: 16px;">Use this</span>
+                            </a>
+                            <a id="cancelPassword" class="button" href="javascript:void(0);"  style="float:none;border-radius: 4px;box-shadow: none;border: 1px solid #eee;padding: 0px 10px;height: 25px;margin-top: 5px;display:inline-block;">
+                                <span id="GeneratePasswordCancelButtonText" style="padding: 5px;line-height: 16px;">Cancel</span>
+                            </a>
+                        </div>
+                        <div style="clear:both;padding:5px;"></div>
+                    </div>
+                    <hr style="border:0px;border-top:1px solid #eee;margin-bottom:20px;">
+                    <div style="clear:both;padding:0px;"></div>
+                    <div class="submit resetPanelBtns clearfix">
+                        <input type="hidden" name="command" id="command" value="no_action" />
+                        <input type="hidden" name="resetToken" id="resetToken" value="" />
+                        <a class="button" id="resetButton" href="javascript:void(0);">
+                            <span id="resetPageSubmit">Submit</span>
+                        </a>
+                        <a class="button" id="loginPage" href="/WebInterface/login.html">
+                            <span id="resetPageLoginPage">Login Page</span>
+                        </a>
+                        <a class="button" id="startOver" href="/WebInterface/jQuery/reset.html">
+                            <span id="resetPageStartOver">Start Over</span>
+                        </a>
+                    </div>
+                    <div style="clear:both;"></div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--##FOOTER##-->
+</body>
+
+</html>

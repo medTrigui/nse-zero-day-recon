@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <title>CrushFTP - Server log</title>
+    <link
+      type="text/css"
+      id="themeLink"
+      href="/WebInterface/Resources/css/themes/ui-lightness.zip/jquery-ui.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="/WebInterface/Resources/css/style.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="/WebInterface/Resources/css/vtip.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="/WebInterface/Resources/js/ColorPicker/colorPicker.css"
+      rel="stylesheet"
+    />
+    <link type="text/css" href="css/log.css" rel="stylesheet" />
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery-ui-1.10.0.HighlightEffect.min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.json-2.2.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.blockUI.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jqueryUI.forms.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.xml2json.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.ui.selectableAdvanced.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.json2xml.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.alerts.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.notify.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.textChange.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/date.format.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/vtip.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.browseVFSPopup.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/browserSelector.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jQuery.cookie.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.contextMenu.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.commonMethods.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.sessionChecker.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/ColorPicker/jquery.colorPicker.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.encryptPassword.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.highlight.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.mousewheel.min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/jquery.hotkeys.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="js/crushftp.admin.localizations.js"
+    ></script>
+
+    <script type="text/javascript" src="js/crushftp.adminPanel.js"></script>
+
+    <!-- File Browser stuff -->
+    <link
+      rel="stylesheet"
+      href="/WebInterface/Resources/css/localFileBrowser.css"
+    />
+    <script
+      type="text/javascript"
+      src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"
+    ></script>
+
+    <script type="text/javascript" src="js/crushftp.serverLogging.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        serverLogging.init();
+        var theming = crushFTPTools.queryString("theming");
+        if (theming) {
+          $("head").append(
+            '<link type="text/css" id="newThemeCSS" href="/WebInterface/Resources/css/new-ui/log-style.css" rel="stylesheet" /><link rel="stylesheet" href="/WebInterface/Resources/libs/font-awesome-4.7.0/css/font-awesome.min.css" />'
+          );
+          $(".ui-icon-newwin").replaceWith(
+            "<i class='fa fa-external-link'></i>"
+          );
+          $(".ui-icon-tag").replaceWith("<i class='fa fa-tag'></i>");
+          $(".ui-icon-info").replaceWith("<i class='fa fa-info-circle'></i>");
+          $(".ui-icon-search").replaceWith("<i class='fa fa-search'></i>");
+          $(".ui-icon-cancel").replaceWith("<i class='fa fa-ban'></i>");
+          $(".ui-icon-document").replaceWith("<i class='fa fa-eraser'></i>");
+          $(".ui-icon-clipboard").replaceWith("<i class='fa fa-copy'></i>");
+          function applyTheme() {
+            var theme = localStorage["theme"] || "light";
+            if (theme == "light") {
+              $("html").removeAttr("data-theme", "dark");
+              $("#colorSchemeBGColor").val("#ffffff").trigger("change");
+              $("#colorSchemeFontColor").val("#000000").trigger("change");
+            } else {
+              $("html").attr("data-theme", "dark");
+              $("#colorSchemeBGColor").val("#000000").trigger("change");
+              $("#colorSchemeFontColor").val("#ffffff").trigger("change");
+            }
+          }
+          applyTheme();
+          if (window.parent) {
+            parent.$(parent.document).on("theme-change", function () {
+              applyTheme();
+            });
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <span id="SessionSeconds" style="display: none"></span>
+    <div id="serverLoggingPanel">
+      <div id="serverLogUI">
+        <div
+          class="ui-widget-content nobg mainContentHolder"
+          style="padding: 5px 0px 0px 5px; overflow: hidden"
+        >
+          <a
+            style="display: inline-block; float: left"
+            href="#"
+            id="findAndFilterOptions"
+          >
+            <span
+              style="display: inline-block; margin: 0px 2px; float: left"
+              class="pointer ui-icon ui-icon-tag"
+            ></span>
+            <span class="text">Show Find and Filters</span>
+          </a>
+          <a
+            style="display: inline-block; margin-left: 10px; float: left"
+            href="#"
+            id="selectLogFile"
+          >
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 2px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-document"
+            ></span>
+            <span class="text">Select Log File</span>
+          </a>
+          <div
+            id="logFileChange"
+            class="customForm"
+            style="
+              display: inline-block;
+              margin-left: 10px;
+              top: 3px;
+              position: relative;
+              float: left;
+              height: 35px;
+            "
+          >
+            <input
+              style="padding: 1px; top: -3px; position: relative"
+              type="text"
+              id="logFilePath"
+              class="bigInputBox"
+            />
+            <a
+              href="#"
+              PickType="file"
+              id="browseLogFile"
+              class="button slim serverFilePickButton"
+              rel="logFilePath"
+            >
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 2px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-folder-open"
+              ></span>
+              <span class=""> Browse </span>
+            </a>
+            <a href="#" PickType="file" id="changeLogFile" class="button slim">
+              <span
+                style="
+                  display: inline-block;
+                  margin: 0px 2px 0px -7px;
+                  float: left;
+                "
+                class="pointer ui-icon ui-icon-check"
+              ></span>
+              <span class=""> OK </span>
+            </a>
+          </div>
+          <div
+            style="
+              position: relative;
+              left: 20px;
+              top: -2px;
+              display: inline-block;
+            "
+          >
+            <label for="mainServerInstance">Server Instance:</label>
+            <select id="mainServerInstance" class="inputBox">
+              <option value=""></option>
+              <option value="">Main</option>
+            </select>
+          </div>
+          <a
+            style="display: inline-block; float: right; margin-right: 10px"
+            class="button"
+            href="#"
+            id="loggingHelp"
+          >
+            <span
+              style="
+                display: inline-block;
+                margin: 0px 2px 0px -7px;
+                float: left;
+              "
+              class="pointer ui-icon ui-icon-info"
+            ></span>
+            <span class="text">Help</span>
+          </a>
+          <a
+            style="display: inline-block; float: right; margin-right: 10px"
+            target="_blank"
+            href="log.html"
+            id="openInNewWindow"
+          >
+            <span
+              style="display: inline-block; margin: 0px 2px; float: left"
+              class="pointer ui-icon ui-icon-newwin"
+            ></span>
+            <span class="text">Open in a separate window</span>
+          </a>
+          <div class="clear"></div>
+          <div
+            id="findAndFilters"
+            style="display: none; padding: 5px; margin: 0px 5px 5px 0px"
+            class="ui-widget-content nobg"
+          >
+            <table style="width: 100%; border: 0px; padding: 0px; margin: 0px">
+              <tr>
+                <td style="width: 50%" class="findPanel">
+                  <fieldset class="ui-widget-content nobg" style="padding: 5px">
+                    <legend class="ui-priority-primary">
+                      <span
+                        style="float: left; margin: 0px 2px"
+                        class="ui-icon pointer vtip ui-icon-info"
+                        title="You can add multiple phrase to find below, you can apply separate color to highlight matched text with specific color."
+                      ></span>
+                      Find in Log:
+                    </legend>
+                    <div
+                      id="findTermPanel"
+                      class="findOption ui-widget-content"
+                    >
+                      <input
+                        type="text"
+                        id="findPhrase"
+                        class="findPhrase bigInputBox"
+                      />
+                      <input
+                        type="text"
+                        class="colorPicker"
+                        value="#99FF00"
+                        id="filterTagColor"
+                      />
+                    </div>
+                    <div class="clear"></div>
+                  </fieldset>
+                </td>
+                <td class="filterPanel">
+                  <fieldset class="ui-widget-content nobg" style="padding: 5px">
+                    <legend class="ui-priority-primary">
+                      <span
+                        style="float: left; margin: 0px 2px"
+                        class="ui-icon pointer vtip ui-icon-info"
+                        title="You can add multiple filters below, also you can make them show only mathced items or hide all matched items by using option to <em>Exclude</em>"
+                      ></span>
+                      Filter:
+                    </legend>
+                    <div
+                      style="margin: -23px 0px 0px 70px; float: left"
+                      class="ui-corner-addmor exclideFilterOption"
+                    >
+                      <select id="excludeFilteredItems">
+                        <option value="0">
+                          Only show lines containing this text
+                        </option>
+                        <option value="1">
+                          Hide lines containing this text
+                        </option>
+                      </select>
+                      <label for="">
+                        Operation Type:
+                        <select id="excludeFilteredItemsOperation">
+                          <option selected value="or">OR</option>
+                          <option value="and">AND</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="clear"></div>
+                    <div
+                      id="filterPanel"
+                      class="filterOption ui-widget-content"
+                    >
+                      <input
+                        type="text"
+                        id="filterTag"
+                        class="filterText bigInputBox"
+                      />
+                    </div>
+                    <div class="clear"></div>
+                  </fieldset>
+                </td>
+              </tr>
+            </table>
+            <div style="margin: 5px 0px 5px 10px">
+              <a href="#" class="button" id="applyFilters">
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px 3px 0px -7px;
+                    float: left;
+                  "
+                  class="pointer ui-icon ui-icon-search"
+                ></span>
+                Find &amp; Filter
+              </a>
+              <a href="#" class="button" id="resetFindAndFilters">
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px 3px 0px -7px;
+                    float: left;
+                  "
+                  class="pointer ui-icon ui-icon-cancel"
+                ></span>
+                Reset
+              </a>
+
+              <span id="filterProcessIndicator" class="filterProcess"
+                >Applying...</span
+              >
+
+              <span id="resultActions" style="margin-left: 50px; display: none">
+                <a href="#" class="button" id="prevResult">
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px 3px 0px -7px;
+                      float: left;
+                    "
+                    class="pointer ui-icon ui-icon-seek-prev"
+                  ></span>
+                  Prev Result
+                </a>
+                <a href="#" class="button" id="nextResult">
+                  <span
+                    style="
+                      display: inline-block;
+                      margin: 0px -7px 0px 3px;
+                      float: right;
+                    "
+                    class="pointer ui-icon ui-icon-seek-next"
+                  ></span>
+                  Next Result
+                </a>
+              </span>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div id="slider-wrapper">
+            <div class="clear"></div>
+            <div class="minVal ui-corner-all">0</div>
+            <div id="slider" class="ui-corner-all">
+              <span
+                class="ui-icon ui-icon-seek-prev moveSliderCustom prev"
+              ></span>
+              <span
+                class="ui-icon ui-icon-seek-next moveSliderCustom next"
+              ></span>
+              <span class="sliderTooltip valSelectionRange"
+                >Move slider to change log buffer window.</span
+              >
+              <span class="handle ui-corner-all">
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px;
+                    position: absolute;
+                    left: -13px;
+                    top: 4px;
+                  "
+                  class="ui-icon ui-icon-grip-dotted-vertical"
+                ></span>
+                <div class="ui-corner-all">
+                  <label
+                    for="drpLogBufferWindowSize"
+                    title="Log buffer window size"
+                    class="vtip"
+                  >
+                    <select
+                      name="drpLogBufferWindowSize"
+                      id="drpLogBufferWindowSize"
+                      style="
+                        width: 60px;
+                        padding: 0px 5px;
+                        height: 17px;
+                        margin-top: 3px;
+                        text-align: center;
+                      "
+                    >
+                      <option value="1048576">1MB</option>
+                    </select>
+                  </label>
+                </div>
+                <span
+                  style="
+                    display: inline-block;
+                    margin: 0px;
+                    position: absolute;
+                    right: -14px;
+                    top: 4px;
+                  "
+                  class="ui-icon ui-icon-grip-dotted-vertical"
+                ></span>
+              </span>
+            </div>
+            <div class="maxVal ui-corner-all"></div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+          <table style="width: 100%; border: 0px; margin: 0px; padding: 0px">
+            <tr>
+              <td colspan="2" style="height: 18px">
+                <span
+                  class="ui-priority-normal ui-state-highlight"
+                  id="copyReady"
+                  style="margin-left: 34px; padding: 3px 5px; display: none"
+                ></span>
+                <span
+                  class="ui-priority-secondary"
+                  id="dateRangeForLog"
+                  style="margin-left: 34px"
+                ></span>
+                <span
+                  class="ui-priority-secondary"
+                  id="logFileLoaded"
+                  style="margin-right: 15px; margin-top: 2px; float: right"
+                ></span>
+                <div style="clear: both; height: 1px"></div>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 18px">
+                <div id="navMapWrapper">
+                  <div class="toTop ui-corner-top" title="Scroll to top">
+                    &and;
+                  </div>
+                  <div id="miniMap" class="ui-corner-all">
+                    <span
+                      class="positionMarker ui-corner-tr ui-corner-bl"
+                    ></span>
+                  </div>
+                  <div
+                    class="toBottom ui-corner-bottom"
+                    title="Scroll to bottom"
+                  >
+                    &or;
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="customScheme">
+                  <div
+                    class="console-wrapper ui-corner-all"
+                    style="
+                      height: 500px;
+                      overflow: auto;
+                      position: relative;
+                      padding: 0px;
+                      margin: 0px;
+                      outline: 0;
+                    "
+                  >
+                    <div
+                      id="serverLogging"
+                      class="console logData"
+                      style="
+                        padding: 0px;
+                        margin: 0px;
+                        position: relative;
+                        overflow: hidden;
+                      "
+                    >
+                      <div>Loading data...</div>
+                    </div>
+                    <div
+                      tabindex="0"
+                      hidefocus=""
+                      style="
+                        position: fixed;
+                        width: 0;
+                        height: 0;
+                        top: 0;
+                        left: 0;
+                        outline: 0;
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div style="margin-right: 24px; margin-top: 4px">
+                  <span class="ui-corner-all inLogActionItem">
+                    <input
+                      type="checkbox"
+                      checked
+                      id="server_log_scroll_with_activity"
+                    />
+                    <label
+                      for="server_log_scroll_with_activity"
+                      style="position: relative; top: -3px"
+                    >
+                      Scroll with activity</label
+                    >
+                  </span>
+                  <span class="ui-corner-all inLogActionItem">
+                    <span>
+                      Background :
+                      <input
+                        type="text"
+                        class="colorPicker"
+                        rePosition="true"
+                        value="#FFF"
+                        id="colorSchemeBGColor"
+                      />
+                    </span>
+                    <span>
+                      Font :
+                      <input
+                        type="text"
+                        class="colorPicker"
+                        rePosition="true"
+                        value="#000"
+                        id="colorSchemeFontColor"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    id="realTimeIndicator"
+                    class="ui-corner-all realTimeIndicator inLogActionItem"
+                  >
+                    Real-time
+                  </span>
+                  <span
+                    id="copyLog"
+                    class="ui-corner-all inLogActionItem"
+                    style="cursor: pointer; padding: 3px 0px 4px 0px"
+                  >
+                    <span
+                      style="float: left; margin: 0"
+                      class="ui-icon ui-icon-clipboard"
+                    >
+                    </span>
+                    <span style="float: left; margin: 2px 5px 0 0"
+                      >Copy Log
+                    </span>
+                  </span>
+                  <span
+                    id="clearLog"
+                    class="ui-corner-all realTimeIndicator inLogActionItem"
+                    style="cursor: pointer; padding: 3px 0px 4px 0px"
+                  >
+                    <span
+                      style="float: left; margin: 0"
+                      class="ui-icon ui-icon-document"
+                    >
+                    </span>
+                    <span style="float: left; margin: 2px 5px 0 0"
+                      >Clear Log
+                    </span>
+                  </span>
+                </div>
+                <div class="clear"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div style="clear: both; height: 1px"></div>
+    </div>
+    <div id="copyItemDialog"></div>
+    <div id="copyItemHelpDialog" style="display: none">
+      <div style="margin: 5px">
+        <div
+          class="ui-state-highlight ui-corner-all warning"
+          style="padding: 3px; display: block; margin: 0px 3px"
+        >
+          <span
+            style="float: left; margin-right: 0.3em"
+            class="ui-icon ui-icon-info"
+          ></span>
+          Native copy action does not work properly with this logging system,
+          use these instructions to copy your selected lines easily.
+        </div>
+      </div>
+      <div style="height: 490px; overflow: auto">
+        <h1>Step 1:</h1>
+        <div>
+          <img
+            src="/WebInterface/Resources/images/logCopyHelp/1.png"
+            title="Step 1"
+            alt="First click on any line to start, now shift+click next line to select a range"
+          />
+        </div>
+        <h1>Step 2:</h1>
+        <div>
+          <img
+            src="/WebInterface/Resources/images/logCopyHelp/2.png"
+            title="Step 2"
+            alt="This panel will appear with total line selected info and a button to copy text or cancel action"
+          />
+        </div>
+        <h1>Step 3:</h1>
+        <div>
+          <img
+            src="/WebInterface/Resources/images/logCopyHelp/3.png"
+            title="Step 3"
+            alt="Lines from your selected range will be shown in a panel, now just copy it to the clipboard"
+          />
+        </div>
+      </div>
+      <div style="margin: 10px 5px">
+        <label>
+          <input type="checkbox" id="dontShowCopyHelp" /> Dont show again
+        </label>
+      </div>
+    </div>
+    <div id="helpPanel" style="display: none">
+      <table style="width: 100%" cellpadding="5" cellspacing="0">
+        <tr class="ui-state-highlight">
+          <td style="width: 60%; font-weight: bolder; text-align: center">
+            Action
+          </td>
+          <td style="width: 40%; font-weight: bolder; text-align: center">
+            Command
+          </td>
+        </tr>
+        <tr>
+          <td>Show find/filters panel</td>
+          <td>Ctrl + f, Cmd + f (Mac)</td>
+        </tr>
+        <tr>
+          <td>Seek next find result</td>
+          <td>Ctrl + g, Cmd + g (Mac), F3</td>
+        </tr>
+        <tr>
+          <td>Seek previous find result</td>
+          <td>Ctrl + h, Shift + F3</td>
+        </tr>
+        <tr>
+          <td>Reset applied find and filters</td>
+          <td>Alt + F3</td>
+        </tr>
+        <tr>
+          <td>Seek log buffer slider one step left</td>
+          <td>Alt + Left arrow</td>
+        </tr>
+        <tr>
+          <td>Seek log buffer slider one step right</td>
+          <td>Alt + Right arrow</td>
+        </tr>
+        <tr>
+          <td>Clear log (Only while showing real-time log)</td>
+          <td>Ctrl + k, Cmd + k (Mac)</td>
+        </tr>
+        <tr>
+          <td>Toggle scroll with activity</td>
+          <td>Alt + s</td>
+        </tr>
+        <tr>
+          <td>Scroll to top</td>
+          <td>Ctrl + Home, Cmd + Home (Mac)</td>
+        </tr>
+        <tr>
+          <td>Scroll to end</td>
+          <td>Ctrl + End, Cmd + End (Mac)</td>
+        </tr>
+        <tr>
+          <td>Scroll all the way to the right on a line</td>
+          <td>End, Cmd + Right (Mac)</td>
+        </tr>
+        <tr>
+          <td>Scroll all the way to the left on a line</td>
+          <td>Home, Cmd + Left (Mac)</td>
+        </tr>
+      </table>
+    </div>
+    <ul id="logContextMenu" class="contextMenu" style="display: none">
+      <li class="startSelection">
+        <a href="#startSelection">Start selection from here</a>
+      </li>
+      <li class="endSelection separator">
+        <a href="#endSelection">End selection</a>
+      </li>
+      <li class="markSelected separator">
+        <a href="#markSelected">Mark Selected</a>
+      </li>
+      <li class="filterSelected separator">
+        <a href="#filterSelected">Filter by Selected</a>
+      </li>
+    </ul>
+    <div id="growlContainer" style="display: none; z-index: 99999">
+      <div id="growl">
+        <a class="ui-notify-close" href="#"
+          ><span class="ui-icon ui-icon-close" style="float: right"> </span></a
+        ><span
+          style="float: left; margin: 2px 5px 0 0"
+          class="ui-icon ui-icon-alert"
+        >
+        </span>
+        <h2>#{title}</h2>
+        <p>#{text}</p>
+      </div>
+    </div>
+    <div id="loadingIndicator"></div>
+  </body>
+</html>

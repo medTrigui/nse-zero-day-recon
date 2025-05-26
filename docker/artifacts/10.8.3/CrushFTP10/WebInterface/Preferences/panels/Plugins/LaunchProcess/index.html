@@ -1,0 +1,93 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Plugin HTML -->
+<div id="pnlPluginLaunchProcess">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div id="pluginSection" class="customForm">
+				<p>
+					<input type="checkbox" name="enabled" id="enabled" />
+					<label for="enabled" class="ui-priority-primary LaunchProcess lblEnabledText">Enabled</label>
+
+					<span class="spacer"></span>
+					<span class="spacer"></span>
+
+					<input type="checkbox" name="debug" id="debug" />
+					<label for="debug" class="ui-priority-primary LaunchProcess lblDebugText">Debug</label>
+
+					<span style="display:inline-block;padding:3px;float:right;" class="nonEmbed"><span class="LaunchProcess lblVersionText">Version:</span> <span class="liveData" id="version"></span></span>
+				</p>
+				<div class="ui-corner-all ui-widget-content nobg" style="padding:5px 10px;">
+					<!-- <p>
+						<label class="LaunchProcess lblCommandParametersHelpText">%user_name%, %the_real_path%, %the_file_path%, %the_file_name%, %the_file_size%, %the_file_speed%, %the_file_error%</label>
+					</p> -->
+					<p>
+						<label for="command" class="LaunchProcess lblCommandText">Command:</label>
+						<input type="text" id="command" name="command"  class="bigInputBox" />
+
+						<span class="spacer"></span>
+						<span class="spacer"></span>
+
+						<label for="examples" class="LaunchProcess lblExamplesText">Examples:</label>
+						<select id="examples" class="excludeXML" name="examples">
+							<option value="">Examples</option>
+							<option value="cp">Copy to archive folder</option>
+							<option value="mv">Move to hidden directory</option>
+							<option value="/Applications/MyApp.app/Contents/MacOS/MyApp">Run your own app giving..</option>
+							<option value="open">Open the file (dangerous)</option>
+						</select>
+					</p>
+					<p>
+						<label for="argument" class="LaunchProcess lblArgumentText">Argument:</label>
+						<input type="text" id="argument" name="argument"  class="bigInputBox" />
+					</p>
+					<p>
+						<label for="separator" class="LaunchProcess lblSeparatorText">Separator:</label>
+						<input type="text" id="separator" name="separator"  class="smallInputBox" />
+					</p>
+					<p class="subPanel ui-widget-content leftborder nobg lineHeight">
+						<p class="subPanel ui-widget-content leftborder nobg lineHeight">
+							<label class="LaunchProcess lblExampleHelpText">
+								Example: If the command was "cp" and the argument was %the_real_path%:/archive/%the_file_name%
+								<br/>
+								Then, if a file was uploaded to "/upload/stuff.zip", it would be copied to "/archive/stuff.zip"
+								<br/>
+								Note the purpose of the "." in that it separates arguments to the command.
+							</label>
+						</p>
+						<p>
+							<label class="LaunchProcess lblEnableDebugModeHelpText">
+								Enable debug mode to see how the command would be executed.
+							</label>
+						</p>
+						<p>
+							<input type="checkbox" name="recent" id="recent" />
+							<label for="recent" class="ui-priority-primary LaunchProcess lblUseRecentItemText">Only use most recent item.</label>
+						</p>
+						<p class="subPanel ui-widget-content leftborder nobg lineHeight">
+							<label class="LaunchProcess lblUseRecentItemHelpText">
+								If this is for an event where the event happens immediately, and not just on logout, this will only process the most recent item. Otherwise, it will go through each item executing the command on each.
+							</label>
+						</p>
+						<p>
+							<input type="checkbox" name="iterate" id="iterate" />
+							<label for="iterate" class="ui-priority-primary LaunchProcess lblRunCommandText">Run command once with argument repeated for each item.</label>
+						</p>
+						<p class="subPanel ui-widget-content leftborder nobg lineHeight">
+							<label class="LaunchProcess lblRunCommandHelpText">
+								This does:"command argument argument argument" etc.
+							</label>
+						</p>
+					</p>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>

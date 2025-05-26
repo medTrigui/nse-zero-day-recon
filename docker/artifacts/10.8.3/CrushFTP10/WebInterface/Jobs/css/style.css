@@ -1,0 +1,1386 @@
+div#header {
+    z-index:2001 !important;
+}
+div#footer {
+    z-index:2001 !important;
+}
+#growlContainer {
+    z-index:9999 !important;
+    width: 400px;
+}
+.designerPanel {
+    min-height: 200px;
+}
+.designerPanel .sideBar {
+    min-height: 180px;
+    height:720px;
+    background-color: white;
+}
+.canvas, #linkedPopupPlaceholder{
+    min-height:700px;
+    width: 100%;
+    background-color: white;
+    background-image: url(/WebInterface/Resources/images/designer_bg.png);
+    background-repeat: repeat;
+    padding: 5px;
+    border: 1px solid #CCC;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    margin: 0px 10px 0px 0px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+#linkedPopupPlaceholder
+{
+    overflow: auto;
+    display: none;
+}
+.zoomSlider {
+    position: fixed;
+    bottom: 50px;
+    left: 15px;
+    width: 150px;
+    background-color: #fff;
+    height: inherit;
+    border: 1px solid #ccc;
+    padding: 10px 20px 10px 10px;
+    border-radius: 10px;
+    box-shadow: #554B4B 0px 0px 20px;
+    z-index: 501;
+}
+#zoomCollapse {
+    position: absolute;
+    z-index: 1;
+    top: -6px;
+    right: -6px;
+    padding: 0px;
+    background: #fff;
+    border: 1px solid #BDB6B6;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: #BDB6B6 0px 0px 5px 4px;
+    cursor: pointer;
+}
+.zoomSlider.hidden {
+    opacity: 0.8;
+    cursor: pointer;
+    width: 80px;
+    font-size: 10px;
+    margin: 0px;
+    padding: 2px 5px 2px 5px;
+    box-shadow: #554B4B 0px 0px 1px;
+    border-radius: 5px;
+    text-align: center !important;
+}
+.zoomSlider.hidden div {
+    float: none !important;
+    margin:0px !important;
+    text-align: center !important;
+    display: block;
+}
+.zoomSlider.hidden #canvasZoomSlider, .zoomSlider.hidden #resetZoom, .zoomSlider.hidden #zoomCollapse {
+    display: none;
+}
+.activeJob {
+    border-color: #FF9900;
+    background-image: url(/WebInterface/Resources/images/designer_bg_active.png);
+}
+.resizer {
+    background-color: #ccc;
+    position: absolute;
+}
+.resizer.hover {
+    background-color: #E6E6B8;
+}
+.bottomTrigger {
+    width: 100%;
+    height: 10px;
+    bottom: 0px;
+    margin: 5px 0px 0px -5px;
+    cursor: s-resize;
+}
+.rightTrigger {
+    height: 100%;
+    width: 10px;
+    right: 3px;
+    margin: -5px -3px 0px 0px;
+    cursor: e-resize;
+}
+.clickPoint {
+    height:22px;
+    width: 22px;
+    background-image: url(/WebInterface/Resources/images/green_dot.png) !important;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: block;
+}
+.sideDragable, .jobsMenu {
+    margin: 0px 5px;
+    cursor: move !important;
+    padding: 1px 10px 5px 10px !important;
+}
+.jobsMenu {
+    cursor: pointer !important;
+}
+.sideDragable:hover, .jobsMenu:hover {
+    -moz-box-shadow: 0 0 6px rgb(75, 72, 65);
+    -webkit-box-shadow: 0 0 6px rgb(75, 72, 65);
+    box-shadow: 0 0 6px rgb(75, 72, 65);
+}
+.customShadow {
+    box-shadow: 0 0 10px #C0C0C0;
+    -moz-box-shadow: 0 0 10px #C0C0C0;
+    -webkit-box-shadow: 0 0 10px #C0C0C0;
+}
+.customShadow2 {
+    box-shadow: 0 20px 20px #C0C0C0;
+    -moz-box-shadow: 0 20px 20px #C0C0C0;
+    -webkit-box-shadow: 0 20px 20px #C0C0C0;
+}
+.redBorder {
+    border-color: rgb(187, 33, 33) !important;
+    box-shadow: 0 0 5px #880000;
+    -moz-box-shadow: 0 0 5px #880000;
+    -webkit-box-shadow: 0 0 5px #880000;
+}
+.greenBorder {
+    border-color: #009933 !important;
+    box-shadow: 0 0 5px #66C285;
+    -moz-box-shadow: 0 0 5px #66C285;
+    -webkit-box-shadow: 0 0 5px #66C285;
+}
+.filteredTask {
+    border-color: #705F4E !important;
+    box-shadow: 2px 4px 10px #8D7F71;
+    -moz-box-shadow: 2px 4px 10px #8D7F71;
+    -webkit-box-shadow: 2px 4px 10px #8D7F71;
+    border-width: 2px !important;
+}
+.sideDragable span {
+    position: relative;
+    display: inline-block;
+}
+#itemTemplates {
+    display: none;
+}
+.canvasPortlet, .crushTaskItem
+{
+    box-shadow: -3px 3px 10px #665C5C;
+    -moz-box-shadow: -3px 3px 10px #665C5C;
+    -webkit-box-shadow: -3px 3px 10px #665C5C;
+    cursor: default;
+}
+.crushTaskItem {
+    margin: 0 1em 1em 0;
+    max-width: 330px;
+    min-width: 200px;
+    position: absolute;
+    cursor: default;
+    /*height: 160px;*/
+}
+.highlighted {
+    border-style: dashed !important;
+    box-shadow: 0px 0px 10px 4px rgb(255, 188, 16);
+}
+.crushTaskItem legend {
+    font-weight: normal !important;
+    font-size: 12px;
+    border: 1px solid #CCC;
+    padding: 1px 10px 0px 20px !important;
+    margin: 5px;
+    overflow: hidden;
+    height: 15px;
+}
+.editTaskNameLink {
+    position: absolute;
+    margin-top: -6px;
+    margin-left: 6px;
+    left: 7px;
+}
+.crushEndActionItem, .crushStartActionItem {
+    margin: 0 1em 1em 0;
+    width: 135px;
+    height: 60px;
+    position: absolute;
+}
+.crushTask-header {
+    margin: 3px;
+    padding: 2px;
+    padding-left: 0.2em;
+    cursor: move;
+    overflow: hidden;
+    height:15px;
+}
+.curshTask-header .ui-icon {
+    float: right;
+}
+.crushTask-content {
+    padding: 0px;
+    margin: 0px;
+    max-height: 129px;
+    overflow: hidden;
+    min-height: 20px;
+}
+.linktask .crushTask-content
+{
+    max-height:200px;
+}
+.link-content
+{
+    min-height:200px;
+    width:330px;
+}
+
+.canvasPortlet {
+    opacity: 0.8;
+}
+.crushTask-content fieldset {
+    margin: 0px 5px 7px 5px !important;
+    padding: 5px 0px 0px 0px !important;
+    border: 0px !important;
+}
+.crushTaskDetailsLink {
+    position: absolute;
+    right: 25px;
+    top: 6px;
+}
+.crushTaskItemInfo {
+    color: #fff !important;
+    position: absolute;
+    text-decoration: none;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -10px;
+    background: #e78f08;
+    padding: 0px 10px 0px 5px;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+.taskActionsPanel {
+    margin: -28px 3px 20px 5px;
+    padding: 3px 0px 8px 0px;
+    position: relative;
+    top : 15px;
+    z-index: 105;
+}
+.taskAction {
+    width:18px;
+    height:18px;
+    cursor: move;
+    padding:2px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+.taskAction.isFocused {
+    opacity: 0.5;
+}
+.taskAction:hover {
+    opacity: 0.7;
+}
+.newTaskIcon, .jobsIcon {
+    background-image: url(/WebInterface/Resources/images/application_form_add.png);
+    display:inline-block;
+    background-position: 3px 0px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 16px;
+}
+.jobsIcon.message {
+    background-image: url(/WebInterface/Resources/images/email.png);
+}
+.taskFailureActionPoint {
+    background-image: url(/WebInterface/Resources/images/red_dot.png) !important;
+    float: left;
+}
+.taskJumpTrueActionPoint {
+    background-image: url(/WebInterface/Resources/images/orange_dot.png) !important;
+}
+.taskJumpFalseActionPoint {
+    background-image: url(/WebInterface/Resources/images/orange_dot.png) !important;
+}
+.trueJumpPanel {
+    position: absolute;
+    top: -55px;
+    left: 100%;
+    margin-left: -12px;
+}
+.falseJumpPanel {
+    position: absolute;
+    top: -30px;
+    left: 100%;
+    margin-left: -12px;
+}
+.taskSuccessActionPoint {
+    background-image: url(/WebInterface/Resources/images/green_dot.png) !important;
+    float: right;
+}
+.failurePanel {
+    float:left;
+    margin-left: -10px;
+    width: 30px;
+}
+.successPanel {
+    float:right;
+    margin-right: -10px;
+    width: 30px;
+}
+.failurePanel:hover .tooltip, .successPanel:hover .tooltip, .trueJumpPanel:hover .tooltip, .falseJumpPanel:hover .tooltip {
+    display: inline-block !important;
+}
+.connectionLine.success {
+    background-color: green !important;
+}
+.connectionLine.failure {
+    background-color: red !important;
+}
+._jsPlumb_connector {
+    opacity: 0.8 !important;
+    z-index: 0 !important;
+    margin-left: 8px;
+}
+.taskDetails {
+    /*min-height: 50px;*/
+    max-height: 100px;
+    overflow: hidden;
+}
+.taskDetailsItem {
+    margin: 1px;
+    min-height: 15px;
+}
+.taskDetailsItem label {
+    display: block;
+    float: left;
+    /*width: 150px;*/
+    font-weight: bolder;
+    top:0px;
+    padding: 3px;
+    overflow: hidden;
+}
+.taskDetailsItem div {
+    display: inline;
+    float: left;
+    /*width: 210px;*/
+    padding: 3px;
+    overflow: hidden;
+    word-break: break-all;
+}
+.attachConnection {
+    cursor: pointer;
+}
+.progressLabel {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    background-color: white;
+    color: black;
+    font-family: helvetica;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 19px #aaa;
+    -o-box-shadow: 2px 2px 19px #aaa;
+    -webkit-box-shadow: 2px 2px 19px #aaa;
+    -moz-box-shadow: 2px 2px 19px #aaa;
+    z-index: 2005;
+    border-radius: 5px;
+}
+.breakPointLabel {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    cursor: pointer;
+    padding: 0px;
+    margin-left: 5px;
+    /* border-radius: 10px;
+  background-color: #FFFF99;*/
+    z-index: 99;
+}
+.contextMenu li a:hover {
+    background-color: #eee;
+    color: #000;
+}
+.contextMenu li a {
+    background-image: url(/WebInterface/Resources/images/bullet_go.png);
+}
+.contextMenu li.delete a {
+    background-image: url(/WebInterface/Resources/images/delete.png);
+}
+.contextMenu li.addBreakPoint a {
+    background-image: url(/WebInterface/Resources/images/bug_link.png);
+}
+.contextMenu li.addTaskHere a {
+    background-image: url(/WebInterface/Resources/images/application_form_add.png);
+}
+.contextMenu li.removeBreakPoint a {
+    background-image: url(/WebInterface/Resources/images/link_delete.png);
+}
+.contextMenu li.copy a {
+    background-image: url(/WebInterface/Resources/images/page_paste.png);
+}
+.contextMenu li.details a {
+    background-image: url(/WebInterface/Resources/images/page_edit.png);
+}
+.contextMenu li.runJobAndMonitorContext a {
+    background-image: url(/WebInterface/Resources/images/play.png);
+}
+.contextMenu li.runJobContext a {
+    background-image: url(/WebInterface/Resources/images/play.png);
+}
+.contextMenu li.editJobContext a {
+    background-image: url(/WebInterface/Resources/images/page_edit.png);
+}
+.contextMenu li.monitorJob a {
+    background-image: url(/WebInterface/Resources/images/table_relationship.png);
+}
+.contextMenu li.pauseJob a {
+    background-image: url(/WebInterface/Resources/images/pause.png);
+}
+.contextMenu li.stopJob a {
+    background-image: url(/WebInterface/Resources/images/stop.png);
+}
+.contextMenu li.restartJob a,  .contextMenu li.resumeJob a{
+    background-image: url(/WebInterface/Resources/images/play.png);
+}
+.contextMenu li.retryJob a{
+    background-image: url(/WebInterface/Resources/images/database_refresh.png);
+}
+.contextMenu li.viewlogJob a {
+    background-image: url(/WebInterface/Resources/images/file.png);
+}
+.contextMenu li.openDir a, .contextMenu li.addFolder a {
+    background-image: url(/WebInterface/Resources/images/folder.png);
+    background-size: 16px 16px;
+}
+.contextMenu li.renameDir a {
+    background-image: url(/WebInterface/Resources/images/pencil.png);
+}
+.contextMenu li.deleteDir a {
+    background-image: url(/WebInterface/Resources/images/delete.png);
+}
+.contextMenu li.addDirHere a {
+    background-image: url(/WebInterface/Resources/images/add.png);
+}
+.contextMenu li.addJob a {
+    background-image: url(/WebInterface/Resources/images/file.png);
+}
+#remoteVFSItemForm .itemPropertyLabel {
+    text-align: right;
+    padding-top: 5px;
+}
+ul.auto-list {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 1px solid #666652;
+    background-color: #FFFFCC;
+    padding: 0px;
+    margin:0;
+    list-style:none;
+    -moz-box-shadow: 0 0 6px rgb(75, 72, 65);
+    -webkit-box-shadow: 0 0 6px rgb(75, 72, 65);
+    box-shadow: 0 0 6px rgb(75, 72, 65);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    z-index: 99999;
+    max-height: 120px;
+    overflow-y:auto;
+}
+ul.auto-list > li:hover, ul.auto-list > li[data-selected=true] {
+    background-color: #D1F0FF;
+}
+ul.auto-list > li {
+    border: none;
+    cursor: default;
+    padding: 6px;
+}
+mark {
+    font-weight: bold;
+}
+#activejobTabs {
+    top: -2px;
+    background: white;
+    border: none;
+}
+#activejobTabs li {
+    float: right;
+}
+.monitoringActiveJob #placeHolder {
+    margin:40px 0px 0px 0px !important;
+}
+.monitoringActiveJob .jobButtons {
+    top:89px !important;
+}
+.monitoringActiveJob .taskDesignerButtons {
+    margin-top:45px !important;
+}
+.monitoringActiveJob .editingJobName {
+    display: none !important;
+}
+.breakPoint {
+    width:50px;
+    height:50px;
+    cursor: move;
+    position: absolute;
+}
+.breakPoint span.icon {
+    background-image: url(/WebInterface/Resources/images/bug_link.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 50px;
+    height: 40px;
+    display: inline-block;
+}
+.breakPoint span.taskAction {
+    margin-right: 13px;
+    margin-top: -5px;
+}
+.breakPoint .closeBtn {
+    right: -1px !important;
+    position: absolute;
+    top: -1px !important;
+}
+#taskFormDialog {
+    max-height: 650px !important;
+}
+
+.jobsListInfo
+{
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.task_status
+{
+    background-position: right 0px;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+}
+
+.task_completed
+{
+    background-image: url("/WebInterface/Resources/images/bullet_green.png") !important;
+}
+
+.task_running
+{
+    background-image: url("/WebInterface/Resources/images/arrow_refresh_small.png") !important;
+}
+
+.task_error
+{
+    background-image: url("/WebInterface/Resources/images/bullet_red.png") !important;
+}
+
+.itemsTable, .newItemsTable
+{
+    max-height: 220px;
+    overflow: auto;
+}
+.itemRow
+{
+    border-radius: 0px !important;
+}
+.itemRow.editable:hover
+{
+    background-image: url(/WebInterface/Resources/images/pencil.png);
+    background-repeat: no-repeat !important;
+    background-position: 10px 4px !important;
+}
+
+.itemRow div {
+    padding : 5px;
+    cursor: pointer;
+    margin:1px;
+}
+.itemRow .key {
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.itemRow .val {
+    display: inline-block;
+    width: 620px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#activeTaskItemsDetailsPanel
+{
+    max-height: 500px;
+    overflow: auto;
+}
+
+#activeTaskItemsDetailsPanel .itemRow
+{
+    border-width: 0px 0px 1px 0px;
+    clear: both;
+}
+
+#activeTaskItemsDetailsPanel .itemRow .key
+{
+    width: 200px;
+    padding:1px;
+    margin: 1px;
+}
+
+#activeTaskItemsDetailsPanel .itemRow .val
+{
+    width: 490px;
+    padding:1px;
+    margin: 1px;
+}
+
+#activeTaskItemsDetailsPanel .itemRow .val input{
+    width: 300px;
+    padding: 3px;
+}
+
+#activeTaskItemsDetailsPanel .itemRow:hover
+{
+    background-image: inherit !important;
+    background-repeat: inherit !important;
+    background-position: inherit !important;
+}
+
+.itemRow.ui-widget-header div
+{
+    text-align: center !important;
+}
+.itemRow div.remove {
+    background-image: url(/WebInterface/Resources/images/delete.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.clearFilter {
+    background-image: url(/WebInterface/Resources/images/delete.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    height: 16px;
+    display: inline-block;
+    margin-right: 0px;
+    cursor: pointer;
+    width: 16px;
+    margin-top: -22px;
+    float: right;
+    margin-left: 2px;
+}
+#pluginSelector
+{
+    margin:34px 0px 0px 0px;
+    padding: 15px;
+    display: none;
+}
+
+.linktask .pluginPlaceHolder, .overlay-linkeditem
+{
+    position: relative;
+    height: 145px;
+    border:1px solid #ccc;
+    margin:3px;
+    padding:2px;
+    width: 320px;
+    z-index: 98;
+}
+
+.overlay-linkeditem
+{
+    position: absolute;
+    background-color: #fff;
+    opacity: 0.1;
+    z-index: 99;
+}
+
+.linktask .popOutButton
+{
+    width:40px;
+    height: 40px;
+    top:120px;
+    margin-left: -20px;
+}
+.linkTaskPreview .crushTask-header
+{
+    cursor: auto !important;
+}
+
+.linkTaskPreview .taskHeaderLabel
+{
+    top:0px !important;
+}
+
+.linkTaskPreview .crushTaskItem legend
+{
+    padding-left: 10px !important;
+}
+.multipleItems .addItemProxy,.multipleItems .removeItemProxy
+{
+    width:40px;
+    top:3px;
+}
+
+#jobsCanvas .ui-draggable-disabled
+{
+    opacity: 1 !important;
+}
+
+.no-link
+{
+    text-decoration: none;
+    border: 1px solid #ccc;
+    padding: 6px 5px 6px 10px;
+    top: 8px !important;
+    margin: 0px 2px !important;
+    border-radius: 4px;
+    position: relative;
+}
+
+.no-link:hover
+{
+    background: #F0EBEB;
+}
+
+#jobsScheduleList, #activeScheduleList{
+    border-radius: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+    background: transparent;
+}
+
+#jobsScheduleList li, #activeScheduleList li
+{
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    background-image: none;
+    min-height: 50px;
+    position: relative;
+}
+
+#jobsScheduleList li span.favorite, #activeScheduleList li span.favorite {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+#jobsScheduleList li.folder, #activeScheduleList li.folder{
+    cursor: pointer;
+}
+
+#jobsScheduleList li .listText, #activeScheduleList li .listText{
+    background-image: url(/WebInterface/Resources/images/file.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    line-height: 23px;
+    padding-left: 22px;
+    display: inline-block;
+    width: 260px;
+}
+
+#activeScheduleList li .listText{
+    background-position-y: 4px;
+}
+
+#jobsScheduleList li.folder .listText, #activeScheduleList li.folder .listText{
+    background-image: url(/WebInterface/Resources/images/folder.png);
+}
+
+#jobsScheduleList li.no-item, #activeScheduleList li.no-item{
+    text-align: center;
+    line-height: 50px;
+    opacity: 0.6;
+}
+
+
+
+#jobsScheduleList li div.meta
+{
+    font-weight: normal !important;
+    clear: both;
+    font-size: 11px;
+    opacity: 0.8;
+    border-top: none;
+    top: 4px;
+    position: relative;
+    padding-top: 2px;
+    margin-bottom: 6px;
+}
+
+#jobsScheduleList li div.meta .dates
+{
+    text-align: right;
+    display: block;
+    padding-right: 5px;
+}
+
+#jobsScheduleList li div.meta.active
+{
+    background-image: url(/WebInterface/Resources/images/bullet_green.png);
+    background-repeat: no-repeat;
+    background-position: 100% 2px;
+}
+
+#jobsScheduleList li div.meta.inactive::before{
+    content: "x";
+    color: red;
+    position: absolute;
+    right: 5px;
+    top: -3px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#jobsScheduleList li .type
+{
+    text-transform: capitalize;
+}
+
+#jobsScheduleList .listText
+{
+    width: 280px;
+}
+
+#jobsScheduleList .schedule, #jobsScheduleList .listText, #jobsScheduleList .checkItem
+{
+    float: left;
+    display: inline-block;
+    top:1px !important;
+}
+
+.customhr
+{
+    border:1px solid #ccc;
+    border-width: 1px 0px 0px 0px;
+}
+
+.nowrap
+{
+    white-space: nowrap;
+}
+
+.processFirst
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    right: 5px;
+    position: absolute;
+    line-height: 17px;
+}
+
+.canvasPortlet.ui-selected-drag
+{
+    box-shadow: 0px 0px 10px 4px rgb(255, 188, 16);
+    border-style: dashed !important;
+}
+
+.half-panel
+{
+    float: left;
+    display: inline-block;
+    width:45%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.quarter-panel
+{
+    float: left;
+    display: inline-block;
+    width:23%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.third-half-panel
+{
+    float: left;
+    display: inline-block;
+    width:67%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.user-variables
+{
+    position: relative;
+}
+
+.user-variables .addItemFileParser2
+{
+    top:9px;
+    right: -12px;
+}
+
+.user-variables .removeItemFileParser2
+{
+    top:9px;
+    margin-right: 8px;
+}
+
+.loop-label
+{
+    display: inline-block;
+    background-color: #ddd;
+    color: #000;
+    padding: 3px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.err
+{
+    color: #fff;
+    margin: 0px 2px 4px 3px;
+    background-color: red;
+    padding: 4px;
+    font-size: 11px;
+    border-radius: 5px;
+    position: absolute;
+    top: 24px;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.miniature .crushTaskDetailsLink
+{
+    right: 10px;
+}
+
+.miniature.ui-state-disabled
+{
+    opacity: 1 !important;
+}
+.group-option
+{
+    display: inline-block;
+}
+
+@keyframes glowTaskKF {
+  from {
+    box-shadow: 0 0 10px #FF6600;
+  }
+
+  to {
+    box-shadow: 0 0 30px #FF6600;
+  }
+}
+
+@keyframes glowTaskKFF {
+  from {
+    box-shadow: 0 0 10px #3399FF;
+  }
+
+  to {
+    box-shadow: 0 0 30px #3399FF;
+  }
+}
+
+@keyframes glowTaskKFE {
+  from {
+    box-shadow: 0 0 10px #FF3300;
+  }
+
+  to {
+    box-shadow: 0 0 30px #FF3300;
+  }
+}
+
+@keyframes glowTaskKFS {
+  from {
+    box-shadow: 0 0 10px green;
+  }
+
+  to {
+    box-shadow: 0 0 30px green;
+  }
+}
+
+@keyframes glowTaskKFH {
+  from {
+    box-shadow: 0 0 10px rgb(255, 188, 16);
+  }
+
+  to {
+    box-shadow: 0 0 30px rgb(255, 188, 16);
+  }
+}
+
+.isAnimating {
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.isAnimating.default{
+    animation-name: glowTaskKF;
+}
+
+.isAnimating.focus{
+    animation-name: glowTaskKFF;
+}
+
+.isAnimating.error{
+    animation-name: glowTaskKFE;
+}
+
+.isAnimating.success{
+    animation-name: glowTaskKFS;
+}
+.isAnimating.selection{
+    animation-name: glowTaskKFH;
+}
+#ui-datepicker-div{
+    z-index: 9999 !important;
+}
+.advanced-options, .advanced-options-all {
+    border: 1px solid #ddd;
+    padding: 0px 10px;
+    margin: 3px -10px;
+    line-height: 22px;
+}
+.advanced-options h3, .advanced-options-all h3 {
+    margin: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 4px 1px;
+    cursor: pointer;
+    position: relative;
+}
+.advanced-options.open h3, .advanced-options-all.open h3 {
+    border-bottom: 1px solid #ddd;
+}
+.advanced-options h3 span.icon, .advanced-options-all h3 span.icon{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    display: none;
+}
+
+.advanced-options.open h3 span.icon-open, .advanced-options-all.open h3 span.icon-open{
+    display: inline-block;
+}
+
+.advanced-options.closed h3 span.icon-closed, .advanced-options-all.closed h3 span.icon-closed{
+    display: inline-block;
+}
+
+.advanced-options.open .advanced-options-content, .advanced-options-all.open .advanced-options-all-content{
+    display: block;
+}
+
+.advanced-options.closed .advanced-options-content, .advanced-options-all.closed .advanced-options-all-content{
+    display: none;
+}
+.advanced-options-content input, .advanced-options-all-content input {
+    max-width: 330px;
+}
+
+.browse-button{
+    position: absolute;
+    width: 140px;
+    white-space: nowrap;
+    margin-top: -2px;
+}
+
+.browse-button a.test-button{
+    margin-left: -10px !important;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+span.browse-button a.button{
+    position: relative !important;
+}
+
+span.browse-button a.button span.ui-button-text{
+    padding:2px 11px;
+}
+
+#jobsActiveScheduleListActions a {
+    margin-left: -1px;
+    margin-right: -3px;
+}
+.default-failure{
+    box-shadow: 0px 0px 20px 1px red;
+}
+.custom-vtip{
+    max-width: 500px;
+}
+
+.task-notes-icon{
+    position: absolute;
+    right: 115px;
+    top: 4px;
+    cursor: help;
+}
+#existingJobs
+{
+    padding: 0px;
+}
+.jobsPanelButtons{
+    top: 5px;
+    position: relative;
+    margin: 5px;
+}
+#reloadJobsList{
+    float: right;
+    /* margin-top: 5px; */
+    margin-right: 3px;
+}
+#jobsScheduleListActions{
+    margin-right: 3px;
+    margin-top: 3px;
+    float: right;
+}
+#existingJobsPanel{
+    border-radius: 0px;
+    box-shadow: none;
+    border: none;
+    display: block;
+}
+#availableJobsTabs{
+    border-radius: 0px;
+}
+#availableJobsTabs .availableJobsTabs{
+    border-radius: 0px;
+}
+
+.back-button{
+    background: url(/WebInterface/jQuery/images/arrow_turn_up.png) left top no-repeat;
+    background-position: 10px 8px;
+    padding-left: 35px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    background-color: #eee;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.path-selector
+{
+    width:100%;
+    position: relative;
+    padding:3px 0px 0px 0px;
+    height:25px;
+    margin-bottom:5px;
+    text-align: center;
+}
+
+.path-selector select
+{
+    width:95%;
+    height:25px;
+}
+
+.ui-autocomplete {
+    width : 365px !important;
+}
+.autocompleteListBox
+{
+    z-index: 99999 !important;
+}
+
+.pinned-sidebar .taskDesignerButtons{
+    margin-left: 420px !important;
+}
+
+.pinned-sidebar #existingJobsPanel{
+    margin-left: -420px !important;
+    margin-top: -10px !important;
+}
+
+.pinned-sidebar #placeHolder{
+    padding-left: 388px;
+}
+
+.pinned-sidebar .zoomSlider {
+    left: 20px;
+    bottom: 40px;
+    position: relative;
+}
+
+.pinned-sidebar #existingJobsPanel #availableJobsTabs .closeBtn{
+    display: none;
+}
+
+.pinBtn
+{
+    float: right;
+    top: -3px;
+    right: -5px;
+    position: relative;
+}
+
+.pinBtn.on{
+    display: none;
+}
+
+.pinned-sidebar .pinBtn.off{
+    display: none;
+}
+
+.pinned-sidebar .pinBtn.on{
+    display: inline-block;
+    right: 5px !important;
+}
+.sideBarList.noBorder li{
+    margin: 0px;
+}
+img.ui-datepicker-trigger {
+    top: 3px;
+    position: relative;
+    cursor: pointer;
+    left: 2px;
+}
+
+#emailActionConfig .sceditor-container iframe, #emailActionConfig .sceditor-container textarea{
+    width: 99%;
+}
+
+#emailActionConfig .sceditor-container textarea{
+    z-index: 9999;
+    position: relative;
+}
+
+.validationErrorMessage{
+    margin-top: -3px;
+}
+#activeJobsContext{
+    width: 175px !important;
+}
+#activeJobsContext li{
+    border: 1px solid transparent;
+    font-weight: normal !important;
+}
+#activeJobsContext li.hover{
+    font-weight: normal !important;
+}
+
+#ui-datepicker-div{
+    z-index: 100000 !important;
+}
+span.batchJobSelector.ui-button
+{
+    /* top: -5px !important; */
+    margin-left: -5px !important;
+    padding: 3px 25px 3px 5px;
+    text-align: left;
+    background-image: url("/WebInterface/Resources/images/down.gif");
+    background-position: 80%;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+a.batchJobSelector.ui-button
+{
+    top: 4px !important;
+    margin-left: -4px !important;
+}
+
+/*.chrome span.batchJobSelector.ui-button, .chrome a.batchJobSelector.ui-button, .safari span.batchJobSelector.ui-button
+{
+    top: -5px !important;
+}*/
+
+.safari a.batchJobSelector.ui-button
+{
+    top: 4px !important;
+}
+
+.batchJobSelector .text
+{
+    padding: 0px 17px 0px 0px !important;
+    /* line-height: 0px !important; */
+    /* height: 16px; */
+    background-image: url("/WebInterface/Resources/images/down.gif");
+    background-position: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0px;
+}
+
+.batchJobSelector .current
+{
+    display:inline-block;
+    background-image: url("/WebInterface/Resources/images/server_database.png");
+    /* background-position: 3px 0px; */
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    /* margin-top: 4px; */
+    /* position: relative; */
+    /* top: 3px; */
+    /* padding: 0px; */
+    /* margin: 0px; */
+}
+
+.batchJobSelector .batch
+{
+    background-image: url("/WebInterface/Resources/images/group.png");
+}
+
+.batch{
+    /* padding: 5px; */
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.batch:hover{
+    border: 1px solid #cbc5c5;
+}
+
+.batch-action{
+    padding-right: 5px;
+    border-right: 1px solid #cbc5c5;
+    margin-right: 5px;
+    margin-left: 5px;
+    /* top: 5px; */
+    position: relative;
+    display: inline-block;
+    padding-top: 5px;
+}
+.batch-field{
+    vertical-align: middle;
+}
+.joblistInfo{
+    text-align: right;
+    padding: 0px;
+    position: relative;
+    margin-top: 4px;
+    margin-right: 5px;
+    font-size: 13px;
+    border-top: 1px solid #CCC;
+    padding-top: 3px;
+}
+.jobsPanelButtons
+{
+    margin: 0px;
+}
+.jobsPanelButtons .button{
+    margin: 0px;
+    padding: 3px 7px;
+}

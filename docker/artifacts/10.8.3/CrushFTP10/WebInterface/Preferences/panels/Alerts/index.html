@@ -1,0 +1,254 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlAlerts">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="ui-priority-primary Alerts headerText"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="customForm nobg">
+                <p>
+                    <span class="Alerts pnlDescText ui-priority-primary">
+                        Alerts allow for automatic notifications when specific server events occur.
+                    </span>
+                </p>
+                <p class="buttonBar buttonBarNoBottom left">
+                    <a href="#" class="button" id="addAlert">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick'></span>
+                        <span class="Alerts btnAddText">Add</span>
+                    </a>
+                    <a href="#" class="button" id="copyAlert">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-copy'></span>
+                        <span class="Alerts btnCopyText">Copy</span>
+                    </a>
+                    <a href="#" class="button" id="removeAlert">
+                        <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash'></span>
+                        <span class="Alerts btnRemoveText">Remove</span>
+                    </a>
+                </p>
+                <p>
+                    <div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+                        <ol class="nobg selectable multiple sideScroll ui-selectable" id="alerts" name="alerts">
+                        </ol>
+                    </div>
+                </p>
+                <div id="formDetailsPanel" class="formDetailsPanel" style="display:none;">
+                    <p>
+                        <label for="alertType" class="Alerts lblAlertTypeText">
+                            Alert Type:</label>
+                        <select class="excludeXML alertDetails ignoreBind" id="type" name="type">
+                            <option value="Big Directory">Big Directory</option>
+                            <option value="CrushFTP Started">CrushFTP Started</option>
+                            <option value="CrushFTP Update Available">CrushFTP Update Available</option>
+                            <option value="Disk Space Below Threshold">Disk Space Below Threshold</option>
+                            <option value="IP Banned for Failed Logins">IP Banned for Failed Logins</option>
+                            <option value="Invalid Email Attempted">Invalid Email Attempted</option>
+                            <option value="Job Changes">Job Changes</option>
+                            <option value="Login Frequency">Login Frequency</option>
+                            <option value="Login Frequency Banned">Login Frequency Banned</option>
+                            <option value="Low Memory">Low Memory Alert</option>
+                            <option value="Low Memory1">Low Memory Alert 1</option>
+                            <option value="Low Memory2">Low Memory Alert 2</option>
+                            <option value="Low Memory3">Low Memory Alert 3</option>
+                            <option value="No Action">No Action</option>
+                            <option value="Plugin Message">Plugin Message</option>
+                            <option value="Proxy Blacklisted Site Attempted">Proxy Blacklisted Site Attempted</option>
+                            <option value="Security Alert">Security Alert</option>
+                            <option value="Server Port Failed">Server Port Failed</option>
+                            <option value="ServerBeat Alert">ServerBeat Alert</option>
+                            <option value="Slow Login">Slow Login</option>
+                            <option value="Skipped scheduled job">Skipped scheduled job</option>
+                            <option value="User Hammering">Too Many Active Logins</option>
+                            <option value="User Changed Password">User Changed Password</option>
+                            <option value="User Download Speed Below Minimum">User Download Speed Below Minimum</option>
+                            <option value="User Exceeded Download Transfer Amount Per Day">User Exceeded Download Transfer Amount Per Day</option>
+                            <option value="User Exceeded Download Transfer Amount Per Month">User Exceeded Download Transfer Amount Per Month</option>
+                            <option value="User Exceeded Download Transfer Amount Per Session">User Exceeded Download Transfer Amount Per Session</option>
+                            <option value="User Exceeded Upload Transfer Amount Per Day">User Exceeded Upload Transfer Amount Per Day</option>
+                            <option value="User Exceeded Upload Transfer Amount Per Month">User Exceeded Upload Transfer Amount Per Month</option>
+                            <option value="User Exceeded Upload Transfer Amount Per Session">User Exceeded Upload Transfer Amount Per Session</option>
+                            <option value="User Upload Speed Below Minimum">User Upload Speed Below Minimum</option>
+                            <option value="User Updated TwoFactor Secret">User Updated TwoFactor Secret</option>
+                            <option value="User reached quota percentage">User reached quota percentage</option>
+                            <option value="Variable Watcher">Variable Watcher</option>
+                            <option value="Update Object">Update Object</option>
+                            <option value="VFS Bad Credentials">VFS Bad Credentials</option>
+                            <option value="Repeated Login Failure">Repeated Login Failure</option>
+                            <option value="Repeated Login Failure User Banned">Repeated Login Failure User Banned</option>
+                        </select>
+                    </p>
+                    <p class="securityAlertSpecific">
+                        <span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;">
+                            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                            <span class="CrushTask lblPreviewActionHelpText">
+                                Use these variables only for a running CrushTask: {alert_type} {alert_sub_type} {alert_timeout} {alert_max} {alert_msg}.
+                            </span>
+                        </span>
+                    </p>
+                    <p class="lowMemoryAlertSpecific">
+                        <span class="ui-state-highlight ui-corner-all warning" style="padding:3px;display:block;">
+                            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                            <span class="CrushTask lblPreviewActionHelpText">
+                                Use these variables: {alert_ram_free} {alert_ram_max} {alert_memory_threads}.
+                            </span>
+                        </span>
+                    </p>
+                    <p class="variableWatcherSpecific">
+                        <input type="text" id="variable1" name="variable1" placeholder="Any variable, or string to compare with" style="width:250px;" class="excludeXML alertDetails ignoreBind" />
+                        <select id="variableCondition" name="variableCondition" class="excludeXML alertDetails ignoreBind" style="width:150px;">
+                            <option value="contains">Contains</option>
+                            <option value="!contain">Doesn't Contain</option>
+                            <option value="equals">Equals</option>
+                            <option value="!equal">Doesn't Equal</option>
+                            <option value="greater than">Greater Than</option>
+                            <option value="greater than or equal">Greater Than Or Equal</option>
+                            <option value="less than">Less Than</option>
+                            <option value="less than or equal">Less Than Or Equal</option>
+                            <option value="matches pattern">Matches Pattern</option>
+                            <option value="!match pattern">Doesn't Match Pattern</option>
+                        </select>
+                        <input type="text" id="variable2" name="variable2" placeholder="Any variable, or string to compare with"  style="width:250px;" class="excludeXML alertDetails ignoreBind" />
+                        <span style="padding:0px;display:block;margin:2px 0px 0px 0px;">
+                            <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                            <span class="CrushTask lblFilterNoteText">
+                                Leave both fields blank to always be a true condition.
+                            </span>
+                        </span>
+                        <span style="clear:both;"></span>
+                    </p>
+                    <p class="hammeringSpecific">
+                        <label for="login_interval" class="Alerts lblSecondsIntervalText">Seconds interval:</label>
+                        <input class="smallInputBox excludeXML alertDetails ignoreBind" type="text" id="login_interval" name="login_interval" />
+                        <span class="spacer"></span>
+                        <label for="login_count" class="Alerts lblLoginCountText">Login count:</label>
+                        <input class="smallInputBox excludeXML alertDetails ignoreBind" type="text" id="login_count" name="login_count" />
+                    </p>
+                    <p class="updateObjectSpecific">
+                        <label for="path_filter" class="Alerts">Path Filter:</label>
+                        <input class="bigInputBox excludeXML alertDetails ignoreBind" type="text" id="path_filter" name="path_filter" />
+                        <span class="spacer"></span>
+                        <label for="log_filter" class="Alerts">Log Filter:</label>
+                        <input class="bigInputBox excludeXML alertDetails ignoreBind" type="text" id="log_filter" name="log_filter" />
+                    </p>
+                    <p class="quotaReachedSpecific">
+                        <label class="Alerts lblPercentageOfQuotaTobeReachedText">Percentage of quota to be reached for this alert:</label>
+                        <input type="text" id="quota_perc" class="smallInputBox" />
+                    </p>
+                    <p class="repeatLoginFailureSpecific">
+                        <label class="Alerts" for="failure_count">Failure count:</label>
+                        <input type="text" id="failure_count" class="smallInputBox" />
+                    </p>
+                    <p class="diskSpaceBelowThresholdSpecific">
+                        <span class="spacer"></span>
+                        <label for="drive" class="Alerts lblDriveText">Drive:</label>
+                        <span class="spacer"></span>
+                        <input class="excludeXML alertDetails ignoreBind" type="text" id="drive" name="drive" />
+                        <span class="spacer"></span>
+                        <label for="threshold_mb" class="Alerts lblThresholdInMBText">Threshold in MB:</label>
+                        <input type="text" class="smallInputBox excludeXML alertDetails ignoreBind" id="threshold_mb" name="threshold_mb" />
+                    </p>
+                    <p>
+                        <label class="Alerts lblEmailMaxOfText">Max of:</label>
+                        <input type="text" id="max_alert_emails" class="smallInputBox excludeXML alertDetails ignoreBind" />
+                        <label class="Alerts">alerts per hour (Applies to both Emails and Plugins)</label>
+                    </p>
+                    <p>
+                        <span class="Alerts lblEmailText ui-priority-primary">Email</span>
+                    </p>
+                    <div class="subPanel ui-widget-content leftborder nobg">
+                        <table class="myTable">
+                            <tr>
+                                <td width="100px" class="rightAlligned">
+                                    <label for="from" class="Alerts lblEmailFromText">From:</label>
+                                </td>
+                                <td width="370px">
+                                    <input type="text" class="bigInputBox excludeXML alertDetails ignoreBind" id="from" name="from" />
+                                </td>
+                                <td class="rightAlligned">
+                                    <label for="to" class="Alerts lblEmailToText">To:</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="bigInputBox excludeXML alertDetails ignoreBind" id="to" name="to" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="rightAlligned">
+                                    <label for="cc" class="Alerts lblEmailCCText">CC:</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="bigInputBox excludeXML alertDetails ignoreBind" id="cc" name="cc" />
+                                </td>
+                                <td class="rightAlligned">
+                                    <label for="bcc" class="Alerts lblEmailBCCText">BCC:</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="bigInputBox excludeXML alertDetails ignoreBind" id="bcc" name="bcc" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="rightAlligned">
+                                    <label for="subject" class="Alerts lblEmailSubjectText">Subject:</label>
+                                </td>
+                                <td colspan="3">
+                                    <input type="text" class="bigInputBox excludeXML alertDetails ignoreBind" id="subject" name="subject" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="rightAlligned">
+                                    <label for="body" class="Alerts lblEmailBodyText">Body:</label>
+                                </td>
+                                <td>
+                                    <textarea id="body" name="body" style="height: 160px;line-height: 20px;" class="formTextarea nobg excludeXML alertDetails ignoreBind"></textarea>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td colspan="3">
+                                    <a href="javascript:void(0);" id="testEmail" class="button" style="margin-top:10px;">
+                                        <span style='display: inline-block; margin: -1px 3px 0px -10px; float: left;' class='pointer ui-icon ui-icon-mail-closed'></span>
+                                        <span>Test Email</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p class="clear"></p>
+                    <p style="margin-top:20px;">
+                        <label for="alert_plugin">
+                            Plugin to run:</label>
+                        <select class="excludeXML ignoreBind" id="alert_plugin" name="alert_plugin">
+                        </select>
+                    </p>
+                    <p class="clear"></p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="buttonBar right">
+        <a href="#" class="button">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed'></span>
+            <span class="submitActionRestore Alerts btnResetText">Reset To Default</span>
+        </a>
+        <a href="#" class="button" id="cancel">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel'></span>
+            <span class="submitActionCancel Alerts btnCancelText">Cancel</span>
+        </a>
+        <a href="#" class="button" id="saveContent">
+            <span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk'></span>
+            <span class="submitActionOk Alerts btnOKText">Save</span>
+        </a>
+    </p>
+</div>

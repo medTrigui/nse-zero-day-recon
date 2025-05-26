@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+      <meta http-equiv="cache-control" content="no-cache" />
+      <title>CrushFTP - Administration</title>
+      <link type="text/css" id="themeLink" href="/WebInterface/Resources/css/themes/light-theme.zip/jquery-ui.css" rel="stylesheet" />
+      <link type="text/css" href="/WebInterface/Resources/css/style.css" rel="stylesheet" />
+      <link type="text/css" href="/WebInterface/Resources/css/vtip.css"  rel="stylesheet" />
+      <link type="text/css" href="/WebInterface/Resources/css/simpleMinimap.css" rel="stylesheet" />
+      <link type="text/css" href="css/adminStyle.css" rel="stylesheet" />
+      <link rel="stylesheet" href="/WebInterface/Resources/css/new-ui/style.css" />
+      <link rel="stylesheet" href="/WebInterface/Resources/libs/font-awesome-4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="/WebInterface/Resources/libs/chart-js-2.9.4/Chart.min.css" />
+      <!-- tour css -->
+      <link type="text/css" href="css/jquerytour.css" rel="stylesheet" />
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-1.4.1.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-migrate-3.3.2.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.json-2.2.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery/jquery-ui-1.12.1.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.ui.selectableAdvanced.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.scrollTo-1.4.2-min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery-ui-timepicker-addon.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.blockUI.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jqueryUI.forms.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.xml2json.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.json2xml.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.alerts.js"></script>
+      <script type="text/javascript" src= "/WebInterface/Resources/js/jquery.textChange.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.notify.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.multiFieldExtender-2.0.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/date.format.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/vtip.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/browserSelector.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.cookie.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/purify.min.js"></script>
+      <!-- Moment js -->
+      <script type=" text/javascript" src="/WebInterface/Resources/js/moment.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.contextMenu.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.UI.ComboBox.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.browseVFSPopup.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.PickUserPopup.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.commonMethods.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.sessionChecker.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.validator.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jQuery.passwordValidator.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.encryptPassword.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.sparkline.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.highlight.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.simpleMinimap.js" > </script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="js/crushftp.admin.localizations.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/chart-js-2.9.4/Chart.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/chart-js-2.9.4/Chart.bundle.min.js"></script>
+      <script type="text/javascript" src="js/crushftp.adminPanel.js"></script>
+      <script type="text/javascript" src="js/crushftp.admin.init.js"></script>
+      <script type="text/javascript" src="/WebInterface/admin/js/crushftp.telnet.inject.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/lodash.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/raphael.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/jQuery-Mapael-2.2.0/jquery.mapael.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/world_countries.min.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/libs/jQuery-Mapael-2.2.0/countries.js"></script>
+      <script type="text/javascript" src="/WebInterface/Resources/js/crushftp.customize.js"></script>
+      <!-- File Browser stuff -->
+      <link
+         rel="stylesheet"
+         href="/WebInterface/Resources/css/localFileBrowser.css"
+         />
+      <script
+         type="text/javascript"
+         src="/WebInterface/Resources/js/crushftp.WI.FileBrowser.js"
+         ></script>
+      <!-- tour js and local storage library -->
+      <script type="text/javascript" src="js/tour.js"></script>
+      <script
+         type="text/javascript"
+         src="/WebInterface/Resources/js/jstorage.js"
+         ></script>
+   </head>
+   <body id="GUIAdmin">
+      <header id="topbar_side" class="topbar">
+         <div class="navbar" id="topSwitchButtons">
+            <div class="navbar-right">
+               <div class="side-close-btn menuToggleButton">
+                  <i class="fa fa-times"></i>
+               </div>
+               <ul class="navbar-right-nav">
+                  <li class="nav-item">
+                     <a href="/WebInterface/../">
+                     <i class="fa fa-folder-open mr-2" aria-hidden="true"></i>
+                     Files
+                     </a>
+                  </li>
+                  <li
+                     privs="connect,server_edit,server_view,update_run,report_edit,report_view"
+                     class="nav-item active"
+                     >
+                     <a href="/WebInterface/admin/index.html">
+                     <i class="fa fa-cog mr-2" aria-hidden="true"></i>
+                     Server Admin
+                     </a>
+                  </li>
+                  <li
+                     privs="connect,job_edit,job_view,job_list,job_list_history"
+                     class="nav-item"
+                     >
+                     <a href="/WebInterface/Jobs/index.html">
+                     <i class="fa fa-sticky-note mr-2" aria-hidden="true"></i>
+                     Jobs
+                     </a>
+                  </li>
+                  <li privs="connect,user_admin,user_edit,user_view" class="nav-item">
+                     <a href="/WebInterface/UserManager/index.html">
+                     <i class="fa fa-user mr-2" aria-hidden="true"></i>
+                     User Manager
+                     </a>
+                  </li>
+                  <li privs="connect,pref_edit,pref_view" class="nav-item">
+                     <a href="/WebInterface/Preferences/index.html">
+                     <i class="fa fa-files-o mr-2" aria-hidden="true"></i>
+                     Preferences
+                     </a>
+                  </li>
+                  <li privs="connect,share_edit,share_view" class="nav-item">
+                     <a href="/WebInterface/TempAccounts/index.html">
+                     <i class="fa fa-floppy-o mr-2" aria-hidden="true"></i>
+                     Shares
+                     </a>
+                  </li>
+                  <li privs="connect" class="nav-item" title="Telnet/Logviewer">
+                     <a href="#" id="telnetOptions">
+                     <i class="fa fa-terminal" aria-hidden="true"></i>
+                     </a>
+                  </li>
+                  <li class="nav-item" title="Logout" onclick="return doLogout();">
+                     <a href="#logout">
+                     <i class="fa fa-lock" aria-hidden="true"></i> Logout
+                     </a>
+                  </li>
+                  <li class="nav-item enterpriseFeature">
+                     <label for="mainServerInstance">Server Instance: </label>
+                     <select id="mainServerInstance" class="inputBox">
+                        <option value=""></option>
+                        <option value="">Main</option>
+                     </select>
+                  </li>
+                  <li
+                     class="nav-item"
+                     title="Change Theme"
+                     onclick="return toggleTheme();"
+                     >
+                     <a href="#change-theme">
+                     <i id="themeIcon" class="fa fa-sun-o" aria-hidden="true"></i>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <div class="navbar-left">
+               <div class="logo logoContainer">
+                  <a id="logo" style="border: 0px; padding: 0px;" href="javascript:void(0);">
+                  <img
+                     src="/WebInterface/Resources/images/crush_logo.png"
+                     alt="logo"
+                     />
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="user-info">
+            <span class="site-version login-user-text enterpriseFeature">
+            <span id="loggedInAs"></span>
+            <span style="margin-left: 5px" id="SessionSeconds"></span>
+            <span
+               style="margin-left: 6px"
+               class="liveData ui-priority-primary"
+               id="crushVersionInfo"
+               ></span>
+            </span>
+         </div>
+      </header>
+      <div class="sidebar-menu">
+         <span class="menuToggleButton">
+         <i class="fa fa-bars"></i>
+         </span>
+         <div class="logo">
+            <img src="/WebInterface/Resources/images/crush_logo.png" alt="logo" />
+         </div>
+      </div>
+      <div class="page-wrapper">
+         <div id="loadingIndicator"></div>
+         <div
+            id="notification"
+            style="display: none"
+            class="ui-corner-all ui-state-error"
+            ></div>
+         <!-- <div class="site-version login-user-text">
+            <span class="enterpriseFeature">
+              <span class="note" id="loggedInAs"></span>
+              <span style="margin-left:5px;" class="note" id="SessionSeconds"></span>
+              <span style="margin-left:6px;" class="liveData ui-priority-primary note" id="crushVersionInfo"></span>
+            </span>
+            </div> -->
+         <div id="placeHolder">
+            <div class="settings_panel">
+               <div id="configOptionTabs" class="tabs">
+                  <ul class="mainTabs">
+                     <li
+                        privs="connect,server_edit,server_view"
+                        id="dashboardPanelTabLink"
+                        class="enterpriseFeature crush7Feature"
+                        >
+                        <a rel="dashboardPanel" href="#dashboardPanel">
+                        <i class="fa fa-home mr-2"></i>
+                        Dashboard
+                        </a>
+                     </li>
+                     <li privs="connect,server_edit,server_view">
+                        <a rel="statusPanel" href="#statusPanel">
+                        <i class="fa fa-check mr-2"></i>
+                        Status
+                        </a>
+                     </li>
+                     <li privs="connect,report_view,report_edit">
+                        <a rel="reportsPanel" href="#reportsPanel">
+                        <i class="fa fa-list mr-2"></i>Reports
+                        </a>
+                     </li>
+                     <li privs="connect,server_view">
+                        <a rel="aboutPanel" href="#aboutPanel">
+                        <i class="fa fa-info mr-2"></i>About
+                        </a>
+                     </li>
+                     <!-- tour tab -->
+                     <li style="float: right">
+                        <a
+                           href="javascript:void(0);"
+                           id="startMainTour"
+                           style="text-decoration: none"
+                           >
+                        <i class="fa fa-info mr-2"></i>
+                        <span>Tour</span>
+                        </a>
+                     </li>
+                  </ul>
+                  <div
+                     id="dashboardPanel"
+                     class="smalltabs tabs subTabsPanel enterpriseFeature crush7Feature"
+                     ></div>
+                  <div class="subTabsPanel" id="statusPanel">
+                     <div
+                        id="statusPanelTabs"
+                        style="border: none; margin: 0px 2px"
+                        class="smalltabs tabs"
+                        >
+                        <ul>
+                           <li>
+                              <a href="#serverInfoPlaceHolder" class="tablink">
+                              <i class="fa fa-info"></i>
+                              Server Info</a
+                                 >
+                           </li>
+                           <li>
+                              <a href="#userInfoPlaceHolder" class="tablink">
+                              <i class="fa fa-user"></i>
+                              User Info</a
+                                 >
+                           </li>
+                        </ul>
+                        <div class="panelHolder" id="serverInfoPlaceHolder"></div>
+                        <div class="panelHolder" id="userInfoPlaceHolder"></div>
+                     </div>
+                     <div class="clear"></div>
+                  </div>
+                  <div class="subTabsPanel" id="reportsPanel">
+                     <div
+                        id="reportsPanelTabs"
+                        style="border: none; margin: 0px 2px"
+                        class="smalltabs tabs"
+                        >
+                        <ul>
+                           <li>
+                              <a href="#reportsSetupPlaceHolder" class="tablink"
+                                 ><i class="fa fa-cog"></i> Setup</a
+                                 >
+                           </li>
+                           <li>
+                              <a href="#reportsSchedulePlaceHolder" class="tablink"
+                                 ><i class="fa fa-clock-o"></i> Schedule</a
+                                 >
+                           </li>
+                        </ul>
+                        <div class="panelHolder" id="reportsSetupPlaceHolder"></div>
+                        <div class="panelHolder" id="reportsSchedulePlaceHolder"></div>
+                     </div>
+                     <div class="clear"></div>
+                  </div>
+                  <div class="subTabsPanel" id="aboutPanel"></div>
+               </div>
+               <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+         </div>
+         <!-- About section -->
+         <div class="tab-continer page-section" id="aboutPanel"></div>
+         <!-- footer section -->
+         <footer class="footer">
+            <div>
+               <span id="PoweredByText"
+                  >Powered by
+               <a href="http://www.crushftp.com/" target="_blank">CrushFTP</a>
+               </span>
+               <span id="CopyrightText"
+                  >&copy; 2025
+               <a href="http://www.CrushFTP.com/" target="_blank">CrushFTP</a>
+               </span>
+            </div>
+         </footer>
+      </div>
+      <div id="autocompleteFix" style="position: absolute; top: -200px">
+         <input type="text" name="email" value="" style="display: none" />
+         <input type="text" name="email" value="" />
+         <input type="text" name="not-an-email" value="" style="display: none" />
+         <input type="password" name="password" value="" style="display: none" />
+         <input type="password" name="password" value="" />
+      </div>
+      <div id="growlContainer" style="display: none">
+         <div id="growl">
+            <a class="ui-notify-close" href="#"
+               ><span class="ui-icon ui-icon-close" style="float: right"> </span></a
+               ><span
+               style="float: left; margin: 2px 5px 0 0"
+               class="ui-icon ui-icon-alert"
+               >
+            </span>
+            <h2>#{title}</h2>
+            <p>#{text}</p>
+         </div>
+      </div>
+      <div id="expiredNote" style="display: none; text-align: center">
+         <div class="ui-priority-primary">We hope you enjoyed your trial.</div>
+         <div style="margin: 15px 0px">
+            Your trial period for
+            <a href="http://www.crushftp.com/" tabindex="-1" target="_blank"
+               >CrushFTP</a
+               >
+            has expired. To continue using
+            <a href="http://www.crushftp.com/" tabindex="-1" target="_blank"
+               >CrushFTP</a
+               >, please purchace a license.
+         </div>
+         <div style="margin: 15px 0px">
+            <a
+               href="http://www.crushftp.com/pricing.html"
+               tabindex="-1"
+               target="_blank"
+               >Plans &amp; Pricing</a
+               >
+            |
+            <a
+               tabindex="-1"
+               target="_blank"
+               href="http://www.crushftp.com/features.html"
+               >Features</a
+               >
+         </div>
+         <div class="ui-priority-secondary" style="margin: 5px 0px">
+            Installed on:<span id="installationDate"></span>
+         </div>
+         <div style="margin: 20px 0px">
+            <a
+               tabindex="-1"
+               href="#"
+               class="button"
+               id="ignorePurchase"
+               style="float: right"
+               >
+            <span
+               style="
+               display: inline-block;
+               margin: 0px 3px 0px -10px;
+               float: left;
+               "
+               class="pointer ui-icon ui-icon-circle-arrow-e"
+               ></span>
+            <span class="">Continue..</span>
+            </a>
+         </div>
+      </div>
+      <div id="encryptPasswordDialog" style="display: none">
+         <table>
+            <tr>
+               <td colspan="2">
+                  This server requires an encryption secret password before it can
+                  function normally. Please enter it below.
+               </td>
+            </tr>
+            <tr>
+               <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+               <td
+                  style="
+                  width: 100px;
+                  text-align: right;
+                  vertical-align: middle;
+                  padding-right: 10px;
+                  padding-bottom: 7px;
+                  "
+                  >
+                  <label for="encryptPassword">Password:</label>
+               </td>
+               <td width="170px">
+                  <input
+                     type="password"
+                     style="width: 150px; height: 20px; padding: 2px"
+                     id="encryptPassword"
+                     />
+               </td>
+            </tr>
+            <tr>
+               <td
+                  style="
+                  width: 100px;
+                  text-align: right;
+                  vertical-align: middle;
+                  padding-right: 10px;
+                  padding-bottom: 7px;
+                  "
+                  >
+                  <label
+                     for="encryptConfirmPassword"
+                     class="syncManagerNewPasswordText"
+                     >Confirm Password:</label
+                     >
+               </td>
+               <td>
+                  <input
+                     type="password"
+                     style="width: 150px; height: 20px; padding: 2px"
+                     id="encryptConfirmPassword"
+                     />
+               </td>
+            </tr>
+         </table>
+      </div>
+      <ul id="telnetButtonMenu" class="contextMenu">
+         <li class="">
+            <a href="#" msg="telnet" id="telnetButton"
+               ><i class="fa fa-terminal"></i> Telnet</a
+               >
+         </li>
+         <li class="separator">
+            <a
+               href="/WebInterface/admin/log.html"
+               target="_blank"
+               islink="true"
+               msg="logs"
+               ><i class="fa fa-paste"></i> Logviewer</a
+               >
+         </li>
+         <li class="">
+            <a href="#" msg="debug" id="debugButtonSupport"
+               ><i class="fa fa-envelope"></i> Send debug info to Support</a
+               >
+         </li>
+         <li class="">
+            <a href="#" msg="debug_download" id="debugButtonDownload"
+               ><i class="fa fa-download"></i> Download debug info</a
+               >
+         </li>
+      </ul>
+      <ul id="updateButtonMenu" class="contextMenu" style="display: none;">
+         <li class="">
+            <a href="#" msg="updatenow" id="updateNowButton"
+               ><i class="fa fa-download"></i> Update now</a
+               >
+         </li>
+         <li class="">
+            <a href="#" msg="updateIdle" id="updateIdleButton"
+               ><i class="fa fa-hourglass"></i> Update when idle</a
+               >
+         </li>
+         <li class="">
+            <a href="#" msg="updatewi" id="updateWIButton"
+               ><i class="fa fa-download"></i> Update only WebInterface</a
+               >
+         </li>
+      </ul>
+      <div id="dialog-message"></div>
+      <div id="access-denied" style="display: none">
+         Your IP is not allowed to do administration or your username does not have
+         permission.
+      </div>
+   </body>
+</html>

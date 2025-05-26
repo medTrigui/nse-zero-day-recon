@@ -1,0 +1,354 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlBanning">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td>
+			<div class="ui-priority-primary Banning headerText"></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="customForm nobg">
+			<p>
+				<span class="Banning lblHammeringConnectionSettingsText ui-priority-primary">
+					Hammering Connection Settings:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<label class="Banning lblConnectionSettingMaximumOfText" for="hammer_attempts">Maximum of</label> <input id="hammer_attempts" name="hammer_attempts" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingAttemptsInText" for="hammer_banning">attempts in</label> <input id="hammer_banning" name="hammer_banning" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingSecondsThenBannedForText" for="ban_timeout">seconds, then banned for</label> <input id="ban_timeout" name="ban_timeout" class="smallInputBox mins" type="text" /> <label class="Banning lblConnectionSettingMinutesText" for="ban_timeout">minutes.</label>
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Value 0 means permanent
+	                </span>
+	            </span>
+			</p>
+			<p>
+				<span class="Banning lblHammeringHttpConnectionSettingsText ui-priority-primary">
+					Hammering HTTP(S) Connection Settings:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<label class="Banning lblConnectionSettingMaximumOfText" for="hammer_attempts_http">Maximum of</label> <input id="hammer_attempts_http" name="hammer_attempts_http" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingAttemptsInText" for="hammer_banning_http">attempts in</label> <input id="hammer_banning_http" name="hammer_banning_http" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingSecondsThenBannedForText" for="ban_timeout_http">seconds, then banned for</label> <input id="ban_timeout_http" name="ban_timeout" class="smallInputBox mins" type="text" /> <label class="Banning lblConnectionSettingMinutesText" for="ban_timeout_http">minutes.</label>
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Value 0 means permanent
+	                </span>
+	            </span>
+			</p>
+			<p>
+				<span class="Banning lblHammeringCommandSettingsText ui-priority-primary">
+					Hammering Command Settings:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<label class="Banning lblConnectionSettingMaximumOfText" for="chammer_attempts">Maximum of</label> <input id="chammer_attempts" name="chammer_attempts" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingAttemptsInText" for="chammer_banning">attempts in</label> <input id="chammer_banning" name="chammer_banning" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingSecondsThenBannedForText" for="cban_timeout">seconds, then banned for</label> <input id="cban_timeout" name="cban_timeout" class="smallInputBox mins" type="text" /> <label class="Banning lblConnectionSettingMinutesText" for="cban_timeout">minutes.</label>
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Value 0 means permanent
+	                </span>
+	            </span>
+			</p>
+			<p>
+				<span class="Banning lblHammeringPasswordSettingsText ui-priority-primary">
+					Hammering Failed Logins Settings:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<label class="Banning lblConnectionSettingMaximumOfText" for="phammer_attempts">Maximum of</label> <input id="phammer_attempts" name="phammer_attempts" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingAttemptsInText" for="phammer_banning">attempts in</label> <input id="phammer_banning" name="phammer_banning" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingSecondsThenBannedForText" for="pban_timeout">seconds, then banned for</label> <input id="pban_timeout" name="pban_timeout" class="smallInputBox mins" type="text" /> <label class="Banning lblConnectionSettingMinutesText" for="pban_timeout">minutes.</label>
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Value 0 means permanent
+	                </span>
+	            </span>
+			</p>
+			<p>
+				<span class="Banning lblHammeringSuccessfulLoginSettingsText ui-priority-primary">
+					Hammering Successful Logins Setting:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<label class="Banning lblConnectionSettingMaximumOfText" for="login_hammer_attempts">Maximum of</label> <input id="login_hammer_attempts" name="login_hammer_attempts" class="smallInputBox" type="text" /> <label class="Banning lblConnectionSettingAttemptsInText" for="login_hammer_interval">attempts in</label> <input id="login_hammer_interval" name="login_hammer_interval" class="smallInputBox" type="text" /> <label class="Banning" for="login_hammer_timeout">seconds, then username blocked for</label> <input id="login_hammer_timeout" name="login_hammer_timeout" class="smallInputBox mins" type="text" /> <label class="Banning lblConnectionSettingMinutesText" for="login_hammer_timeout">minutes.</label>
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Value 0 <strong>does not</strong> mean permanent
+	                </span>
+	            </span>
+	            <a id="unblockUser" href="#" class="button" style="margin-left: 10px;">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-person' ></span>
+					<span class="Banning"> Unblock username
+					</span>
+				</a>
+				<br>
+				<br>
+				<label class="Banning" for="successful_login_hammering_neverban">Never block username patterns: </label>
+				<input id="successful_login_hammering_neverban" name="successful_login_hammering_neverban" style="width:450px;" type="text" />
+				<label class="Banning" for="successful_login_hammering_neverban">(Comma separated)</label>
+			</p>
+			<p>
+				<span class="Banning lblHackAttemptSettingsText ui-priority-primary">
+					Hack Attempt Settings:
+				</span>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<label class="Banning lblHackAttemptSettingNoteText" for="hban_timeout">If any of these usernames are attempted, then banned for</label> <input id="hban_timeout" name="hban_timeout" class="small minsInputBox" type="text" /> <label class="Banning lblConnectionSettingMinutesText">minutes.</label>
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Value 0 means permanent
+	                </span>
+	            </span>
+				<br />
+				<br />
+				<input id="hack_usernames" name="hack_usernames" style="width:450px;" type="text" />
+				<label class="Banning lblHackAttemptSettingNoteText2" for="hack_usernames">(Comma separated)</label>
+			</p>
+			<p>
+				<label for="max_password_resets_per_minute">
+				Maximum of</label> <input id="max_password_resets_per_minute" name="max_password_resets_per_minute" class="smallInputBox" type="text" /> <label>reset requests per minute, then ignore the requests.</label>
+			</p>
+			<p>
+				<label for="max_connection_single_ip">
+				Maximum of</label> <input id="max_connection_single_ip" name="max_connection_single_ip" class="smallInputBox" type="text" /> <label>connections from a single unique ip, then deny connections until they disconnect.</label>
+			</p>
+			<p>
+				<span class="Banning lblIPRestrictionsAndBansText ui-priority-primary">
+					IP Restrictions and Bans:
+				</span>
+			</p>
+			<div class="subPanel ui-widget-content leftborder nobg">
+				<div>
+	                <input type="checkbox" id="save_temp_bans" name="save_temp_bans" />
+	                <label for="save_temp_bans" class="FolderMonitor">
+	                    Save temporary Bans</label>
+	            </div>
+	            <div class="clear" style="height: 10px;"></div>
+	            <table>
+	            	<tr>
+	            		<td width="50%">
+	            			<div class="buttonBar buttonBarNoBottom" style="clear: both;margin: 0px 0px 20px 0px;width: 100%;">
+								<a id="removeBanRule" href="#" class="button">
+									<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+									<span class="Banning btnRestrictionsRemoveText">	Remove
+									</span>
+								</a>
+								<span class="spacer"></span>
+								<a id="editBanRule" href="#" class="button">
+									<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+									<span class="Banning btnRestrictionsEditText">	Edit
+									</span>
+								</a>
+								<span class="spacer"></span>
+								<a id="addNewBanRule" href="#" class="button">
+									<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus' ></span>
+									<span class="Banning btnRestrictionsAddText">	Add
+									</span>
+								</a>
+								<span class="spacer"></span>
+								<a id="pasteBanList" href="#" class="button">
+									<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-clipboard' ></span>
+									<span class="Banning"> Paste IP List
+									</span>
+								</a>
+							</div>
+							<div class="clear"></div>
+							<p>
+								<label class="ui-priority-primary" for="max_denied_ips">Max count for Denied IPs:</label>
+								<input id="max_denied_ips" name="max_denied_ips" class="smallInputBox" type="text" />
+							</p>
+							<div>
+								<label for="filterIPList">Filter:</label>
+								<input type="text" class="ignoreBind ignoreChange bigInputBox excludeXML no-submit" id="filterIPList" />
+								<label>
+									<a href="javascript:void(0);" id="clearFilter">Clear</a>
+								</label>
+							</div>
+							<div>
+								<table>
+									<td class="ui-widget-content rightborder nobg">
+										<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:500px;height:300px;">
+											<ol class="nobg selectable multiple sideScroll" id="bannedIPlist" name="bannedIPlist">
+											</ol>
+										</div>
+									</td>
+									<td>
+										<!-- <div>
+											<p>
+												<a href="#" class="button" id="moveIPUp">
+													<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-n' ></span>
+													<span  class="WebInterface btnFormBuilderMoveEntryUpText">Move Entry Up</span>
+												</a>
+											</p>
+											<p>
+												<a href="#" class="button" id="moveIPDown">
+													<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-triangle-1-s' ></span>
+													<span  class="WebInterface btnFormBuilderMoveEntryDownText">Move Entry Down</span>
+												</a>
+											</p>
+										</div> -->
+									</td>
+								</table>
+								<br />
+								<span class="Banning lblIPRestrictionsAndBansNoteText">
+								An empty  list will deny everyone.
+								</span>
+							</div>
+	            		</td>
+	            		<td class="temp-ban-list" id="tempBans" style="display: none;">
+	            			<fieldset class="nobg">
+	            				<legend>Temporary Bans</legend>
+		            			<div class="buttonBar buttonBarNoBottom" style="clear: both;margin: 0px 0px 20px 0px;width: 100%;">
+									<a id="removeBanRuleTemp" href="#" class="button">
+										<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+										<span class="Banning btnRestrictionsRemoveText"> Remove
+										</span>
+									</a>
+									<span class="spacer"></span>
+									<a id="editBanRuleTemp" href="#" class="button">
+										<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+										<span class="Banning btnRestrictionsEditText">	Edit
+										</span>
+									</a>
+									<span class="spacer"></span>
+									<a id="addNewBanRuleTemp" href="#" class="button">
+										<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plus' ></span>
+										<span class="Banning btnRestrictionsAddText">	Add
+										</span>
+									</a>
+									<span class="spacer"></span>
+									<a id="pasteBanListTemp" href="#" class="button">
+										<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-clipboard' ></span>
+										<span class="Banning"> Paste IP List
+										</span>
+									</a>
+								</div>
+								<div class="clear"></div>
+								<div>
+									<label for="filterIPListTemp">Filter:</label>
+									<input type="text" class="ignoreBind ignoreChange bigInputBox excludeXML no-submit" id="filterIPListTemp" />
+									<label>
+										<a href="javascript:void(0);" id="clearFilterTemp">Clear</a>
+									</label>
+								</div>
+								<div>
+									<table>
+										<td class="ui-widget-content rightborder nobg">
+											<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll" style="width:500px;height:300px;">
+												<ol class="nobg selectable multiple sideScroll" id="bannedIPlistTemp" name="bannedIPlistTemp">
+												</ol>
+											</div>
+										</td>
+									</table>
+								</div>
+							</fieldset>
+	            		</td>
+	            	</tr>
+	            </table>
+
+			</div>
+			<p>
+				<label  for="never_ban" class="Banning lblIPRestrictionsAndBansNeverBanIPsText ui-priority-primary">
+					Never ban these IPs:
+				</label>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<input id="never_ban" name="never_ban" value="127.0.0.1" style="width:450px;" type="text" />
+				<span class="ui-state-highlight ui-corner-all warning" style="padding:3px;position: relative;top: -5px;">
+	                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+	                <span class="CrushTask lblPreviewActionHelpText">
+	                    Ex. 127.0.0.1,192.168.*,10.0.*
+	                </span>
+	            </span>
+	            <span id="banInvalidMsg" style="display: inherit;top: 2px;position: relative;">
+					<span class="ui-state-error ui-corner-all error" style="padding:3px;position: relative;top: -5px;">
+		                <span style="margin-right: 0.3em;display: inline-block;position: relative;top:0px;" class="ui-icon ui-icon-info"></span>
+		                <span class="CrushTask lblPreviewActionHelpText">
+		                    The value entered is invalid, please use pattern as suggested
+		                </span>
+		            </span>
+	            </span>
+			</p>
+			<p>
+				<label  for="admin_ips" class="Banning ui-priority-primary">
+					IPs patterns allowed to do administration on this server:
+				</label>
+			</p>
+			<p class="subPanel ui-widget-content leftborder nobg">
+				<input id="admin_ips" name="admin_ips" style="width:450px;" type="text" />
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p class="buttonBar right">
+				<a href="#" class="button">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+					<span class="submitActionRestore Banning btnResetText">Reset To Default</span>
+				</a>
+				<a href="#" class="button" id="cancel">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+					<span class="submitActionCancel Banning btnCancelText">Cancel</span>
+				</a>
+				<a href="#" class="button" id="saveContent">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+					<span class="submitActionOk Banning btnOKText">Save</span>
+				</a>
+			</p>
+		</td>
+	</tr>
+	</table>
+</div>
+
+<div id="WIbannedIPDialogBan" class="customDialogFrom customForm" title="IP Restrictions &amp; Bans" style="display: none;">
+    <form action="" name="WIbannedIPDialogBan">
+            <div id="before_after_Id">
+                <label for="before/after">Insert before/after selection? </label>
+                    <select id="selectionId" style="width: 312px;">
+                        <option value="Before">Before</option>
+                        <option value="After">After</option>
+                    </select>
+                     <label for="" class="metaInfo"></label>
+            </div>
+
+            <div>
+                <label for="Choose one">Choose one:</label>
+                    <select id="chooseoptId" style="width: 312px;">
+                        <option value="A">Allow</option>
+                        <option value="D">Deny</option>
+                        <option value="D">Ban</option>
+                    </select>
+                    <label for="" class="metaInfo"></label>
+            </div>
+
+            <div>
+                <label for="starting IP">Please enter a starting IP:</label>
+                    <input type="text" size="30" id="startingIP" style="width: 312px;">
+                    <label for="" class="metaInfo"></label>
+            </div>
+
+            <div>
+                <label for="stopping IP">Please enter a stopping IP:</label>
+                    <input type="text" size="30" id="stoppingIp" style="width: 312px;">
+                    <label for="" class="metaInfo"></label>
+            </div>
+
+ 			<div>
+                <label for="reasonId">Reason:</label>
+                    <textarea id="reasonId" cols="57" rows="10"></textarea>
+                    <label for="" class="metaInfo"></label>
+            </div>
+
+
+
+    </form>
+</div>

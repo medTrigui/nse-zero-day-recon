@@ -1,0 +1,262 @@
+<div id="autocompleteFix" style="position:absolute;top:-200px;">
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="email" value=""/>
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
+    <input type="password" name="password" value=""/>
+</div>
+<!-- Panel HTML -->
+<div id="pnlPreview">
+	<div class="tabs nobg">
+		<ul>
+			<li><a href="#PreviewConfig" class="Preview">Config</a></li>
+			<li><a href="#PreviewLog" class="Preview">Log</a></li>
+		</ul>
+		<div id="PreviewLog">
+			<div style="position:relative;">
+				<div id="logFrameOverlay" class="logFrameOverlay" style="padding:0px;">
+					<div style="padding:15px;">
+						<div style="font-weight: bold;">Preview Log</div>
+						<div class="newWindow">Open in a separate window</div>
+						<hr>
+						<div style="margin:150px 0px 0px -75px;" class="msg">Click To Activate</div>
+					</div>
+				</div>
+				<iframe id="serverLoggingFrame" onload="" width="100%" height="700" src="about:blank;" style="margin:0px;padding:0px;"  marginWidth="0" marginHeight="0" frameBorder="0" scrolling="no"></iframe>
+			</div>
+		</div>
+		<div id="PreviewConfig">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td>
+						<div style="margin:0px 0px 10px 0px;" class="right">
+							<a href="#" class="button" id="addConfig">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+								<span class="Preview btnAddConfigText">Add Config</span>
+							</a>
+							<a href="#" class="button" id="removeConfig">
+								<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+								<span class="Preview btnRemoveConfigText">Remove Config</span>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table id="configTable" width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td>
+						<div class="ui-priority-primary Preview headerText">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="customForm">
+						<div id="configSetup">
+							<p>
+								<input type="checkbox" name="preview_enabled" id="preview_enabled" />
+								<label for="preview_enabled" class="Preview lblEnabledText ui-priority-primary">Enabled</label>
+
+								<span class="spacer"></span>
+								<span class="spacer"></span>
+
+								<input type="checkbox" name="preview_debug" id="preview_debug" />
+								<label for="preview_debug" class="Preview lblDebugText ui-priority-primary">Debug</label>
+							</p>
+							<div class="tabs nobg">
+								<ul>
+									<li><a href="#PreviewGeneral" class="Preview lblGeneralTabText">General</a></li>
+									<li><a href="#PreviewSizes" class="Preview lblSizesTabText">Sizes</a></li>
+								</ul>
+								<div id="PreviewGeneral">
+									<p>
+										<label for="drpConversionUtility" class="Preview lblConversionUtilityText">Conversion utility presets:</label>
+										<select id="drpConversionUtility" name="drpConversionUtility" class="bigInputBox excludeXML">
+											<option selected="selected"></option>
+										</select>
+									</p>
+									<fieldset class="ui-widget-content nobg allignedForm ui-state-focus" style="min-width:860px;">
+										<div style="padding:5px;" class="ui-corner-all ui-state-error"><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span><span class="Preview lblCautionText">Caution:Changing these fields needs extreme caution as invalid arguments could result in data loss.</span></div>
+										<p>
+											<label for="preview_file_extensions" class="Preview lblSupportedFileExtensionsText bigLabel">Supported file extensions:</label>
+											<input type="text" class="dblBigInputBox" id="preview_file_extensions" name="preview_file_extensions" />
+										</p>
+										<p>
+											<label for="preview_command_line" class="Preview lblCommandLineText bigLabel">Command Line:</label>
+											<input type="text" class="dblBigInputBox" id="preview_command_line" name="preview_command_line" />
+										</p>
+										<p>
+											<label for="preview_working_dir" class="Preview lblWorkingDirectoryText bigLabel">Working Directory:</label>
+											<input type="text" class="dblBigInputBox" id="preview_working_dir" name="preview_working_dir" />
+											<a style="top:5px;" PickType="dir" href="#" class="button serverFilePickButton" rel="preview_working_dir">
+												<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+												<span class="Preview btnFolderLocationBrowseText">Browse
+												</span>
+											</a>
+										</p>
+										<p>
+											<label for="preview_environment" class="Preview lblEnvironmentVariablesText bigLabel">Environment Variables:</label>
+											<input type="text" class="dblBigInputBox" id="preview_environment" name="preview_environment" />
+										</p>
+										<p>
+											<label for="preview_frames" class="Preview lblFramesText bigLabel">Frames:</label>
+											<input type="text" class="smallInputBox" id="preview_frames" name="preview_frames" />
+										</p>
+										<p>
+											<label for="preview_movie_info_command_line" class="Preview lblInfoCommandLineText bigLabel">Info command line:</label>
+											<input type="text" class="dblBigInputBox" id="preview_movie_info_command_line" name="preview_movie_info_command_line" />
+										</p>
+										<p>
+											<label for="preview_exif_get_command_line" class="Preview lblGetExifCommandLineText bigLabel">Get image EXIF info:</label>
+											<input type="text" class="dblBigInputBox" id="preview_exif_get_command_line" name="preview_exif_get_command_line" />
+										</p>
+										<p>
+											<label for="preview_exif_set_command_line" class="Preview lblSetExifCommandLineText bigLabel">Set image EXIF info:</label>
+											<input type="text" class="dblBigInputBox" id="preview_exif_set_command_line" name="preview_exif_set_command_line" />
+										</p>
+									</fieldset>
+									<p>
+										<input checked="checked" type="checkbox" name="preview_subdirectories" id="preview_subdirectories" />
+										<label for="preview_subdirectories" class="Preview lblScanSubDirText">Scan subdirectories of directories in below list</label>
+
+										<span class="spacer"></span>
+										<span class="spacer"></span>
+
+										<label class="vtip" title="Only for local files.">
+											<input checked="checked" type="checkbox" name="preview_reverseSubdirectories" id="preview_reverseSubdirectories" />
+											<label for="preview_reverseSubdirectories" class="Preview lblDeleteThumbnailsForNonExistingFilesText">Delete thumbnails for files that no longer exist.</label>
+										</label>
+									</p>
+									<p>
+										<label for="preview_scan_interval" class="Preview lblScanIntervalInMinutesText">Scan interval  in minutes:</label>
+										<input type="text" id="preview_scan_interval" name="preview_scan_interval" class="smallInputBox" />
+
+										<span class="spacer"></span>
+
+										<label for="	" class="Preview lblThreadsText">Threads:</label>
+										<input class="smallInputBox" type="text" id="preview_conversion_threads" name="preview_conversion_threads"  />
+
+										<span class="spacer"></span>
+
+										<!--<input type="checkbox" id="preview_exif" name="preview_exif" />
+										<label for="preview_exif" class="Preview lblMakeExifText">
+										Make exif files? (ImageMagick)</label>-->
+
+										<label for="preview_wait_timeout" class="Preview lblTimeoutText">Timeout	: </label>
+										<input type="text" class="smallInputBox" id="preview_wait_timeout" name="preview_wait_timeout" />
+									</p>
+									<p>
+										<table width="100%" cellpadding="0" cellspacing="0" border="0">
+											<tr>
+												<td style="width:75%;">
+													<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+														<ol class="nobg selectable multiple sideScroll ui-selectable" id="preview_folder_list" name="preview_folder_list">
+														</ol>
+													</div>
+												</td>
+												<td style="padding-left:10px;">
+													<p>
+														<a href="#" class="button" id="addFolder" rel="destPath">
+															<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+															<span class="Preview btnAddFolderText">Add Folder</span>
+														</a>
+													</p>
+													<p>
+														<a href="#" class="button" id="editFolder">
+															<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-document' ></span>
+															<span class="Preview btnEditFolderText">Edit Path</span>
+														</a>
+													</p>
+													<p>
+														<a href="#" class="button" id="removeFolder">
+															<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+															<span class="Preview btnRemoveFolderText">Remove Folder</span>
+														</a>
+													</p>
+												</td>
+											</tr>
+										</table>
+									</p>
+								</div>
+								<div id="PreviewSizes">
+									<p>
+										<table width="100%" cellpadding="0" cellspacing="0" border="0">
+											<tr>
+												<td style="width:75%;">
+													<div class="LargeListBox ui-corner-all ui-widget-content nobg sideScroll">
+														<ol class="nobg selectable multiple sideScroll ui-selectable" id="preview_sizes" name="preview_sizes">
+														</ol>
+													</div>
+												</td>
+												<td  style="padding-left:10px;">
+													<!--
+													<p>
+														<a href="#" class="button" id="addSize">
+															<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-plusthick' ></span>
+															<span class="Preview btnAddText">Add</span>
+														</a>
+													</p>
+													<p>
+														<a href="#" class="button" id="removeSize">
+															<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-trash' ></span>
+															<span class="Preview btnRemoveText">Remove</span>
+														</a>
+													</p>
+													!-->
+												</td>
+											</tr>
+										</table>
+									</p>
+									<p>
+										<span class="spacer"></span>
+
+										<label for="preview_max_width" class="Preview lblMaxWidthText">Max Width:</label>
+										<input type="text" id="preview_max_width" name="preview_max_width" class="smallInputBox ignoreBind" />
+
+										<span class="spacer"></span>
+
+										<label for="preview_max_height" class="Preview lblMaxHeightText">Max Height:</label>
+										<input type="text" id="preview_max_height" name="preview_max_height" class="smallInputBox ignoreBind" />
+									</p>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="previewPrefs" class="customForm">
+				<fieldset class="ui-widget-content nobg allignedForm ui-state-focus" style="min-width:990px;">
+					<div style="padding:5px;" class="ui-corner-all ui-state-error"><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span><span>Caution:Changing these fields needs extreme caution as invalid arguments could disable previews.</span></div>
+					<div class="clear"></div>
+					<div style="margin-top: 10px;">
+						<label for="previews_path" class="Preview lblPreviewsPathText">Previews Path:</label>
+						<input type="text" class="dblBigInputBox" id="previews_path" style="padding:3px 0px;" name="previews_path" />
+						<a fileMode="user" style="top:4px;" PickType="dir" href="#" class="button serverFilePickButton" rel="previews_path">
+							<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-open'></span>
+							<span class="Preview btnFolderLocationBrowseText">Browse
+							</span>
+						</a>
+						<span class="crush7Feature">
+							<span class="spacer"></span>
+							<input type="checkbox" id="zip_icon_preview_allowed" name="zip_icon_preview_allowed" />
+							<label for="zip_icon_preview_allowed">Enable Zip Icon Preview</label>
+						</span>
+					</div>
+				</fieldset>
+			</div>
+			<p class="buttonBar right">
+				<a href="#" class="button">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-folder-collapsed' ></span>
+					<span class="submitActionRestore Preview btnResetText">Reset To Default</span>
+				</a>
+				<a href="#" class="button" id="cancel">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-cancel' ></span>
+					<span class="submitActionCancel Preview btnCancelText">Cancel</span>
+				</a>
+				<a href="#" class="button" id="saveContent">
+					<span style='display:inline-block;margin:0px 3px 0px -7px;float:left;' class='pointer ui-icon ui-icon-disk' ></span>
+					<span class="submitActionOk Preview btnOKText">Save</span>
+				</a>
+			</p>
+		</div>
+	</div>
+</div>

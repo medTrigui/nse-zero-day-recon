@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/WebInterface/Resources/css/new-ui/fonts/nunito/Nunito-Regular.ttf");
+}
+
+:root {
+  /* light theme */
+  --body_background: #fff;
+  --body_font-color: #67757c;
+  --top-bar-background: #026aa7;
+  --top-bar-font-color: #d2dbfa;
+  --active-top-bar-font-color: #fff;
+  --sidebar-icon: #7f44ee;
+
+  --link-font-color: #036aa7;
+  --active-link-font-color: #000;
+  --hover-link-font-color: #151414;
+
+  --user-card-hover: #026aa7;
+  --user-card: #fbfeff;
+
+  --card-background: #fff;
+  --page-background: #fff;
+}
+
+html[data-theme="dark"] {
+  --body_background: #121212;
+  --body_font-color: #bfc2c5;
+  --top-bar-background: #1c1c24;
+  --top-bar-font-color: #aab9ce;
+  --active-top-bar-font-color: #fff;
+  --sidebar-icon: #7f44ee;
+
+  --link-font-color: #aab9ce;
+  --active-link-font-color: #fff;
+  --hover-link-font-color: rgb(255, 255, 255);
+
+  --user-card-hover: #026aa7;
+  --user-card: #1c1c28;
+
+  --card-background: #2f2f33;
+  --page-background: #13131a;
+}
+
+
+body{
+  background-color: var(--body_background);
+  color: var(--body_font-color);
+  font-family: "Nunito";
+}
+.filterOption, .findOption, #findAndFilters{
+  border-color: var(--body_background) !important;
+}
+#openInNewWindow, #findAndFilterOptions{
+  margin-top: 6px;
+  font-size: 13px;
+}
+.ui-widget-content{
+  background: var(--body_background) !important;
+  color: var(--body_font-color) !important;
+  border-radius: 0px !important;
+}
+
+.button, .inLogActionItem{
+  background: var(--card-background) !important;
+  color: var(--link-font-color) !important;
+  box-shadow: none !important;
+  border-color: var(--link-font-color) !important;
+}
+
+.inLogActionItem .fa{
+  float: left;
+  margin: 3px 4px;
+}
+
+.button:hover, .inLogActionItem:hover{
+  color: var(--active-link-font-color) !important;
+  border-color: var(--active-link-font-color) !important;
+}
+
+.exclideFilterOption{
+  background: var(--body_background) !important;
+  color: var(--body_font-color) !important;
+}
+
+#miniMap .positionMarker{
+  border: 1px solid var(--body_font-color) !important;
+}
+
+a,
+a:visited {
+  color: var(--link-font-color);
+  text-decoration: none;
+  outline: none;
+}
+
+a:active {
+  color: var(--active-link-font-color);
+  outline: none;
+}
+
+a:hover {
+  color: var(--hover-link-font-color);
+  outline: none;
+}
+#slider-wrapper {
+  margin-top:10px;
+}
+
+.minVal, .maxVal {
+    top: -8px;
+    color: var(--body_background) !important;
+    background: var(--body_font-color) !important;
+}
