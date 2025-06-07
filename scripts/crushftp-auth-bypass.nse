@@ -59,11 +59,11 @@ action = function(host, port)
 	   ["Accept-Encoding"] = "gzip"
    }
 
-   local opts = { header = headers, ssl = false}
+   local opts = { header = headers, timeout = 5000}
 
    -- 4.  Send 2 requests
-   local response1 = http.get(host, port, path, {header=headers})
-   local response2 = http.get(host, port, path, {header=headers})
+   local response1 = http.get(host, port, path, opts)
+   local response2 = http.get(host, port, path, opts)
    
    local vuln_found = false
 
