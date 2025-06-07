@@ -1,7 +1,7 @@
 local shortport = require "shortport"
 local http = require "http"
 local stdnse = require "stdnse"
-
+math.random(os.time())
 description = [[
   This script is intended to detect the authentication bypass vulnerability in CrushFTP v10.8.3 by sending crafted HTTP requests and analying the response to determine if the server can be accessed without valid credentials.
 ]]
@@ -22,12 +22,30 @@ categories = {"vuln", "safe"}
 -- Run the script on the open HTTP ports
 portrule = shortport.http
 
+local function random_digits(length)
+	local s = ""
+	for i = 1, length do
+		s = s .. tostring(math.random(0, 9))
+	end
+	return s
+end
+
+local function random_alphanum(length)
+        local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        local s = ""
+        for i = 1, length do
+		local rand_index = math.random(1, #charset)
+		s = s .. charset:sub(rand_index, rand_index)
+  end
+  return s
+end
+
 action = function(host, port)
 
    -- 1.  Generating fake tokens
-   local c2f = stdnse.generate_random_numbers(4)
-   local ts13 = stdnse.generate_random_numbers(13)
-   local rand = stdnse.genertae_random_alpha(28)
+   local c2f = random_digits(4)
+   local ts13 = random_digits(13)
+   local rand = random_alphanum(28)
 
    -- 2.  Building path
    local path = ("/WebInterface/function/?command=getUserList&c2f=%s")
